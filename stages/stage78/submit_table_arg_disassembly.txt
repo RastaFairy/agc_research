@@ -1,0 +1,512 @@
+=== CALLSITE ===
+
+/tmp/agc_stage78_qtigixmy.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0000000000007600 <.data>:
+    7600:	00 00                	add    %al,(%rax)
+    7602:	c4 e2 78 f7 bb b4 01 	bextr  %eax,0x1b4(%rbx),%edi
+    7609:	00 00 
+    760b:	e8 30 e5 ff ff       	call   0x5b40
+    7610:	31 c0                	xor    %eax,%eax
+    7612:	48 83 c4 08          	add    $0x8,%rsp
+    7616:	5b                   	pop    %rbx
+    7617:	5d                   	pop    %rbp
+    7618:	c3                   	ret
+    7619:	cc                   	int3
+    761a:	cc                   	int3
+    761b:	cc                   	int3
+    761c:	cc                   	int3
+    761d:	cc                   	int3
+    761e:	cc                   	int3
+    761f:	cc                   	int3
+    7620:	48 8d 05 e1 32 01 00 	lea    0x132e1(%rip),%rax        # 0x1a908
+    7627:	8b 80 b4 01 00 00    	mov    0x1b4(%rax),%eax
+    762d:	c3                   	ret
+    762e:	cc                   	int3
+    762f:	cc                   	int3
+    7630:	48 8d 05 d1 32 01 00 	lea    0x132d1(%rip),%rax        # 0x1a908
+    7637:	8b 80 b0 01 00 00    	mov    0x1b0(%rax),%eax
+    763d:	c3                   	ret
+    763e:	cc                   	int3
+    763f:	cc                   	int3
+    7640:	48 85 c9             	test   %rcx,%rcx
+    7643:	74 0e                	je     0x7653
+    7645:	48 c7 01 00 00 00 00 	movq   $0x0,(%rcx)
+    764c:	c7 41 08 00 00 00 00 	movl   $0x0,0x8(%rcx)
+    7653:	b8 01 00 6d 8a       	mov    $0x8a6d0001,%eax
+    7658:	c3                   	ret
+    7659:	cc                   	int3
+    765a:	cc                   	int3
+    765b:	cc                   	int3
+    765c:	cc                   	int3
+    765d:	cc                   	int3
+    765e:	cc                   	int3
+    765f:	cc                   	int3
+    7660:	48 85 f6             	test   %rsi,%rsi
+    7663:	74 0e                	je     0x7673
+    7665:	48 c7 06 00 00 00 00 	movq   $0x0,(%rsi)
+    766c:	c7 46 08 00 00 00 00 	movl   $0x0,0x8(%rsi)
+    7673:	b8 01 00 6d 8a       	mov    $0x8a6d0001,%eax
+    7678:	c3                   	ret
+    7679:	cc                   	int3
+    767a:	cc                   	int3
+    767b:	cc                   	int3
+    767c:	cc                   	int3
+    767d:	cc                   	int3
+    767e:	cc                   	int3
+    767f:	cc                   	int3
+    7680:	c3                   	ret
+    7681:	cc                   	int3
+    7682:	cc                   	int3
+    7683:	cc                   	int3
+    7684:	cc                   	int3
+    7685:	cc                   	int3
+    7686:	cc                   	int3
+    7687:	cc                   	int3
+    7688:	cc                   	int3
+    7689:	cc                   	int3
+    768a:	cc                   	int3
+    768b:	cc                   	int3
+    768c:	cc                   	int3
+    768d:	cc                   	int3
+    768e:	cc                   	int3
+    768f:	cc                   	int3
+    7690:	c3                   	ret
+    7691:	cc                   	int3
+    7692:	cc                   	int3
+    7693:	cc                   	int3
+    7694:	cc                   	int3
+    7695:	cc                   	int3
+    7696:	cc                   	int3
+    7697:	cc                   	int3
+    7698:	cc                   	int3
+    7699:	cc                   	int3
+    769a:	cc                   	int3
+    769b:	cc                   	int3
+    769c:	cc                   	int3
+    769d:	cc                   	int3
+    769e:	cc                   	int3
+    769f:	cc                   	int3
+    76a0:	b8 01 00 6d 8a       	mov    $0x8a6d0001,%eax
+    76a5:	c3                   	ret
+    76a6:	cc                   	int3
+    76a7:	cc                   	int3
+    76a8:	cc                   	int3
+    76a9:	cc                   	int3
+    76aa:	cc                   	int3
+    76ab:	cc                   	int3
+    76ac:	cc                   	int3
+    76ad:	cc                   	int3
+    76ae:	cc                   	int3
+    76af:	cc                   	int3
+    76b0:	b8 02 02 6d 8a       	mov    $0x8a6d0202,%eax
+    76b5:	c3                   	ret
+    76b6:	cc                   	int3
+    76b7:	cc                   	int3
+    76b8:	cc                   	int3
+    76b9:	cc                   	int3
+    76ba:	cc                   	int3
+    76bb:	cc                   	int3
+    76bc:	cc                   	int3
+    76bd:	cc                   	int3
+    76be:	cc                   	int3
+    76bf:	cc                   	int3
+    76c0:	b8 01 00 6d 8a       	mov    $0x8a6d0001,%eax
+    76c5:	c3                   	ret
+    76c6:	cc                   	int3
+    76c7:	cc                   	int3
+    76c8:	cc                   	int3
+    76c9:	cc                   	int3
+    76ca:	cc                   	int3
+    76cb:	cc                   	int3
+    76cc:	cc                   	int3
+    76cd:	cc                   	int3
+    76ce:	cc                   	int3
+    76cf:	cc                   	int3
+    76d0:	31 c0                	xor    %eax,%eax
+    76d2:	c3                   	ret
+    76d3:	cc                   	int3
+    76d4:	cc                   	int3
+    76d5:	cc                   	int3
+    76d6:	cc                   	int3
+    76d7:	cc                   	int3
+    76d8:	cc                   	int3
+    76d9:	cc                   	int3
+    76da:	cc                   	int3
+    76db:	cc                   	int3
+    76dc:	cc                   	int3
+    76dd:	cc                   	int3
+    76de:	cc                   	int3
+    76df:	cc                   	int3
+    76e0:	31 c0                	xor    %eax,%eax
+    76e2:	c3                   	ret
+    76e3:	cc                   	int3
+    76e4:	cc                   	int3
+    76e5:	cc                   	int3
+    76e6:	cc                   	int3
+    76e7:	cc                   	int3
+    76e8:	cc                   	int3
+    76e9:	cc                   	int3
+    76ea:	cc                   	int3
+    76eb:	cc                   	int3
+    76ec:	cc                   	int3
+    76ed:	cc                   	int3
+    76ee:	cc                   	int3
+    76ef:	cc                   	int3
+    76f0:	55                   	push   %rbp
+    76f1:	48 89 e5             	mov    %rsp,%rbp
+    76f4:	48 8b 3d e5 c9 00 00 	mov    0xc9e5(%rip),%rdi        # 0x140e0
+    76fb:	48 8d 35 ab 7b 00 00 	lea    0x7bab(%rip),%rsi        # 0xf2ad
+    7702:	48 8d 15 76 85 00 00 	lea    0x8576(%rip),%rdx        # 0xfc7f
+    7709:	31 c0                	xor    %eax,%eax
+    770b:	e8 70 34 00 00       	call   0xab80
+    7710:	b8 01 00 6d 8a       	mov    $0x8a6d0001,%eax
+    7715:	5d                   	pop    %rbp
+    7716:	c3                   	ret
+    7717:	cc                   	int3
+    7718:	cc                   	int3
+    7719:	cc                   	int3
+    771a:	cc                   	int3
+    771b:	cc                   	int3
+    771c:	cc                   	int3
+    771d:	cc                   	int3
+    771e:	cc                   	int3
+    771f:	cc                   	int3
+    7720:	55                   	push   %rbp
+    7721:	48 89 e5             	mov    %rsp,%rbp
+    7724:	48 8b 3d b5 c9 00 00 	mov    0xc9b5(%rip),%rdi        # 0x140e0
+    772b:	48 8d 35 7b 7b 00 00 	lea    0x7b7b(%rip),%rsi        # 0xf2ad
+    7732:	48 8d 15 b2 83 00 00 	lea    0x83b2(%rip),%rdx        # 0xfaeb
+    7739:	31 c0                	xor    %eax,%eax
+    773b:	e8 40 34 00 00       	call   0xab80
+    7740:	b8 01 00 6d 8a       	mov    $0x8a6d0001,%eax
+    7745:	5d                   	pop    %rbp
+    7746:	c3                   	ret
+    7747:	cc                   	int3
+    7748:	cc                   	int3
+    7749:	cc                   	int3
+    774a:	cc                   	int3
+    774b:	cc                   	int3
+    774c:	cc                   	int3
+    774d:	cc                   	int3
+    774e:	cc                   	int3
+    774f:	cc                   	int3
+    7750:	55                   	push   %rbp
+    7751:	48 89 e5             	mov    %rsp,%rbp
+    7754:	48 8b 3d 85 c9 00 00 	mov    0xc985(%rip),%rdi        # 0x140e0
+    775b:	48 8d 35 4b 7b 00 00 	lea    0x7b4b(%rip),%rsi        # 0xf2ad
+    7762:	48 8d 15 6a 87 00 00 	lea    0x876a(%rip),%rdx        # 0xfed3
+    7769:	31 c0                	xor    %eax,%eax
+    776b:	e8 10 34 00 00       	call   0xab80
+    7770:	b8 01 00 6d 8a       	mov    $0x8a6d0001,%eax
+    7775:	5d                   	pop    %rbp
+    7776:	c3                   	ret
+    7777:	cc                   	int3
+    7778:	cc                   	int3
+    7779:	cc                   	int3
+    777a:	cc                   	int3
+    777b:	cc                   	int3
+    777c:	cc                   	int3
+    777d:	cc                   	int3
+    777e:	cc                   	int3
+    777f:	cc                   	int3
+    7780:	b8 00 10 6c 8a       	mov    $0x8a6c1000,%eax
+    7785:	c3                   	ret
+    7786:	cc                   	int3
+    7787:	cc                   	int3
+    7788:	cc                   	int3
+    7789:	cc                   	int3
+    778a:	cc                   	int3
+    778b:	cc                   	int3
+    778c:	cc                   	int3
+    778d:	cc                   	int3
+    778e:	cc                   	int3
+    778f:	cc                   	int3
+    7790:	b8 00 10 6c 8a       	mov    $0x8a6c1000,%eax
+    7795:	c3                   	ret
+    7796:	cc                   	int3
+    7797:	cc                   	int3
+    7798:	cc                   	int3
+    7799:	cc                   	int3
+    779a:	cc                   	int3
+    779b:	cc                   	int3
+    779c:	cc                   	int3
+    779d:	cc                   	int3
+    779e:	cc                   	int3
+    779f:	cc                   	int3
+    77a0:	b8 00 10 6c 8a       	mov    $0x8a6c1000,%eax
+    77a5:	c3                   	ret
+    77a6:	cc                   	int3
+    77a7:	cc                   	int3
+    77a8:	cc                   	int3
+    77a9:	cc                   	int3
+    77aa:	cc                   	int3
+    77ab:	cc                   	int3
+    77ac:	cc                   	int3
+    77ad:	cc                   	int3
+    77ae:	cc                   	int3
+    77af:	cc                   	int3
+    77b0:	31 c0                	xor    %eax,%eax
+    77b2:	c3                   	ret
+    77b3:	cc                   	int3
+    77b4:	cc                   	int3
+    77b5:	cc                   	int3
+    77b6:	cc                   	int3
+    77b7:	cc                   	int3
+    77b8:	cc                   	int3
+    77b9:	cc                   	int3
+    77ba:	cc                   	int3
+    77bb:	cc                   	int3
+    77bc:	cc                   	int3
+    77bd:	cc                   	int3
+    77be:	cc                   	int3
+    77bf:	cc                   	int3
+    77c0:	31 c0                	xor    %eax,%eax
+    77c2:	c3                   	ret
+    77c3:	cc                   	int3
+    77c4:	cc                   	int3
+    77c5:	cc                   	int3
+    77c6:	cc                   	int3
+    77c7:	cc                   	int3
+    77c8:	cc                   	int3
+    77c9:	cc                   	int3
+    77ca:	cc                   	int3
+    77cb:	cc                   	int3
+    77cc:	cc                   	int3
+    77cd:	cc                   	int3
+    77ce:	cc                   	int3
+    77cf:	cc                   	int3
+    77d0:	b8 00 10 6c 8a       	mov    $0x8a6c1000,%eax
+    77d5:	c3                   	ret
+    77d6:	cc                   	int3
+    77d7:	cc                   	int3
+    77d8:	cc                   	int3
+    77d9:	cc                   	int3
+    77da:	cc                   	int3
+    77db:	cc                   	int3
+    77dc:	cc                   	int3
+    77dd:	cc                   	int3
+    77de:	cc                   	int3
+    77df:	cc                   	int3
+    77e0:	b8 00 10 6c 8a       	mov    $0x8a6c1000,%eax
+    77e5:	c3                   	ret
+    77e6:	cc                   	int3
+    77e7:	cc                   	int3
+    77e8:	cc                   	int3
+    77e9:	cc                   	int3
+    77ea:	cc                   	int3
+    77eb:	cc                   	int3
+    77ec:	cc                   	int3
+    77ed:	cc                   	int3
+    77ee:	cc                   	int3
+    77ef:	cc                   	int3
+    77f0:	55                   	push   %rbp
+    77f1:	48 89 e5             	mov    %rsp,%rbp
+    77f4:	41 57                	push   %r15
+    77f6:	41 56                	push   %r14
+    77f8:	41 54                	push   %r12
+    77fa:	53                   	push   %rbx
+    77fb:	48 83 ec 30          	sub    $0x30,%rsp
+    77ff:	4c 8b 25 e2 c8 00 00 	mov    0xc8e2(%rip),%r12        # 0x140e8
+    7806:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+    780a:	49 8b 04 24          	mov    (%r12),%rax
+    780e:	48 89 45 d8          	mov    %rax,-0x28(%rbp)
+    7812:	c5 fc 11 05 46 32 01 	vmovups %ymm0,0x13246(%rip)        # 0x1aa60
+    7819:	00 
+    781a:	c7 45 d4 00 00 00 00 	movl   $0x0,-0x2c(%rbp)
+    7821:	c5 fc 11 05 57 32 01 	vmovups %ymm0,0x13257(%rip)        # 0x1aa80
+    7828:	00 
+    7829:	e8 52 fd ff ff       	call   0x7580
+    782e:	48 8d 3d d7 30 01 00 	lea    0x130d7(%rip),%rdi        # 0x1a90c
+    7835:	48 8d 75 d4          	lea    -0x2c(%rbp),%rsi
+    7839:	e8 82 04 00 00       	call   0x7cc0
+    783e:	83 f8 01             	cmp    $0x1,%eax
+    7841:	0f 85 65 02 00 00    	jne    0x7aac
+    7847:	8b 45 d4             	mov    -0x2c(%rbp),%eax
+    784a:	48 8d 3d b7 30 01 00 	lea    0x130b7(%rip),%rdi        # 0x1a908
+    7851:	0f b7 c8             	movzwl %ax,%ecx
+    7854:	c1 e8 10             	shr    $0x10,%eax
+    7857:	89 0d b3 30 01 00    	mov    %ecx,0x130b3(%rip)        # 0x1a910
+    785d:	89 05 b1 30 01 00    	mov    %eax,0x130b1(%rip)        # 0x1a914
+    7863:	e8 f8 34 00 00       	call   0xad60
+    7868:	85 c0                	test   %eax,%eax
+    786a:	74 0a                	je     0x7876
+    786c:	c7 05 92 30 01 00 00 	movl   $0x0,0x13092(%rip)        # 0x1a908
+    7873:	00 00 00 
+    7876:	e8 e5 88 ff ff       	call   0x160
+    787b:	85 c0                	test   %eax,%eax
+    787d:	74 17                	je     0x7896
+    787f:	48 8b 3d 5a c8 00 00 	mov    0xc85a(%rip),%rdi        # 0x140e0
+    7886:	89 c2                	mov    %eax,%edx
+    7888:	48 8d 35 ac 83 00 00 	lea    0x83ac(%rip),%rsi        # 0xfc3b
+    788f:	31 c0                	xor    %eax,%eax
+    7891:	e8 ea 32 00 00       	call   0xab80
+    7896:	e8 e5 8a ff ff       	call   0x380
+    789b:	85 c0                	test   %eax,%eax
+    789d:	74 17                	je     0x78b6
+    789f:	48 8b 3d 3a c8 00 00 	mov    0xc83a(%rip),%rdi        # 0x140e0
+    78a6:	89 c2                	mov    %eax,%edx
+    78a8:	48 8d 35 ce 7b 00 00 	lea    0x7bce(%rip),%rsi        # 0xf47d
+    78af:	31 c0                	xor    %eax,%eax
+    78b1:	e8 ca 32 00 00       	call   0xab80
+    78b6:	8b 05 54 30 01 00    	mov    0x13054(%rip),%eax        # 0x1a910
+    78bc:	85 c0                	test   %eax,%eax
+    78be:	0f                   	.byte 0xf
+    78bf:	85                   	.byte 0x85
+
+=== HELPER 0x7CC0 ===
+
+/tmp/agc_stage78_uzmhvzj4.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0000000000007cc0 <.data>:
+    7cc0:	55                   	push   %rbp
+    7cc1:	48 89 e5             	mov    %rsp,%rbp
+    7cc4:	41 57                	push   %r15
+    7cc6:	41 56                	push   %r14
+    7cc8:	41 55                	push   %r13
+    7cca:	41 54                	push   %r12
+    7ccc:	53                   	push   %rbx
+    7ccd:	48 83 ec 18          	sub    $0x18,%rsp
+    7cd1:	4c 8b 2d 10 c4 00 00 	mov    0xc410(%rip),%r13        # 0x140e8
+    7cd8:	49 89 f6             	mov    %rsi,%r14
+    7cdb:	49 89 ff             	mov    %rdi,%r15
+    7cde:	48 8d 3d 5a 83 00 00 	lea    0x835a(%rip),%rdi        # 0x1003f
+    7ce5:	be 02 00 00 00       	mov    $0x2,%esi
+    7cea:	31 db                	xor    %ebx,%ebx
+    7cec:	49 8b 45 00          	mov    0x0(%r13),%rax
+    7cf0:	48 89 45 d0          	mov    %rax,-0x30(%rbp)
+    7cf4:	31 c0                	xor    %eax,%eax
+    7cf6:	e8 75 30 00 00       	call   0xad70
+    7cfb:	85 c0                	test   %eax,%eax
+    7cfd:	0f 88 3d 01 00 00    	js     0x7e40
+    7d03:	48 8d 55 c8          	lea    -0x38(%rbp),%rdx
+    7d07:	be 2e 81 04 c0       	mov    $0xc004812e,%esi
+    7d0c:	89 c7                	mov    %eax,%edi
+    7d0e:	41 89 c4             	mov    %eax,%r12d
+    7d11:	31 c0                	xor    %eax,%eax
+    7d13:	c7 45 c8 00 00 00 00 	movl   $0x0,-0x38(%rbp)
+    7d1a:	e8 61 30 00 00       	call   0xad80
+    7d1f:	44 0f b7 6d c8       	movzwl -0x38(%rbp),%r13d
+    7d24:	45 85 ed             	test   %r13d,%r13d
+    7d27:	75 55                	jne    0x7d7e
+    7d29:	48 83 3d af 2d 01 00 	cmpq   $0x0,0x12daf(%rip)        # 0x1aae0
+    7d30:	00 
+    7d31:	75 4b                	jne    0x7d7e
+    7d33:	48 bf 00 00 20 e0 0f 	movabs $0xfe0200000,%rdi
+    7d3a:	00 00 00 
+    7d3d:	be 00 40 00 00       	mov    $0x4000,%esi
+    7d42:	ba 22 00 00 00       	mov    $0x22,%edx
+    7d47:	b9 01 00 00 00       	mov    $0x1,%ecx
+    7d4c:	45 89 e0             	mov    %r12d,%r8d
+    7d4f:	45 31 c9             	xor    %r9d,%r9d
+    7d52:	31 db                	xor    %ebx,%ebx
+    7d54:	e8 37 30 00 00       	call   0xad90
+    7d59:	48 89 05 80 2d 01 00 	mov    %rax,0x12d80(%rip)        # 0x1aae0
+    7d60:	48 83 f8 ff          	cmp    $0xffffffffffffffff,%rax
+    7d64:	0f 84 c7 00 00 00    	je     0x7e31
+    7d6a:	48 8d 15 ec 75 00 00 	lea    0x75ec(%rip),%rdx        # 0xf35d
+    7d71:	be 00 40 00 00       	mov    $0x4000,%esi
+    7d76:	48 89 c7             	mov    %rax,%rdi
+    7d79:	e8 22 30 00 00       	call   0xada0
+    7d7e:	45 89 27             	mov    %r12d,(%r15)
+    7d81:	45 85 ed             	test   %r13d,%r13d
+    7d84:	4c 8b 2d 5d c3 00 00 	mov    0xc35d(%rip),%r13        # 0x140e8
+    7d8b:	75 2c                	jne    0x7db9
+    7d8d:	48 8d 7d c4          	lea    -0x3c(%rbp),%rdi
+    7d91:	e8 ca 2f 00 00       	call   0xad60
+    7d96:	85 c0                	test   %eax,%eax
+    7d98:	74 07                	je     0x7da1
+    7d9a:	c7 45 c4 00 00 00 03 	movl   $0x3000000,-0x3c(%rbp)
+    7da1:	e8 ca 00 00 00       	call   0x7e70
+    7da6:	85 c0                	test   %eax,%eax
+    7da8:	75 0f                	jne    0x7db9
+    7daa:	48 8d 35 37 2d 01 00 	lea    0x12d37(%rip),%rsi        # 0x1aae8
+    7db1:	44 89 e7             	mov    %r12d,%edi
+    7db4:	e8 e7 2a 00 00       	call   0xa8a0
+    7db9:	48 8b 1d e0 2d 01 00 	mov    0x12de0(%rip),%rbx        # 0x1aba0
+    7dc0:	48 85 db             	test   %rbx,%rbx
+    7dc3:	74 5a                	je     0x7e1f
+    7dc5:	c5 f8 10 05 a3 83 00 	vmovups 0x83a3(%rip),%xmm0        # 0x10170
+    7dcc:	00 
+    7dcd:	48 8d bb 60 8b 0c 00 	lea    0xc8b60(%rbx),%rdi
+    7dd4:	ba 00 06 00 00       	mov    $0x600,%edx
+    7dd9:	c7 03 00 00 00 00    	movl   $0x0,(%rbx)
+    7ddf:	31 f6                	xor    %esi,%esi
+    7de1:	c5 f8 11 83 50 83 0c 	vmovups %xmm0,0xc8350(%rbx)
+    7de8:	00 
+    7de9:	e8 d2 2d 00 00       	call   0xabc0
+    7dee:	48 8d 3d fb 7a 00 00 	lea    0x7afb(%rip),%rdi        # 0xf8f0
+    7df5:	ba 00 00 10 00       	mov    $0x100000,%edx
+    7dfa:	48 89 de             	mov    %rbx,%rsi
+    7dfd:	31 c9                	xor    %ecx,%ecx
+    7dff:	45 31 c0             	xor    %r8d,%r8d
+    7e02:	e8 a9 2f 00 00       	call   0xadb0
+    7e07:	48 8b 3d 92 2d 01 00 	mov    0x12d92(%rip),%rdi        # 0x1aba0
+    7e0e:	48 8d 15 2a 7a 00 00 	lea    0x7a2a(%rip),%rdx        # 0xf83f
+    7e15:	be 00 00 10 00       	mov    $0x100000,%esi
+    7e1a:	e8 81 2f 00 00       	call   0xada0
+    7e1f:	bb 01 00 00 00       	mov    $0x1,%ebx
+    7e24:	4d 85 f6             	test   %r14,%r14
+    7e27:	74 17                	je     0x7e40
+    7e29:	8b 45 c8             	mov    -0x38(%rbp),%eax
+    7e2c:	41 89 06             	mov    %eax,(%r14)
+    7e2f:	eb 0f                	jmp    0x7e40
+    7e31:	44 89 e7             	mov    %r12d,%edi
+    7e34:	e8 87 2f 00 00       	call   0xadc0
+    7e39:	4c 8b 2d a8 c2 00 00 	mov    0xc2a8(%rip),%r13        # 0x140e8
+    7e40:	49 8b 45 00          	mov    0x0(%r13),%rax
+    7e44:	48 3b 45 d0          	cmp    -0x30(%rbp),%rax
+    7e48:	75 11                	jne    0x7e5b
+    7e4a:	89 d8                	mov    %ebx,%eax
+    7e4c:	48 83 c4 18          	add    $0x18,%rsp
+    7e50:	5b                   	pop    %rbx
+    7e51:	41 5c                	pop    %r12
+    7e53:	41 5d                	pop    %r13
+    7e55:	41 5e                	pop    %r14
+    7e57:	41 5f                	pop    %r15
+    7e59:	5d                   	pop    %rbp
+    7e5a:	c3                   	ret
+    7e5b:	e8 d0 2d 00 00       	call   0xac30
+    7e60:	0f 0b                	ud2
+    7e62:	cc                   	int3
+    7e63:	cc                   	int3
+    7e64:	cc                   	int3
+    7e65:	cc                   	int3
+    7e66:	cc                   	int3
+    7e67:	cc                   	int3
+    7e68:	cc                   	int3
+    7e69:	cc                   	int3
+    7e6a:	cc                   	int3
+    7e6b:	cc                   	int3
+    7e6c:	cc                   	int3
+    7e6d:	cc                   	int3
+    7e6e:	cc                   	int3
+    7e6f:	cc                   	int3
+    7e70:	55                   	push   %rbp
+    7e71:	48 89 e5             	mov    %rsp,%rbp
+    7e74:	41 57                	push   %r15
+    7e76:	41 56                	push   %r14
+    7e78:	41 55                	push   %r13
+    7e7a:	41 54                	push   %r12
+    7e7c:	53                   	push   %rbx
+    7e7d:	48 83 ec 48          	sub    $0x48,%rsp
+    7e81:	4c 8b 25 60 c2 00 00 	mov    0xc260(%rip),%r12        # 0x140e8
+    7e88:	31 db                	xor    %ebx,%ebx
+    7e8a:	49 8b 04 24          	mov    (%r12),%rax
+    7e8e:	48 89 45 d0          	mov    %rax,-0x30(%rbp)
+    7e92:	83 3d 4f 2c 01 00 00 	cmpl   $0x0,0x12c4f(%rip)        # 0x1aae8
+    7e99:	0f 85 e4 01 00 00    	jne    0x8083
+    7e9f:	48 b8 00 00 30 e0 0f 	movabs $0xfe0300000,%rax
+    7ea6:	00 00 00 
+    7ea9:	4c 8d 05 4a 80 00 00 	lea    0x804a(%rip),%r8        # 0xfefa
+    7eb0:	48 8d 7d c8          	lea    -0x38(%rbp),%rdi
+    7eb4:	be 00 00 10 00       	mov    $0x100000,%esi
+    7eb9:	ba 03 00 00 00       	mov    $0x3,%edx
+    7ebe:	31 c9                	xor    %ecx,%ecx
+

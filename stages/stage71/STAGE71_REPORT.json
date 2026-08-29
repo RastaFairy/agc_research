@@ -1,0 +1,27 @@
+{
+  "stage": 71,
+  "result": {
+    "GLOBAL_A0_SCAN_COMPLETED": true,
+    "A0_INITIALIZATION_TO_1_PROVEN": true,
+    "A0_RESET_TO_0_PROVEN": true,
+    "A0_LIFECYCLE_INITIALIZE_RESET_PROVEN": true,
+    "A0_OTHER_POST_INITIALIZATION_STORES_FOUND": false,
+    "SUBMIT_A0_BOUND_USAGE_CORROBORATED": true,
+    "MULTI_A0_BOUND_USAGE_CORROBORATED": true,
+    "SUBMIT_A4_DISPATCH_CORRELATED": true,
+    "MULTI_A4_DISPATCH_CORRELATED": true,
+    "A0_COUNT_SEMANTICS_PROVEN": true,
+    "A0_TABLE_LIFECYCLE_CORROBORATED": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "artifacts": {
+    "stage71_static.json": "stage71_static.json",
+    "a0_lifecycle_summary.txt": "a0_lifecycle_summary.txt",
+    "a0_lifecycle_disassembly.txt": "a0_lifecycle_disassembly.txt",
+    "a0_lifecycle.json": "a0_lifecycle.json"
+  }
+}

@@ -1,0 +1,516 @@
+{
+  "stage": 72,
+  "target": {
+    "global_context_va": 108808,
+    "submit_table_offset": 80,
+    "multi_table_offset": 88,
+    "entry_stride": 120,
+    "submit_va": 6320,
+    "submit_size": 380,
+    "multi_va": 18000,
+    "multi_size": 579
+  },
+  "previous_stage": {
+    "available": true,
+    "report_present": true,
+    "count_semantics_proven": false,
+    "index_semantics_proven": false,
+    "runtime_table_initialization_proven": false
+  },
+  "dispatch": {
+    "submit": [
+      {
+        "va": 6610,
+        "instruction": "call   *0x50(%rbx,%rax,1)",
+        "table_offset": 80,
+        "base_register": "rbx",
+        "index_register": "rax",
+        "scale": 1,
+        "syntax": "AT&T",
+        "index_scale_evidence": {
+          "va": 6606,
+          "instruction": "imul   $0x78,%rax,%rax",
+          "raw": "    19ce:\t48 6b c0 78          \timul   $0x78,%rax,%rax"
+        }
+      }
+    ],
+    "multi": [
+      {
+        "va": 18399,
+        "instruction": "call   *0x58(%rcx,%rax,1)",
+        "table_offset": 88,
+        "base_register": "rcx",
+        "index_register": "rax",
+        "scale": 1,
+        "syntax": "AT&T",
+        "index_scale_evidence": {
+          "va": 18395,
+          "instruction": "imul   $0x78,%rax,%rax",
+          "raw": "    47db:\t48 6b c0 78          \timul   $0x78,%rax,%rax"
+        }
+      }
+    ]
+  },
+  "store_candidates": [
+    {
+      "va": 265,
+      "instruction": "vmovups %ymm0,0x50(%rcx,%rax,1)",
+      "table_offset": 80
+    },
+    {
+      "va": 287,
+      "instruction": "mov    %rsi,0x50(%rcx,%rax,1)",
+      "table_offset": 80
+    },
+    {
+      "va": 299,
+      "instruction": "mov    %rdi,0x58(%rcx,%rax,1)",
+      "table_offset": 88
+    },
+    {
+      "va": 442,
+      "instruction": "vmovups %ymm0,0x50(%rax)",
+      "table_offset": 80
+    },
+    {
+      "va": 471,
+      "instruction": "mov    %rdx,0x50(%rax)",
+      "table_offset": 80
+    },
+    {
+      "va": 482,
+      "instruction": "mov    %rsi,0x58(%rax)",
+      "table_offset": 88
+    },
+    {
+      "va": 625,
+      "instruction": "vmovups %ymm0,-0x50(%r8,%rax,1)",
+      "table_offset": 80
+    },
+    {
+      "va": 4700,
+      "instruction": "mov    0x58(%r13),%rcx",
+      "table_offset": 88
+    },
+    {
+      "va": 5976,
+      "instruction": "mov    %ecx,0x50(%rsp)",
+      "table_offset": 80
+    },
+    {
+      "va": 6015,
+      "instruction": "mov    %edx,0x58(%rsp)",
+      "table_offset": 88
+    },
+    {
+      "va": 6037,
+      "instruction": "movl   $0x0,0x50(%rsp)",
+      "table_offset": 80
+    },
+    {
+      "va": 6286,
+      "instruction": "mov    0x50(%r15,%rax,1),%rax",
+      "table_offset": 80
+    },
+    {
+      "va": 6389,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 6415,
+      "instruction": "mov    %r13,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 6614,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 7258,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 7277,
+      "instruction": "mov    %r15,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 7485,
+      "instruction": "mov    -0x58(%rbp),%r15",
+      "table_offset": 88
+    },
+    {
+      "va": 7597,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 7616,
+      "instruction": "mov    %r15,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 7822,
+      "instruction": "mov    -0x58(%rbp),%rdx",
+      "table_offset": 88
+    },
+    {
+      "va": 10706,
+      "instruction": "mov    %rbx,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 10716,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 10955,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 11448,
+      "instruction": "mov    -0x50(%rbp),%r10",
+      "table_offset": 80
+    },
+    {
+      "va": 13231,
+      "instruction": "vmovups %xmm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 13311,
+      "instruction": "vmovups -0x50(%rbp),%xmm0",
+      "table_offset": 80
+    },
+    {
+      "va": 13470,
+      "instruction": "vmovups %xmm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 13535,
+      "instruction": "vmovups -0x50(%rbp),%xmm0",
+      "table_offset": 80
+    },
+    {
+      "va": 13704,
+      "instruction": "mov    %rcx,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 14128,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 14280,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 14398,
+      "instruction": "mov    -0x58(%rbp),%r15",
+      "table_offset": 88
+    },
+    {
+      "va": 14477,
+      "instruction": "mov    -0x58(%rbp),%r15",
+      "table_offset": 88
+    },
+    {
+      "va": 14686,
+      "instruction": "mov    -0x50(%rbp),%edx",
+      "table_offset": 80
+    },
+    {
+      "va": 14810,
+      "instruction": "mov    -0x50(%rbp),%esi",
+      "table_offset": 80
+    },
+    {
+      "va": 14980,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 16188,
+      "instruction": "mov    0x58(%rbx),%rcx",
+      "table_offset": 88
+    },
+    {
+      "va": 16877,
+      "instruction": "mov    %eax,0x50(%rbx)",
+      "table_offset": 80
+    },
+    {
+      "va": 16893,
+      "instruction": "mov    0x58(%rbx),%edx",
+      "table_offset": 88
+    },
+    {
+      "va": 16919,
+      "instruction": "mov    %eax,0x58(%rbx)",
+      "table_offset": 88
+    },
+    {
+      "va": 17978,
+      "instruction": "mov    0x58(%rcx,%rax,1),%rax",
+      "table_offset": 88
+    },
+    {
+      "va": 18168,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 18204,
+      "instruction": "mov    -0x50(%rbp),%rcx",
+      "table_offset": 80
+    },
+    {
+      "va": 19096,
+      "instruction": "vmovups -0x50(%rbp),%xmm0",
+      "table_offset": 80
+    },
+    {
+      "va": 19129,
+      "instruction": "vmovups %xmm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 24382,
+      "instruction": "movl   $0xc0036100,0x50(%rax)",
+      "table_offset": 80
+    },
+    {
+      "va": 24432,
+      "instruction": "mov    %esi,0x58(%rax)",
+      "table_offset": 88
+    },
+    {
+      "va": 24792,
+      "instruction": "mov    0x50(%rsp),%r12d",
+      "table_offset": 80
+    },
+    {
+      "va": 25214,
+      "instruction": "movl   $0xc0036100,0x50(%rax)",
+      "table_offset": 80
+    },
+    {
+      "va": 25225,
+      "instruction": "mov    %r14d,0x58(%rax)",
+      "table_offset": 88
+    },
+    {
+      "va": 25587,
+      "instruction": "mov    %rcx,0x50(%rdi)",
+      "table_offset": 80
+    },
+    {
+      "va": 25601,
+      "instruction": "mov    %r8d,0x58(%rdi)",
+      "table_offset": 88
+    },
+    {
+      "va": 28837,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 29091,
+      "instruction": "mov    -0x50(%rbp),%edx",
+      "table_offset": 80
+    },
+    {
+      "va": 31186,
+      "instruction": "mov    -0x50(%rbp),%rdi",
+      "table_offset": 80
+    },
+    {
+      "va": 31223,
+      "instruction": "mov    -0x50(%rbp),%rdi",
+      "table_offset": 80
+    },
+    {
+      "va": 31257,
+      "instruction": "mov    -0x50(%rbp),%rdi",
+      "table_offset": 80
+    },
+    {
+      "va": 31294,
+      "instruction": "mov    -0x50(%rbp),%rdi",
+      "table_offset": 80
+    },
+    {
+      "va": 31830,
+      "instruction": "vmovups %xmm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 31840,
+      "instruction": "vmovups -0x50(%rbp),%xmm0",
+      "table_offset": 80
+    },
+    {
+      "va": 32759,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 32812,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 33075,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 33079,
+      "instruction": "mov    -0x50(%rbp),%rsi",
+      "table_offset": 80
+    },
+    {
+      "va": 35141,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 35189,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 35715,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 35752,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 36291,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 36328,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 39063,
+      "instruction": "vmovups %ymm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 40711,
+      "instruction": "mov    %esi,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 40823,
+      "instruction": "mov    %esi,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 43754,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 43765,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    }
+  ],
+  "zeroing": [
+    {
+      "va": 604,
+      "instruction": "vmovups %ymm0,0x8(%r8,%rax,1)",
+      "relative_offset": 8,
+      "width": 32
+    },
+    {
+      "va": 611,
+      "instruction": "vmovups %ymm0,-0x10(%r8,%rax,1)",
+      "relative_offset": -16,
+      "width": 32
+    },
+    {
+      "va": 618,
+      "instruction": "vmovups %ymm0,-0x30(%r8,%rax,1)",
+      "relative_offset": -48,
+      "width": 32
+    },
+    {
+      "va": 625,
+      "instruction": "vmovups %ymm0,-0x50(%r8,%rax,1)",
+      "relative_offset": -80,
+      "width": 32
+    },
+    {
+      "va": 39063,
+      "instruction": "vmovups %ymm0,-0x50(%rbp)",
+      "relative_offset": -80,
+      "width": 32
+    }
+  ],
+  "entry_layout": {
+    "0x00": {
+      "classification": "INDIRECT_DISPATCH_TARGET_SLOT",
+      "proven": true
+    },
+    "0x08": {
+      "classification": "ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x0C": {
+      "classification": "WITHIN_ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x10": {
+      "classification": "WITHIN_ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x18": {
+      "classification": "WITHIN_ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x20": {
+      "classification": "WITHIN_ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x28": {
+      "classification": "SEMANTICS_NOT_PROVEN",
+      "proven": false
+    }
+  },
+  "conclusions": {
+    "ENTRY_STRIDE_PROVEN": true,
+    "SUBMIT_DISPATCH_PATTERN_FOUND": true,
+    "MULTI_DISPATCH_PATTERN_FOUND": true,
+    "SUBMIT_DISPATCH_FORMULA_PROVEN": true,
+    "MULTI_DISPATCH_FORMULA_PROVEN": true,
+    "ENTRY_FUNCTION_POINTER_FIELD_PROVEN": true,
+    "ENTRY_ZERO_INITIALIZATION_PROVEN": true,
+    "STAGE71_RUNTIME_TABLE_INITIALIZATION_CARRIED_FORWARD": false,
+    "STAGE71_COUNT_SEMANTICS_CARRIED_FORWARD": false,
+    "INDEX_SEMANTICS_PROVEN": false,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_ENTRY_FIELD_NAMES_PROVEN": false,
+    "EXACT_ENTRY_STRUCT_SIZE_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}

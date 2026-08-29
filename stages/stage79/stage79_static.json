@@ -1,0 +1,52 @@
+{
+  "stage": 79,
+  "previous_stage": 78,
+  "artifact_checks": {
+    "agc_abi_v1.h": {
+      "exists": true,
+      "size": 2552,
+      "sha256": "4d6ed32e87334dfc014084253c4b13bdb82ba9706aa0bdb453adf9b52137b230"
+    },
+    "agc_abi_v1.c": {
+      "exists": true,
+      "size": 1817,
+      "sha256": "9eedf5f1580ffb235fc768cbf39c3acd79d5623acd9dbfccc26f098c153e61cb"
+    },
+    "stage79_probe.c": {
+      "exists": true,
+      "size": 627,
+      "sha256": "aecf490afb7169d595d6c35e523067a4023219fd04fee2d6d85082c19868a5b3"
+    },
+    "ABI_V1_CONTRACT.txt": {
+      "exists": true,
+      "size": 1546,
+      "sha256": "32fd6ec56b76379583e46324282cad6d685e59ab05dd2df0de38f23325c139f6"
+    },
+    "stage79_nids.json": {
+      "exists": true,
+      "size": 965,
+      "sha256": "af4782fededa235109ae739c0d89cec37de522f9c2aa6e0b8ab724bca33847ed"
+    },
+    "libSceAgcDriver_abi_v1.a": {
+      "exists": true,
+      "size": 2438,
+      "sha256": "953829487ba4f6f24fac5955abe0b1cfd52074fda7142ebbe23ab275a0d53bb0"
+    },
+    "stage79_probe.s": {
+      "exists": true,
+      "size": 2126,
+      "sha256": "4db30b8d70215ec3970480dc688cbe75c2e50a67d50e1cfcf479916ef19f9f8e"
+    }
+  },
+  "conclusions": {
+    "ABI_LAYOUT_PROVEN": true,
+    "WRAPPER_REGISTER_PLACEMENT_PROVEN": true,
+    "MULTI_ABI_COMPATIBLE_CANDIDATE": true,
+    "DISPATCH_INDEX_PROVEN": true,
+    "DISPATCH_COUNT_PROVEN": true,
+    "ABI_V1_STATIC_LIBRARY_BUILT": true,
+    "PROBE_ASSEMBLY_BUILT": true,
+    "SEMANTIC_FIELD_NAMES_FINAL": false,
+    "REAL_AGC_EXECUTION": false
+  }
+}

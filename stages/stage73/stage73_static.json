@@ -1,0 +1,63 @@
+{
+  "stage": 73,
+  "target": {
+    "global_context_va": 108808,
+    "submit_table_offset": 80,
+    "multi_table_offset": 88,
+    "entry_stride": 120,
+    "submit_va": 6320,
+    "multi_va": 18000
+  },
+  "previous_stage": {
+    "stage72_available": true,
+    "stage69_count_semantics": true,
+    "stage69_index_semantics": false
+  },
+  "store_candidates": [],
+  "proven_global_context_stores": [],
+  "initializer_submit_stores": [],
+  "initializer_multi_stores": [],
+  "entry_layout": {
+    "stride": 120,
+    "table_bases": {
+      "submit": {
+        "global_context": 108808,
+        "offset": 80
+      },
+      "multi": {
+        "global_context": 108808,
+        "offset": 88
+      }
+    },
+    "slots": {
+      "0x00": {
+        "description": "first 8-byte slot at each indexed entry",
+        "width_bytes": 8,
+        "proven_by_indexed_stores": false
+      },
+      "0x08": {
+        "description": "second 8-byte slot at each indexed entry",
+        "width_bytes": 8,
+        "proven_by_multi_table_store": false
+      }
+    }
+  },
+  "conclusions": {
+    "STORE_SCAN_COMPLETED": true,
+    "STORE_CANDIDATES_FOUND": false,
+    "GLOBAL_CONTEXT_BASE_PROVEN_FOR_STORE": false,
+    "SUBMIT_TABLE_INITIALIZER_STORE_PROVEN": false,
+    "MULTI_TABLE_INITIALIZER_STORE_PROVEN": false,
+    "ENTRY_0x00_INDEXED_SLOT_PROVEN": false,
+    "ENTRY_0x08_INDEXED_SLOT_PROVEN": false,
+    "ENTRY_STRIDE_PROVEN": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "COUNT_SEMANTICS_PROVEN": true,
+    "FUNCTION_POINTER_VALUE_ORIGIN_PROVEN": false,
+    "EXACT_ENTRY_FIELD_NAMES_PROVEN": false,
+    "EXACT_ENTRY_STRUCT_SIZE_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}

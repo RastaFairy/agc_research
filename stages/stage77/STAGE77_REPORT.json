@@ -1,0 +1,33 @@
+{
+  "stage": 77,
+  "stage_static": "/mnt/d/agc_work/stage77_results/stage77_static.json",
+  "summary": "/mnt/d/agc_work/stage77_results/dispatch_table_arg_summary.txt",
+  "helper": {
+    "return_paths": 7,
+    "rsi_output_proven": true,
+    "rdx_output_proven": false
+  },
+  "conclusions": {
+    "HELPER_FUNCTION_DISASSEMBLED": true,
+    "HELPER_RETURN_PATHS_ENUMERATED": true,
+    "HELPER_RETURNS_RSI_VALUE_PROVEN": true,
+    "HELPER_RETURNS_RDX_VALUE_PROVEN": false,
+    "HELPER_RSI_OUTPUT_REACHES_INITIALIZER": true,
+    "HELPER_RDX_OUTPUT_REACHES_INITIALIZER": false,
+    "MULTI_TABLE_ARGUMENT_RSI_PROVEN": true,
+    "SUBMIT_TABLE_ARGUMENT_RDX_PROVEN": false,
+    "TABLE_ARGUMENTS_FULLY_PROVEN": false,
+    "TABLE_BASE_POINTER_MODEL_SUPPORTED": true,
+    "DISPATCH_0x50_USE_CONFIRMED": true,
+    "DISPATCH_0x58_USE_CONFIRMED": true,
+    "ENTRY_STRIDE_PROVEN": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "COUNT_SEMANTICS_PROVEN": true,
+    "FUNCTION_POINTER_VALUE_ORIGIN_PROVEN": false,
+    "EXACT_ENTRY_FIELD_NAMES_PROVEN": false,
+    "EXACT_ENTRY_STRUCT_SIZE_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}

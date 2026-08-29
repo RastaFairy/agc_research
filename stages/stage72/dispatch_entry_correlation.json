@@ -1,0 +1,24 @@
+{
+  "stage": 72,
+  "global_context": 108808,
+  "submit_table": {
+    "offset": 80,
+    "stride": 120,
+    "formula": "global_context + 0x50 + index*0x78"
+  },
+  "multi_table": {
+    "offset": 88,
+    "stride": 120,
+    "formula": "global_context + 0x58 + index*0x78"
+  },
+  "entry_0x00": {
+    "classification": "indirect_dispatch_target",
+    "proven": true
+  },
+  "entry_zero_region": {
+    "start": 8,
+    "end": 39,
+    "proven": true
+  },
+  "exact_semantics": false
+}

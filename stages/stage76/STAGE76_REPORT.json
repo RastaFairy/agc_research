@@ -1,0 +1,33 @@
+{
+  "stage": 76,
+  "summary": {
+    "INITIALIZER_0x50_STORE_FOUND": true,
+    "INITIALIZER_0x58_STORE_FOUND": true,
+    "INITIALIZER_CALLSITE_FOUND": true,
+    "HELPER_0x7CC0_FOUND": true,
+    "HELPER_PRESERVES_RSI_PROVEN": false,
+    "HELPER_PRESERVES_RDX_PROVEN": false,
+    "MULTI_TABLE_ARGUMENT_RSI_PROVEN": false,
+    "SUBMIT_TABLE_ARGUMENT_RDX_PROVEN": false,
+    "TABLE_ARGUMENTS_FULLY_PROVEN": false,
+    "TABLE_BASE_POINTER_MODEL_SUPPORTED": true,
+    "DISPATCH_0x50_USE_CONFIRMED": true,
+    "DISPATCH_0x58_USE_CONFIRMED": true,
+    "ENTRY_STRIDE_PROVEN": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "COUNT_SEMANTICS_PROVEN": true,
+    "FUNCTION_POINTER_VALUE_ORIGIN_PROVEN": false,
+    "EXACT_ENTRY_FIELD_NAMES_PROVEN": false,
+    "EXACT_ENTRY_STRUCT_SIZE_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "artifacts": [
+    "stage76_static.json",
+    "dispatch_table_arg_summary.txt",
+    "dispatch_table_arg_disassembly.txt",
+    "dispatch_table_arg_provenance.json",
+    "analyze_dispatch_table_args.py"
+  ]
+}

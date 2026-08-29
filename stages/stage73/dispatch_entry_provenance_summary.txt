@@ -1,0 +1,42 @@
+AGC PS5 Stage 73 - Dispatch Entry / Pointer Source Provenance Audit
+
+=== TARGET ===
+global_context = 0x1A908
+submit table offset = 0x50
+multi table offset = 0x58
+entry stride = 0x78
+
+=== PROVEN GLOBAL-CONTEXT STORES ===
+NONE
+
+=== INITIALIZER CLUSTERS ===
+SUBMIT indexed stores before SubmitCommandBuffer = 0
+MULTI indexed stores before SubmitMultiCommandBuffers = 0
+
+=== ENTRY LAYOUT ===
+0x00 = first 8-byte slot proven by indexed table store
+0x08 = second 8-byte slot proven by indexed multi-table store
+stride = 0x78
+
+=== CONCLUSIONS ===
+STORE_SCAN_COMPLETED=True
+STORE_CANDIDATES_FOUND=False
+GLOBAL_CONTEXT_BASE_PROVEN_FOR_STORE=False
+SUBMIT_TABLE_INITIALIZER_STORE_PROVEN=False
+MULTI_TABLE_INITIALIZER_STORE_PROVEN=False
+ENTRY_0x00_INDEXED_SLOT_PROVEN=False
+ENTRY_0x08_INDEXED_SLOT_PROVEN=False
+ENTRY_STRIDE_PROVEN=True
+INDEX_SEMANTICS_PROVEN=True
+COUNT_SEMANTICS_PROVEN=True
+FUNCTION_POINTER_VALUE_ORIGIN_PROVEN=False
+EXACT_ENTRY_FIELD_NAMES_PROVEN=False
+EXACT_ENTRY_STRUCT_SIZE_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== LIMIT ===
+La proveniencia se acepta solo cuando el registro base de la escritura se puede seguir hasta una LEA directa de global_context 0x1A908.
+Los offsets 0x50 y 0x58 en stack o en otros objetos no cuentan como entradas de dispatch.
+Esta etapa no asigna nombres semánticos públicos a los slots ni demuestra el sizeof exacto de la entrada.

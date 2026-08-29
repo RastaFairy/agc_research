@@ -1,0 +1,127 @@
+{
+  "global_context": {
+    "va": 108808,
+    "a0_offset": 160,
+    "a0_va": 108968
+  },
+  "lifecycle": {
+    "initialize_to_1": {
+      "instruction_va": 518,
+      "instruction": "movl   $0x1,0xa0(%rax)",
+      "base_register": "rax",
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 1,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 356,
+        "instruction": "lea    0x1a79d(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance": 32
+      },
+      "owner": null
+    },
+    "reset_to_0": {
+      "instruction_va": 632,
+      "instruction": "movl   $0x0,0xa0(%r8)",
+      "base_register": "r8",
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 0,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 548,
+        "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+        "register": "r8",
+        "distance": 21
+      },
+      "owner": null
+    },
+    "additional_post_init_stores": []
+  },
+  "consumers": {
+    "submit": [
+      {
+        "instruction_va": 6488,
+        "instruction": "mov    0xa0(%rbx),%eax",
+        "base_register": "rbx",
+        "access_type": "READ",
+        "immediate_value": null,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 6408,
+          "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+          "register": "rbx",
+          "distance": 18
+        },
+        "owner": {
+          "name": "sceAgcDriverSubmitCommandBuffer",
+          "start_va": 6320,
+          "size": 380
+        }
+      },
+      {
+        "instruction_va": 6548,
+        "instruction": "mov    0xa0(%rbx),%eax",
+        "base_register": "rbx",
+        "access_type": "READ",
+        "immediate_value": null,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 6408,
+          "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+          "register": "rbx",
+          "distance": 38
+        },
+        "owner": {
+          "name": "sceAgcDriverSubmitCommandBuffer",
+          "start_va": 6320,
+          "size": 380
+        }
+      }
+    ],
+    "multi": [
+      {
+        "instruction_va": 18265,
+        "instruction": "mov    0xa0(%rax),%eax",
+        "base_register": "rax",
+        "access_type": "READ",
+        "immediate_value": null,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 18258,
+          "instruction": "lea    0x161af(%rip),%rax        # 0x1a908",
+          "register": "rax",
+          "distance": 1
+        },
+        "owner": {
+          "name": "sceAgcDriverSubmitMultiCommandBuffers",
+          "start_va": 18000,
+          "size": 579
+        }
+      },
+      {
+        "instruction_va": 18346,
+        "instruction": "mov    0xa0(%rax),%eax",
+        "base_register": "rax",
+        "access_type": "READ",
+        "immediate_value": null,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 18336,
+          "instruction": "lea    0x16161(%rip),%rax        # 0x1a908",
+          "register": "rax",
+          "distance": 2
+        },
+        "owner": {
+          "name": "sceAgcDriverSubmitMultiCommandBuffers",
+          "start_va": 18000,
+          "size": 579
+        }
+      }
+    ]
+  },
+  "semantic_status": {
+    "count_semantics_proven": true,
+    "index_semantics_proven": true,
+    "exact_field_name_proven": false
+  }
+}

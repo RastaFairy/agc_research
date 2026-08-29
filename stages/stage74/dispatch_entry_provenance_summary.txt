@@ -1,0 +1,59 @@
+AGC PS5 Stage 74 - Dispatch Entry Store / Provenance Audit
+
+=== TARGET ===
+global_context = 0x1A908
+submit table offset = 0x50
+multi table offset = 0x58
+entry stride = 0x78
+
+=== SCANNER ===
+executable segments = 1
+instructions parsed = 13805
+
+=== STORE CANDIDATES ===
+count = 15
+VA=0x1ba offset=0x50 base=rax index=None scale=1 | vmovups %ymm0,0x50(%rax)
+VA=0x1d7 offset=0x50 base=rax index=None scale=1 | mov    %rdx,0x50(%rax)
+VA=0x1e2 offset=0x58 base=rax index=None scale=1 | mov    %rsi,0x58(%rax)
+VA=0x1758 offset=0x50 base=rsp index=None scale=1 | mov    %ecx,0x50(%rsp)
+VA=0x177f offset=0x58 base=rsp index=None scale=1 | mov    %edx,0x58(%rsp)
+VA=0x1795 offset=0x50 base=rsp index=None scale=1 | movl   $0x0,0x50(%rsp)
+VA=0x17a9 offset=0x58 base=rsp index=None scale=1 | andl   $0xfff00000,0x58(%rsp)
+VA=0x41ed offset=0x50 base=rbx index=None scale=1 | mov    %eax,0x50(%rbx)
+VA=0x4217 offset=0x58 base=rbx index=None scale=1 | mov    %eax,0x58(%rbx)
+VA=0x5f3e offset=0x50 base=rax index=None scale=1 | movl   $0xc0036100,0x50(%rax)
+VA=0x5f70 offset=0x58 base=rax index=None scale=1 | mov    %esi,0x58(%rax)
+VA=0x627e offset=0x50 base=rax index=None scale=1 | movl   $0xc0036100,0x50(%rax)
+VA=0x6289 offset=0x58 base=rax index=None scale=1 | mov    %r14d,0x58(%rax)
+VA=0x63f3 offset=0x50 base=rdi index=None scale=1 | mov    %rcx,0x50(%rdi)
+VA=0x6401 offset=0x58 base=rdi index=None scale=1 | mov    %r8d,0x58(%rdi)
+
+=== PROVEN GLOBAL-CONTEXT STORES ===
+NONE
+
+=== FOCUSED DISPATCH ===
+Submit LEAs to global_context = 0
+Multi LEAs to global_context = 0
+Submit dispatch sites = 0
+Multi dispatch sites = 0
+
+=== CONCLUSIONS ===
+STORE_SCAN_COMPLETED=True
+STORE_CANDIDATES_FOUND=True
+GLOBAL_CONTEXT_BASE_PROVEN_FOR_ANY_STORE=False
+SUBMIT_TABLE_INITIALIZER_STORE_PROVEN=False
+MULTI_TABLE_INITIALIZER_STORE_PROVEN=False
+ENTRY_0x00_INDEXED_SLOT_PROVEN=False
+ENTRY_0x08_INDEXED_SLOT_PROVEN=False
+ENTRY_STRIDE_PROVEN=True
+INDEX_SEMANTICS_PROVEN=True
+COUNT_SEMANTICS_PROVEN=True
+FUNCTION_POINTER_VALUE_ORIGIN_PROVEN=False
+EXACT_ENTRY_FIELD_NAMES_PROVEN=False
+EXACT_ENTRY_STRUCT_SIZE_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== LIMIT ===
+Solo se considera demostrada la pertenencia de una escritura a global_context cuando el registro base puede rastrearse localmente hasta una LEA directa de 0x1A908. Los offsets 0x50/0x58 en stack u otros objetos quedan como candidatos no probados. El stride 0x78, el uso de +0xA4 como índice y +0xA0 como count/limite se mantienen como evidencia heredada de las etapas anteriores.

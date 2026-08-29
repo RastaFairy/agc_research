@@ -1,0 +1,1270 @@
+{
+  "stage": 76,
+  "target": {
+    "global_context_va": 108808,
+    "initializer_va": 352,
+    "helper_call_target": 31936,
+    "submit_table_offset": 80,
+    "multi_table_offset": 88,
+    "entry_stride": 120,
+    "submit_va": 6320,
+    "multi_va": 18000
+  },
+  "previous_stage": {
+    "stage75_available": true
+  },
+  "initializer_stores": [
+    {
+      "va": 442,
+      "instruction": "vmovups %ymm0,0x50(%rax)",
+      "offset": 80,
+      "source_register": "ymm0"
+    },
+    {
+      "va": 471,
+      "instruction": "mov    %rdx,0x50(%rax)",
+      "offset": 80,
+      "source_register": "rdx"
+    },
+    {
+      "va": 482,
+      "instruction": "mov    %rsi,0x58(%rax)",
+      "offset": 88,
+      "source_register": "rsi"
+    }
+  ],
+  "initializer_callsite": {
+    "va": 30838,
+    "instruction": "call   0x160",
+    "nearby": [
+      [
+        30582,
+        "ret"
+      ],
+      [
+        30583,
+        "int3"
+      ],
+      [
+        30584,
+        "int3"
+      ],
+      [
+        30585,
+        "int3"
+      ],
+      [
+        30586,
+        "int3"
+      ],
+      [
+        30587,
+        "int3"
+      ],
+      [
+        30588,
+        "int3"
+      ],
+      [
+        30589,
+        "int3"
+      ],
+      [
+        30590,
+        "int3"
+      ],
+      [
+        30591,
+        "int3"
+      ],
+      [
+        30592,
+        "mov    $0x8a6c1000,%eax"
+      ],
+      [
+        30597,
+        "ret"
+      ],
+      [
+        30598,
+        "int3"
+      ],
+      [
+        30599,
+        "int3"
+      ],
+      [
+        30600,
+        "int3"
+      ],
+      [
+        30601,
+        "int3"
+      ],
+      [
+        30602,
+        "int3"
+      ],
+      [
+        30603,
+        "int3"
+      ],
+      [
+        30604,
+        "int3"
+      ],
+      [
+        30605,
+        "int3"
+      ],
+      [
+        30606,
+        "int3"
+      ],
+      [
+        30607,
+        "int3"
+      ],
+      [
+        30608,
+        "mov    $0x8a6c1000,%eax"
+      ],
+      [
+        30613,
+        "ret"
+      ],
+      [
+        30614,
+        "int3"
+      ],
+      [
+        30615,
+        "int3"
+      ],
+      [
+        30616,
+        "int3"
+      ],
+      [
+        30617,
+        "int3"
+      ],
+      [
+        30618,
+        "int3"
+      ],
+      [
+        30619,
+        "int3"
+      ],
+      [
+        30620,
+        "int3"
+      ],
+      [
+        30621,
+        "int3"
+      ],
+      [
+        30622,
+        "int3"
+      ],
+      [
+        30623,
+        "int3"
+      ],
+      [
+        30624,
+        "mov    $0x8a6c1000,%eax"
+      ],
+      [
+        30629,
+        "ret"
+      ],
+      [
+        30630,
+        "int3"
+      ],
+      [
+        30631,
+        "int3"
+      ],
+      [
+        30632,
+        "int3"
+      ],
+      [
+        30633,
+        "int3"
+      ],
+      [
+        30634,
+        "int3"
+      ],
+      [
+        30635,
+        "int3"
+      ],
+      [
+        30636,
+        "int3"
+      ],
+      [
+        30637,
+        "int3"
+      ],
+      [
+        30638,
+        "int3"
+      ],
+      [
+        30639,
+        "int3"
+      ],
+      [
+        30640,
+        "xor    %eax,%eax"
+      ],
+      [
+        30642,
+        "ret"
+      ],
+      [
+        30643,
+        "int3"
+      ],
+      [
+        30644,
+        "int3"
+      ],
+      [
+        30645,
+        "int3"
+      ],
+      [
+        30646,
+        "int3"
+      ],
+      [
+        30647,
+        "int3"
+      ],
+      [
+        30648,
+        "int3"
+      ],
+      [
+        30649,
+        "int3"
+      ],
+      [
+        30650,
+        "int3"
+      ],
+      [
+        30651,
+        "int3"
+      ],
+      [
+        30652,
+        "int3"
+      ],
+      [
+        30653,
+        "int3"
+      ],
+      [
+        30654,
+        "int3"
+      ],
+      [
+        30655,
+        "int3"
+      ],
+      [
+        30656,
+        "xor    %eax,%eax"
+      ],
+      [
+        30658,
+        "ret"
+      ],
+      [
+        30659,
+        "int3"
+      ],
+      [
+        30660,
+        "int3"
+      ],
+      [
+        30661,
+        "int3"
+      ],
+      [
+        30662,
+        "int3"
+      ],
+      [
+        30663,
+        "int3"
+      ],
+      [
+        30664,
+        "int3"
+      ],
+      [
+        30665,
+        "int3"
+      ],
+      [
+        30666,
+        "int3"
+      ],
+      [
+        30667,
+        "int3"
+      ],
+      [
+        30668,
+        "int3"
+      ],
+      [
+        30669,
+        "int3"
+      ],
+      [
+        30670,
+        "int3"
+      ],
+      [
+        30671,
+        "int3"
+      ],
+      [
+        30672,
+        "mov    $0x8a6c1000,%eax"
+      ],
+      [
+        30677,
+        "ret"
+      ],
+      [
+        30678,
+        "int3"
+      ],
+      [
+        30679,
+        "int3"
+      ],
+      [
+        30680,
+        "int3"
+      ],
+      [
+        30681,
+        "int3"
+      ],
+      [
+        30682,
+        "int3"
+      ],
+      [
+        30683,
+        "int3"
+      ],
+      [
+        30684,
+        "int3"
+      ],
+      [
+        30685,
+        "int3"
+      ],
+      [
+        30686,
+        "int3"
+      ],
+      [
+        30687,
+        "int3"
+      ],
+      [
+        30688,
+        "mov    $0x8a6c1000,%eax"
+      ],
+      [
+        30693,
+        "ret"
+      ],
+      [
+        30694,
+        "int3"
+      ],
+      [
+        30695,
+        "int3"
+      ],
+      [
+        30696,
+        "int3"
+      ],
+      [
+        30697,
+        "int3"
+      ],
+      [
+        30698,
+        "int3"
+      ],
+      [
+        30699,
+        "int3"
+      ],
+      [
+        30700,
+        "int3"
+      ],
+      [
+        30701,
+        "int3"
+      ],
+      [
+        30702,
+        "int3"
+      ],
+      [
+        30703,
+        "int3"
+      ],
+      [
+        30704,
+        "push   %rbp"
+      ],
+      [
+        30705,
+        "mov    %rsp,%rbp"
+      ],
+      [
+        30708,
+        "push   %r15"
+      ],
+      [
+        30710,
+        "push   %r14"
+      ],
+      [
+        30712,
+        "push   %r12"
+      ],
+      [
+        30714,
+        "push   %rbx"
+      ],
+      [
+        30715,
+        "sub    $0x30,%rsp"
+      ],
+      [
+        30719,
+        "mov    0xc8e2(%rip),%r12        # 0x140e8"
+      ],
+      [
+        30726,
+        "vxorps %xmm0,%xmm0,%xmm0"
+      ],
+      [
+        30730,
+        "mov    (%r12),%rax"
+      ],
+      [
+        30734,
+        "mov    %rax,-0x28(%rbp)"
+      ],
+      [
+        30738,
+        "vmovups %ymm0,0x13246(%rip)        # 0x1aa60"
+      ],
+      [
+        30745,
+        ""
+      ],
+      [
+        30746,
+        "movl   $0x0,-0x2c(%rbp)"
+      ],
+      [
+        30753,
+        "vmovups %ymm0,0x13257(%rip)        # 0x1aa80"
+      ],
+      [
+        30760,
+        ""
+      ],
+      [
+        30761,
+        "call   0x7580"
+      ],
+      [
+        30766,
+        "lea    0x130d7(%rip),%rdi        # 0x1a90c"
+      ],
+      [
+        30773,
+        "lea    -0x2c(%rbp),%rsi"
+      ],
+      [
+        30777,
+        "call   0x7cc0"
+      ],
+      [
+        30782,
+        "cmp    $0x1,%eax"
+      ],
+      [
+        30785,
+        "jne    0x7aac"
+      ],
+      [
+        30791,
+        "mov    -0x2c(%rbp),%eax"
+      ],
+      [
+        30794,
+        "lea    0x130b7(%rip),%rdi        # 0x1a908"
+      ],
+      [
+        30801,
+        "movzwl %ax,%ecx"
+      ],
+      [
+        30804,
+        "shr    $0x10,%eax"
+      ],
+      [
+        30807,
+        "mov    %ecx,0x130b3(%rip)        # 0x1a910"
+      ],
+      [
+        30813,
+        "mov    %eax,0x130b1(%rip)        # 0x1a914"
+      ],
+      [
+        30819,
+        "call   0xad60"
+      ],
+      [
+        30824,
+        "test   %eax,%eax"
+      ],
+      [
+        30826,
+        "je     0x7876"
+      ],
+      [
+        30828,
+        "movl   $0x0,0x13092(%rip)        # 0x1a908"
+      ],
+      [
+        30835,
+        ""
+      ],
+      [
+        30838,
+        "call   0x160"
+      ],
+      [
+        30843,
+        "test   %eax,%eax"
+      ],
+      [
+        30845,
+        "je     0x7896"
+      ],
+      [
+        30847,
+        "mov    0xc85a(%rip),%rdi        # 0x140e0"
+      ],
+      [
+        30854,
+        "mov    %eax,%edx"
+      ],
+      [
+        30856,
+        "lea    0x83ac(%rip),%rsi        # 0xfc3b"
+      ],
+      [
+        30863,
+        "xor    %eax,%eax"
+      ],
+      [
+        30865,
+        "call   0xab80"
+      ],
+      [
+        30870,
+        "call   0x380"
+      ],
+      [
+        30875,
+        "test   %eax,%eax"
+      ],
+      [
+        30877,
+        "je     0x78b6"
+      ],
+      [
+        30879,
+        "mov    0xc83a(%rip),%rdi        # 0x140e0"
+      ],
+      [
+        30886,
+        "mov    %eax,%edx"
+      ],
+      [
+        30888,
+        "lea    0x7bce(%rip),%rsi        # 0xf47d"
+      ],
+      [
+        30895,
+        "xor    %eax,%eax"
+      ],
+      [
+        30897,
+        "call   0xab80"
+      ],
+      [
+        30902,
+        "mov    0x13054(%rip),%eax        # 0x1a910"
+      ],
+      [
+        30908,
+        "test   %eax,%eax"
+      ],
+      [
+        30910,
+        "jne    0x7a5a"
+      ],
+      [
+        30916,
+        "xor    %edi,%edi"
+      ],
+      [
+        30918,
+        "call   0x510"
+      ],
+      [
+        30923,
+        "xor    %edi,%edi"
+      ],
+      [
+        30925,
+        "mov    %rax,0x13124(%rip)        # 0x1a9f8"
+      ],
+      [
+        30932,
+        "call   0x540"
+      ],
+      [
+        30937,
+        "vmovups 0x88df(%rip),%xmm0        # 0x101c0"
+      ],
+      [
+        30944,
+        ""
+      ],
+      [
+        30945,
+        "mov    $0x1,%edi"
+      ],
+      [
+        30950,
+        "movabs $0x284300002400,%rbx"
+      ],
+      [
+        30957,
+        ""
+      ],
+      [
+        30960,
+        "mov    %eax,0x1310a(%rip)        # 0x1aa00"
+      ],
+      [
+        30966,
+        "vmovups %xmm0,0x13106(%rip)        # 0x1aa04"
+      ]
+    ],
+    "helper_call_before": [
+      {
+        "va": 30777,
+        "instruction": "call   0x7cc0"
+      }
+    ]
+  },
+  "helper_register_preservation": {
+    "rsi": {
+      "status": "MODIFICATION_UNPROVEN_RESTORATION",
+      "proven": false,
+      "modified": true,
+      "restored": false,
+      "evidence": [
+        {
+          "va": 31973,
+          "instruction": "mov    $0x2,%esi"
+        },
+        {
+          "va": 32007,
+          "instruction": "mov    $0xc004812e,%esi"
+        },
+        {
+          "va": 32061,
+          "instruction": "mov    $0x4000,%esi"
+        },
+        {
+          "va": 32113,
+          "instruction": "mov    $0x4000,%esi"
+        },
+        {
+          "va": 32170,
+          "instruction": "lea    0x12d37(%rip),%rsi        # 0x1aae8"
+        },
+        {
+          "va": 32223,
+          "instruction": "xor    %esi,%esi"
+        },
+        {
+          "va": 32250,
+          "instruction": "mov    %rbx,%rsi"
+        },
+        {
+          "va": 32277,
+          "instruction": "mov    $0x100000,%esi"
+        }
+      ],
+      "internal_calls": [
+        {
+          "va": 31990,
+          "instruction": "call   0xad70"
+        },
+        {
+          "va": 32026,
+          "instruction": "call   0xad80"
+        },
+        {
+          "va": 32084,
+          "instruction": "call   0xad90"
+        },
+        {
+          "va": 32121,
+          "instruction": "call   0xada0"
+        },
+        {
+          "va": 32145,
+          "instruction": "call   0xad60"
+        },
+        {
+          "va": 32161,
+          "instruction": "call   0x7e70"
+        },
+        {
+          "va": 32180,
+          "instruction": "call   0xa8a0"
+        },
+        {
+          "va": 32233,
+          "instruction": "call   0xabc0"
+        },
+        {
+          "va": 32258,
+          "instruction": "call   0xadb0"
+        },
+        {
+          "va": 32282,
+          "instruction": "call   0xada0"
+        },
+        {
+          "va": 32308,
+          "instruction": "call   0xadc0"
+        }
+      ]
+    },
+    "rdx": {
+      "status": "MODIFICATION_UNPROVEN_RESTORATION",
+      "proven": false,
+      "modified": true,
+      "restored": false,
+      "evidence": [
+        {
+          "va": 32003,
+          "instruction": "lea    -0x38(%rbp),%rdx"
+        },
+        {
+          "va": 32066,
+          "instruction": "mov    $0x22,%edx"
+        },
+        {
+          "va": 32106,
+          "instruction": "lea    0x75ec(%rip),%rdx        # 0xf35d"
+        },
+        {
+          "va": 32212,
+          "instruction": "mov    $0x600,%edx"
+        },
+        {
+          "va": 32245,
+          "instruction": "mov    $0x100000,%edx"
+        },
+        {
+          "va": 32270,
+          "instruction": "lea    0x7a2a(%rip),%rdx        # 0xf83f"
+        }
+      ],
+      "internal_calls": [
+        {
+          "va": 31990,
+          "instruction": "call   0xad70"
+        },
+        {
+          "va": 32026,
+          "instruction": "call   0xad80"
+        },
+        {
+          "va": 32084,
+          "instruction": "call   0xad90"
+        },
+        {
+          "va": 32121,
+          "instruction": "call   0xada0"
+        },
+        {
+          "va": 32145,
+          "instruction": "call   0xad60"
+        },
+        {
+          "va": 32161,
+          "instruction": "call   0x7e70"
+        },
+        {
+          "va": 32180,
+          "instruction": "call   0xa8a0"
+        },
+        {
+          "va": 32233,
+          "instruction": "call   0xabc0"
+        },
+        {
+          "va": 32258,
+          "instruction": "call   0xadb0"
+        },
+        {
+          "va": 32282,
+          "instruction": "call   0xada0"
+        },
+        {
+          "va": 32308,
+          "instruction": "call   0xadc0"
+        }
+      ]
+    }
+  },
+  "pre_call_register_definitions": {
+    "rsi": [
+      {
+        "va": 29589,
+        "instruction": "mov    %rdx,%rsi",
+        "source": {
+          "kind": "MOV",
+          "text": "mov    %rdx,%rsi"
+        }
+      },
+      {
+        "va": 29592,
+        "instruction": "sub    -0x40(%rbp),%rsi",
+        "source": null
+      },
+      {
+        "va": 29596,
+        "instruction": "shr    $0x2,%rsi",
+        "source": null
+      },
+      {
+        "va": 29603,
+        "instruction": "mov    %r15d,%esi",
+        "source": null
+      },
+      {
+        "va": 29606,
+        "instruction": "shl    $0x10,%esi",
+        "source": null
+      },
+      {
+        "va": 29609,
+        "instruction": "add    $0x3ffe0000,%esi",
+        "source": null
+      },
+      {
+        "va": 29615,
+        "instruction": "or     $0xc0001000,%esi",
+        "source": null
+      },
+      {
+        "va": 29648,
+        "instruction": "lea    0x86c8(%rip),%rsi        # 0xfa9f",
+        "source": {
+          "kind": "LEA",
+          "text": "lea    0x86c8(%rip),%rsi        # 0xfa9f"
+        }
+      },
+      {
+        "va": 29728,
+        "instruction": "lea    -0x14(%rbp),%rsi",
+        "source": {
+          "kind": "LEA",
+          "text": "lea    -0x14(%rbp),%rsi"
+        }
+      },
+      {
+        "va": 29773,
+        "instruction": "lea    0x854f(%rip),%rsi        # 0xf9a3",
+        "source": {
+          "kind": "LEA",
+          "text": "lea    0x854f(%rip),%rsi        # 0xf9a3"
+        }
+      },
+      {
+        "va": 29840,
+        "instruction": "lea    -0x14(%rbp),%rsi",
+        "source": {
+          "kind": "LEA",
+          "text": "lea    -0x14(%rbp),%rsi"
+        }
+      },
+      {
+        "va": 29946,
+        "instruction": "mov    $0x25,%esi",
+        "source": null
+      },
+      {
+        "va": 30304,
+        "instruction": "test   %rsi,%rsi",
+        "source": null
+      },
+      {
+        "va": 30459,
+        "instruction": "lea    0x7bab(%rip),%rsi        # 0xf2ad",
+        "source": {
+          "kind": "LEA",
+          "text": "lea    0x7bab(%rip),%rsi        # 0xf2ad"
+        }
+      },
+      {
+        "va": 30507,
+        "instruction": "lea    0x7b7b(%rip),%rsi        # 0xf2ad",
+        "source": {
+          "kind": "LEA",
+          "text": "lea    0x7b7b(%rip),%rsi        # 0xf2ad"
+        }
+      },
+      {
+        "va": 30555,
+        "instruction": "lea    0x7b4b(%rip),%rsi        # 0xf2ad",
+        "source": {
+          "kind": "LEA",
+          "text": "lea    0x7b4b(%rip),%rsi        # 0xf2ad"
+        }
+      },
+      {
+        "va": 30773,
+        "instruction": "lea    -0x2c(%rbp),%rsi",
+        "source": {
+          "kind": "LEA",
+          "text": "lea    -0x2c(%rbp),%rsi"
+        }
+      }
+    ],
+    "rdx": [
+      {
+        "va": 29585,
+        "instruction": "lea    (%rcx,%rax,4),%rdx",
+        "source": {
+          "kind": "LEA",
+          "text": "lea    (%rcx,%rax,4),%rdx"
+        }
+      },
+      {
+        "va": 29655,
+        "instruction": "mov    %eax,%edx",
+        "source": null
+      },
+      {
+        "va": 29771,
+        "instruction": "mov    %eax,%edx",
+        "source": null
+      },
+      {
+        "va": 29951,
+        "instruction": "mov    $0x1,%edx",
+        "source": null
+      },
+      {
+        "va": 30466,
+        "instruction": "lea    0x8576(%rip),%rdx        # 0xfc7f",
+        "source": {
+          "kind": "LEA",
+          "text": "lea    0x8576(%rip),%rdx        # 0xfc7f"
+        }
+      },
+      {
+        "va": 30514,
+        "instruction": "lea    0x83b2(%rip),%rdx        # 0xfaeb",
+        "source": {
+          "kind": "LEA",
+          "text": "lea    0x83b2(%rip),%rdx        # 0xfaeb"
+        }
+      },
+      {
+        "va": 30562,
+        "instruction": "lea    0x876a(%rip),%rdx        # 0xfed3",
+        "source": {
+          "kind": "LEA",
+          "text": "lea    0x876a(%rip),%rdx        # 0xfed3"
+        }
+      }
+    ]
+  },
+  "table_argument_provenance": {
+    "rsi": {
+      "register": "rsi",
+      "latest_definition_before_initializer": {
+        "va": 30773,
+        "instruction": "lea    -0x2c(%rbp),%rsi",
+        "source": {
+          "kind": "LEA",
+          "text": "lea    -0x2c(%rbp),%rsi"
+        }
+      },
+      "helper_preservation": {
+        "status": "MODIFICATION_UNPROVEN_RESTORATION",
+        "proven": false,
+        "modified": true,
+        "restored": false,
+        "evidence": [
+          {
+            "va": 31973,
+            "instruction": "mov    $0x2,%esi"
+          },
+          {
+            "va": 32007,
+            "instruction": "mov    $0xc004812e,%esi"
+          },
+          {
+            "va": 32061,
+            "instruction": "mov    $0x4000,%esi"
+          },
+          {
+            "va": 32113,
+            "instruction": "mov    $0x4000,%esi"
+          },
+          {
+            "va": 32170,
+            "instruction": "lea    0x12d37(%rip),%rsi        # 0x1aae8"
+          },
+          {
+            "va": 32223,
+            "instruction": "xor    %esi,%esi"
+          },
+          {
+            "va": 32250,
+            "instruction": "mov    %rbx,%rsi"
+          },
+          {
+            "va": 32277,
+            "instruction": "mov    $0x100000,%esi"
+          }
+        ],
+        "internal_calls": [
+          {
+            "va": 31990,
+            "instruction": "call   0xad70"
+          },
+          {
+            "va": 32026,
+            "instruction": "call   0xad80"
+          },
+          {
+            "va": 32084,
+            "instruction": "call   0xad90"
+          },
+          {
+            "va": 32121,
+            "instruction": "call   0xada0"
+          },
+          {
+            "va": 32145,
+            "instruction": "call   0xad60"
+          },
+          {
+            "va": 32161,
+            "instruction": "call   0x7e70"
+          },
+          {
+            "va": 32180,
+            "instruction": "call   0xa8a0"
+          },
+          {
+            "va": 32233,
+            "instruction": "call   0xabc0"
+          },
+          {
+            "va": 32258,
+            "instruction": "call   0xadb0"
+          },
+          {
+            "va": 32282,
+            "instruction": "call   0xada0"
+          },
+          {
+            "va": 32308,
+            "instruction": "call   0xadc0"
+          }
+        ]
+      },
+      "proven": false,
+      "reason": "latest definition exists but helper preservation is not proven"
+    },
+    "rdx": {
+      "register": "rdx",
+      "latest_definition_before_initializer": {
+        "va": 30562,
+        "instruction": "lea    0x876a(%rip),%rdx        # 0xfed3",
+        "source": {
+          "kind": "LEA",
+          "text": "lea    0x876a(%rip),%rdx        # 0xfed3"
+        }
+      },
+      "helper_preservation": {
+        "status": "MODIFICATION_UNPROVEN_RESTORATION",
+        "proven": false,
+        "modified": true,
+        "restored": false,
+        "evidence": [
+          {
+            "va": 32003,
+            "instruction": "lea    -0x38(%rbp),%rdx"
+          },
+          {
+            "va": 32066,
+            "instruction": "mov    $0x22,%edx"
+          },
+          {
+            "va": 32106,
+            "instruction": "lea    0x75ec(%rip),%rdx        # 0xf35d"
+          },
+          {
+            "va": 32212,
+            "instruction": "mov    $0x600,%edx"
+          },
+          {
+            "va": 32245,
+            "instruction": "mov    $0x100000,%edx"
+          },
+          {
+            "va": 32270,
+            "instruction": "lea    0x7a2a(%rip),%rdx        # 0xf83f"
+          }
+        ],
+        "internal_calls": [
+          {
+            "va": 31990,
+            "instruction": "call   0xad70"
+          },
+          {
+            "va": 32026,
+            "instruction": "call   0xad80"
+          },
+          {
+            "va": 32084,
+            "instruction": "call   0xad90"
+          },
+          {
+            "va": 32121,
+            "instruction": "call   0xada0"
+          },
+          {
+            "va": 32145,
+            "instruction": "call   0xad60"
+          },
+          {
+            "va": 32161,
+            "instruction": "call   0x7e70"
+          },
+          {
+            "va": 32180,
+            "instruction": "call   0xa8a0"
+          },
+          {
+            "va": 32233,
+            "instruction": "call   0xabc0"
+          },
+          {
+            "va": 32258,
+            "instruction": "call   0xadb0"
+          },
+          {
+            "va": 32282,
+            "instruction": "call   0xada0"
+          },
+          {
+            "va": 32308,
+            "instruction": "call   0xadc0"
+          }
+        ]
+      },
+      "proven": false,
+      "reason": "latest definition exists but helper preservation is not proven"
+    }
+  },
+  "dispatch_uses": [
+    {
+      "va": 6610,
+      "instruction": "call   *0x50(%rbx,%rax,1)",
+      "offset": 80,
+      "scaled_index": true
+    },
+    {
+      "va": 10950,
+      "instruction": "call   *0x50(%r12,%rax,1)",
+      "offset": 80,
+      "scaled_index": true
+    },
+    {
+      "va": 18399,
+      "instruction": "call   *0x58(%rcx,%rax,1)",
+      "offset": 88,
+      "scaled_index": true
+    }
+  ],
+  "conclusions": {
+    "INITIALIZER_0x50_STORE_FOUND": true,
+    "INITIALIZER_0x58_STORE_FOUND": true,
+    "INITIALIZER_CALLSITE_FOUND": true,
+    "HELPER_0x7CC0_FOUND": true,
+    "HELPER_PRESERVES_RSI_PROVEN": false,
+    "HELPER_PRESERVES_RDX_PROVEN": false,
+    "MULTI_TABLE_ARGUMENT_RSI_PROVEN": false,
+    "SUBMIT_TABLE_ARGUMENT_RDX_PROVEN": false,
+    "TABLE_ARGUMENTS_FULLY_PROVEN": false,
+    "TABLE_BASE_POINTER_MODEL_SUPPORTED": true,
+    "DISPATCH_0x50_USE_CONFIRMED": true,
+    "DISPATCH_0x58_USE_CONFIRMED": true,
+    "ENTRY_STRIDE_PROVEN": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "COUNT_SEMANTICS_PROVEN": true,
+    "FUNCTION_POINTER_VALUE_ORIGIN_PROVEN": false,
+    "EXACT_ENTRY_FIELD_NAMES_PROVEN": false,
+    "EXACT_ENTRY_STRUCT_SIZE_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}

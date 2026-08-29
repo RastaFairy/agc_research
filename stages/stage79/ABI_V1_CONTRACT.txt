@@ -1,0 +1,59 @@
+AGC PS5 Stage 79 - ABI v1 Contract
+
+=== PROVEN ARGUMENT ABI ===
+sceAgcDriverSubmitCommandBuffer
+  RDI = context
+  RSI = args
+  return = EAX
+
+args observed loads:
+  +0x00 = 8 bytes
+  +0x08 = 4 bytes
+  +0x0C = 1 byte
+
+ABI v1 C representation uses the natural 16-byte struct footprint for x86-64:
+  uint64_t field_00;
+  uint32_t field_08;
+  uint8_t  field_0c;
+  trailing alignment/padding = 3 bytes
+
+=== WRAPPERS ===
+sceAgcDriverSubmitDcb
+  original RDI -> RSI
+  RDI <- dcb_context
+  tail-jump -> SubmitCommandBuffer
+
+sceAgcDriverAgrSubmitDcb
+  original RDI -> RSI
+  RDI <- agr_context
+  tail-jump -> SubmitCommandBuffer
+
+=== MULTI ABI CANDIDATE ===
+sceAgcDriverSubmitMultiCommandBuffers
+  RDI = context
+  RSI = uint64_t array
+  RDX = uint32_t array
+  RCX = count
+
+=== GLOBAL DISPATCH CONTRACT ===
+global_context = 0x1A908
++0xA0 = table entry count / traversal bound
++0xA4 = dispatch index
++0x50 = Submit dispatch table base
++0x58 = Multi dispatch table base
+entry stride = 0x78
+
+=== STATUS ===
+ABI_LAYOUT_PROVEN = True
+WRAPPER_REGISTER_PLACEMENT_PROVEN = True
+MULTI_ABI_COMPATIBLE_CANDIDATE = True
+DISPATCH_INDEX_PROVEN = True
+DISPATCH_COUNT_PROVEN = True
+SEMANTIC_FIELD_NAMES_FINAL = False
+REAL_AGC_EXECUTION = False
+
+=== IMPLEMENTATION NOTE ===
+The static library produced by Stage 79 is an ABI v1 compatibility layer.
+Its weak functions return -1 until replaced/overridden by the real NID-backed
+PS5 import implementation. This deliberately separates ABI validation from
+runtime reverse-engineering and allows the final project to compile now.

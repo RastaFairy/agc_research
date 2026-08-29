@@ -1,0 +1,55 @@
+AGC PS5 Stage 71 - Global +0xA0 Lifecycle / Reset / Consumer Audit
+
+=== TARGET ===
+global_context = 0x1A908
+field_offset = 0xA0
+field_va = 0x1A9A8
+table_stride = 0x78
+
+=== GLOBAL +0xA0 STORES ===
+VA=0x206 owner=<unknown> type=STORE_IMMEDIATE value=1 base=rax | movl   $0x1,0xa0(%rax)
+VA=0x278 owner=<unknown> type=STORE_IMMEDIATE value=0 base=r8 | movl   $0x0,0xa0(%r8)
+
+=== INITIALIZATION ===
+VA=0x206
+movl   $0x1,0xa0(%rax)
+global_context_base_proven = True
+
+=== RESET EVENTS ===
+VA=0x278 | movl   $0x0,0xa0(%r8) | base=r8 | proven=True
+
+=== POST-INITIALIZATION OTHER STORES ===
+NONE
+
+=== SUBMIT +0xA0 ===
+VA=0x1958 | mov    0xa0(%rbx),%eax | bound_evidence=True
+VA=0x1994 | mov    0xa0(%rbx),%eax | bound_evidence=True
+
+=== MULTI +0xA0 ===
+VA=0x4759 | mov    0xa0(%rax),%eax | bound_evidence=True
+VA=0x47AA | mov    0xa0(%rax),%eax | bound_evidence=True
+
+=== A4 DISPATCH CORRELATION ===
+SUBMIT_A4_DISPATCH_CORRELATED=True
+MULTI_A4_DISPATCH_CORRELATED=True
+
+=== CONCLUSIONS ===
+GLOBAL_A0_SCAN_COMPLETED=True
+A0_INITIALIZATION_TO_1_PROVEN=True
+A0_RESET_TO_0_PROVEN=True
+A0_LIFECYCLE_INITIALIZE_RESET_PROVEN=True
+A0_OTHER_POST_INITIALIZATION_STORES_FOUND=False
+SUBMIT_A0_BOUND_USAGE_CORROBORATED=True
+MULTI_A0_BOUND_USAGE_CORROBORATED=True
+SUBMIT_A4_DISPATCH_CORRELATED=True
+MULTI_A4_DISPATCH_CORRELATED=True
+A0_COUNT_SEMANTICS_PROVEN=True
+A0_TABLE_LIFECYCLE_CORROBORATED=True
+INDEX_SEMANTICS_PROVEN=True
+EXACT_FIELD_NAME_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== LIMIT ===
+La etapa demuestra el ciclo de vida observable de +0xA0 solo cuando la base del acceso puede seguirse estáticamente hasta global_context=0x1A908. Esto no convierte el campo en un nombre público de API ni demuestra ejecución real.

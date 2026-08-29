@@ -1,0 +1,1219 @@
+PowerShell 7.6.5
+PS D:\agc_ps5_stage71> .\stage71_a0_lifecycle.ps1
+
+============================================
+AGC PS5 Stage 71 - Global +0xA0 Lifecycle / Reset / Consumer Audit
+============================================
+[INFO] StageDir        = D:\agc_ps5_stage71
+[INFO] SPRX            = D:\agc_work\sce_stubs\libSceAgcDriver.sprx
+[INFO] NID DB          = D:\sdk-master\sce_stubs\aerolib.csv
+[INFO] Previous stage  = D:\agc_work\stage70_results
+[INFO] Output          = D:\agc_work\stage71_results
+[INFO] SPRX WSL        = /mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx
+[INFO] Previous WSL    = /mnt/d/agc_work/stage70_results
+[INFO] Output WSL      = /mnt/d/agc_work/stage71_results
+[INFO] SDK             = /opt/ps5-payload-sdk
+
+==> Preparar workspace Linux
+
+[WSL] set -e
+
+rm -rf '/tmp/agc_stage71'
+
+mkdir -p '/tmp/agc_stage71'
+mkdir -p '/mnt/d/agc_work/stage71_results'
+
+test -f '/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx'
+test -f '/mnt/d/sdk-master/sce_stubs/aerolib.csv'
+test -d '/mnt/d/agc_work/stage70_results'
+
+echo 'Workspace preparado'
+Workspace preparado
+
+==> Verificar Python + pyelftools + toolchain
+
+[WSL] set -e
+
+test -x '/opt/ps5-payload-sdk/bin/prospero-clang'
+test -x '/opt/ps5-payload-sdk/bin/prospero-nm'
+test -x '/opt/ps5-payload-sdk/bin/prospero-lld'
+
+echo '--- prospero-clang ---'
+'/opt/ps5-payload-sdk/bin/prospero-clang' --version
+
+echo '--- prospero-nm ---'
+'/opt/ps5-payload-sdk/bin/prospero-nm' --version
+
+echo '--- pyelftools ---'
+python3 -c "from elftools.elf.elffile import ELFFile; print('pyelftools=OK')"
+
+echo '--- objdump ---'
+command -v objdump
+
+echo '--- llvm-objdump ---'
+command -v llvm-objdump
+--- prospero-clang ---
+Ubuntu clang version 18.1.3 (1ubuntu1)
+Target: x86_64-sie-ps5
+Thread model: posix
+InstalledDir: /usr/lib/llvm-18/bin
+--- prospero-nm ---
+llvm-nm, compatible with GNU nm
+Ubuntu LLVM version 18.1.3
+  Optimized build.
+--- pyelftools ---
+pyelftools=OK
+--- objdump ---
+/usr/bin/objdump
+--- llvm-objdump ---
+/usr/bin/llvm-objdump
+
+==> Validar analizador Stage 71
+
+[WSL] set -e
+
+cp '/mnt/d/agc_work/stage71_results/analyze_a0_lifecycle.py' '/tmp/agc_stage71/analyze_a0_lifecycle.py'
+
+sed -i 's/\r$//' \
+    '/tmp/agc_stage71/analyze_a0_lifecycle.py'
+
+python3 -m py_compile \
+    '/tmp/agc_stage71/analyze_a0_lifecycle.py'
+
+ls -lh \
+    '/tmp/agc_stage71/analyze_a0_lifecycle.py'
+-rwxr-xr-x 1 user user 27K Aug 25 02:57 /tmp/agc_stage71/analyze_a0_lifecycle.py
+
+==> Reconstruir ciclo de vida de global_context +0xA0
+
+[WSL] set -e
+
+python3 '/tmp/agc_stage71/analyze_a0_lifecycle.py' \
+    '/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx' \
+    '/mnt/d/sdk-master/sce_stubs/aerolib.csv' \
+    '/mnt/d/agc_work/stage70_results' \
+    '/mnt/d/agc_work/stage71_results'
+{
+  "stage": 71,
+  "target": {
+    "global_context_va": 108808,
+    "a0_offset": 160,
+    "a0_va": 108968,
+    "a4_offset": 164,
+    "table_stride": 120,
+    "submit_va": 6320,
+    "multi_va": 18000
+  },
+  "previous_stage": {
+    "stage70_available": true,
+    "stage70_count_semantics": true
+  },
+  "global_a0_accesses": [
+    {
+      "instruction_va": 363,
+      "instruction": "cmpl   $0x0,0xa0(%rax)",
+      "base_register": "rax",
+      "access_type": "OTHER",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 356,
+        "instruction": "lea    0x1a79d(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance": 1
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 518,
+      "instruction": "movl   $0x1,0xa0(%rax)",
+      "base_register": "rax",
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 1,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 356,
+        "instruction": "lea    0x1a79d(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance": 32
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 555,
+      "instruction": "mov    0xa0(%r8),%esi",
+      "base_register": "r8",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 548,
+        "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+        "register": "r8",
+        "distance": 1
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 632,
+      "instruction": "movl   $0x0,0xa0(%r8)",
+      "base_register": "r8",
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 0,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 548,
+        "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+        "register": "r8",
+        "distance": 21
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 5002,
+      "instruction": "vmovups %ymm0,0xa0(%rsp)",
+      "base_register": "rsp",
+      "access_type": "STORE",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null,
+      "owner": null
+    },
+    {
+      "instruction_va": 5166,
+      "instruction": "lea    0xa0(%rsp),%rdi",
+      "base_register": "rsp",
+      "access_type": "OTHER",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null,
+      "owner": null
+    },
+    {
+      "instruction_va": 5594,
+      "instruction": "lea    0xa0(%rsp),%rdx",
+      "base_register": "rsp",
+      "access_type": "OTHER",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null,
+      "owner": null
+    },
+    {
+      "instruction_va": 6203,
+      "instruction": "mov    0xa0(%r15),%eax",
+      "base_register": "r15",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6190,
+        "instruction": "lea    0x190d3(%rip),%r15        # 0x1a908",
+        "register": "r15",
+        "distance": 3
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 6260,
+      "instruction": "mov    0xa0(%r15),%eax",
+      "base_register": "r15",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6190,
+        "instruction": "lea    0x190d3(%rip),%r15        # 0x1a908",
+        "register": "r15",
+        "distance": 22
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 6488,
+      "instruction": "mov    0xa0(%rbx),%eax",
+      "base_register": "rbx",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6408,
+        "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+        "register": "rbx",
+        "distance": 18
+      },
+      "owner": {
+        "name": "sceAgcDriverSubmitCommandBuffer",
+        "start_va": 6320,
+        "size": 380
+      }
+    },
+    {
+      "instruction_va": 6548,
+      "instruction": "mov    0xa0(%rbx),%eax",
+      "base_register": "rbx",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6408,
+        "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+        "register": "rbx",
+        "distance": 38
+      },
+      "owner": {
+        "name": "sceAgcDriverSubmitCommandBuffer",
+        "start_va": 6320,
+        "size": 380
+      }
+    },
+    {
+      "instruction_va": 7050,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6990,
+        "instruction": "lea    0x18db3(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance": 14
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 7102,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6990,
+        "instruction": "lea    0x18db3(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance": 32
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 7355,
+      "instruction": "mov    0xa0(%r13),%eax",
+      "base_register": "r13",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 7192,
+        "instruction": "lea    0x18ce9(%rip),%r13        # 0x1a908",
+        "register": "r13",
+        "distance": 34
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 7438,
+      "instruction": "mov    0xa0(%r13),%eax",
+      "base_register": "r13",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 7192,
+        "instruction": "lea    0x18ce9(%rip),%r13        # 0x1a908",
+        "register": "r13",
+        "distance": 57
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 7690,
+      "instruction": "mov    0xa0(%r13),%eax",
+      "base_register": "r13",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null,
+      "owner": null
+    },
+    {
+      "instruction_va": 7775,
+      "instruction": "mov    0xa0(%r13),%eax",
+      "base_register": "r13",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null,
+      "owner": null
+    },
+    {
+      "instruction_va": 10810,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 10760,
+        "instruction": "lea    0x17ef9(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance": 11
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 10884,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 10760,
+        "instruction": "lea    0x17ef9(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance": 33
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 12935,
+      "instruction": "movq   $0x0,-0xa0(%rbp)",
+      "base_register": "rbp",
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 0,
+      "global_context_proven": false,
+      "global_context_lea": null,
+      "owner": null
+    },
+    {
+      "instruction_va": 17870,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 17854,
+        "instruction": "lea    0x16343(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance": 4
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 17944,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 17937,
+        "instruction": "lea    0x162f0(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance": 1
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 18265,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 18258,
+        "instruction": "lea    0x161af(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance": 1
+      },
+      "owner": {
+        "name": "sceAgcDriverSubmitMultiCommandBuffers",
+        "start_va": 18000,
+        "size": 579
+      }
+    },
+    {
+      "instruction_va": 18346,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 18336,
+        "instruction": "lea    0x16161(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance": 2
+      },
+      "owner": {
+        "name": "sceAgcDriverSubmitMultiCommandBuffers",
+        "start_va": 18000,
+        "size": 579
+      }
+    },
+    {
+      "instruction_va": 25679,
+      "instruction": "vmovups %xmm1,0xa0(%rdi)",
+      "base_register": "rdi",
+      "access_type": "STORE",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null,
+      "owner": null
+    },
+    {
+      "instruction_va": 43665,
+      "instruction": "mov    %rdi,-0xa0(%rbp)",
+      "base_register": "rbp",
+      "access_type": "STORE",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null,
+      "owner": null
+    }
+  ],
+  "global_a0_stores": [
+    {
+      "instruction_va": 518,
+      "instruction": "movl   $0x1,0xa0(%rax)",
+      "base_register": "rax",
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 1,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 356,
+        "instruction": "lea    0x1a79d(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance": 32
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 632,
+      "instruction": "movl   $0x0,0xa0(%r8)",
+      "base_register": "r8",
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 0,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 548,
+        "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+        "register": "r8",
+        "distance": 21
+      },
+      "owner": null
+    }
+  ],
+  "lifecycle": {
+    "initial_value_event": {
+      "instruction_va": 518,
+      "instruction": "movl   $0x1,0xa0(%rax)",
+      "base_register": "rax",
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 1,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 356,
+        "instruction": "lea    0x1a79d(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance": 32
+      },
+      "owner": null
+    },
+    "reset_events": [
+      {
+        "instruction_va": 632,
+        "instruction": "movl   $0x0,0xa0(%r8)",
+        "base_register": "r8",
+        "access_type": "STORE_IMMEDIATE",
+        "immediate_value": 0,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 548,
+          "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+          "register": "r8",
+          "distance": 21
+        },
+        "owner": null
+      }
+    ],
+    "first_reset_after_initialization": {
+      "instruction_va": 632,
+      "instruction": "movl   $0x0,0xa0(%r8)",
+      "base_register": "r8",
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 0,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 548,
+        "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+        "register": "r8",
+        "distance": 21
+      },
+      "owner": null
+    },
+    "other_post_initialization_stores": []
+  },
+  "submit": {
+    "a0_reads": [
+      {
+        "instruction_va": 6488,
+        "instruction": "mov    0xa0(%rbx),%eax",
+        "base_register": "rbx",
+        "access_type": "READ",
+        "immediate_value": null,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 6408,
+          "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+          "register": "rbx",
+          "distance": 18
+        },
+        "owner": {
+          "name": "sceAgcDriverSubmitCommandBuffer",
+          "start_va": 6320,
+          "size": 380
+        }
+      },
+      {
+        "instruction_va": 6548,
+        "instruction": "mov    0xa0(%rbx),%eax",
+        "base_register": "rbx",
+        "access_type": "READ",
+        "immediate_value": null,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 6408,
+          "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+          "register": "rbx",
+          "distance": 38
+        },
+        "owner": {
+          "name": "sceAgcDriverSubmitCommandBuffer",
+          "start_va": 6320,
+          "size": 380
+        }
+      }
+    ],
+    "bound_evidence": [
+      {
+        "instruction_va": 6488,
+        "instruction": "mov    0xa0(%rbx),%eax",
+        "base_register": "rbx",
+        "access_type": "READ",
+        "immediate_value": null,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 6408,
+          "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+          "register": "rbx",
+          "distance": 18
+        },
+        "owner": {
+          "name": "sceAgcDriverSubmitCommandBuffer",
+          "start_va": 6320,
+          "size": 380
+        }
+      },
+      {
+        "instruction_va": 6548,
+        "instruction": "mov    0xa0(%rbx),%eax",
+        "base_register": "rbx",
+        "access_type": "READ",
+        "immediate_value": null,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 6408,
+          "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+          "register": "rbx",
+          "distance": 38
+        },
+        "owner": {
+          "name": "sceAgcDriverSubmitCommandBuffer",
+          "start_va": 6320,
+          "size": 380
+        }
+      }
+    ],
+    "a4_dispatch_correlation": true
+  },
+  "multi": {
+    "a0_reads": [
+      {
+        "instruction_va": 18265,
+        "instruction": "mov    0xa0(%rax),%eax",
+        "base_register": "rax",
+        "access_type": "READ",
+        "immediate_value": null,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 18258,
+          "instruction": "lea    0x161af(%rip),%rax        # 0x1a908",
+          "register": "rax",
+          "distance": 1
+        },
+        "owner": {
+          "name": "sceAgcDriverSubmitMultiCommandBuffers",
+          "start_va": 18000,
+          "size": 579
+        }
+      },
+      {
+        "instruction_va": 18346,
+        "instruction": "mov    0xa0(%rax),%eax",
+        "base_register": "rax",
+        "access_type": "READ",
+        "immediate_value": null,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 18336,
+          "instruction": "lea    0x16161(%rip),%rax        # 0x1a908",
+          "register": "rax",
+          "distance": 2
+        },
+        "owner": {
+          "name": "sceAgcDriverSubmitMultiCommandBuffers",
+          "start_va": 18000,
+          "size": 579
+        }
+      }
+    ],
+    "bound_evidence": [
+      {
+        "instruction_va": 18265,
+        "instruction": "mov    0xa0(%rax),%eax",
+        "base_register": "rax",
+        "access_type": "READ",
+        "immediate_value": null,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 18258,
+          "instruction": "lea    0x161af(%rip),%rax        # 0x1a908",
+          "register": "rax",
+          "distance": 1
+        },
+        "owner": {
+          "name": "sceAgcDriverSubmitMultiCommandBuffers",
+          "start_va": 18000,
+          "size": 579
+        }
+      },
+      {
+        "instruction_va": 18346,
+        "instruction": "mov    0xa0(%rax),%eax",
+        "base_register": "rax",
+        "access_type": "READ",
+        "immediate_value": null,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 18336,
+          "instruction": "lea    0x16161(%rip),%rax        # 0x1a908",
+          "register": "rax",
+          "distance": 2
+        },
+        "owner": {
+          "name": "sceAgcDriverSubmitMultiCommandBuffers",
+          "start_va": 18000,
+          "size": 579
+        }
+      }
+    ],
+    "a4_dispatch_correlation": true
+  },
+  "reset_analysis": [
+    {
+      "event": {
+        "instruction_va": 632,
+        "instruction": "movl   $0x0,0xa0(%r8)",
+        "base_register": "r8",
+        "access_type": "STORE_IMMEDIATE",
+        "immediate_value": 0,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 548,
+          "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+          "register": "r8",
+          "distance": 21
+        },
+        "owner": null
+      },
+      "owner": null,
+      "window": [
+        {
+          "va": 579,
+          "bytes": [
+            131,
+            249,
+            255
+          ],
+          "instruction": "cmp    $0xffffffff,%ecx"
+        },
+        {
+          "va": 582,
+          "bytes": [
+            117,
+            63
+          ],
+          "instruction": "jne    0x287"
+        },
+        {
+          "va": 584,
+          "bytes": [
+            72,
+            255,
+            194
+          ],
+          "instruction": "inc    %rdx"
+        },
+        {
+          "va": 587,
+          "bytes": [
+            72,
+            131,
+            199,
+            120
+          ],
+          "instruction": "add    $0x78,%rdi"
+        },
+        {
+          "va": 591,
+          "bytes": [
+            72,
+            57,
+            208
+          ],
+          "instruction": "cmp    %rdx,%rax"
+        },
+        {
+          "va": 594,
+          "bytes": [
+            117,
+            236
+          ],
+          "instruction": "jne    0x240"
+        },
+        {
+          "va": 596,
+          "bytes": [
+            72,
+            107,
+            198,
+            120
+          ],
+          "instruction": "imul   $0x78,%rsi,%rax"
+        },
+        {
+          "va": 600,
+          "bytes": [
+            197,
+            248,
+            87,
+            192
+          ],
+          "instruction": "vxorps %xmm0,%xmm0,%xmm0"
+        },
+        {
+          "va": 604,
+          "bytes": [
+            196,
+            193,
+            124,
+            17,
+            68,
+            0,
+            8
+          ],
+          "instruction": "vmovups %ymm0,0x8(%r8,%rax,1)"
+        },
+        {
+          "va": 611,
+          "bytes": [
+            196,
+            193,
+            124,
+            17,
+            68,
+            0,
+            240
+          ],
+          "instruction": "vmovups %ymm0,-0x10(%r8,%rax,1)"
+        },
+        {
+          "va": 618,
+          "bytes": [
+            196,
+            193,
+            124,
+            17,
+            68,
+            0,
+            208
+          ],
+          "instruction": "vmovups %ymm0,-0x30(%r8,%rax,1)"
+        },
+        {
+          "va": 625,
+          "bytes": [
+            196,
+            193,
+            124,
+            17,
+            68,
+            0,
+            176
+          ],
+          "instruction": "vmovups %ymm0,-0x50(%r8,%rax,1)"
+        },
+        {
+          "va": 632,
+          "bytes": [
+            65,
+            199,
+            128,
+            160,
+            0,
+            0,
+            0
+          ],
+          "instruction": "movl   $0x0,0xa0(%r8)"
+        },
+        {
+          "va": 639,
+          "bytes": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "instruction": ""
+        },
+        {
+          "va": 643,
+          "bytes": [
+            49,
+            192
+          ],
+          "instruction": "xor    %eax,%eax"
+        },
+        {
+          "va": 645,
+          "bytes": [
+            93
+          ],
+          "instruction": "pop    %rbp"
+        },
+        {
+          "va": 646,
+          "bytes": [
+            195
+          ],
+          "instruction": "ret"
+        },
+        {
+          "va": 647,
+          "bytes": [
+            68,
+            15,
+            182,
+            15
+          ],
+          "instruction": "movzbl (%rdi),%r9d"
+        },
+        {
+          "va": 651,
+          "bytes": [
+            68,
+            15,
+            182,
+            71,
+            255
+          ],
+          "instruction": "movzbl -0x1(%rdi),%r8d"
+        },
+        {
+          "va": 656,
+          "bytes": [
+            72,
+            139,
+            61,
+            73,
+            62,
+            1,
+            0
+          ],
+          "instruction": "mov    0x13e49(%rip),%rdi        # 0x140e0"
+        },
+        {
+          "va": 663,
+          "bytes": [
+            72,
+            141,
+            53,
+            190,
+            239,
+            0,
+            0
+          ],
+          "instruction": "lea    0xefbe(%rip),%rsi        # 0xf25c"
+        },
+        {
+          "va": 670,
+          "bytes": [
+            49,
+            192
+          ],
+          "instruction": "xor    %eax,%eax"
+        },
+        {
+          "va": 672,
+          "bytes": [
+            232,
+            219,
+            168,
+            0,
+            0
+          ],
+          "instruction": "call   0xab80"
+        },
+        {
+          "va": 677,
+          "bytes": [
+            184,
+            6,
+            0,
+            109,
+            138
+          ],
+          "instruction": "mov    $0x8a6d0006,%eax"
+        },
+        {
+          "va": 682,
+          "bytes": [
+            93
+          ],
+          "instruction": "pop    %rbp"
+        },
+        {
+          "va": 683,
+          "bytes": [
+            195
+          ],
+          "instruction": "ret"
+        },
+        {
+          "va": 684,
+          "bytes": [
+            204
+          ],
+          "instruction": "int3"
+        },
+        {
+          "va": 685,
+          "bytes": [
+            204
+          ],
+          "instruction": "int3"
+        },
+        {
+          "va": 686,
+          "bytes": [
+            204
+          ],
+          "instruction": "int3"
+        },
+        {
+          "va": 687,
+          "bytes": [
+            204
+          ],
+          "instruction": "int3"
+        },
+        {
+          "va": 688,
+          "bytes": [
+            85
+          ],
+          "instruction": "push   %rbp"
+        },
+        {
+          "va": 689,
+          "bytes": [
+            72,
+            137,
+            229
+          ],
+          "instruction": "mov    %rsp,%rbp"
+        },
+        {
+          "va": 692,
+          "bytes": [
+            72,
+            139,
+            61,
+            37,
+            62,
+            1,
+            0
+          ],
+          "instruction": "mov    0x13e25(%rip),%rdi        # 0x140e0"
+        }
+      ],
+      "window_text": "0x243: cmp    $0xffffffff,%ecx\n0x246: jne    0x287\n0x248: inc    %rdx\n0x24B:add    $0x78,%rdi\n0x24F: cmp    %rdx,%rax\n0x252: jne    0x240\n0x254: imul   $0x78,%rsi,%rax\n0x258: vxorps %xmm0,%xmm0,%xmm0\n0x25C: vmovups %ymm0,0x8(%r8,%rax,1)\n0x263: vmovups %ymm0,-0x10(%r8,%rax,1)\n0x26A: vmovups %ymm0,-0x30(%r8,%rax,1)\n0x271: vmovups %ymm0,-0x50(%r8,%rax,1)\n0x278: movl   $0x0,0xa0(%r8)\n0x27F: \n0x283: xor    %eax,%eax\n0x285: pop    %rbp\n0x286: ret\n0x287: movzbl (%rdi),%r9d\n0x28B: movzbl -0x1(%rdi),%r8d\n0x290: mov    0x13e49(%rip),%rdi        # 0x140e0\n0x297: lea    0xefbe(%rip),%rsi        # 0xf25c\n0x29E: xor    %eax,%eax\n0x2A0: call   0xab80\n0x2A5: mov    $0x8a6d0006,%eax\n0x2AA: pop    %rbp\n0x2AB: ret\n0x2AC: int3\n0x2AD: int3\n0x2AE: int3\n0x2AF: int3\n0x2B0: push   %rbp\n0x2B1: mov    %rsp,%rbp\n0x2B4: mov    0x13e25(%rip),%rdi        # 0x140e0"
+    }
+  ],
+  "conclusions": {
+    "GLOBAL_A0_SCAN_COMPLETED": true,
+    "A0_INITIALIZATION_TO_1_PROVEN": true,
+    "A0_RESET_TO_0_PROVEN": true,
+    "A0_LIFECYCLE_INITIALIZE_RESET_PROVEN": true,
+    "A0_OTHER_POST_INITIALIZATION_STORES_FOUND": false,
+    "SUBMIT_A0_BOUND_USAGE_CORROBORATED": true,
+    "MULTI_A0_BOUND_USAGE_CORROBORATED": true,
+    "SUBMIT_A4_DISPATCH_CORRELATED": true,
+    "MULTI_A4_DISPATCH_CORRELATED": true,
+    "A0_COUNT_SEMANTICS_PROVEN": true,
+    "A0_TABLE_LIFECYCLE_CORROBORATED": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "notes": [
+    "Stage 71 reconstruye la secuencia de escrituras sobre global_context+0xA0.",
+    "La escritura de 1 se trata como inicializaci├│n ├║nicamente si la base llega por LEA directa de 0x1A908.",
+    "La escritura posterior de 0 se trata como reset cuando tambi├®n queda demostrada sobre el mismo global_context.",
+    "Los lectores de SubmitCommandBuffer y SubmitMultiCommandBuffers se mantienen separados.",
+    "El uso de +0xA4 como ├¡ndice de dispatch sigue siendo evidencia independiente.",
+    "La etapa no asigna un nombre p├║blico de SDK al campo +0xA0.",
+    "La etapa no declara ejecuci├│n real de AGC."
+  ]
+}
+
+==> Verificar artefactos Stage 71
+
+[WSL] set -e
+
+set -e
+
+test -f '/mnt/d/agc_work/stage71_results/stage71_static.json'
+test -f '/mnt/d/agc_work/stage71_results/a0_lifecycle_summary.txt'
+test -f '/mnt/d/agc_work/stage71_results/a0_lifecycle_disassembly.txt'
+test -f '/mnt/d/agc_work/stage71_results/a0_lifecycle.json'
+test -f '/mnt/d/agc_work/stage71_results/STAGE71_REPORT.json'
+
+echo '--- a0_lifecycle_summary.txt ---'
+cat '/mnt/d/agc_work/stage71_results/a0_lifecycle_summary.txt'
+
+echo '--- output files ---'
+find '/mnt/d/agc_work/stage71_results' \
+    -maxdepth 1 \
+    -type f |
+    sort
+--- a0_lifecycle_summary.txt ---
+AGC PS5 Stage 71 - Global +0xA0 Lifecycle / Reset / Consumer Audit
+
+=== TARGET ===
+global_context = 0x1A908
+field_offset = 0xA0
+field_va = 0x1A9A8
+table_stride = 0x78
+
+=== GLOBAL +0xA0 STORES ===
+VA=0x206 owner=<unknown> type=STORE_IMMEDIATE value=1 base=rax | movl   $0x1,0xa0(%rax)
+VA=0x278 owner=<unknown> type=STORE_IMMEDIATE value=0 base=r8 | movl   $0x0,0xa0(%r8)
+
+=== INITIALIZATION ===
+VA=0x206
+movl   $0x1,0xa0(%rax)
+global_context_base_proven = True
+
+=== RESET EVENTS ===
+VA=0x278 | movl   $0x0,0xa0(%r8) | base=r8 | proven=True
+
+=== POST-INITIALIZATION OTHER STORES ===
+NONE
+
+=== SUBMIT +0xA0 ===
+VA=0x1958 | mov    0xa0(%rbx),%eax | bound_evidence=True
+VA=0x1994 | mov    0xa0(%rbx),%eax | bound_evidence=True
+
+=== MULTI +0xA0 ===
+VA=0x4759 | mov    0xa0(%rax),%eax | bound_evidence=True
+VA=0x47AA | mov    0xa0(%rax),%eax | bound_evidence=True
+
+=== A4 DISPATCH CORRELATION ===
+SUBMIT_A4_DISPATCH_CORRELATED=True
+MULTI_A4_DISPATCH_CORRELATED=True
+
+=== CONCLUSIONS ===
+GLOBAL_A0_SCAN_COMPLETED=True
+A0_INITIALIZATION_TO_1_PROVEN=True
+A0_RESET_TO_0_PROVEN=True
+A0_LIFECYCLE_INITIALIZE_RESET_PROVEN=True
+A0_OTHER_POST_INITIALIZATION_STORES_FOUND=False
+SUBMIT_A0_BOUND_USAGE_CORROBORATED=True
+MULTI_A0_BOUND_USAGE_CORROBORATED=True
+SUBMIT_A4_DISPATCH_CORRELATED=True
+MULTI_A4_DISPATCH_CORRELATED=True
+A0_COUNT_SEMANTICS_PROVEN=True
+A0_TABLE_LIFECYCLE_CORROBORATED=True
+INDEX_SEMANTICS_PROVEN=True
+EXACT_FIELD_NAME_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== LIMIT ===
+La etapa demuestra el ciclo de vida observable de +0xA0 solo cuando la base del acceso puede seguirseest├íticamente hasta global_context=0x1A908. Esto no convierte el campo en un nombre p├║blico de API ni demuestra ejecuci├│n real.
+--- output files ---
+/mnt/d/agc_work/stage71_results/STAGE71_REPORT.json
+/mnt/d/agc_work/stage71_results/a0_lifecycle.json
+/mnt/d/agc_work/stage71_results/a0_lifecycle_disassembly.txt
+/mnt/d/agc_work/stage71_results/a0_lifecycle_summary.txt
+/mnt/d/agc_work/stage71_results/analyze_a0_lifecycle.py
+/mnt/d/agc_work/stage71_results/stage71_static.json
+
+==> Hash artefactos
+[INFO] stage71_static.json SHA256=2499369d3ad5bd4889fe7874426c0f8b255e9a9a7395409b156489350b30a446
+[INFO] a0_lifecycle_summary.txt SHA256=36ffe3096c38347b7da0661768157e323e3508e24dcf45deeae069ac63eaf0c5
+[INFO] a0_lifecycle_disassembly.txt SHA256=1d0b782ef9d7f4d9f1eeee574b9f88c95d71895693193f544be670402586d03b
+[INFO] a0_lifecycle.json SHA256=c9d59418116df99773fbf4710711b549b8c43c6186bc5a7fe2bbf7ca3cfbdd58
+[INFO] STAGE71_REPORT.json SHA256=ea6855ab610f0aed7d5cf9e90ebb52d2fcf8591ee451b153a6aacae7d3ebf0e3
+
+==> Limpiar temporales Stage 71
+
+[WSL] set -e
+
+rm -rf '/tmp/agc_stage71'
+
+============================================
+Stage 71 completado
+============================================
+GLOBAL_A0_SCAN_COMPLETED = True
+A0_INITIALIZATION_TO_1_PROVEN = True
+A0_RESET_TO_0_PROVEN = True
+A0_LIFECYCLE_INITIALIZE_RESET_PROVEN = True
+A0_OTHER_POST_INITIALIZATION_STORES_FOUND = False
+SUBMIT_A0_BOUND_USAGE_CORROBORATED = True
+MULTI_A0_BOUND_USAGE_CORROBORATED = True
+SUBMIT_A4_DISPATCH_CORRELATED = True
+MULTI_A4_DISPATCH_CORRELATED = True
+A0_COUNT_SEMANTICS_PROVEN = True
+A0_TABLE_LIFECYCLE_CORROBORATED = True
+INDEX_SEMANTICS_PROVEN = True
+EXACT_FIELD_NAME_PROVEN = False
+BACKEND_CONSUMER_IDENTIFIED = False
+SEMANTIC_PROTOTYPE_INFERRED = False
+EXECUTED_AGC = False
+
+Resultados:
+  D:\agc_work\stage71_results
+
+Reporte:
+  D:\agc_work\stage71_results\STAGE71_REPORT.json
+PS D:\agc_ps5_stage71>

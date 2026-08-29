@@ -1,0 +1,31 @@
+{
+  "store_candidates": [],
+  "proven_global_context_stores": [],
+  "initializer_submit_stores": [],
+  "initializer_multi_stores": [],
+  "entry_layout": {
+    "stride": 120,
+    "table_bases": {
+      "submit": {
+        "global_context": 108808,
+        "offset": 80
+      },
+      "multi": {
+        "global_context": 108808,
+        "offset": 88
+      }
+    },
+    "slots": {
+      "0x00": {
+        "description": "first 8-byte slot at each indexed entry",
+        "width_bytes": 8,
+        "proven_by_indexed_stores": false
+      },
+      "0x08": {
+        "description": "second 8-byte slot at each indexed entry",
+        "width_bytes": 8,
+        "proven_by_multi_table_store": false
+      }
+    }
+  }
+}

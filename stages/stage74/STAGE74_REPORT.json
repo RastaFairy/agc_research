@@ -1,0 +1,420 @@
+{
+  "stage": 74,
+  "target": {
+    "global_context_va": 108808,
+    "submit_table_offset": 80,
+    "multi_table_offset": 88,
+    "entry_stride": 120,
+    "submit_va": 6320,
+    "submit_size": 380,
+    "multi_va": 18000,
+    "multi_size": 579
+  },
+  "previous_stage": {
+    "stage73_available": true
+  },
+  "scanner": {
+    "exec_segment_count": 1,
+    "instruction_count": 13805,
+    "parser_strategy": "robust objdump parser + explicit AT&T destination parsing + local register data-flow"
+  },
+  "store_candidates": [
+    {
+      "va": 442,
+      "instruction": "vmovups %ymm0,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80
+    },
+    {
+      "va": 471,
+      "instruction": "mov    %rdx,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80
+    },
+    {
+      "va": 482,
+      "instruction": "mov    %rsi,0x58(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88
+    },
+    {
+      "va": 5976,
+      "instruction": "mov    %ecx,0x50(%rsp)",
+      "base_register": "rsp",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80
+    },
+    {
+      "va": 6015,
+      "instruction": "mov    %edx,0x58(%rsp)",
+      "base_register": "rsp",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88
+    },
+    {
+      "va": 6037,
+      "instruction": "movl   $0x0,0x50(%rsp)",
+      "base_register": "rsp",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80
+    },
+    {
+      "va": 6057,
+      "instruction": "andl   $0xfff00000,0x58(%rsp)",
+      "base_register": "rsp",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88
+    },
+    {
+      "va": 16877,
+      "instruction": "mov    %eax,0x50(%rbx)",
+      "base_register": "rbx",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80
+    },
+    {
+      "va": 16919,
+      "instruction": "mov    %eax,0x58(%rbx)",
+      "base_register": "rbx",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88
+    },
+    {
+      "va": 24382,
+      "instruction": "movl   $0xc0036100,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80
+    },
+    {
+      "va": 24432,
+      "instruction": "mov    %esi,0x58(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88
+    },
+    {
+      "va": 25214,
+      "instruction": "movl   $0xc0036100,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80
+    },
+    {
+      "va": 25225,
+      "instruction": "mov    %r14d,0x58(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88
+    },
+    {
+      "va": 25587,
+      "instruction": "mov    %rcx,0x50(%rdi)",
+      "base_register": "rdi",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80
+    },
+    {
+      "va": 25601,
+      "instruction": "mov    %r8d,0x58(%rdi)",
+      "base_register": "rdi",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88
+    }
+  ],
+  "proven_global_context_stores": [],
+  "unproven_store_candidates": [
+    {
+      "va": 442,
+      "instruction": "vmovups %ymm0,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "function_window_start_va": 352,
+      "function_window_end_va": 2358,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [],
+      "indexed_entry_pattern": false
+    },
+    {
+      "va": 471,
+      "instruction": "mov    %rdx,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "function_window_start_va": 352,
+      "function_window_end_va": 2365,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [],
+      "indexed_entry_pattern": false
+    },
+    {
+      "va": 482,
+      "instruction": "mov    %rsi,0x58(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "function_window_start_va": 352,
+      "function_window_end_va": 2367,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [],
+      "indexed_entry_pattern": false
+    },
+    {
+      "va": 5976,
+      "instruction": "mov    %ecx,0x50(%rsp)",
+      "base_register": "rsp",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "function_window_start_va": 4945,
+      "function_window_end_va": 8251,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [],
+      "indexed_entry_pattern": false
+    },
+    {
+      "va": 6015,
+      "instruction": "mov    %edx,0x58(%rsp)",
+      "base_register": "rsp",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "function_window_start_va": 4945,
+      "function_window_end_va": 8279,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [],
+      "indexed_entry_pattern": false
+    },
+    {
+      "va": 6037,
+      "instruction": "movl   $0x0,0x50(%rsp)",
+      "base_register": "rsp",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "function_window_start_va": 4945,
+      "function_window_end_va": 8315,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [],
+      "indexed_entry_pattern": false
+    },
+    {
+      "va": 6057,
+      "instruction": "andl   $0xfff00000,0x58(%rsp)",
+      "base_register": "rsp",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "function_window_start_va": 4945,
+      "function_window_end_va": 8332,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [],
+      "indexed_entry_pattern": false
+    },
+    {
+      "va": 16877,
+      "instruction": "mov    %eax,0x50(%rbx)",
+      "base_register": "rbx",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "function_window_start_va": 16641,
+      "function_window_end_va": 18927,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [
+        {
+          "va": 16648,
+          "instruction": "mov    %rsp,%rbx",
+          "kind": "REGISTER_ALIAS",
+          "from": "rsp",
+          "to": "rbx"
+        }
+      ],
+      "indexed_entry_pattern": false
+    },
+    {
+      "va": 16919,
+      "instruction": "mov    %eax,0x58(%rbx)",
+      "base_register": "rbx",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "function_window_start_va": 16641,
+      "function_window_end_va": 18965,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [
+        {
+          "va": 16648,
+          "instruction": "mov    %rsp,%rbx",
+          "kind": "REGISTER_ALIAS",
+          "from": "rsp",
+          "to": "rbx"
+        }
+      ],
+      "indexed_entry_pattern": false
+    },
+    {
+      "va": 24382,
+      "instruction": "movl   $0xc0036100,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "function_window_start_va": 23712,
+      "function_window_end_va": 26381,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [],
+      "indexed_entry_pattern": false
+    },
+    {
+      "va": 24432,
+      "instruction": "mov    %esi,0x58(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "function_window_start_va": 23712,
+      "function_window_end_va": 26397,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [],
+      "indexed_entry_pattern": false
+    },
+    {
+      "va": 25214,
+      "instruction": "movl   $0xc0036100,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "function_window_start_va": 24576,
+      "function_window_end_va": 26697,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [],
+      "indexed_entry_pattern": false
+    },
+    {
+      "va": 25225,
+      "instruction": "mov    %r14d,0x58(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "function_window_start_va": 24576,
+      "function_window_end_va": 26705,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [],
+      "indexed_entry_pattern": false
+    },
+    {
+      "va": 25587,
+      "instruction": "mov    %rcx,0x50(%rdi)",
+      "base_register": "rdi",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "function_window_start_va": 24576,
+      "function_window_end_va": 26951,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [],
+      "indexed_entry_pattern": false
+    },
+    {
+      "va": 25601,
+      "instruction": "mov    %r8d,0x58(%rdi)",
+      "base_register": "rdi",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "function_window_start_va": 24576,
+      "function_window_end_va": 26953,
+      "base_proven": false,
+      "global_source_va": null,
+      "trace": [],
+      "indexed_entry_pattern": false
+    }
+  ],
+  "focused_dispatch": {
+    "submit_global_leas": [],
+    "multi_global_leas": [],
+    "submit_dispatch": [],
+    "multi_dispatch": []
+  },
+  "entry_layout": {
+    "stride": 120,
+    "slot_00": "8-byte destination/source slot at entry +0x00",
+    "slot_08": "8-byte destination/source slot at entry +0x08",
+    "layout_status": "not proven by store scan unless indexed global-context store is found"
+  },
+  "conclusions": {
+    "STORE_SCAN_COMPLETED": true,
+    "STORE_CANDIDATES_FOUND": true,
+    "GLOBAL_CONTEXT_BASE_PROVEN_FOR_ANY_STORE": false,
+    "SUBMIT_TABLE_INITIALIZER_STORE_PROVEN": false,
+    "MULTI_TABLE_INITIALIZER_STORE_PROVEN": false,
+    "ENTRY_0x00_INDEXED_SLOT_PROVEN": false,
+    "ENTRY_0x08_INDEXED_SLOT_PROVEN": false,
+    "ENTRY_STRIDE_PROVEN": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "COUNT_SEMANTICS_PROVEN": true,
+    "FUNCTION_POINTER_VALUE_ORIGIN_PROVEN": false,
+    "EXACT_ENTRY_FIELD_NAMES_PROVEN": false,
+    "EXACT_ENTRY_STRUCT_SIZE_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "artifacts": {
+    "stage74_static.json": {
+      "sha256": "9d51ce3521e9ba847adfe9e56ce6eaaca480f46ebdfd8097f2372cb24f578a00",
+      "size": 10303
+    },
+    "dispatch_entry_provenance_summary.txt": {
+      "sha256": "c88973895f9da42162997d1da57a872f455006c3d95421a489ad03440722feae",
+      "size": 2576
+    },
+    "dispatch_entry_provenance_disassembly.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "dispatch_entry_provenance.json": {
+      "sha256": "9d51ce3521e9ba847adfe9e56ce6eaaca480f46ebdfd8097f2372cb24f578a00",
+      "size": 10303
+    }
+  }
+}

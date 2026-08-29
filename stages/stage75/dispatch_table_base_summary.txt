@@ -1,0 +1,56 @@
+AGC PS5 Stage 75 - Dispatch Table Base / Initializer Argument Provenance Audit
+
+=== TARGET ===
+global_context = 0x1A908
+initializer = 0x160
+submit table field = +0x50
+multi table field = +0x58
+entry stride = 0x78
+
+=== INITIALIZER STORES ===
+VA=0x1ba field=+0x50 source=%ymm0 | vmovups %ymm0,0x50(%rax)
+VA=0x1d7 field=+0x50 source=%rdx | mov    %rdx,0x50(%rax)
+VA=0x1e2 field=+0x58 source=%rsi | mov    %rsi,0x58(%rax)
+
+=== INITIALIZER CALLS ===
+CALL=0x7876 call   0x160
+  global_context: lea    0x130b7(%rip),%rdi        # 0x1a908
+  RSI=None
+  RDX=None
+
+=== TABLE ARGUMENT PROVENANCE ===
+CALL=0x7876
+  RDX -> +0x50: None
+  RSI -> +0x58: None
+
+=== DISPATCH USES ===
+VA=0x19d2 table=+0x50 | call   *0x50(%rbx,%rax,1)
+VA=0x2ac6 table=+0x50 | call   *0x50(%r12,%rax,1)
+VA=0x47df table=+0x58 | call   *0x58(%rcx,%rax,1)
+
+=== CONCLUSIONS ===
+INITIALIZER_0x50_STORE_FOUND=True
+INITIALIZER_0x58_STORE_FOUND=True
+INITIALIZER_CALLS_FOUND=True
+GLOBAL_CONTEXT_PASSED_TO_INITIALIZER_PROVEN=True
+SUBMIT_TABLE_ARGUMENT_PROVEN=False
+MULTI_TABLE_ARGUMENT_PROVEN=False
+TABLE_BASE_POINTER_MODEL_SUPPORTED=True
+DISPATCH_0x50_USE_CONFIRMED=True
+DISPATCH_0x58_USE_CONFIRMED=True
+ENTRY_STRIDE_PROVEN=True
+INDEX_SEMANTICS_PROVEN=True
+COUNT_SEMANTICS_PROVEN=True
+FUNCTION_POINTER_VALUE_ORIGIN_PROVEN=False
+EXACT_ENTRY_FIELD_NAMES_PROVEN=False
+EXACT_ENTRY_STRUCT_SIZE_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== LIMIT ===
++0x50/+0x58 se tratan aquí como campos base de tablas cuando la función
+inicializadora escribe en ellos y los sitios Submit/Multi los usan como
+base de dispatch indexado con stride 0x78. Esta etapa no inventa nombres
+públicos de API ni convierte automáticamente los valores de RSI/RDX en
+punteros semánticos documentados.

@@ -1,0 +1,35 @@
+{
+  "stage": 79,
+  "functions": {
+    "sceAgcDriverSubmitDcb": "UglJIZjGssM",
+    "sceAgcDriverAgrSubmitDcb": "AhGvpITrf4M",
+    "sceAgcDriverSubmitAcb": "gSRnr79F8tQ",
+    "sceAgcDriverSubmitCommandBuffer": "b4fpgH5ZXxQ",
+    "sceAgcDriverSubmitMultiCommandBuffers": "Fj7r9EHzF38",
+    "sceAgcDriverSubmitMultiDcbs": "6UzEidRZwkg",
+    "sceAgcDriverAgrSubmitMultiDcbs": "+T8Xo6LtFJI",
+    "sceAgcDriverSubmitMultiAcbs": "HF3YllT3mXU"
+  },
+  "abi": {
+    "context_register": "RDI",
+    "argument_register": "RSI",
+    "return_register": "EAX",
+    "args": {
+      "0x00": { "width": 8 },
+      "0x08": { "width": 4 },
+      "0x0C": { "width": 1 },
+      "sizeof_c_struct": 16
+    }
+  },
+  "dispatch": {
+    "global_context": "0x1A908",
+    "table_count_or_bound_offset": "0xA0",
+    "dispatch_index_offset": "0xA4",
+    "submit_table_offset": "0x50",
+    "multi_table_offset": "0x58",
+    "entry_stride": "0x78"
+  },
+  "runtime": {
+    "executed_agc": false
+  }
+}

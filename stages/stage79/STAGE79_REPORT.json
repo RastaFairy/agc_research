@@ -1,0 +1,42 @@
+{
+  "dispatch": {
+    "dispatch_index": "0xA4",
+    "multi_table": "0x58",
+    "table_count_or_bound": "0xA0",
+    "entry_stride": "0x78",
+    "submit_table": "0x50",
+    "global_context": "0x1A908"
+  },
+  "output": "D:\\agc_work\\stage79_results",
+  "stage": 79,
+  "abi_v1": {
+    "submit_dcb": "int sceAgcDriverSubmitDcb(void *dcb_context, const SceAgcSubmitCommandBufferArgs *args)",
+    "args": [
+      {
+        "width": 8,
+        "offset": "0x00"
+      },
+      {
+        "width": 4,
+        "offset": "0x08"
+      },
+      {
+        "width": 1,
+        "offset": "0x0C"
+      }
+    ],
+    "submit_command_buffer": "int sceAgcDriverSubmitCommandBuffer(void *context, const SceAgcSubmitCommandBufferArgs *args)",
+    "agr_submit_dcb": "int sceAgcDriverAgrSubmitDcb(void *agr_context, const SceAgcSubmitCommandBufferArgs *args)"
+  },
+  "conclusions": {
+    "SEMANTIC_FIELD_NAMES_FINAL": false,
+    "ABI_V1_STATIC_LIBRARY_BUILT": true,
+    "DISPATCH_COUNT_PROVEN": true,
+    "REAL_AGC_EXECUTION": false,
+    "WRAPPER_REGISTER_PLACEMENT_PROVEN": true,
+    "DISPATCH_INDEX_PROVEN": true,
+    "ABI_LAYOUT_PROVEN": true,
+    "MULTI_ABI_COMPATIBLE_CANDIDATE": true
+  },
+  "previous_stage": 78
+}

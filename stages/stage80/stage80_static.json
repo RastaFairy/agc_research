@@ -1,0 +1,44 @@
+{
+  "stage": 80,
+  "previous_stage": 79,
+  "previous_library": "/mnt/d/agc_work/stage79_results/libSceAgcDriver_abi_v1.a",
+  "project_library": "/mnt/d/agc_work/stage80_results/libagc_project_v1.a",
+  "files": {
+    "agc_project_v1.h": {
+      "exists": true,
+      "sha256": "14253a11d599db9654fc2393894406286697bdcdbdb395c7eeaaf6acd4598b40"
+    },
+    "agc_project_v1.c": {
+      "exists": true,
+      "sha256": "e6375132f502a0e0392da6fed3f6ab6f7bf154e2279e7638e2669546ba2fac13"
+    },
+    "agc_project_v1.o": {
+      "exists": true,
+      "sha256": "401568b236776a931644d935f0a05ce5dd24002b38ede793b1f322859db6030c"
+    },
+    "libagc_project_v1.a": {
+      "exists": true,
+      "sha256": "dc460dcab1f7c924097d8ffa5e7834f7c06c9c3e245deb07570ec01fecdce90f"
+    },
+    "stage80_link_probe.c": {
+      "exists": true,
+      "sha256": "b13cdf4ea48633571b0a4b47b25ff83ab1732d7d8ea2ba34a8c84594d932ef35"
+    },
+    "stage80_link_probe.o": {
+      "exists": true,
+      "sha256": "e7ba2b62c25a47172d31afa8604f67878991921ac78723d4d3f179a6c33c96e9"
+    },
+    "ABI_V1_PROJECT_CONTRACT.txt": {
+      "exists": true,
+      "sha256": "8b7230c6561f80ce0c2e5372e4182e7a73a9ead4867dee172fedb2e22b7f553e"
+    }
+  },
+  "conclusions": {
+    "PROJECT_STATIC_LIBRARY_BUILT": true,
+    "PROJECT_HEADER_BUILT": true,
+    "PROJECT_SOURCE_BUILT": true,
+    "ABI_LINK_PROBE_COMPILED": true,
+    "PUBLIC_SEMANTIC_FIELD_NAMES_FINAL": false,
+    "REAL_AGC_EXECUTION": false
+  }
+}

@@ -1,0 +1,500 @@
+{
+  "stage": 77,
+  "target": {
+    "global_context_va": 108808,
+    "initializer_va": 352,
+    "helper_call_target": 31936,
+    "submit_table_offset": 80,
+    "multi_table_offset": 88,
+    "entry_stride": 120,
+    "submit_va": 6320,
+    "multi_va": 18000
+  },
+  "previous_stage": {
+    "stage76_available": true,
+    "helper_preserves_rsi_proven_stage76": false,
+    "helper_preserves_rdx_proven_stage76": false
+  },
+  "helper": {
+    "start_va": 31936,
+    "instruction_count": 103,
+    "return_paths": [
+      {
+        "ret_va": 32346,
+        "last_rsi": [
+          "rsi",
+          31973,
+          "mov    $0x2,%esi"
+        ],
+        "last_rdx": null
+      },
+      {
+        "ret_va": 32346,
+        "last_rsi": [
+          "rsi",
+          32007,
+          "mov    $0xc004812e,%esi"
+        ],
+        "last_rdx": [
+          "rdx",
+          32003,
+          "lea    -0x38(%rbp),%rdx"
+        ]
+      },
+      {
+        "ret_va": 32346,
+        "last_rsi": [
+          "rsi",
+          32277,
+          "mov    $0x100000,%esi"
+        ],
+        "last_rdx": [
+          "rdx",
+          32270,
+          "lea    0x7a2a(%rip),%rdx        # 0xf83f"
+        ]
+      },
+      {
+        "ret_va": 32346,
+        "last_rsi": [
+          "rsi",
+          32170,
+          "lea    0x12d37(%rip),%rsi        # 0x1aae8"
+        ],
+        "last_rdx": [
+          "rdx",
+          32003,
+          "lea    -0x38(%rbp),%rdx"
+        ]
+      },
+      {
+        "ret_va": 32346,
+        "last_rsi": [
+          "rsi",
+          32061,
+          "mov    $0x4000,%esi"
+        ],
+        "last_rdx": [
+          "rdx",
+          32066,
+          "mov    $0x22,%edx"
+        ]
+      },
+      {
+        "ret_va": 32346,
+        "last_rsi": [
+          "rsi",
+          32113,
+          "mov    $0x4000,%esi"
+        ],
+        "last_rdx": [
+          "rdx",
+          32106,
+          "lea    0x75ec(%rip),%rdx        # 0xf35d"
+        ]
+      },
+      {
+        "ret_va": 32346,
+        "last_rsi": [
+          "rsi",
+          32170,
+          "lea    0x12d37(%rip),%rsi        # 0x1aae8"
+        ],
+        "last_rdx": [
+          "rdx",
+          32106,
+          "lea    0x75ec(%rip),%rdx        # 0xf35d"
+        ]
+      }
+    ],
+    "disassembly": "0x7cc0: push   %rbp\n0x7cc1: mov    %rsp,%rbp\n0x7cc4: push   %r15\n0x7cc6: push   %r14\n0x7cc8: push   %r13\n0x7cca: push   %r12\n0x7ccc: push   %rbx\n0x7ccd: sub    $0x18,%rsp\n0x7cd1: mov    0xc410(%rip),%r13        # 0x140e8\n0x7cd8: mov    %rsi,%r14\n0x7cdb: mov    %rdi,%r15\n0x7cde: lea    0x835a(%rip),%rdi        # 0x1003f\n0x7ce5: mov    $0x2,%esi\n0x7cea: xor    %ebx,%ebx\n0x7cec: mov    0x0(%r13),%rax\n0x7cf0: mov    %rax,-0x30(%rbp)\n0x7cf4: xor    %eax,%eax\n0x7cf6: call   0xad70\n0x7cfb: test   %eax,%eax\n0x7cfd: js     0x7e40\n0x7d03: lea    -0x38(%rbp),%rdx\n0x7d07: mov    $0xc004812e,%esi\n0x7d0c: mov    %eax,%edi\n0x7d0e: mov    %eax,%r12d\n0x7d11: xor    %eax,%eax\n0x7d13: movl   $0x0,-0x38(%rbp)\n0x7d1a: call   0xad80\n0x7d1f: movzwl -0x38(%rbp),%r13d\n0x7d24: test   %r13d,%r13d\n0x7d27: jne    0x7d7e\n0x7d29: cmpq   $0x0,0x12daf(%rip)        # 0x1aae0\n0x7d31: jne    0x7d7e\n0x7d33: movabs $0xfe0200000,%rdi\n0x7d3d: mov    $0x4000,%esi\n0x7d42: mov    $0x22,%edx\n0x7d47: mov    $0x1,%ecx\n0x7d4c: mov    %r12d,%r8d\n0x7d4f: xor    %r9d,%r9d\n0x7d52: xor    %ebx,%ebx\n0x7d54: call   0xad90\n0x7d59: mov    %rax,0x12d80(%rip)        # 0x1aae0\n0x7d60: cmp    $0xffffffffffffffff,%rax\n0x7d64: je     0x7e31\n0x7d6a: lea    0x75ec(%rip),%rdx        # 0xf35d\n0x7d71: mov    $0x4000,%esi\n0x7d76: mov    %rax,%rdi\n0x7d79: call   0xada0\n0x7d7e: mov    %r12d,(%r15)\n0x7d81: test   %r13d,%r13d\n0x7d84: mov    0xc35d(%rip),%r13        # 0x140e8\n0x7d8b: jne    0x7db9\n0x7d8d: lea    -0x3c(%rbp),%rdi\n0x7d91: call   0xad60\n0x7d96: test   %eax,%eax\n0x7d98: je     0x7da1\n0x7d9a: movl   $0x3000000,-0x3c(%rbp)\n0x7da1: call   0x7e70\n0x7da6: test   %eax,%eax\n0x7da8: jne    0x7db9\n0x7daa: lea    0x12d37(%rip),%rsi        # 0x1aae8\n0x7db1: mov    %r12d,%edi\n0x7db4: call   0xa8a0\n0x7db9: mov    0x12de0(%rip),%rbx        # 0x1aba0\n0x7dc0: test   %rbx,%rbx\n0x7dc3: je     0x7e1f\n0x7dc5: vmovups 0x83a3(%rip),%xmm0        # 0x10170\n0x7dcd: lea    0xc8b60(%rbx),%rdi\n0x7dd4: mov    $0x600,%edx\n0x7dd9: movl   $0x0,(%rbx)\n0x7ddf: xor    %esi,%esi\n0x7de1: vmovups %xmm0,0xc8350(%rbx)\n0x7de9: call   0xabc0\n0x7dee: lea    0x7afb(%rip),%rdi        # 0xf8f0\n0x7df5: mov    $0x100000,%edx\n0x7dfa: mov    %rbx,%rsi\n0x7dfd: xor    %ecx,%ecx\n0x7dff: xor    %r8d,%r8d\n0x7e02: call   0xadb0\n0x7e07: mov    0x12d92(%rip),%rdi        # 0x1aba0\n0x7e0e: lea    0x7a2a(%rip),%rdx        # 0xf83f\n0x7e15: mov    $0x100000,%esi\n0x7e1a: call   0xada0\n0x7e1f: mov    $0x1,%ebx\n0x7e24: test   %r14,%r14\n0x7e27: je     0x7e40\n0x7e29: mov    -0x38(%rbp),%eax\n0x7e2c: mov    %eax,(%r14)\n0x7e2f: jmp    0x7e40\n0x7e31: mov    %r12d,%edi\n0x7e34: call   0xadc0\n0x7e39: mov    0xc2a8(%rip),%r13        # 0x140e8\n0x7e40: mov    0x0(%r13),%rax\n0x7e44: cmp    -0x30(%rbp),%rax\n0x7e48: jne    0x7e5b\n0x7e4a: mov    %ebx,%eax\n0x7e4c: add    $0x18,%rsp\n0x7e50: pop    %rbx\n0x7e51: pop    %r12\n0x7e53: pop    %r13\n0x7e55: pop    %r14\n0x7e57: pop    %r15\n0x7e59: pop    %rbp\n0x7e5a: ret"
+  },
+  "helper_return_outputs": {
+    "rsi": {
+      "return_paths": [
+        {
+          "status": "DEFINED",
+          "va": 31973,
+          "instruction": "mov    $0x2,%esi",
+          "kind": "VALUE_MOVE"
+        },
+        {
+          "status": "DEFINED",
+          "va": 32007,
+          "instruction": "mov    $0xc004812e,%esi",
+          "kind": "VALUE_MOVE"
+        },
+        {
+          "status": "DEFINED",
+          "va": 32277,
+          "instruction": "mov    $0x100000,%esi",
+          "kind": "VALUE_MOVE"
+        },
+        {
+          "status": "DEFINED",
+          "va": 32170,
+          "instruction": "lea    0x12d37(%rip),%rsi        # 0x1aae8",
+          "kind": "DIRECT_ADDRESS"
+        },
+        {
+          "status": "DEFINED",
+          "va": 32061,
+          "instruction": "mov    $0x4000,%esi",
+          "kind": "VALUE_MOVE"
+        },
+        {
+          "status": "DEFINED",
+          "va": 32113,
+          "instruction": "mov    $0x4000,%esi",
+          "kind": "VALUE_MOVE"
+        },
+        {
+          "status": "DEFINED",
+          "va": 32170,
+          "instruction": "lea    0x12d37(%rip),%rsi        # 0x1aae8",
+          "kind": "DIRECT_ADDRESS"
+        }
+      ]
+    },
+    "rdx": {
+      "return_paths": [
+        {
+          "status": "NO_DEFINITION_BEFORE_RETURN"
+        },
+        {
+          "status": "DEFINED",
+          "va": 32003,
+          "instruction": "lea    -0x38(%rbp),%rdx",
+          "kind": "DIRECT_ADDRESS"
+        },
+        {
+          "status": "DEFINED",
+          "va": 32270,
+          "instruction": "lea    0x7a2a(%rip),%rdx        # 0xf83f",
+          "kind": "DIRECT_ADDRESS"
+        },
+        {
+          "status": "DEFINED",
+          "va": 32003,
+          "instruction": "lea    -0x38(%rbp),%rdx",
+          "kind": "DIRECT_ADDRESS"
+        },
+        {
+          "status": "DEFINED",
+          "va": 32066,
+          "instruction": "mov    $0x22,%edx",
+          "kind": "VALUE_MOVE"
+        },
+        {
+          "status": "DEFINED",
+          "va": 32106,
+          "instruction": "lea    0x75ec(%rip),%rdx        # 0xf35d",
+          "kind": "DIRECT_ADDRESS"
+        },
+        {
+          "status": "DEFINED",
+          "va": 32106,
+          "instruction": "lea    0x75ec(%rip),%rdx        # 0xf35d",
+          "kind": "DIRECT_ADDRESS"
+        }
+      ]
+    }
+  },
+  "initializer_callsite": {
+    "found": true,
+    "call": {
+      "index": 563,
+      "va": 30838,
+      "instruction": "call   0x160"
+    },
+    "pre_call_state": {
+      "rsi": {
+        "va": 30773,
+        "instruction": "lea    -0x2c(%rbp),%rsi"
+      },
+      "rdx": {
+        "va": 30562,
+        "instruction": "lea    0x876a(%rip),%rdx        # 0xfed3"
+      },
+      "rdi": {
+        "va": 30794,
+        "instruction": "lea    0x130b7(%rip),%rdi        # 0x1a908"
+      },
+      "rcx": {
+        "va": 30801,
+        "instruction": "movzwl %ax,%ecx"
+      }
+    },
+    "pre_call_events": [
+      {
+        "va": 29728,
+        "register": "rsi",
+        "instruction": "lea    -0x14(%rbp),%rsi"
+      },
+      {
+        "va": 29746,
+        "register": "rdi",
+        "instruction": "mov    0x4(%rax),%edi"
+      },
+      {
+        "va": 29764,
+        "register": "rdi",
+        "instruction": "mov    0xcc95(%rip),%rdi        # 0x140e0"
+      },
+      {
+        "va": 29771,
+        "register": "rdx",
+        "instruction": "mov    %eax,%edx"
+      },
+      {
+        "va": 29773,
+        "register": "rsi",
+        "instruction": "lea    0x854f(%rip),%rsi        # 0xf9a3"
+      },
+      {
+        "va": 29792,
+        "register": "rcx",
+        "instruction": "mov    (%rbx),%rcx"
+      },
+      {
+        "va": 29795,
+        "register": "rcx",
+        "instruction": "cmp    -0x10(%rbp),%rcx"
+      },
+      {
+        "va": 29840,
+        "register": "rsi",
+        "instruction": "lea    -0x14(%rbp),%rsi"
+      },
+      {
+        "va": 29858,
+        "register": "rdi",
+        "instruction": "mov    0x4(%rax),%edi"
+      },
+      {
+        "va": 29869,
+        "register": "rcx",
+        "instruction": "mov    (%rbx),%rcx"
+      },
+      {
+        "va": 29872,
+        "register": "rcx",
+        "instruction": "cmp    -0x10(%rbp),%rcx"
+      },
+      {
+        "va": 29915,
+        "register": "rdi",
+        "instruction": "mov    0x4(%rax),%edi"
+      },
+      {
+        "va": 29923,
+        "register": "rcx",
+        "instruction": "mov    %eax,%ecx"
+      },
+      {
+        "va": 29927,
+        "register": "rcx",
+        "instruction": "cmp    $0x1,%ecx"
+      },
+      {
+        "va": 29932,
+        "register": "rcx",
+        "instruction": "mov    0xcbed(%rip),%rcx        # 0x140e0"
+      },
+      {
+        "va": 29939,
+        "register": "rdi",
+        "instruction": "lea    0x8390(%rip),%rdi        # 0xf88a"
+      },
+      {
+        "va": 29946,
+        "register": "rsi",
+        "instruction": "mov    $0x25,%esi"
+      },
+      {
+        "va": 29951,
+        "register": "rdx",
+        "instruction": "mov    $0x1,%edx"
+      },
+      {
+        "va": 29995,
+        "register": "rdi",
+        "instruction": "mov    0x4(%rax),%edi"
+      },
+      {
+        "va": 30003,
+        "register": "rcx",
+        "instruction": "xor    %ecx,%ecx"
+      },
+      {
+        "va": 30043,
+        "register": "rdi",
+        "instruction": "mov    0x4(%rax),%edi"
+      },
+      {
+        "va": 30051,
+        "register": "rcx",
+        "instruction": "xor    %ecx,%ecx"
+      },
+      {
+        "va": 30084,
+        "register": "rdi",
+        "instruction": "lea    0xcb05(%rip),%rdi        # 0x14090"
+      },
+      {
+        "va": 30197,
+        "register": "rdi",
+        "instruction": "and    $0x1,%edi"
+      },
+      {
+        "va": 30210,
+        "register": "rdi",
+        "instruction": "bextr  %eax,0x1b4(%rbx),%edi"
+      },
+      {
+        "va": 30272,
+        "register": "rcx",
+        "instruction": "test   %rcx,%rcx"
+      },
+      {
+        "va": 30277,
+        "register": "rcx",
+        "instruction": "movq   $0x0,(%rcx)"
+      },
+      {
+        "va": 30284,
+        "register": "rcx",
+        "instruction": "movl   $0x0,0x8(%rcx)"
+      },
+      {
+        "va": 30304,
+        "register": "rsi",
+        "instruction": "test   %rsi,%rsi"
+      },
+      {
+        "va": 30309,
+        "register": "rsi",
+        "instruction": "movq   $0x0,(%rsi)"
+      },
+      {
+        "va": 30316,
+        "register": "rsi",
+        "instruction": "movl   $0x0,0x8(%rsi)"
+      },
+      {
+        "va": 30452,
+        "register": "rdi",
+        "instruction": "mov    0xc9e5(%rip),%rdi        # 0x140e0"
+      },
+      {
+        "va": 30459,
+        "register": "rsi",
+        "instruction": "lea    0x7bab(%rip),%rsi        # 0xf2ad"
+      },
+      {
+        "va": 30466,
+        "register": "rdx",
+        "instruction": "lea    0x8576(%rip),%rdx        # 0xfc7f"
+      },
+      {
+        "va": 30500,
+        "register": "rdi",
+        "instruction": "mov    0xc9b5(%rip),%rdi        # 0x140e0"
+      },
+      {
+        "va": 30507,
+        "register": "rsi",
+        "instruction": "lea    0x7b7b(%rip),%rsi        # 0xf2ad"
+      },
+      {
+        "va": 30514,
+        "register": "rdx",
+        "instruction": "lea    0x83b2(%rip),%rdx        # 0xfaeb"
+      },
+      {
+        "va": 30548,
+        "register": "rdi",
+        "instruction": "mov    0xc985(%rip),%rdi        # 0x140e0"
+      },
+      {
+        "va": 30555,
+        "register": "rsi",
+        "instruction": "lea    0x7b4b(%rip),%rsi        # 0xf2ad"
+      },
+      {
+        "va": 30562,
+        "register": "rdx",
+        "instruction": "lea    0x876a(%rip),%rdx        # 0xfed3"
+      },
+      {
+        "va": 30766,
+        "register": "rdi",
+        "instruction": "lea    0x130d7(%rip),%rdi        # 0x1a90c"
+      },
+      {
+        "va": 30773,
+        "register": "rsi",
+        "instruction": "lea    -0x2c(%rbp),%rsi"
+      },
+      {
+        "va": 30794,
+        "register": "rdi",
+        "instruction": "lea    0x130b7(%rip),%rdi        # 0x1a908"
+      },
+      {
+        "va": 30801,
+        "register": "rcx",
+        "instruction": "movzwl %ax,%ecx"
+      }
+    ]
+  },
+  "dispatch_uses": [
+    {
+      "va": 6610,
+      "instruction": "call   *0x50(%rbx,%rax,1)",
+      "offset": 80,
+      "scaled_index": true
+    },
+    {
+      "va": 10950,
+      "instruction": "call   *0x50(%r12,%rax,1)",
+      "offset": 80,
+      "scaled_index": true
+    },
+    {
+      "va": 18399,
+      "instruction": "call   *0x58(%rcx,%rax,1)",
+      "offset": 88,
+      "scaled_index": true
+    }
+  ],
+  "conclusions": {
+    "HELPER_FUNCTION_DISASSEMBLED": true,
+    "HELPER_RETURN_PATHS_ENUMERATED": true,
+    "HELPER_RETURNS_RSI_VALUE_PROVEN": true,
+    "HELPER_RETURNS_RDX_VALUE_PROVEN": false,
+    "HELPER_RSI_OUTPUT_REACHES_INITIALIZER": true,
+    "HELPER_RDX_OUTPUT_REACHES_INITIALIZER": false,
+    "MULTI_TABLE_ARGUMENT_RSI_PROVEN": true,
+    "SUBMIT_TABLE_ARGUMENT_RDX_PROVEN": false,
+    "TABLE_ARGUMENTS_FULLY_PROVEN": false,
+    "TABLE_BASE_POINTER_MODEL_SUPPORTED": true,
+    "DISPATCH_0x50_USE_CONFIRMED": true,
+    "DISPATCH_0x58_USE_CONFIRMED": true,
+    "ENTRY_STRIDE_PROVEN": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "COUNT_SEMANTICS_PROVEN": true,
+    "FUNCTION_POINTER_VALUE_ORIGIN_PROVEN": false,
+    "EXACT_ENTRY_FIELD_NAMES_PROVEN": false,
+    "EXACT_ENTRY_STRUCT_SIZE_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "initializer_transition": {
+    "post_helper_overwrites": {
+      "rsi": [],
+      "rdx": []
+    }
+  }
+}

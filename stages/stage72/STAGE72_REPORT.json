@@ -1,0 +1,27 @@
+{
+  "stage": 72,
+  "results": {
+    "ENTRY_STRIDE_PROVEN": true,
+    "SUBMIT_DISPATCH_PATTERN_FOUND": true,
+    "MULTI_DISPATCH_PATTERN_FOUND": true,
+    "SUBMIT_DISPATCH_FORMULA_PROVEN": true,
+    "MULTI_DISPATCH_FORMULA_PROVEN": true,
+    "ENTRY_FUNCTION_POINTER_FIELD_PROVEN": true,
+    "ENTRY_ZERO_INITIALIZATION_PROVEN": true,
+    "STAGE71_RUNTIME_TABLE_INITIALIZATION_CARRIED_FORWARD": false,
+    "STAGE71_COUNT_SEMANTICS_CARRIED_FORWARD": false,
+    "INDEX_SEMANTICS_PROVEN": false,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_ENTRY_FIELD_NAMES_PROVEN": false,
+    "EXACT_ENTRY_STRUCT_SIZE_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "artifacts": [
+    "stage72_static.json",
+    "dispatch_entry_summary.txt",
+    "dispatch_entry_disassembly.txt",
+    "dispatch_entry_correlation.json"
+  ]
+}

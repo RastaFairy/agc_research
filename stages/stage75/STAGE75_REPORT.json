@@ -1,0 +1,29 @@
+{
+  "stage": 75,
+  "results": {
+    "INITIALIZER_0x50_STORE_FOUND": true,
+    "INITIALIZER_0x58_STORE_FOUND": true,
+    "INITIALIZER_CALLS_FOUND": true,
+    "GLOBAL_CONTEXT_PASSED_TO_INITIALIZER_PROVEN": true,
+    "SUBMIT_TABLE_ARGUMENT_PROVEN": false,
+    "MULTI_TABLE_ARGUMENT_PROVEN": false,
+    "TABLE_BASE_POINTER_MODEL_SUPPORTED": true,
+    "DISPATCH_0x50_USE_CONFIRMED": true,
+    "DISPATCH_0x58_USE_CONFIRMED": true,
+    "ENTRY_STRIDE_PROVEN": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "COUNT_SEMANTICS_PROVEN": true,
+    "FUNCTION_POINTER_VALUE_ORIGIN_PROVEN": false,
+    "EXACT_ENTRY_FIELD_NAMES_PROVEN": false,
+    "EXACT_ENTRY_STRUCT_SIZE_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "artifacts": [
+    "stage75_static.json",
+    "dispatch_table_base_summary.txt",
+    "dispatch_table_base_disassembly.txt",
+    "dispatch_table_base_provenance.json"
+  ]
+}

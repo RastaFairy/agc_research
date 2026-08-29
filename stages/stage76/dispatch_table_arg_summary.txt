@@ -1,0 +1,83 @@
+AGC PS5 Stage 76 - Dispatch Table Argument / Helper Register Preservation Audit
+
+=== INITIALIZER STORES ===
+VA=0x1ba field=+0x50 source=ymm0 | vmovups %ymm0,0x50(%rax)
+VA=0x1d7 field=+0x50 source=rdx | mov    %rdx,0x50(%rax)
+VA=0x1e2 field=+0x58 source=rsi | mov    %rsi,0x58(%rax)
+
+=== INITIALIZER CALLSITE ===
+VA=0x7876 | call   0x160
+
+=== HELPER 0x7CC0 PRESERVATION ===
+RSI status=MODIFICATION_UNPROVEN_RESTORATION proven=False
+  VA=0x7ce5 | mov    $0x2,%esi
+  VA=0x7d07 | mov    $0xc004812e,%esi
+  VA=0x7d3d | mov    $0x4000,%esi
+  VA=0x7d71 | mov    $0x4000,%esi
+  VA=0x7daa | lea    0x12d37(%rip),%rsi        # 0x1aae8
+  VA=0x7ddf | xor    %esi,%esi
+  VA=0x7dfa | mov    %rbx,%rsi
+  VA=0x7e15 | mov    $0x100000,%esi
+RDX status=MODIFICATION_UNPROVEN_RESTORATION proven=False
+  VA=0x7d03 | lea    -0x38(%rbp),%rdx
+  VA=0x7d42 | mov    $0x22,%edx
+  VA=0x7d6a | lea    0x75ec(%rip),%rdx        # 0xf35d
+  VA=0x7dd4 | mov    $0x600,%edx
+  VA=0x7df5 | mov    $0x100000,%edx
+  VA=0x7e0e | lea    0x7a2a(%rip),%rdx        # 0xf83f
+
+=== LATEST DEFINITIONS BEFORE INITIALIZER ===
+RSI:
+  VA=0x744d | lea    0x854f(%rip),%rsi        # 0xf9a3
+  VA=0x7490 | lea    -0x14(%rbp),%rsi
+  VA=0x74fa | mov    $0x25,%esi
+  VA=0x7660 | test   %rsi,%rsi
+  VA=0x76fb | lea    0x7bab(%rip),%rsi        # 0xf2ad
+  VA=0x772b | lea    0x7b7b(%rip),%rsi        # 0xf2ad
+  VA=0x775b | lea    0x7b4b(%rip),%rsi        # 0xf2ad
+  VA=0x7835 | lea    -0x2c(%rbp),%rsi
+RDX:
+  VA=0x7391 | lea    (%rcx,%rax,4),%rdx
+  VA=0x73d7 | mov    %eax,%edx
+  VA=0x744b | mov    %eax,%edx
+  VA=0x74ff | mov    $0x1,%edx
+  VA=0x7702 | lea    0x8576(%rip),%rdx        # 0xfc7f
+  VA=0x7732 | lea    0x83b2(%rip),%rdx        # 0xfaeb
+  VA=0x7762 | lea    0x876a(%rip),%rdx        # 0xfed3
+
+=== TABLE ARGUMENT PROVENANCE ===
+RSI proven=False reason=latest definition exists but helper preservation is not proven
+  latest={'va': 30773, 'instruction': 'lea    -0x2c(%rbp),%rsi', 'source': {'kind': 'LEA', 'text': 'lea    -0x2c(%rbp),%rsi'}}
+RDX proven=False reason=latest definition exists but helper preservation is not proven
+  latest={'va': 30562, 'instruction': 'lea    0x876a(%rip),%rdx        # 0xfed3', 'source': {'kind': 'LEA', 'text': 'lea    0x876a(%rip),%rdx        # 0xfed3'}}
+
+=== DISPATCH USES ===
+VA=0x19d2 table=+0x50 | call   *0x50(%rbx,%rax,1)
+VA=0x2ac6 table=+0x50 | call   *0x50(%r12,%rax,1)
+VA=0x47df table=+0x58 | call   *0x58(%rcx,%rax,1)
+
+=== CONCLUSIONS ===
+INITIALIZER_0x50_STORE_FOUND=True
+INITIALIZER_0x58_STORE_FOUND=True
+INITIALIZER_CALLSITE_FOUND=True
+HELPER_0x7CC0_FOUND=True
+HELPER_PRESERVES_RSI_PROVEN=False
+HELPER_PRESERVES_RDX_PROVEN=False
+MULTI_TABLE_ARGUMENT_RSI_PROVEN=False
+SUBMIT_TABLE_ARGUMENT_RDX_PROVEN=False
+TABLE_ARGUMENTS_FULLY_PROVEN=False
+TABLE_BASE_POINTER_MODEL_SUPPORTED=True
+DISPATCH_0x50_USE_CONFIRMED=True
+DISPATCH_0x58_USE_CONFIRMED=True
+ENTRY_STRIDE_PROVEN=True
+INDEX_SEMANTICS_PROVEN=True
+COUNT_SEMANTICS_PROVEN=True
+FUNCTION_POINTER_VALUE_ORIGIN_PROVEN=False
+EXACT_ENTRY_FIELD_NAMES_PROVEN=False
+EXACT_ENTRY_STRUCT_SIZE_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== LIMIT ===
+Esta etapa solo considera probada la procedencia de RSI/RDX cuando la funcion auxiliar intermedia permite demostrar de forma directa que esos registros sobreviven hasta el call al inicializador. No se asignan nombres publicos de API sin evidencia adicional.

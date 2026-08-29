@@ -1,0 +1,1345 @@
+PS D:\agc_ps5_stage72> .\stage72.ps1
+
+============================================
+AGC PS5 Stage 72 - Dispatch Entry Layout / Function Pointer Provenance Audit
+============================================
+[INFO] StageDir        = D:\agc_ps5_stage72
+[INFO] SPRX            = D:\agc_work\sce_stubs\libSceAgcDriver.sprx
+[INFO] NID DB          = D:\sdk-master\sce_stubs\aerolib.csv
+[INFO] Previous stage  = D:\agc_work\stage71_results
+[INFO] Output          = D:\agc_work\stage72_results
+[INFO] SPRX WSL        = /mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx
+[INFO] Previous WSL    = /mnt/d/agc_work/stage71_results
+[INFO] Output WSL      = /mnt/d/agc_work/stage72_results
+[INFO] SDK             = /opt/ps5-payload-sdk
+
+==> Preparar workspace Linux
+
+[WSL] set -e
+
+set -e
+
+rm -rf '/tmp/agc_stage72'
+
+mkdir -p '/tmp/agc_stage72'
+mkdir -p '/mnt/d/agc_work/stage72_results'
+
+test -f '/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx'
+test -f '/mnt/d/sdk-master/sce_stubs/aerolib.csv'
+test -d '/mnt/d/agc_work/stage71_results'
+
+# IMPORTANTE:
+# Aqui se usa la ruta WSL del analizador, no la ruta Windows D:\...
+test -f '/mnt/d/agc_work/stage72_results/analyze_dispatch_entries.py'
+
+cp '/mnt/d/agc_work/stage72_results/analyze_dispatch_entries.py' \
+   '/tmp/agc_stage72/analyze_dispatch_entries.py'
+
+sed -i 's/\r$//' \
+   '/tmp/agc_stage72/analyze_dispatch_entries.py'
+
+python3 -m py_compile \
+   '/tmp/agc_stage72/analyze_dispatch_entries.py'
+
+ls -lh \
+   '/tmp/agc_stage72/analyze_dispatch_entries.py'
+-rwxr-xr-x 1 user user 19K Aug 25 03:02 /tmp/agc_stage72/analyze_dispatch_entries.py
+-rwxr-xr-x 1 user user 19K Aug 25 03:02 /tmp/agc_stage72/analyze_dispatch_entries.py
+
+==> Verificar Python + pyelftools + toolchain
+
+[WSL] set -e
+
+set -e
+
+test -x '/opt/ps5-payload-sdk/bin/prospero-clang'
+test -x '/opt/ps5-payload-sdk/bin/prospero-nm'
+test -x '/opt/ps5-payload-sdk/bin/prospero-lld'
+
+echo '--- prospero-clang ---'
+'/opt/ps5-payload-sdk/bin/prospero-clang' --version
+
+echo '--- prospero-nm ---'
+'/opt/ps5-payload-sdk/bin/prospero-nm' --version
+
+echo '--- pyelftools ---'
+python3 -c "from elftools.elf.elffile import ELFFile; print('pyelftools=OK')"
+
+echo '--- objdump ---'
+command -v objdump
+
+echo '--- llvm-objdump ---'
+command -v llvm-objdump
+--- prospero-clang ---
+Ubuntu clang version 18.1.3 (1ubuntu1)
+Target: x86_64-sie-ps5
+Thread model: posix
+InstalledDir: /usr/lib/llvm-18/bin
+--- prospero-nm ---
+llvm-nm, compatible with GNU nm
+Ubuntu LLVM version 18.1.3
+  Optimized build.
+--- pyelftools ---
+pyelftools=OK
+--- objdump ---
+/usr/bin/objdump
+--- llvm-objdump ---
+/usr/bin/llvm-objdump
+--- prospero-clang ---
+Ubuntu clang version 18.1.3 (1ubuntu1)
+Target: x86_64-sie-ps5
+Thread model: posix
+InstalledDir: /usr/lib/llvm-18/bin
+--- prospero-nm ---
+llvm-nm, compatible with GNU nm
+Ubuntu LLVM version 18.1.3
+  Optimized build.
+--- pyelftools ---
+pyelftools=OK
+--- objdump ---
+/usr/bin/objdump
+--- llvm-objdump ---
+/usr/bin/llvm-objdump
+
+==> Analizar entradas de dispatch
+
+[WSL] set -e
+
+set -e
+
+python3 '/tmp/agc_stage72/analyze_dispatch_entries.py' \
+    '/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx' \
+    '/mnt/d/sdk-master/sce_stubs/aerolib.csv' \
+    '/mnt/d/agc_work/stage71_results' \
+    '/mnt/d/agc_work/stage72_results'
+{
+  "stage": 72,
+  "target": {
+    "global_context_va": 108808,
+    "submit_table_offset": 80,
+    "multi_table_offset": 88,
+    "entry_stride": 120,
+    "submit_va": 6320,
+    "submit_size": 380,
+    "multi_va": 18000,
+    "multi_size": 579
+  },
+  "previous_stage": {
+    "available": true,
+    "report_present": true,
+    "count_semantics_proven": false,
+    "index_semantics_proven": false,
+    "runtime_table_initialization_proven": false
+  },
+  "dispatch": {
+    "submit": [
+      {
+        "va": 6610,
+        "instruction": "call   *0x50(%rbx,%rax,1)",
+        "table_offset": 80,
+        "base_register": "rbx",
+        "index_register": "rax",
+        "scale": 1,
+        "syntax": "AT&T",
+        "index_scale_evidence": {
+          "va": 6606,
+          "instruction": "imul   $0x78,%rax,%rax",
+          "raw": "    19ce:\t48 6b c0 78          \timul   $0x78,%rax,%rax"
+        }
+      }
+    ],
+    "multi": [
+      {
+        "va": 18399,
+        "instruction": "call   *0x58(%rcx,%rax,1)",
+        "table_offset": 88,
+        "base_register": "rcx",
+        "index_register": "rax",
+        "scale": 1,
+        "syntax": "AT&T",
+        "index_scale_evidence": {
+          "va": 18395,
+          "instruction": "imul   $0x78,%rax,%rax",
+          "raw": "    47db:\t48 6b c0 78          \timul   $0x78,%rax,%rax"
+        }
+      }
+    ]
+  },
+  "store_candidates": [
+    {
+      "va": 265,
+      "instruction": "vmovups %ymm0,0x50(%rcx,%rax,1)",
+      "table_offset": 80
+    },
+    {
+      "va": 287,
+      "instruction": "mov    %rsi,0x50(%rcx,%rax,1)",
+      "table_offset": 80
+    },
+    {
+      "va": 299,
+      "instruction": "mov    %rdi,0x58(%rcx,%rax,1)",
+      "table_offset": 88
+    },
+    {
+      "va": 442,
+      "instruction": "vmovups %ymm0,0x50(%rax)",
+      "table_offset": 80
+    },
+    {
+      "va": 471,
+      "instruction": "mov    %rdx,0x50(%rax)",
+      "table_offset": 80
+    },
+    {
+      "va": 482,
+      "instruction": "mov    %rsi,0x58(%rax)",
+      "table_offset": 88
+    },
+    {
+      "va": 625,
+      "instruction": "vmovups %ymm0,-0x50(%r8,%rax,1)",
+      "table_offset": 80
+    },
+    {
+      "va": 4700,
+      "instruction": "mov    0x58(%r13),%rcx",
+      "table_offset": 88
+    },
+    {
+      "va": 5976,
+      "instruction": "mov    %ecx,0x50(%rsp)",
+      "table_offset": 80
+    },
+    {
+      "va": 6015,
+      "instruction": "mov    %edx,0x58(%rsp)",
+      "table_offset": 88
+    },
+    {
+      "va": 6037,
+      "instruction": "movl   $0x0,0x50(%rsp)",
+      "table_offset": 80
+    },
+    {
+      "va": 6286,
+      "instruction": "mov    0x50(%r15,%rax,1),%rax",
+      "table_offset": 80
+    },
+    {
+      "va": 6389,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 6415,
+      "instruction": "mov    %r13,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 6614,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 7258,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 7277,
+      "instruction": "mov    %r15,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 7485,
+      "instruction": "mov    -0x58(%rbp),%r15",
+      "table_offset": 88
+    },
+    {
+      "va": 7597,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 7616,
+      "instruction": "mov    %r15,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 7822,
+      "instruction": "mov    -0x58(%rbp),%rdx",
+      "table_offset": 88
+    },
+    {
+      "va": 10706,
+      "instruction": "mov    %rbx,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 10716,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 10955,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 11448,
+      "instruction": "mov    -0x50(%rbp),%r10",
+      "table_offset": 80
+    },
+    {
+      "va": 13231,
+      "instruction": "vmovups %xmm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 13311,
+      "instruction": "vmovups -0x50(%rbp),%xmm0",
+      "table_offset": 80
+    },
+    {
+      "va": 13470,
+      "instruction": "vmovups %xmm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 13535,
+      "instruction": "vmovups -0x50(%rbp),%xmm0",
+      "table_offset": 80
+    },
+    {
+      "va": 13704,
+      "instruction": "mov    %rcx,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 14128,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 14280,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 14398,
+      "instruction": "mov    -0x58(%rbp),%r15",
+      "table_offset": 88
+    },
+    {
+      "va": 14477,
+      "instruction": "mov    -0x58(%rbp),%r15",
+      "table_offset": 88
+    },
+    {
+      "va": 14686,
+      "instruction": "mov    -0x50(%rbp),%edx",
+      "table_offset": 80
+    },
+    {
+      "va": 14810,
+      "instruction": "mov    -0x50(%rbp),%esi",
+      "table_offset": 80
+    },
+    {
+      "va": 14980,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 16188,
+      "instruction": "mov    0x58(%rbx),%rcx",
+      "table_offset": 88
+    },
+    {
+      "va": 16877,
+      "instruction": "mov    %eax,0x50(%rbx)",
+      "table_offset": 80
+    },
+    {
+      "va": 16893,
+      "instruction": "mov    0x58(%rbx),%edx",
+      "table_offset": 88
+    },
+    {
+      "va": 16919,
+      "instruction": "mov    %eax,0x58(%rbx)",
+      "table_offset": 88
+    },
+    {
+      "va": 17978,
+      "instruction": "mov    0x58(%rcx,%rax,1),%rax",
+      "table_offset": 88
+    },
+    {
+      "va": 18168,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 18204,
+      "instruction": "mov    -0x50(%rbp),%rcx",
+      "table_offset": 80
+    },
+    {
+      "va": 19096,
+      "instruction": "vmovups -0x50(%rbp),%xmm0",
+      "table_offset": 80
+    },
+    {
+      "va": 19129,
+      "instruction": "vmovups %xmm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 24382,
+      "instruction": "movl   $0xc0036100,0x50(%rax)",
+      "table_offset": 80
+    },
+    {
+      "va": 24432,
+      "instruction": "mov    %esi,0x58(%rax)",
+      "table_offset": 88
+    },
+    {
+      "va": 24792,
+      "instruction": "mov    0x50(%rsp),%r12d",
+      "table_offset": 80
+    },
+    {
+      "va": 25214,
+      "instruction": "movl   $0xc0036100,0x50(%rax)",
+      "table_offset": 80
+    },
+    {
+      "va": 25225,
+      "instruction": "mov    %r14d,0x58(%rax)",
+      "table_offset": 88
+    },
+    {
+      "va": 25587,
+      "instruction": "mov    %rcx,0x50(%rdi)",
+      "table_offset": 80
+    },
+    {
+      "va": 25601,
+      "instruction": "mov    %r8d,0x58(%rdi)",
+      "table_offset": 88
+    },
+    {
+      "va": 28837,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 29091,
+      "instruction": "mov    -0x50(%rbp),%edx",
+      "table_offset": 80
+    },
+    {
+      "va": 31186,
+      "instruction": "mov    -0x50(%rbp),%rdi",
+      "table_offset": 80
+    },
+    {
+      "va": 31223,
+      "instruction": "mov    -0x50(%rbp),%rdi",
+      "table_offset": 80
+    },
+    {
+      "va": 31257,
+      "instruction": "mov    -0x50(%rbp),%rdi",
+      "table_offset": 80
+    },
+    {
+      "va": 31294,
+      "instruction": "mov    -0x50(%rbp),%rdi",
+      "table_offset": 80
+    },
+    {
+      "va": 31830,
+      "instruction": "vmovups %xmm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 31840,
+      "instruction": "vmovups -0x50(%rbp),%xmm0",
+      "table_offset": 80
+    },
+    {
+      "va": 32759,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 32812,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 33075,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 33079,
+      "instruction": "mov    -0x50(%rbp),%rsi",
+      "table_offset": 80
+    },
+    {
+      "va": 35141,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 35189,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 35715,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 35752,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 36291,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 36328,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 39063,
+      "instruction": "vmovups %ymm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 40711,
+      "instruction": "mov    %esi,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 40823,
+      "instruction": "mov    %esi,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 43754,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 43765,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    }
+  ],
+  "zeroing": [
+    {
+      "va": 604,
+      "instruction": "vmovups %ymm0,0x8(%r8,%rax,1)",
+      "relative_offset": 8,
+      "width": 32
+    },
+    {
+      "va": 611,
+      "instruction": "vmovups %ymm0,-0x10(%r8,%rax,1)",
+      "relative_offset": -16,
+      "width": 32
+    },
+    {
+      "va": 618,
+      "instruction": "vmovups %ymm0,-0x30(%r8,%rax,1)",
+      "relative_offset": -48,
+      "width": 32
+    },
+    {
+      "va": 625,
+      "instruction": "vmovups %ymm0,-0x50(%r8,%rax,1)",
+      "relative_offset": -80,
+      "width": 32
+    },
+    {
+      "va": 39063,
+      "instruction": "vmovups %ymm0,-0x50(%rbp)",
+      "relative_offset": -80,
+      "width": 32
+    }
+  ],
+  "entry_layout": {
+    "0x00": {
+      "classification": "INDIRECT_DISPATCH_TARGET_SLOT",
+      "proven": true
+    },
+    "0x08": {
+      "classification": "ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x0C": {
+      "classification": "WITHIN_ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x10": {
+      "classification": "WITHIN_ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x18": {
+      "classification": "WITHIN_ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x20": {
+      "classification": "WITHIN_ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x28": {
+      "classification": "SEMANTICS_NOT_PROVEN",
+      "proven": false
+    }
+  },
+  "conclusions": {
+    "ENTRY_STRIDE_PROVEN": true,
+    "SUBMIT_DISPATCH_PATTERN_FOUND": true,
+    "MULTI_DISPATCH_PATTERN_FOUND": true,
+    "SUBMIT_DISPATCH_FORMULA_PROVEN": true,
+    "MULTI_DISPATCH_FORMULA_PROVEN": true,
+    "ENTRY_FUNCTION_POINTER_FIELD_PROVEN": true,
+    "ENTRY_ZERO_INITIALIZATION_PROVEN": true,
+    "STAGE71_RUNTIME_TABLE_INITIALIZATION_CARRIED_FORWARD": false,
+    "STAGE71_COUNT_SEMANTICS_CARRIED_FORWARD": false,
+    "INDEX_SEMANTICS_PROVEN": false,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_ENTRY_FIELD_NAMES_PROVEN": false,
+    "EXACT_ENTRY_STRUCT_SIZE_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}
+{
+  "stage": 72,
+  "target": {
+    "global_context_va": 108808,
+    "submit_table_offset": 80,
+    "multi_table_offset": 88,
+    "entry_stride": 120,
+    "submit_va": 6320,
+    "submit_size": 380,
+    "multi_va": 18000,
+    "multi_size": 579
+  },
+  "previous_stage": {
+    "available": true,
+    "report_present": true,
+    "count_semantics_proven": false,
+    "index_semantics_proven": false,
+    "runtime_table_initialization_proven": false
+  },
+  "dispatch": {
+    "submit": [
+      {
+        "va": 6610,
+        "instruction": "call   *0x50(%rbx,%rax,1)",
+        "table_offset": 80,
+        "base_register": "rbx",
+        "index_register": "rax",
+        "scale": 1,
+        "syntax": "AT&T",
+        "index_scale_evidence": {
+          "va": 6606,
+          "instruction": "imul   $0x78,%rax,%rax",
+          "raw": "    19ce:\t48 6b c0 78          \timul   $0x78,%rax,%rax"
+        }
+      }
+    ],
+    "multi": [
+      {
+        "va": 18399,
+        "instruction": "call   *0x58(%rcx,%rax,1)",
+        "table_offset": 88,
+        "base_register": "rcx",
+        "index_register": "rax",
+        "scale": 1,
+        "syntax": "AT&T",
+        "index_scale_evidence": {
+          "va": 18395,
+          "instruction": "imul   $0x78,%rax,%rax",
+          "raw": "    47db:\t48 6b c0 78          \timul   $0x78,%rax,%rax"
+        }
+      }
+    ]
+  },
+  "store_candidates": [
+    {
+      "va": 265,
+      "instruction": "vmovups %ymm0,0x50(%rcx,%rax,1)",
+      "table_offset": 80
+    },
+    {
+      "va": 287,
+      "instruction": "mov    %rsi,0x50(%rcx,%rax,1)",
+      "table_offset": 80
+    },
+    {
+      "va": 299,
+      "instruction": "mov    %rdi,0x58(%rcx,%rax,1)",
+      "table_offset": 88
+    },
+    {
+      "va": 442,
+      "instruction": "vmovups %ymm0,0x50(%rax)",
+      "table_offset": 80
+    },
+    {
+      "va": 471,
+      "instruction": "mov    %rdx,0x50(%rax)",
+      "table_offset": 80
+    },
+    {
+      "va": 482,
+      "instruction": "mov    %rsi,0x58(%rax)",
+      "table_offset": 88
+    },
+    {
+      "va": 625,
+      "instruction": "vmovups %ymm0,-0x50(%r8,%rax,1)",
+      "table_offset": 80
+    },
+    {
+      "va": 4700,
+      "instruction": "mov    0x58(%r13),%rcx",
+      "table_offset": 88
+    },
+    {
+      "va": 5976,
+      "instruction": "mov    %ecx,0x50(%rsp)",
+      "table_offset": 80
+    },
+    {
+      "va": 6015,
+      "instruction": "mov    %edx,0x58(%rsp)",
+      "table_offset": 88
+    },
+    {
+      "va": 6037,
+      "instruction": "movl   $0x0,0x50(%rsp)",
+      "table_offset": 80
+    },
+    {
+      "va": 6286,
+      "instruction": "mov    0x50(%r15,%rax,1),%rax",
+      "table_offset": 80
+    },
+    {
+      "va": 6389,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 6415,
+      "instruction": "mov    %r13,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 6614,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 7258,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 7277,
+      "instruction": "mov    %r15,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 7485,
+      "instruction": "mov    -0x58(%rbp),%r15",
+      "table_offset": 88
+    },
+    {
+      "va": 7597,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 7616,
+      "instruction": "mov    %r15,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 7822,
+      "instruction": "mov    -0x58(%rbp),%rdx",
+      "table_offset": 88
+    },
+    {
+      "va": 10706,
+      "instruction": "mov    %rbx,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 10716,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 10955,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 11448,
+      "instruction": "mov    -0x50(%rbp),%r10",
+      "table_offset": 80
+    },
+    {
+      "va": 13231,
+      "instruction": "vmovups %xmm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 13311,
+      "instruction": "vmovups -0x50(%rbp),%xmm0",
+      "table_offset": 80
+    },
+    {
+      "va": 13470,
+      "instruction": "vmovups %xmm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 13535,
+      "instruction": "vmovups -0x50(%rbp),%xmm0",
+      "table_offset": 80
+    },
+    {
+      "va": 13704,
+      "instruction": "mov    %rcx,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 14128,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 14280,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 14398,
+      "instruction": "mov    -0x58(%rbp),%r15",
+      "table_offset": 88
+    },
+    {
+      "va": 14477,
+      "instruction": "mov    -0x58(%rbp),%r15",
+      "table_offset": 88
+    },
+    {
+      "va": 14686,
+      "instruction": "mov    -0x50(%rbp),%edx",
+      "table_offset": 80
+    },
+    {
+      "va": 14810,
+      "instruction": "mov    -0x50(%rbp),%esi",
+      "table_offset": 80
+    },
+    {
+      "va": 14980,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 16188,
+      "instruction": "mov    0x58(%rbx),%rcx",
+      "table_offset": 88
+    },
+    {
+      "va": 16877,
+      "instruction": "mov    %eax,0x50(%rbx)",
+      "table_offset": 80
+    },
+    {
+      "va": 16893,
+      "instruction": "mov    0x58(%rbx),%edx",
+      "table_offset": 88
+    },
+    {
+      "va": 16919,
+      "instruction": "mov    %eax,0x58(%rbx)",
+      "table_offset": 88
+    },
+    {
+      "va": 17978,
+      "instruction": "mov    0x58(%rcx,%rax,1),%rax",
+      "table_offset": 88
+    },
+    {
+      "va": 18168,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 18204,
+      "instruction": "mov    -0x50(%rbp),%rcx",
+      "table_offset": 80
+    },
+    {
+      "va": 19096,
+      "instruction": "vmovups -0x50(%rbp),%xmm0",
+      "table_offset": 80
+    },
+    {
+      "va": 19129,
+      "instruction": "vmovups %xmm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 24382,
+      "instruction": "movl   $0xc0036100,0x50(%rax)",
+      "table_offset": 80
+    },
+    {
+      "va": 24432,
+      "instruction": "mov    %esi,0x58(%rax)",
+      "table_offset": 88
+    },
+    {
+      "va": 24792,
+      "instruction": "mov    0x50(%rsp),%r12d",
+      "table_offset": 80
+    },
+    {
+      "va": 25214,
+      "instruction": "movl   $0xc0036100,0x50(%rax)",
+      "table_offset": 80
+    },
+    {
+      "va": 25225,
+      "instruction": "mov    %r14d,0x58(%rax)",
+      "table_offset": 88
+    },
+    {
+      "va": 25587,
+      "instruction": "mov    %rcx,0x50(%rdi)",
+      "table_offset": 80
+    },
+    {
+      "va": 25601,
+      "instruction": "mov    %r8d,0x58(%rdi)",
+      "table_offset": 88
+    },
+    {
+      "va": 28837,
+      "instruction": "movq   $0x0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 29091,
+      "instruction": "mov    -0x50(%rbp),%edx",
+      "table_offset": 80
+    },
+    {
+      "va": 31186,
+      "instruction": "mov    -0x50(%rbp),%rdi",
+      "table_offset": 80
+    },
+    {
+      "va": 31223,
+      "instruction": "mov    -0x50(%rbp),%rdi",
+      "table_offset": 80
+    },
+    {
+      "va": 31257,
+      "instruction": "mov    -0x50(%rbp),%rdi",
+      "table_offset": 80
+    },
+    {
+      "va": 31294,
+      "instruction": "mov    -0x50(%rbp),%rdi",
+      "table_offset": 80
+    },
+    {
+      "va": 31830,
+      "instruction": "vmovups %xmm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 31840,
+      "instruction": "vmovups -0x50(%rbp),%xmm0",
+      "table_offset": 80
+    },
+    {
+      "va": 32759,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 32812,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 33075,
+      "instruction": "mov    -0x58(%rbp),%rdi",
+      "table_offset": 88
+    },
+    {
+      "va": 33079,
+      "instruction": "mov    -0x50(%rbp),%rsi",
+      "table_offset": 80
+    },
+    {
+      "va": 35141,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 35189,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 35715,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 35752,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 36291,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 36328,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 39063,
+      "instruction": "vmovups %ymm0,-0x50(%rbp)",
+      "table_offset": 80
+    },
+    {
+      "va": 40711,
+      "instruction": "mov    %esi,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 40823,
+      "instruction": "mov    %esi,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 43754,
+      "instruction": "mov    %rax,-0x58(%rbp)",
+      "table_offset": 88
+    },
+    {
+      "va": 43765,
+      "instruction": "mov    %rax,-0x50(%rbp)",
+      "table_offset": 80
+    }
+  ],
+  "zeroing": [
+    {
+      "va": 604,
+      "instruction": "vmovups %ymm0,0x8(%r8,%rax,1)",
+      "relative_offset": 8,
+      "width": 32
+    },
+    {
+      "va": 611,
+      "instruction": "vmovups %ymm0,-0x10(%r8,%rax,1)",
+      "relative_offset": -16,
+      "width": 32
+    },
+    {
+      "va": 618,
+      "instruction": "vmovups %ymm0,-0x30(%r8,%rax,1)",
+      "relative_offset": -48,
+      "width": 32
+    },
+    {
+      "va": 625,
+      "instruction": "vmovups %ymm0,-0x50(%r8,%rax,1)",
+      "relative_offset": -80,
+      "width": 32
+    },
+    {
+      "va": 39063,
+      "instruction": "vmovups %ymm0,-0x50(%rbp)",
+      "relative_offset": -80,
+      "width": 32
+    }
+  ],
+  "entry_layout": {
+    "0x00": {
+      "classification": "INDIRECT_DISPATCH_TARGET_SLOT",
+      "proven": true
+    },
+    "0x08": {
+      "classification": "ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x0C": {
+      "classification": "WITHIN_ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x10": {
+      "classification": "WITHIN_ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x18": {
+      "classification": "WITHIN_ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x20": {
+      "classification": "WITHIN_ZERO_INITIALIZED_REGION",
+      "proven": true
+    },
+    "0x28": {
+      "classification": "SEMANTICS_NOT_PROVEN",
+      "proven": false
+    }
+  },
+  "conclusions": {
+    "ENTRY_STRIDE_PROVEN": true,
+    "SUBMIT_DISPATCH_PATTERN_FOUND": true,
+    "MULTI_DISPATCH_PATTERN_FOUND": true,
+    "SUBMIT_DISPATCH_FORMULA_PROVEN": true,
+    "MULTI_DISPATCH_FORMULA_PROVEN": true,
+    "ENTRY_FUNCTION_POINTER_FIELD_PROVEN": true,
+    "ENTRY_ZERO_INITIALIZATION_PROVEN": true,
+    "STAGE71_RUNTIME_TABLE_INITIALIZATION_CARRIED_FORWARD": false,
+    "STAGE71_COUNT_SEMANTICS_CARRIED_FORWARD": false,
+    "INDEX_SEMANTICS_PROVEN": false,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_ENTRY_FIELD_NAMES_PROVEN": false,
+    "EXACT_ENTRY_STRUCT_SIZE_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}
+
+==> Verificar artefactos Stage 72
+
+[WSL] set -e
+
+set -e
+
+test -f '/mnt/d/agc_work/stage72_results/stage72_static.json'
+test -f '/mnt/d/agc_work/stage72_results/dispatch_entry_summary.txt'
+test -f '/mnt/d/agc_work/stage72_results/dispatch_entry_disassembly.txt'
+test -f '/mnt/d/agc_work/stage72_results/dispatch_entry_correlation.json'
+test -f '/mnt/d/agc_work/stage72_results/STAGE72_REPORT.json'
+
+echo '--- dispatch_entry_summary.txt ---'
+cat '/mnt/d/agc_work/stage72_results/dispatch_entry_summary.txt'
+
+echo '--- output files ---'
+find '/mnt/d/agc_work/stage72_results' \
+    -maxdepth 1 \
+    -type f |
+    sort
+--- dispatch_entry_summary.txt ---
+AGC PS5 Stage 72 - Dispatch Entry Layout / Function Pointer Provenance Audit
+
+=== TARGET ===
+global_context = 0x1A908
+submit table offset = 0x50
+multi table offset = 0x58
+entry stride = 0x78
+
+=== SUBMIT DISPATCH ===
+VA=0x19D2 | table=+0x50 | base=rbx | index=rax | scale=1
+  scale evidence: VA=0x19CE | imul   $0x78,%rax,%rax
+
+=== MULTI DISPATCH ===
+VA=0x47DF | table=+0x58 | base=rcx | index=rax | scale=1
+  scale evidence: VA=0x47DB | imul   $0x78,%rax,%rax
+
+=== FUNCTION POINTER SLOT ===
+entry + 0x00 = indirect dispatch target
+ENTRY_FUNCTION_POINTER_FIELD_PROVEN=True
+
+=== ZERO INITIALIZED REGION ===
+VA=0x25C | relative=0x8 | width=32 | vmovups %ymm0,0x8(%r8,%rax,1)
+VA=0x263 | relative=0xFFFFFFF0 | width=32 | vmovups %ymm0,-0x10(%r8,%rax,1)
+VA=0x26A | relative=0xFFFFFFD0 | width=32 | vmovups %ymm0,-0x30(%r8,%rax,1)
+VA=0x271 | relative=0xFFFFFFB0 | width=32 | vmovups %ymm0,-0x50(%r8,%rax,1)
+VA=0x9897 | relative=0xFFFFFFB0 | width=32 | vmovups %ymm0,-0x50(%rbp)
+
+=== ENTRY LAYOUT ===
+0x00 = INDIRECT_DISPATCH_TARGET_SLOT proven=True
+0x08 = ZERO_INITIALIZED_REGION proven=True
+0x0C = WITHIN_ZERO_INITIALIZED_REGION proven=True
+0x10 = WITHIN_ZERO_INITIALIZED_REGION proven=True
+0x18 = WITHIN_ZERO_INITIALIZED_REGION proven=True
+0x20 = WITHIN_ZERO_INITIALIZED_REGION proven=True
+0x28 = SEMANTICS_NOT_PROVEN proven=False
+
+=== CONCLUSIONS ===
+ENTRY_STRIDE_PROVEN=True
+SUBMIT_DISPATCH_PATTERN_FOUND=True
+MULTI_DISPATCH_PATTERN_FOUND=True
+SUBMIT_DISPATCH_FORMULA_PROVEN=True
+MULTI_DISPATCH_FORMULA_PROVEN=True
+ENTRY_FUNCTION_POINTER_FIELD_PROVEN=True
+ENTRY_ZERO_INITIALIZATION_PROVEN=True
+STAGE71_RUNTIME_TABLE_INITIALIZATION_CARRIED_FORWARD=False
+STAGE71_COUNT_SEMANTICS_CARRIED_FORWARD=False
+INDEX_SEMANTICS_PROVEN=False
+COUNT_SEMANTICS_PROVEN=False
+EXACT_ENTRY_FIELD_NAMES_PROVEN=False
+EXACT_ENTRY_STRUCT_SIZE_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== LIMIT ===
+Esta etapa demuestra el slot de funci├│n indirecta en +0x00 y la regi├│n de entrada afectada por la inicializaci├│n a cero. No asigna nombres sem├ínticos p├║blicos a los dem├ís offsets ni demuestra el sizeof exacto de la entrada.
+--- output files ---
+/mnt/d/agc_work/stage72_results/STAGE72_REPORT.json
+/mnt/d/agc_work/stage72_results/analyze_dispatch_entries.py
+/mnt/d/agc_work/stage72_results/dispatch_entry_correlation.json
+/mnt/d/agc_work/stage72_results/dispatch_entry_disassembly.txt
+/mnt/d/agc_work/stage72_results/dispatch_entry_summary.txt
+/mnt/d/agc_work/stage72_results/stage72_static.json
+--- dispatch_entry_summary.txt ---
+AGC PS5 Stage 72 - Dispatch Entry Layout / Function Pointer Provenance Audit
+
+=== TARGET ===
+global_context = 0x1A908
+submit table offset = 0x50
+multi table offset = 0x58
+entry stride = 0x78
+
+=== SUBMIT DISPATCH ===
+VA=0x19D2 | table=+0x50 | base=rbx | index=rax | scale=1
+  scale evidence: VA=0x19CE | imul   $0x78,%rax,%rax
+
+=== MULTI DISPATCH ===
+VA=0x47DF | table=+0x58 | base=rcx | index=rax | scale=1
+  scale evidence: VA=0x47DB | imul   $0x78,%rax,%rax
+
+=== FUNCTION POINTER SLOT ===
+entry + 0x00 = indirect dispatch target
+ENTRY_FUNCTION_POINTER_FIELD_PROVEN=True
+
+=== ZERO INITIALIZED REGION ===
+VA=0x25C | relative=0x8 | width=32 | vmovups %ymm0,0x8(%r8,%rax,1)
+VA=0x263 | relative=0xFFFFFFF0 | width=32 | vmovups %ymm0,-0x10(%r8,%rax,1)
+VA=0x26A | relative=0xFFFFFFD0 | width=32 | vmovups %ymm0,-0x30(%r8,%rax,1)
+VA=0x271 | relative=0xFFFFFFB0 | width=32 | vmovups %ymm0,-0x50(%r8,%rax,1)
+VA=0x9897 | relative=0xFFFFFFB0 | width=32 | vmovups %ymm0,-0x50(%rbp)
+
+=== ENTRY LAYOUT ===
+0x00 = INDIRECT_DISPATCH_TARGET_SLOT proven=True
+0x08 = ZERO_INITIALIZED_REGION proven=True
+0x0C = WITHIN_ZERO_INITIALIZED_REGION proven=True
+0x10 = WITHIN_ZERO_INITIALIZED_REGION proven=True
+0x18 = WITHIN_ZERO_INITIALIZED_REGION proven=True
+0x20 = WITHIN_ZERO_INITIALIZED_REGION proven=True
+0x28 = SEMANTICS_NOT_PROVEN proven=False
+
+=== CONCLUSIONS ===
+ENTRY_STRIDE_PROVEN=True
+SUBMIT_DISPATCH_PATTERN_FOUND=True
+MULTI_DISPATCH_PATTERN_FOUND=True
+SUBMIT_DISPATCH_FORMULA_PROVEN=True
+MULTI_DISPATCH_FORMULA_PROVEN=True
+ENTRY_FUNCTION_POINTER_FIELD_PROVEN=True
+ENTRY_ZERO_INITIALIZATION_PROVEN=True
+STAGE71_RUNTIME_TABLE_INITIALIZATION_CARRIED_FORWARD=False
+STAGE71_COUNT_SEMANTICS_CARRIED_FORWARD=False
+INDEX_SEMANTICS_PROVEN=False
+COUNT_SEMANTICS_PROVEN=False
+EXACT_ENTRY_FIELD_NAMES_PROVEN=False
+EXACT_ENTRY_STRUCT_SIZE_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== LIMIT ===
+Esta etapa demuestra el slot de funci├│n indirecta en +0x00 y la regi├│n de entrada afectada por la inicializaci├│n a cero. No asigna nombres sem├ínticos p├║blicos a los dem├ís offsets ni demuestra el sizeof exacto de la entrada.
+--- output files ---
+/mnt/d/agc_work/stage72_results/STAGE72_REPORT.json
+/mnt/d/agc_work/stage72_results/analyze_dispatch_entries.py
+/mnt/d/agc_work/stage72_results/dispatch_entry_correlation.json
+/mnt/d/agc_work/stage72_results/dispatch_entry_disassembly.txt
+/mnt/d/agc_work/stage72_results/dispatch_entry_summary.txt
+/mnt/d/agc_work/stage72_results/stage72_static.json
+
+==> Hash artefactos
+
+[WSL] set -e
+
+set -e
+
+sha256sum \
+    '/mnt/d/agc_work/stage72_results/stage72_static.json' \
+    '/mnt/d/agc_work/stage72_results/dispatch_entry_summary.txt' \
+    '/mnt/d/agc_work/stage72_results/dispatch_entry_disassembly.txt' \
+    '/mnt/d/agc_work/stage72_results/dispatch_entry_correlation.json' \
+    '/mnt/d/agc_work/stage72_results/STAGE72_REPORT.json'
+83c2469d1eeb62fe441fe60d4e20bb50e67fdef4fea841bdf7ee4a7105414d3c  /mnt/d/agc_work/stage72_results/stage72_static.json
+7e45f93cea2244851e4d3e9d0964c56be289d55fb1985eda8d3074a477cc81ae  /mnt/d/agc_work/stage72_results/dispatch_entry_summary.txt
+af89029287e7d962d39dbc9a905cc198129c11d09b597b5f265272d7f7da372f  /mnt/d/agc_work/stage72_results/dispatch_entry_disassembly.txt
+2d838ae83aa1005d17b5dd04f7efcd9ee832b4385370ed3e4c7905bebcbd42e5  /mnt/d/agc_work/stage72_results/dispatch_entry_correlation.json
+cac9fdc970930de0e87ac806aea7b56284df6113f686f73f85b9396ed73bee5c  /mnt/d/agc_work/stage72_results/STAGE72_REPORT.json
+83c2469d1eeb62fe441fe60d4e20bb50e67fdef4fea841bdf7ee4a7105414d3c  /mnt/d/agc_work/stage72_results/stage72_static.json
+7e45f93cea2244851e4d3e9d0964c56be289d55fb1985eda8d3074a477cc81ae  /mnt/d/agc_work/stage72_results/dispatch_entry_summary.txt
+af89029287e7d962d39dbc9a905cc198129c11d09b597b5f265272d7f7da372f  /mnt/d/agc_work/stage72_results/dispatch_entry_disassembly.txt
+2d838ae83aa1005d17b5dd04f7efcd9ee832b4385370ed3e4c7905bebcbd42e5  /mnt/d/agc_work/stage72_results/dispatch_entry_correlation.json
+cac9fdc970930de0e87ac806aea7b56284df6113f686f73f85b9396ed73bee5c  /mnt/d/agc_work/stage72_results/STAGE72_REPORT.json
+
+============================================
+Stage 72 completado
+============================================
+ENTRY_STRIDE_PROVEN = True
+SUBMIT_DISPATCH_PATTERN_FOUND = True
+MULTI_DISPATCH_PATTERN_FOUND = True
+SUBMIT_DISPATCH_FORMULA_PROVEN = True
+MULTI_DISPATCH_FORMULA_PROVEN = True
+ENTRY_FUNCTION_POINTER_FIELD_PROVEN = True
+ENTRY_ZERO_INITIALIZATION_PROVEN = True
+STAGE71_RUNTIME_TABLE_INITIALIZATION_CARRIED_FORWARD = False
+STAGE71_COUNT_SEMANTICS_CARRIED_FORWARD = False
+INDEX_SEMANTICS_PROVEN = False
+COUNT_SEMANTICS_PROVEN = False
+EXACT_ENTRY_FIELD_NAMES_PROVEN = False
+EXACT_ENTRY_STRUCT_SIZE_PROVEN = False
+BACKEND_CONSUMER_IDENTIFIED = False
+SEMANTIC_PROTOTYPE_INFERRED = False
+EXECUTED_AGC = False
+
+Resultados:
+  D:\agc_work\stage72_results
+
+Reporte:
+  D:\agc_work\stage72_results\STAGE72_REPORT.json
+PS D:\agc_ps5_stage72>

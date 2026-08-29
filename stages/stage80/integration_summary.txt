@@ -1,0 +1,14 @@
+AGC PS5 Stage 80 - Project Integration / ABI v1 Consumption Audit
+
+PROJECT_ADAPTER_COMPILED=True
+PROJECT_STATIC_LIBRARY_BUILT=True
+PROJECT_API_SYMBOLS_VERIFIED=True
+ABI_V1_CONSUMABLE=True
+SEMANTIC_FIELD_NAMES_FINAL=False
+FUNCTION_POINTER_VALUE_ORIGIN_PROVEN=False
+REAL_AGC_EXECUTION=False
+
+Record layout: +0x00/8, +0x08/4, +0x0C/1.
+Dispatch stride: 0x78.
+Global +0xA4: dispatch-index semantics proven.
+Global +0xA0: dispatch-table count/bound semantics proven.

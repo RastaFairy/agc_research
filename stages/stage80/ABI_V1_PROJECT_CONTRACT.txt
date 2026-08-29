@@ -1,0 +1,33 @@
+AGC PS5 Stage 80 - Project Library ABI v1 Integration Contract
+
+PURPOSE
+=======
+Package the recovered ABI v1 into a project-facing static library.
+
+PROVEN IN PREVIOUS STAGES
+=========================
+- SubmitCommandBuffer uses RDI=context and RSI=args.
+- args fields are accessed at +0x00 (8 bytes), +0x08 (4 bytes), +0x0C (1 byte).
+- SubmitMultiCommandBuffers uses context + separate 64-bit and 32-bit arrays + count-shaped control flow.
+- global_context+0xA0 is a table-bound/count-like value.
+- global_context+0xA4 is used as a dispatch index.
+- dispatch entry stride is 0x78.
+- SubmitDcb/AgrSubmitDcb wrappers redirect their single caller argument into RSI while supplying an internal context in RDI.
+
+INTENTIONAL LIMITATIONS
+=======================
+- field_00/field_08/field_0c public semantic names are not claimed.
+- exact sizeof(struct) is not claimed beyond the observed bytes.
+- function-pointer value origin is not proven.
+- runtime AGC execution is not performed by this stage.
+
+BUILD PRODUCTS
+==============
+- agc_project_v1.h
+- agc_project_v1.c
+- agc_project_v1.o
+- libagc_project_v1.a
+- stage80_link_probe.c
+- stage80_link_probe.o
+- stage80_static.json
+- STAGE80_REPORT.json

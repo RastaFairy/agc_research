@@ -1,0 +1,56 @@
+AGC PS5 Stage 72 - Dispatch Entry Layout / Function Pointer Provenance Audit
+
+=== TARGET ===
+global_context = 0x1A908
+submit table offset = 0x50
+multi table offset = 0x58
+entry stride = 0x78
+
+=== SUBMIT DISPATCH ===
+VA=0x19D2 | table=+0x50 | base=rbx | index=rax | scale=1
+  scale evidence: VA=0x19CE | imul   $0x78,%rax,%rax
+
+=== MULTI DISPATCH ===
+VA=0x47DF | table=+0x58 | base=rcx | index=rax | scale=1
+  scale evidence: VA=0x47DB | imul   $0x78,%rax,%rax
+
+=== FUNCTION POINTER SLOT ===
+entry + 0x00 = indirect dispatch target
+ENTRY_FUNCTION_POINTER_FIELD_PROVEN=True
+
+=== ZERO INITIALIZED REGION ===
+VA=0x25C | relative=0x8 | width=32 | vmovups %ymm0,0x8(%r8,%rax,1)
+VA=0x263 | relative=0xFFFFFFF0 | width=32 | vmovups %ymm0,-0x10(%r8,%rax,1)
+VA=0x26A | relative=0xFFFFFFD0 | width=32 | vmovups %ymm0,-0x30(%r8,%rax,1)
+VA=0x271 | relative=0xFFFFFFB0 | width=32 | vmovups %ymm0,-0x50(%r8,%rax,1)
+VA=0x9897 | relative=0xFFFFFFB0 | width=32 | vmovups %ymm0,-0x50(%rbp)
+
+=== ENTRY LAYOUT ===
+0x00 = INDIRECT_DISPATCH_TARGET_SLOT proven=True
+0x08 = ZERO_INITIALIZED_REGION proven=True
+0x0C = WITHIN_ZERO_INITIALIZED_REGION proven=True
+0x10 = WITHIN_ZERO_INITIALIZED_REGION proven=True
+0x18 = WITHIN_ZERO_INITIALIZED_REGION proven=True
+0x20 = WITHIN_ZERO_INITIALIZED_REGION proven=True
+0x28 = SEMANTICS_NOT_PROVEN proven=False
+
+=== CONCLUSIONS ===
+ENTRY_STRIDE_PROVEN=True
+SUBMIT_DISPATCH_PATTERN_FOUND=True
+MULTI_DISPATCH_PATTERN_FOUND=True
+SUBMIT_DISPATCH_FORMULA_PROVEN=True
+MULTI_DISPATCH_FORMULA_PROVEN=True
+ENTRY_FUNCTION_POINTER_FIELD_PROVEN=True
+ENTRY_ZERO_INITIALIZATION_PROVEN=True
+STAGE71_RUNTIME_TABLE_INITIALIZATION_CARRIED_FORWARD=False
+STAGE71_COUNT_SEMANTICS_CARRIED_FORWARD=False
+INDEX_SEMANTICS_PROVEN=False
+COUNT_SEMANTICS_PROVEN=False
+EXACT_ENTRY_FIELD_NAMES_PROVEN=False
+EXACT_ENTRY_STRUCT_SIZE_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== LIMIT ===
+Esta etapa demuestra el slot de función indirecta en +0x00 y la región de entrada afectada por la inicialización a cero. No asigna nombres semánticos públicos a los demás offsets ni demuestra el sizeof exacto de la entrada.

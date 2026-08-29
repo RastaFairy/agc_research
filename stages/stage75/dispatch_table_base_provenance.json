@@ -1,0 +1,198 @@
+{
+  "stage": 75,
+  "target": {
+    "global_context_va": 108808,
+    "initializer_va": 352,
+    "submit_table_offset": 80,
+    "multi_table_offset": 88,
+    "entry_stride": 120,
+    "submit_va": 6320,
+    "multi_va": 18000
+  },
+  "previous_stage": {
+    "stage74_available": true
+  },
+  "initializer": {
+    "stores": [
+      {
+        "va": 442,
+        "instruction": "vmovups %ymm0,0x50(%rax)",
+        "field_offset": 80,
+        "source_register": "%ymm0"
+      },
+      {
+        "va": 471,
+        "instruction": "mov    %rdx,0x50(%rax)",
+        "field_offset": 80,
+        "source_register": "%rdx"
+      },
+      {
+        "va": 482,
+        "instruction": "mov    %rsi,0x58(%rax)",
+        "field_offset": 88,
+        "source_register": "%rsi"
+      }
+    ],
+    "body_range": "0x160..0x21B"
+  },
+  "initializer_calls": {
+    "count": 1,
+    "all": [
+      {
+        "va": 30838,
+        "instruction": "call   0x160",
+        "global_context_leas_before_call": [
+          {
+            "va": 30794,
+            "instruction": "lea    0x130b7(%rip),%rdi        # 0x1a908",
+            "register": "rdi"
+          }
+        ],
+        "argument_register_snapshots": {
+          "rdi": "lea    0x130b7(%rip),%rdi        # 0x1a908",
+          "rsi": null,
+          "rdx": null,
+          "rcx": null
+        },
+        "trace": [
+          {
+            "va": 30794,
+            "instruction": "lea    0x130b7(%rip),%rdi        # 0x1a908",
+            "argument_register": "rdi"
+          }
+        ]
+      }
+    ],
+    "global_context_calls": [
+      {
+        "va": 30838,
+        "instruction": "call   0x160",
+        "global_context_leas_before_call": [
+          {
+            "va": 30794,
+            "instruction": "lea    0x130b7(%rip),%rdi        # 0x1a908",
+            "register": "rdi"
+          }
+        ],
+        "argument_register_snapshots": {
+          "rdi": "lea    0x130b7(%rip),%rdi        # 0x1a908",
+          "rsi": null,
+          "rdx": null,
+          "rcx": null
+        },
+        "trace": [
+          {
+            "va": 30794,
+            "instruction": "lea    0x130b7(%rip),%rdi        # 0x1a908",
+            "argument_register": "rdi"
+          }
+        ]
+      }
+    ],
+    "rdi_global_context_calls": [
+      {
+        "va": 30838,
+        "instruction": "call   0x160",
+        "global_context_leas_before_call": [
+          {
+            "va": 30794,
+            "instruction": "lea    0x130b7(%rip),%rdi        # 0x1a908",
+            "register": "rdi"
+          }
+        ],
+        "argument_register_snapshots": {
+          "rdi": "lea    0x130b7(%rip),%rdi        # 0x1a908",
+          "rsi": null,
+          "rdx": null,
+          "rcx": null
+        },
+        "trace": [
+          {
+            "va": 30794,
+            "instruction": "lea    0x130b7(%rip),%rdi        # 0x1a908",
+            "argument_register": "rdi"
+          }
+        ]
+      }
+    ]
+  },
+  "table_argument_provenance": [
+    {
+      "call_va": 30838,
+      "global_context_leas": [
+        {
+          "va": 30794,
+          "instruction": "lea    0x130b7(%rip),%rdi        # 0x1a908",
+          "register": "rdi"
+        }
+      ],
+      "rsi_source": null,
+      "rdx_source": null,
+      "interpretation": {
+        "global_context": "RDI/alias when proven",
+        "submit_table_base": "RDX -> initializer +0x50",
+        "multi_table_base": "RSI -> initializer +0x58"
+      }
+    }
+  ],
+  "dispatch_uses": [
+    {
+      "va": 6610,
+      "instruction": "call   *0x50(%rbx,%rax,1)",
+      "table_offset": 80,
+      "scaled_index": true
+    },
+    {
+      "va": 10950,
+      "instruction": "call   *0x50(%r12,%rax,1)",
+      "table_offset": 80,
+      "scaled_index": true
+    },
+    {
+      "va": 18399,
+      "instruction": "call   *0x58(%rcx,%rax,1)",
+      "table_offset": 88,
+      "scaled_index": true
+    }
+  ],
+  "base_uses": [
+    {
+      "va": 6610,
+      "instruction": "call   *0x50(%rbx,%rax,1)"
+    },
+    {
+      "va": 10950,
+      "instruction": "call   *0x50(%r12,%rax,1)"
+    },
+    {
+      "va": 18399,
+      "instruction": "call   *0x58(%rcx,%rax,1)"
+    }
+  ],
+  "callsite_disassembly": [
+    {
+      "call_va": 30838,
+      "text": "0x7828: \n0x7829: call   0x7580\n0x782e: lea    0x130d7(%rip),%rdi        # 0x1a90c\n0x7835: lea    -0x2c(%rbp),%rsi\n0x7839: call   0x7cc0\n0x783e: cmp    $0x1,%eax\n0x7841: jne    0x7aac\n0x7847: mov    -0x2c(%rbp),%eax\n0x784a: lea    0x130b7(%rip),%rdi        # 0x1a908\n0x7851: movzwl %ax,%ecx\n0x7854: shr    $0x10,%eax\n0x7857: mov    %ecx,0x130b3(%rip)        # 0x1a910\n0x785d: mov    %eax,0x130b1(%rip)        # 0x1a914\n0x7863: call   0xad60\n0x7868: test   %eax,%eax\n0x786a: je     0x7876\n0x786c: movl   $0x0,0x13092(%rip)        # 0x1a908\n0x7873: \n0x7876: call   0x160\n0x787b: test   %eax,%eax\n0x787d: je     0x7896\n0x787f: mov    0xc85a(%rip),%rdi        # 0x140e0\n0x7886: mov    %eax,%edx\n0x7888: lea    0x83ac(%rip),%rsi        # 0xfc3b\n0x788f: xor    %eax,%eax\n0x7891: call   0xab80\n0x7896: call   0x380"
+    }
+  ],
+  "conclusions": {
+    "INITIALIZER_0x50_STORE_FOUND": true,
+    "INITIALIZER_0x58_STORE_FOUND": true,
+    "INITIALIZER_CALLS_FOUND": true,
+    "GLOBAL_CONTEXT_PASSED_TO_INITIALIZER_PROVEN": true,
+    "SUBMIT_TABLE_ARGUMENT_PROVEN": false,
+    "MULTI_TABLE_ARGUMENT_PROVEN": false,
+    "TABLE_BASE_POINTER_MODEL_SUPPORTED": true,
+    "DISPATCH_0x50_USE_CONFIRMED": true,
+    "DISPATCH_0x58_USE_CONFIRMED": true,
+    "ENTRY_STRIDE_PROVEN": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "COUNT_SEMANTICS_PROVEN": true,
+    "FUNCTION_POINTER_VALUE_ORIGIN_PROVEN": false,
+    "EXACT_ENTRY_FIELD_NAMES_PROVEN": false,
+    "EXACT_ENTRY_STRUCT_SIZE_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}

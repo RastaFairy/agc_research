@@ -1,0 +1,138 @@
+{
+  "stage": 78,
+  "target": {
+    "global_context_va": 108808,
+    "initializer_va": 352,
+    "helper_call_target": 31936,
+    "submit_table_offset": 80,
+    "multi_table_offset": 88,
+    "entry_stride": 120,
+    "submit_va": 6320,
+    "multi_va": 18000
+  },
+  "previous_stage": {
+    "stage77_available": true,
+    "stage77_helper_rsi_output_proven": false,
+    "stage77_submit_rdx_proven": false,
+    "note": "Stage 78 recomputes caller-side RDX provenance without requiring a .text ELF section."
+  },
+  "callsite_analysis": {
+    "initializer_call": {
+      "va": 30838,
+      "instruction": "e5 88 ff ff       \tcall   0x160",
+      "bytes": "e8",
+      "raw_line": "    7876:\te8 e5 88 ff ff       \tcall   0x160"
+    },
+    "helper_call": {
+      "va": 30777,
+      "instruction": "82 04 00 00       \tcall   0x7cc0",
+      "bytes": "e8",
+      "raw_line": "    7839:\te8 82 04 00 00       \tcall   0x7cc0"
+    },
+    "latest_pre_initializer_definitions": {
+      "rdi": {
+        "va": 30794,
+        "instruction": "8d 3d b7 30 01 00 \tlea    0x130b7(%rip),%rdi        # 0x1a908"
+      },
+      "rsi": {
+        "va": 30773,
+        "instruction": "8d 75 d4          \tlea    -0x2c(%rbp),%rsi"
+      },
+      "rdx": {
+        "va": 30562,
+        "instruction": "8d 15 6a 87 00 00 \tlea    0x876a(%rip),%rdx        # 0xfed3"
+      },
+      "rcx": {
+        "va": 30284,
+        "instruction": "41 08 00 00 00 00 \tmovl   $0x0,0x8(%rcx)"
+      }
+    },
+    "post_helper_rdx_redefinitions": [],
+    "post_helper_rsi_redefinitions": []
+  },
+  "helper_analysis": {
+    "start_va": 31936,
+    "disassembly": "\n/tmp/agc_stage78_uzmhvzj4.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0000000000007cc0 <.data>:\n    7cc0:\t55                   \tpush   %rbp\n    7cc1:\t48 89 e5             \tmov    %rsp,%rbp\n    7cc4:\t41 57                \tpush   %r15\n    7cc6:\t41 56                \tpush   %r14\n    7cc8:\t41 55                \tpush   %r13\n    7cca:\t41 54                \tpush   %r12\n    7ccc:\t53                   \tpush   %rbx\n    7ccd:\t48 83 ec 18          \tsub    $0x18,%rsp\n    7cd1:\t4c 8b 2d 10 c4 00 00 \tmov    0xc410(%rip),%r13        # 0x140e8\n    7cd8:\t49 89 f6             \tmov    %rsi,%r14\n    7cdb:\t49 89 ff             \tmov    %rdi,%r15\n    7cde:\t48 8d 3d 5a 83 00 00 \tlea    0x835a(%rip),%rdi        # 0x1003f\n    7ce5:\tbe 02 00 00 00       \tmov    $0x2,%esi\n    7cea:\t31 db                \txor    %ebx,%ebx\n    7cec:\t49 8b 45 00          \tmov    0x0(%r13),%rax\n    7cf0:\t48 89 45 d0          \tmov    %rax,-0x30(%rbp)\n    7cf4:\t31 c0                \txor    %eax,%eax\n    7cf6:\te8 75 30 00 00       \tcall   0xad70\n    7cfb:\t85 c0                \ttest   %eax,%eax\n    7cfd:\t0f 88 3d 01 00 00    \tjs     0x7e40\n    7d03:\t48 8d 55 c8          \tlea    -0x38(%rbp),%rdx\n    7d07:\tbe 2e 81 04 c0       \tmov    $0xc004812e,%esi\n    7d0c:\t89 c7                \tmov    %eax,%edi\n    7d0e:\t41 89 c4             \tmov    %eax,%r12d\n    7d11:\t31 c0                \txor    %eax,%eax\n    7d13:\tc7 45 c8 00 00 00 00 \tmovl   $0x0,-0x38(%rbp)\n    7d1a:\te8 61 30 00 00       \tcall   0xad80\n    7d1f:\t44 0f b7 6d c8       \tmovzwl -0x38(%rbp),%r13d\n    7d24:\t45 85 ed             \ttest   %r13d,%r13d\n    7d27:\t75 55                \tjne    0x7d7e\n    7d29:\t48 83 3d af 2d 01 00 \tcmpq   $0x0,0x12daf(%rip)        # 0x1aae0\n    7d30:\t00 \n    7d31:\t75 4b                \tjne    0x7d7e\n    7d33:\t48 bf 00 00 20 e0 0f \tmovabs $0xfe0200000,%rdi\n    7d3a:\t00 00 00 \n    7d3d:\tbe 00 40 00 00       \tmov    $0x4000,%esi\n    7d42:\tba 22 00 00 00       \tmov    $0x22,%edx\n    7d47:\tb9 01 00 00 00       \tmov    $0x1,%ecx\n    7d4c:\t45 89 e0             \tmov    %r12d,%r8d\n    7d4f:\t45 31 c9             \txor    %r9d,%r9d\n    7d52:\t31 db                \txor    %ebx,%ebx\n    7d54:\te8 37 30 00 00       \tcall   0xad90\n    7d59:\t48 89 05 80 2d 01 00 \tmov    %rax,0x12d80(%rip)        # 0x1aae0\n    7d60:\t48 83 f8 ff          \tcmp    $0xffffffffffffffff,%rax\n    7d64:\t0f 84 c7 00 00 00    \tje     0x7e31\n    7d6a:\t48 8d 15 ec 75 00 00 \tlea    0x75ec(%rip),%rdx        # 0xf35d\n    7d71:\tbe 00 40 00 00       \tmov    $0x4000,%esi\n    7d76:\t48 89 c7             \tmov    %rax,%rdi\n    7d79:\te8 22 30 00 00       \tcall   0xada0\n    7d7e:\t45 89 27             \tmov    %r12d,(%r15)\n    7d81:\t45 85 ed             \ttest   %r13d,%r13d\n    7d84:\t4c 8b 2d 5d c3 00 00 \tmov    0xc35d(%rip),%r13        # 0x140e8\n    7d8b:\t75 2c                \tjne    0x7db9\n    7d8d:\t48 8d 7d c4          \tlea    -0x3c(%rbp),%rdi\n    7d91:\te8 ca 2f 00 00       \tcall   0xad60\n    7d96:\t85 c0                \ttest   %eax,%eax\n    7d98:\t74 07                \tje     0x7da1\n    7d9a:\tc7 45 c4 00 00 00 03 \tmovl   $0x3000000,-0x3c(%rbp)\n    7da1:\te8 ca 00 00 00       \tcall   0x7e70\n    7da6:\t85 c0                \ttest   %eax,%eax\n    7da8:\t75 0f                \tjne    0x7db9\n    7daa:\t48 8d 35 37 2d 01 00 \tlea    0x12d37(%rip),%rsi        # 0x1aae8\n    7db1:\t44 89 e7             \tmov    %r12d,%edi\n    7db4:\te8 e7 2a 00 00       \tcall   0xa8a0\n    7db9:\t48 8b 1d e0 2d 01 00 \tmov    0x12de0(%rip),%rbx        # 0x1aba0\n    7dc0:\t48 85 db             \ttest   %rbx,%rbx\n    7dc3:\t74 5a                \tje     0x7e1f\n    7dc5:\tc5 f8 10 05 a3 83 00 \tvmovups 0x83a3(%rip),%xmm0        # 0x10170\n    7dcc:\t00 \n    7dcd:\t48 8d bb 60 8b 0c 00 \tlea    0xc8b60(%rbx),%rdi\n    7dd4:\tba 00 06 00 00       \tmov    $0x600,%edx\n    7dd9:\tc7 03 00 00 00 00    \tmovl   $0x0,(%rbx)\n    7ddf:\t31 f6                \txor    %esi,%esi\n    7de1:\tc5 f8 11 83 50 83 0c \tvmovups %xmm0,0xc8350(%rbx)\n    7de8:\t00 \n    7de9:\te8 d2 2d 00 00       \tcall   0xabc0\n    7dee:\t48 8d 3d fb 7a 00 00 \tlea    0x7afb(%rip),%rdi        # 0xf8f0\n    7df5:\tba 00 00 10 00       \tmov    $0x100000,%edx\n    7dfa:\t48 89 de             \tmov    %rbx,%rsi\n    7dfd:\t31 c9                \txor    %ecx,%ecx\n    7dff:\t45 31 c0             \txor    %r8d,%r8d\n    7e02:\te8 a9 2f 00 00       \tcall   0xadb0\n    7e07:\t48 8b 3d 92 2d 01 00 \tmov    0x12d92(%rip),%rdi        # 0x1aba0\n    7e0e:\t48 8d 15 2a 7a 00 00 \tlea    0x7a2a(%rip),%rdx        # 0xf83f\n    7e15:\tbe 00 00 10 00       \tmov    $0x100000,%esi\n    7e1a:\te8 81 2f 00 00       \tcall   0xada0\n    7e1f:\tbb 01 00 00 00       \tmov    $0x1,%ebx\n    7e24:\t4d 85 f6             \ttest   %r14,%r14\n    7e27:\t74 17                \tje     0x7e40\n    7e29:\t8b 45 c8             \tmov    -0x38(%rbp),%eax\n    7e2c:\t41 89 06             \tmov    %eax,(%r14)\n    7e2f:\teb 0f                \tjmp    0x7e40\n    7e31:\t44 89 e7             \tmov    %r12d,%edi\n    7e34:\te8 87 2f 00 00       \tcall   0xadc0\n    7e39:\t4c 8b 2d a8 c2 00 00 \tmov    0xc2a8(%rip),%r13        # 0x140e8\n    7e40:\t49 8b 45 00          \tmov    0x0(%r13),%rax\n    7e44:\t48 3b 45 d0          \tcmp    -0x30(%rbp),%rax\n    7e48:\t75 11                \tjne    0x7e5b\n    7e4a:\t89 d8                \tmov    %ebx,%eax\n    7e4c:\t48 83 c4 18          \tadd    $0x18,%rsp\n    7e50:\t5b                   \tpop    %rbx\n    7e51:\t41 5c                \tpop    %r12\n    7e53:\t41 5d                \tpop    %r13\n    7e55:\t41 5e                \tpop    %r14\n    7e57:\t41 5f                \tpop    %r15\n    7e59:\t5d                   \tpop    %rbp\n    7e5a:\tc3                   \tret\n    7e5b:\te8 d0 2d 00 00       \tcall   0xac30\n    7e60:\t0f 0b                \tud2\n    7e62:\tcc                   \tint3\n    7e63:\tcc                   \tint3\n    7e64:\tcc                   \tint3\n    7e65:\tcc                   \tint3\n    7e66:\tcc                   \tint3\n    7e67:\tcc                   \tint3\n    7e68:\tcc                   \tint3\n    7e69:\tcc                   \tint3\n    7e6a:\tcc                   \tint3\n    7e6b:\tcc                   \tint3\n    7e6c:\tcc                   \tint3\n    7e6d:\tcc                   \tint3\n    7e6e:\tcc                   \tint3\n    7e6f:\tcc                   \tint3\n    7e70:\t55                   \tpush   %rbp\n    7e71:\t48 89 e5             \tmov    %rsp,%rbp\n    7e74:\t41 57                \tpush   %r15\n    7e76:\t41 56                \tpush   %r14\n    7e78:\t41 55                \tpush   %r13\n    7e7a:\t41 54                \tpush   %r12\n    7e7c:\t53                   \tpush   %rbx\n    7e7d:\t48 83 ec 48          \tsub    $0x48,%rsp\n    7e81:\t4c 8b 25 60 c2 00 00 \tmov    0xc260(%rip),%r12        # 0x140e8\n    7e88:\t31 db                \txor    %ebx,%ebx\n    7e8a:\t49 8b 04 24          \tmov    (%r12),%rax\n    7e8e:\t48 89 45 d0          \tmov    %rax,-0x30(%rbp)\n    7e92:\t83 3d 4f 2c 01 00 00 \tcmpl   $0x0,0x12c4f(%rip)        # 0x1aae8\n    7e99:\t0f 85 e4 01 00 00    \tjne    0x8083\n    7e9f:\t48 b8 00 00 30 e0 0f \tmovabs $0xfe0300000,%rax\n    7ea6:\t00 00 00 \n    7ea9:\t4c 8d 05 4a 80 00 00 \tlea    0x804a(%rip),%r8        # 0xfefa\n    7eb0:\t48 8d 7d c8          \tlea    -0x38(%rbp),%rdi\n    7eb4:\tbe 00 00 10 00       \tmov    $0x100000,%esi\n    7eb9:\tba 03 00 00 00       \tmov    $0x3,%edx\n    7ebe:\t31 c9                \txor    %ecx,%ecx\n",
+    "return_addresses": [
+      32346
+    ],
+    "outputs": {
+      "rsi": {
+        "defined_paths": [
+          {
+            "ret_va": 32346,
+            "va": 32250,
+            "instruction": "89 de             \tmov    %rbx,%rsi"
+          }
+        ],
+        "all_return_paths_defined": true
+      },
+      "rdx": {
+        "defined_paths": [
+          {
+            "ret_va": 32346,
+            "va": 32270,
+            "instruction": "8d 15 2a 7a 00 00 \tlea    0x7a2a(%rip),%rdx        # 0xf83f"
+          }
+        ],
+        "all_return_paths_defined": true
+      }
+    }
+  },
+  "submit_table_argument": {
+    "register": "RDX",
+    "pre_initializer_definition": {
+      "va": 30562,
+      "instruction": "8d 15 6a 87 00 00 \tlea    0x876a(%rip),%rdx        # 0xfed3"
+    },
+    "helper_return_rdx_defined_all_paths": true,
+    "helper_rdx_reaches_initializer": false,
+    "caller_rdx_survives_to_initializer": true,
+    "interpretation": "RDX argument is proven at the initializer call from caller-side data-flow; it is not attributed to helper 0x7CC0 because helper return RDX is not defined on every return path."
+  },
+  "dispatch_uses": [
+    {
+      "va": 6610,
+      "instruction": "call *0x50(%rbx,%rax,1)",
+      "offset": 80,
+      "scaled_index": true
+    },
+    {
+      "va": 10950,
+      "instruction": "call *0x50(%r12,%rax,1)",
+      "offset": 80,
+      "scaled_index": true
+    },
+    {
+      "va": 18399,
+      "instruction": "call *0x58(%rcx,%rax,1)",
+      "offset": 88,
+      "scaled_index": true
+    }
+  ],
+  "conclusions": {
+    "ELF_VA_MAPPING_COMPLETED": true,
+    "SECTION_TEXT_DEPENDENCY_REMOVED": true,
+    "HELPER_FUNCTION_DISASSEMBLED": true,
+    "HELPER_RETURN_PATHS_ENUMERATED": true,
+    "HELPER_RETURNS_RDX_ALL_PATHS_PROVEN": true,
+    "INITIALIZER_CALLSITE_FOUND": true,
+    "SUBMIT_RDX_LATEST_CALLER_DEFINITION_FOUND": true,
+    "SUBMIT_RDX_POST_HELPER_REDEFINED": false,
+    "SUBMIT_TABLE_ARGUMENT_RDX_PROVEN": true,
+    "HELPER_RDX_OUTPUT_REACHES_INITIALIZER": false,
+    "TABLE_ARGUMENTS_FULLY_PROVEN": false,
+    "TABLE_BASE_POINTER_MODEL_SUPPORTED": true,
+    "DISPATCH_0x50_USE_CONFIRMED": true,
+    "DISPATCH_0x58_USE_CONFIRMED": true,
+    "ENTRY_STRIDE_PROVEN": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "COUNT_SEMANTICS_PROVEN": true,
+    "FUNCTION_POINTER_VALUE_ORIGIN_PROVEN": false,
+    "EXACT_ENTRY_FIELD_NAMES_PROVEN": false,
+    "EXACT_ENTRY_STRUCT_SIZE_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}

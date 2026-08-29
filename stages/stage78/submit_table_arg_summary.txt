@@ -1,0 +1,58 @@
+AGC PS5 Stage 78 - Submit Table Argument / RDX Provenance Audit
+
+=== TARGET ===
+global_context = 0x1A908
+initializer = 0x160
+helper = 0x7CC0
+submit table field = +0x50
+multi table field = +0x58
+entry stride = 0x78
+
+=== INITIALIZER CALLSITE ===
+VA=0x7876 | e5 88 ff ff       	call   0x160
+
+=== RDX PRE-CALL DEFINITION ===
+VA=0x7762 | 8d 15 6a 87 00 00 	lea    0x876a(%rip),%rdx        # 0xfed3
+
+=== HELPER RDX RETURN STATUS ===
+helper_rdx_defined_all_return_paths = True
+helper_rdx_output_reaches_initializer = False
+
+=== SUBMIT TABLE ARGUMENT ===
+RDX argument proven at initializer call = True
+POST-HELPER RDX REDEFINITIONS = NONE
+
+=== DISPATCH USES ===
+VA=0x19D2 | table=+0x50 | call *0x50(%rbx,%rax,1)
+VA=0x2AC6 | table=+0x50 | call *0x50(%r12,%rax,1)
+VA=0x47DF | table=+0x58 | call *0x58(%rcx,%rax,1)
+
+=== CONCLUSIONS ===
+ELF_VA_MAPPING_COMPLETED=True
+SECTION_TEXT_DEPENDENCY_REMOVED=True
+HELPER_FUNCTION_DISASSEMBLED=True
+HELPER_RETURN_PATHS_ENUMERATED=True
+HELPER_RETURNS_RDX_ALL_PATHS_PROVEN=True
+INITIALIZER_CALLSITE_FOUND=True
+SUBMIT_RDX_LATEST_CALLER_DEFINITION_FOUND=True
+SUBMIT_RDX_POST_HELPER_REDEFINED=False
+SUBMIT_TABLE_ARGUMENT_RDX_PROVEN=True
+HELPER_RDX_OUTPUT_REACHES_INITIALIZER=False
+TABLE_ARGUMENTS_FULLY_PROVEN=False
+TABLE_BASE_POINTER_MODEL_SUPPORTED=True
+DISPATCH_0x50_USE_CONFIRMED=True
+DISPATCH_0x58_USE_CONFIRMED=True
+ENTRY_STRIDE_PROVEN=True
+INDEX_SEMANTICS_PROVEN=True
+COUNT_SEMANTICS_PROVEN=True
+FUNCTION_POINTER_VALUE_ORIGIN_PROVEN=False
+EXACT_ENTRY_FIELD_NAMES_PROVEN=False
+EXACT_ENTRY_STRUCT_SIZE_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== LIMIT ===
+La corrección de Stage 78 elimina la dependencia de una sección ELF .text.
+La procedencia RDX se evalúa desde el estado real del llamador hasta el call al inicializador.
+No se atribuye RDX al helper 0x7CC0 cuando su definición no queda demostrada en todos los caminos de retorno.
