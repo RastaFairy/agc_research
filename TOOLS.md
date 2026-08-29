@@ -105,3 +105,11 @@ Ejemplos de ficheros que documentan cada herramienta:
 - `D:\rpcs3_ps5\auditor.txt`
 - `D:\rpcs3_ps5\dev.txt`
 - `D:\rpcs3_ps5\gestor.txt`
+
+### IA
+- `QWEN 3.8`
+- `Claude Sonnet 4.6 MAX`
+- `Claude Sonnet 5 MAX`
+- `GPT-5.6 Sol`
+- `GPT-5.6 Luna`
+- `GEMINI 3.1 PRO`
