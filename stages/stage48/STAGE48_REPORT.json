@@ -1,0 +1,26 @@
+{
+  "stage": 48,
+  "timestamp": "2026-08-25T01:54:54.5873820+02:00",
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "va": "0x18b0"
+  },
+  "references": {
+    "submit_command_buffer": 0,
+    "submit_dcb_context": 5,
+    "agr_submit_dcb_context": 6,
+    "global_state_context": 73,
+    "acb_table": 12
+  },
+  "analysis": {
+    "contexts_are_bss": true,
+    "reference_windows_extracted": true,
+    "write_sites_not_yet_proven": true
+  },
+  "execution": {
+    "performed": false
+  },
+  "abi": {
+    "prototype_inferred": false
+  }
+}

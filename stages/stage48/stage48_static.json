@@ -1,0 +1,4382 @@
+{
+  "targets": {
+    "submit_command_buffer": 6320,
+    "submit_dcb_context": 108728,
+    "agr_submit_dcb_context": 108648,
+    "global_state_context": 108808,
+    "acb_table": 99424
+  },
+  "reference_count": 96,
+  "references": [
+    {
+      "instruction_va": 211,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 108590,
+      "file_offset": 16595,
+      "owner": null
+    },
+    {
+      "instruction_va": 356,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 108445,
+      "file_offset": 16740,
+      "owner": null
+    },
+    {
+      "instruction_va": 548,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 108253,
+      "file_offset": 16932,
+      "owner": null
+    },
+    {
+      "instruction_va": 849,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 107952,
+      "file_offset": 17233,
+      "owner": null
+    },
+    {
+      "instruction_va": 907,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 107894,
+      "file_offset": 17291,
+      "owner": null
+    },
+    {
+      "instruction_va": 1168,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 107633,
+      "file_offset": 17552,
+      "owner": null
+    },
+    {
+      "instruction_va": 1200,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 107601,
+      "file_offset": 17584,
+      "owner": null
+    },
+    {
+      "instruction_va": 1240,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 107561,
+      "file_offset": 17624,
+      "owner": null
+    },
+    {
+      "instruction_va": 1315,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 107486,
+      "file_offset": 17699,
+      "owner": null
+    },
+    {
+      "instruction_va": 1395,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 107406,
+      "file_offset": 17779,
+      "owner": null
+    },
+    {
+      "instruction_va": 2186,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 106615,
+      "file_offset": 18570,
+      "owner": null
+    },
+    {
+      "instruction_va": 2315,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 106486,
+      "file_offset": 18699,
+      "owner": {
+        "raw_name": "Um-jkyDy9rI#F#A",
+        "value": 2288,
+        "size": 73,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Um-jkyDy9rI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetReservedDmemForAgc"
+      }
+    },
+    {
+      "instruction_va": 3883,
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "opcode": "0x8d",
+      "displacement": 95534,
+      "file_offset": 20267,
+      "owner": null
+    },
+    {
+      "instruction_va": 3960,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 104841,
+      "file_offset": 20344,
+      "owner": null
+    },
+    {
+      "instruction_va": 4170,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 104631,
+      "file_offset": 20554,
+      "owner": null
+    },
+    {
+      "instruction_va": 4297,
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "opcode": "0x8d",
+      "displacement": 95120,
+      "file_offset": 20681,
+      "owner": null
+    },
+    {
+      "instruction_va": 4322,
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "opcode": "0x8d",
+      "displacement": 95095,
+      "file_offset": 20706,
+      "owner": null
+    },
+    {
+      "instruction_va": 4963,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 103838,
+      "file_offset": 21347,
+      "owner": null
+    },
+    {
+      "instruction_va": 5587,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 103214,
+      "file_offset": 21971,
+      "owner": null
+    },
+    {
+      "instruction_va": 6190,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 102611,
+      "file_offset": 22574,
+      "owner": null
+    },
+    {
+      "instruction_va": 6408,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 102393,
+      "file_offset": 22792,
+      "owner": {
+        "raw_name": "b4fpgH5ZXxQ#F#A",
+        "value": 6320,
+        "size": 380,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "b4fpgH5ZXxQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitCommandBuffer"
+      }
+    },
+    {
+      "instruction_va": 6725,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 102076,
+      "file_offset": 23109,
+      "owner": null
+    },
+    {
+      "instruction_va": 6789,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 102012,
+      "file_offset": 23173,
+      "owner": null
+    },
+    {
+      "instruction_va": 6990,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 101811,
+      "file_offset": 23374,
+      "owner": null
+    },
+    {
+      "instruction_va": 7192,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 101609,
+      "file_offset": 23576,
+      "owner": {
+        "raw_name": "QcmHLO2n7mk#F#A",
+        "value": 7168,
+        "size": 767,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "QcmHLO2n7mk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSuspendPointSubmit"
+      }
+    },
+    {
+      "instruction_va": 7381,
+      "target_va": 108648,
+      "target_name": "agr_submit_dcb_context",
+      "opcode": "0x8d",
+      "displacement": 101260,
+      "file_offset": 23765,
+      "owner": {
+        "raw_name": "QcmHLO2n7mk#F#A",
+        "value": 7168,
+        "size": 767,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "QcmHLO2n7mk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSuspendPointSubmit"
+      }
+    },
+    {
+      "instruction_va": 7489,
+      "target_va": 108648,
+      "target_name": "agr_submit_dcb_context",
+      "opcode": "0x8d",
+      "displacement": 101152,
+      "file_offset": 23873,
+      "owner": {
+        "raw_name": "QcmHLO2n7mk#F#A",
+        "value": 7168,
+        "size": 767,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "QcmHLO2n7mk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSuspendPointSubmit"
+      }
+    },
+    {
+      "instruction_va": 7716,
+      "target_va": 108728,
+      "target_name": "submit_dcb_context",
+      "opcode": "0x8d",
+      "displacement": 101005,
+      "file_offset": 24100,
+      "owner": {
+        "raw_name": "QcmHLO2n7mk#F#A",
+        "value": 7168,
+        "size": 767,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "QcmHLO2n7mk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSuspendPointSubmit"
+      }
+    },
+    {
+      "instruction_va": 7826,
+      "target_va": 108728,
+      "target_name": "submit_dcb_context",
+      "opcode": "0x8d",
+      "displacement": 100895,
+      "file_offset": 24210,
+      "owner": {
+        "raw_name": "QcmHLO2n7mk#F#A",
+        "value": 7168,
+        "size": 767,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "QcmHLO2n7mk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSuspendPointSubmit"
+      }
+    },
+    {
+      "instruction_va": 8036,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 100765,
+      "file_offset": 24420,
+      "owner": null
+    },
+    {
+      "instruction_va": 8120,
+      "target_va": 108728,
+      "target_name": "submit_dcb_context",
+      "opcode": "0x8d",
+      "displacement": 100601,
+      "file_offset": 24504,
+      "owner": null
+    },
+    {
+      "instruction_va": 8131,
+      "target_va": 108648,
+      "target_name": "agr_submit_dcb_context",
+      "opcode": "0x8d",
+      "displacement": 100510,
+      "file_offset": 24515,
+      "owner": null
+    },
+    {
+      "instruction_va": 8209,
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "opcode": "0x8d",
+      "displacement": 91208,
+      "file_offset": 24593,
+      "owner": null
+    },
+    {
+      "instruction_va": 8355,
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "opcode": "0x8d",
+      "displacement": 91062,
+      "file_offset": 24739,
+      "owner": null
+    },
+    {
+      "instruction_va": 8374,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 100427,
+      "file_offset": 24758,
+      "owner": null
+    },
+    {
+      "instruction_va": 8502,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 100299,
+      "file_offset": 24886,
+      "owner": null
+    },
+    {
+      "instruction_va": 8887,
+      "target_va": 108648,
+      "target_name": "agr_submit_dcb_context",
+      "opcode": "0x8d",
+      "displacement": 99754,
+      "file_offset": 25271,
+      "owner": null
+    },
+    {
+      "instruction_va": 9903,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 98898,
+      "file_offset": 26287,
+      "owner": {
+        "raw_name": "XNbrdwCsZ9A#F#A",
+        "value": 9888,
+        "size": 242,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "XNbrdwCsZ9A",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverDestroyQueue"
+      }
+    },
+    {
+      "instruction_va": 10289,
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "opcode": "0x8d",
+      "displacement": 89128,
+      "file_offset": 26673,
+      "owner": null
+    },
+    {
+      "instruction_va": 10419,
+      "target_va": 108728,
+      "target_name": "submit_dcb_context",
+      "opcode": "0x8d",
+      "displacement": 98302,
+      "file_offset": 26803,
+      "owner": {
+        "raw_name": "UglJIZjGssM#F#A",
+        "value": 10416,
+        "size": 15,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "UglJIZjGssM",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitDcb"
+      }
+    },
+    {
+      "instruction_va": 10436,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 98365,
+      "file_offset": 26820,
+      "owner": {
+        "raw_name": "AhGvpITrf4M#F#A",
+        "value": 10432,
+        "size": 72,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "AhGvpITrf4M",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitDcb"
+      }
+    },
+    {
+      "instruction_va": 10455,
+      "target_va": 108648,
+      "target_name": "agr_submit_dcb_context",
+      "opcode": "0x8d",
+      "displacement": 98186,
+      "file_offset": 26839,
+      "owner": {
+        "raw_name": "AhGvpITrf4M#F#A",
+        "value": 10432,
+        "size": 72,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "AhGvpITrf4M",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitDcb"
+      }
+    },
+    {
+      "instruction_va": 10545,
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "opcode": "0x8d",
+      "displacement": 88872,
+      "file_offset": 26929,
+      "owner": {
+        "raw_name": "gSRnr79F8tQ#F#A",
+        "value": 10512,
+        "size": 67,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "gSRnr79F8tQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitAcb"
+      }
+    },
+    {
+      "instruction_va": 10654,
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "opcode": "0x8d",
+      "displacement": 88763,
+      "file_offset": 27038,
+      "owner": {
+        "raw_name": "F5ZTyyVUHTs#F#A",
+        "value": 10592,
+        "size": 449,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "F5ZTyyVUHTs",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitReprojectionAcb"
+      }
+    },
+    {
+      "instruction_va": 10760,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 98041,
+      "file_offset": 27144,
+      "owner": {
+        "raw_name": "F5ZTyyVUHTs#F#A",
+        "value": 10592,
+        "size": 449,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "F5ZTyyVUHTs",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitReprojectionAcb"
+      }
+    },
+    {
+      "instruction_va": 11319,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 97482,
+      "file_offset": 27703,
+      "owner": {
+        "raw_name": "dwoD-LJDQy8#F#A",
+        "value": 11296,
+        "size": 518,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "dwoD-LJDQy8",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAcquireHDRScopesACQ"
+      }
+    },
+    {
+      "instruction_va": 11828,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 96973,
+      "file_offset": 28212,
+      "owner": {
+        "raw_name": "NRO47jBXLiI#F#A",
+        "value": 11824,
+        "size": 113,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "NRO47jBXLiI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverReleaseHDRScopesACQ"
+      }
+    },
+    {
+      "instruction_va": 12120,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 96681,
+      "file_offset": 28504,
+      "owner": {
+        "raw_name": "C2yjkNdzbW4#F#A",
+        "value": 12096,
+        "size": 183,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "C2yjkNdzbW4",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverIDHSSubmit"
+      }
+    },
+    {
+      "instruction_va": 12292,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 96509,
+      "file_offset": 28676,
+      "owner": {
+        "raw_name": "SOAMmdlyaIc#F#A",
+        "value": 12288,
+        "size": 37,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "SOAMmdlyaIc",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverCwsrSuspendAcq"
+      }
+    },
+    {
+      "instruction_va": 12340,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 96461,
+      "file_offset": 28724,
+      "owner": {
+        "raw_name": "1DXIHxWHZAQ#F#A",
+        "value": 12336,
+        "size": 34,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "1DXIHxWHZAQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverCwsrResumeAcq"
+      }
+    },
+    {
+      "instruction_va": 12411,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 96390,
+      "file_offset": 28795,
+      "owner": {
+        "raw_name": "Hj4eWnDektQ#F#A",
+        "value": 12384,
+        "size": 301,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Hj4eWnDektQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSetupRegisterShadow"
+      }
+    },
+    {
+      "instruction_va": 12693,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 96108,
+      "file_offset": 29077,
+      "owner": {
+        "raw_name": "CP-kVAMmWVw#F#A",
+        "value": 12688,
+        "size": 56,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "CP-kVAMmWVw",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetRegShadowInfo"
+      }
+    },
+    {
+      "instruction_va": 12757,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 96044,
+      "file_offset": 29141,
+      "owner": {
+        "raw_name": "ME1eUot7+Qw#F#A",
+        "value": 12752,
+        "size": 56,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "ME1eUot7+Qw",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetRegShadowInfoAgr"
+      }
+    },
+    {
+      "instruction_va": 13566,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 95235,
+      "file_offset": 29950,
+      "owner": {
+        "raw_name": "lYz7vbL4W4A#F#A",
+        "value": 12816,
+        "size": 958,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "lYz7vbL4W4A",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverPatchClearState"
+      }
+    },
+    {
+      "instruction_va": 14656,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 94145,
+      "file_offset": 31040,
+      "owner": {
+        "raw_name": "nR6xhiFsOoc#F#A",
+        "value": 13872,
+        "size": 1159,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "nR6xhiFsOoc",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverNotifyDefaultStates"
+      }
+    },
+    {
+      "instruction_va": 15051,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 93750,
+      "file_offset": 31435,
+      "owner": {
+        "raw_name": "Vlaj1gwmIFA#F#A",
+        "value": 15040,
+        "size": 161,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Vlaj1gwmIFA",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSetupAsyncGraphics"
+      }
+    },
+    {
+      "instruction_va": 15227,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 93574,
+      "file_offset": 31611,
+      "owner": {
+        "raw_name": "oFb2hMcoJa4#F#A",
+        "value": 15216,
+        "size": 335,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "oFb2hMcoJa4",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": null
+      }
+    },
+    {
+      "instruction_va": 15600,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 93201,
+      "file_offset": 31984,
+      "owner": null
+    },
+    {
+      "instruction_va": 15645,
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "opcode": "0x8d",
+      "displacement": 83772,
+      "file_offset": 32029,
+      "owner": null
+    },
+    {
+      "instruction_va": 15678,
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "opcode": "0x8d",
+      "displacement": 83739,
+      "file_offset": 32062,
+      "owner": null
+    },
+    {
+      "instruction_va": 16285,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 92516,
+      "file_offset": 32669,
+      "owner": null
+    },
+    {
+      "instruction_va": 16518,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 92283,
+      "file_offset": 32902,
+      "owner": null
+    },
+    {
+      "instruction_va": 16734,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 92067,
+      "file_offset": 33118,
+      "owner": null
+    },
+    {
+      "instruction_va": 17597,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 91204,
+      "file_offset": 33981,
+      "owner": null
+    },
+    {
+      "instruction_va": 17702,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 91099,
+      "file_offset": 34086,
+      "owner": null
+    },
+    {
+      "instruction_va": 17854,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 90947,
+      "file_offset": 34238,
+      "owner": null
+    },
+    {
+      "instruction_va": 17880,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 90921,
+      "file_offset": 34264,
+      "owner": null
+    },
+    {
+      "instruction_va": 17937,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 90864,
+      "file_offset": 34321,
+      "owner": null
+    },
+    {
+      "instruction_va": 17952,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 90849,
+      "file_offset": 34336,
+      "owner": null
+    },
+    {
+      "instruction_va": 18075,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 90726,
+      "file_offset": 34459,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18258,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 90543,
+      "file_offset": 34642,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18275,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 90526,
+      "file_offset": 34659,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18336,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 90465,
+      "file_offset": 34720,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18368,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 90433,
+      "file_offset": 34752,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18600,
+      "target_va": 108728,
+      "target_name": "submit_dcb_context",
+      "opcode": "0x8d",
+      "displacement": 90121,
+      "file_offset": 34984,
+      "owner": {
+        "raw_name": "6UzEidRZwkg#F#A",
+        "value": 18592,
+        "size": 20,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "6UzEidRZwkg",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiDcbs"
+      }
+    },
+    {
+      "instruction_va": 18628,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 90173,
+      "file_offset": 35012,
+      "owner": {
+        "raw_name": "+T8Xo6LtFJI#F#A",
+        "value": 18624,
+        "size": 77,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "+T8Xo6LtFJI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitMultiDcbs"
+      }
+    },
+    {
+      "instruction_va": 18652,
+      "target_va": 108648,
+      "target_name": "agr_submit_dcb_context",
+      "opcode": "0x8d",
+      "displacement": 89989,
+      "file_offset": 35036,
+      "owner": {
+        "raw_name": "+T8Xo6LtFJI#F#A",
+        "value": 18624,
+        "size": 77,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "+T8Xo6LtFJI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitMultiDcbs"
+      }
+    },
+    {
+      "instruction_va": 18737,
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "opcode": "0x8d",
+      "displacement": 80680,
+      "file_offset": 35121,
+      "owner": {
+        "raw_name": "HF3YllT3mXU#F#A",
+        "value": 18704,
+        "size": 67,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "HF3YllT3mXU",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiAcbs"
+      }
+    },
+    {
+      "instruction_va": 24190,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 84611,
+      "file_offset": 40574,
+      "owner": null
+    },
+    {
+      "instruction_va": 26149,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 82652,
+      "file_offset": 42533,
+      "owner": {
+        "raw_name": "1BUTwixUG5Y#F#A",
+        "value": 26144,
+        "size": 24,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "1BUTwixUG5Y",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverDebugHardwareStatus"
+      }
+    },
+    {
+      "instruction_va": 26596,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 82205,
+      "file_offset": 42980,
+      "owner": null
+    },
+    {
+      "instruction_va": 26644,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 82157,
+      "file_offset": 43028,
+      "owner": null
+    },
+    {
+      "instruction_va": 26705,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 82096,
+      "file_offset": 43089,
+      "owner": {
+        "raw_name": "XlNp7jzGiPo#F#A",
+        "value": 26688,
+        "size": 75,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "XlNp7jzGiPo",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSetTFRing"
+      }
+    },
+    {
+      "instruction_va": 26803,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 81998,
+      "file_offset": 43187,
+      "owner": {
+        "raw_name": "e-YMQ+2tj9M#F#A",
+        "value": 26768,
+        "size": 104,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "e-YMQ+2tj9M",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetTFRing"
+      }
+    },
+    {
+      "instruction_va": 26880,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 81921,
+      "file_offset": 43264,
+      "owner": {
+        "raw_name": "MM4IZSEYytQ#F#A",
+        "value": 26880,
+        "size": 27,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "MM4IZSEYytQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSetHsOffchipParam"
+      }
+    },
+    {
+      "instruction_va": 26916,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 81885,
+      "file_offset": 43300,
+      "owner": {
+        "raw_name": "r28hEh6cNH0#F#A",
+        "value": 26912,
+        "size": 40,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "r28hEh6cNH0",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetHsOffchipParam"
+      }
+    },
+    {
+      "instruction_va": 29739,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 79062,
+      "file_offset": 46123,
+      "owner": {
+        "raw_name": "kuE1uTiWfuk#F#A",
+        "value": 29712,
+        "size": 103,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "kuE1uTiWfuk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSysGetClientNumber"
+      }
+    },
+    {
+      "instruction_va": 29851,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 78950,
+      "file_offset": 46235,
+      "owner": {
+        "raw_name": "ftf-xlfBQpo#F#A",
+        "value": 29824,
+        "size": 68,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "ftf-xlfBQpo",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSysIsGameClosed"
+      }
+    },
+    {
+      "instruction_va": 29908,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 78893,
+      "file_offset": 46292,
+      "owner": {
+        "raw_name": "x3K61sY5m8Q#F#A",
+        "value": 29904,
+        "size": 64,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "x3K61sY5m8Q",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSysEnableSubmitDone45Exception"
+      }
+    },
+    {
+      "instruction_va": 29988,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 78813,
+      "file_offset": 46372,
+      "owner": {
+        "raw_name": "SOo3Lwyglfo#F#A",
+        "value": 29984,
+        "size": 34,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "SOo3Lwyglfo",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverHp3dLockStart"
+      }
+    },
+    {
+      "instruction_va": 30036,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 78765,
+      "file_offset": 46420,
+      "owner": {
+        "raw_name": "u2g5VER9UnM#F#A",
+        "value": 30032,
+        "size": 34,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "u2g5VER9UnM",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverHp3dLockEnd"
+      }
+    },
+    {
+      "instruction_va": 30166,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 78635,
+      "file_offset": 46550,
+      "owner": {
+        "raw_name": "4JOwdjYqMpU#H#A",
+        "value": 30160,
+        "size": 73,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "4JOwdjYqMpU",
+        "lid": "H",
+        "mid": "A",
+        "mapped_name": "sceAgdSetApplicationGpuDebug"
+      }
+    },
+    {
+      "instruction_va": 30240,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 78561,
+      "file_offset": 46624,
+      "owner": {
+        "raw_name": "KKrEe-LWNG8#H#A",
+        "value": 30240,
+        "size": 14,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "KKrEe-LWNG8",
+        "lid": "H",
+        "mid": "A",
+        "mapped_name": "sceAgdGetApplicationGpuDebug"
+      }
+    },
+    {
+      "instruction_va": 30256,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 78545,
+      "file_offset": 46640,
+      "owner": {
+        "raw_name": "qDjJ+CgiMzs#H#A",
+        "value": 30256,
+        "size": 14,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "qDjJ+CgiMzs",
+        "lid": "H",
+        "mid": "A",
+        "mapped_name": "sceAgdGetSystemGpuDebug"
+      }
+    },
+    {
+      "instruction_va": 30794,
+      "target_va": 108808,
+      "target_name": "global_state_context",
+      "opcode": "0x8d",
+      "displacement": 78007,
+      "file_offset": 47178,
+      "owner": null
+    },
+    {
+      "instruction_va": 31466,
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "opcode": "0x8d",
+      "displacement": 67951,
+      "file_offset": 47850,
+      "owner": null
+    }
+  ],
+  "references_by_target": {
+    "submit_command_buffer": [],
+    "submit_dcb_context": [
+      {
+        "instruction_va": 7716,
+        "target_va": 108728,
+        "target_name": "submit_dcb_context",
+        "opcode": "0x8d",
+        "displacement": 101005,
+        "file_offset": 24100,
+        "owner": {
+          "raw_name": "QcmHLO2n7mk#F#A",
+          "value": 7168,
+          "size": 767,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "QcmHLO2n7mk",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSuspendPointSubmit"
+        }
+      },
+      {
+        "instruction_va": 7826,
+        "target_va": 108728,
+        "target_name": "submit_dcb_context",
+        "opcode": "0x8d",
+        "displacement": 100895,
+        "file_offset": 24210,
+        "owner": {
+          "raw_name": "QcmHLO2n7mk#F#A",
+          "value": 7168,
+          "size": 767,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "QcmHLO2n7mk",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSuspendPointSubmit"
+        }
+      },
+      {
+        "instruction_va": 8120,
+        "target_va": 108728,
+        "target_name": "submit_dcb_context",
+        "opcode": "0x8d",
+        "displacement": 100601,
+        "file_offset": 24504,
+        "owner": null
+      },
+      {
+        "instruction_va": 10419,
+        "target_va": 108728,
+        "target_name": "submit_dcb_context",
+        "opcode": "0x8d",
+        "displacement": 98302,
+        "file_offset": 26803,
+        "owner": {
+          "raw_name": "UglJIZjGssM#F#A",
+          "value": 10416,
+          "size": 15,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "UglJIZjGssM",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSubmitDcb"
+        }
+      },
+      {
+        "instruction_va": 18600,
+        "target_va": 108728,
+        "target_name": "submit_dcb_context",
+        "opcode": "0x8d",
+        "displacement": 90121,
+        "file_offset": 34984,
+        "owner": {
+          "raw_name": "6UzEidRZwkg#F#A",
+          "value": 18592,
+          "size": 20,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "6UzEidRZwkg",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSubmitMultiDcbs"
+        }
+      }
+    ],
+    "agr_submit_dcb_context": [
+      {
+        "instruction_va": 7381,
+        "target_va": 108648,
+        "target_name": "agr_submit_dcb_context",
+        "opcode": "0x8d",
+        "displacement": 101260,
+        "file_offset": 23765,
+        "owner": {
+          "raw_name": "QcmHLO2n7mk#F#A",
+          "value": 7168,
+          "size": 767,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "QcmHLO2n7mk",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSuspendPointSubmit"
+        }
+      },
+      {
+        "instruction_va": 7489,
+        "target_va": 108648,
+        "target_name": "agr_submit_dcb_context",
+        "opcode": "0x8d",
+        "displacement": 101152,
+        "file_offset": 23873,
+        "owner": {
+          "raw_name": "QcmHLO2n7mk#F#A",
+          "value": 7168,
+          "size": 767,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "QcmHLO2n7mk",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSuspendPointSubmit"
+        }
+      },
+      {
+        "instruction_va": 8131,
+        "target_va": 108648,
+        "target_name": "agr_submit_dcb_context",
+        "opcode": "0x8d",
+        "displacement": 100510,
+        "file_offset": 24515,
+        "owner": null
+      },
+      {
+        "instruction_va": 8887,
+        "target_va": 108648,
+        "target_name": "agr_submit_dcb_context",
+        "opcode": "0x8d",
+        "displacement": 99754,
+        "file_offset": 25271,
+        "owner": null
+      },
+      {
+        "instruction_va": 10455,
+        "target_va": 108648,
+        "target_name": "agr_submit_dcb_context",
+        "opcode": "0x8d",
+        "displacement": 98186,
+        "file_offset": 26839,
+        "owner": {
+          "raw_name": "AhGvpITrf4M#F#A",
+          "value": 10432,
+          "size": 72,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "AhGvpITrf4M",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverAgrSubmitDcb"
+        }
+      },
+      {
+        "instruction_va": 18652,
+        "target_va": 108648,
+        "target_name": "agr_submit_dcb_context",
+        "opcode": "0x8d",
+        "displacement": 89989,
+        "file_offset": 35036,
+        "owner": {
+          "raw_name": "+T8Xo6LtFJI#F#A",
+          "value": 18624,
+          "size": 77,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "+T8Xo6LtFJI",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverAgrSubmitMultiDcbs"
+        }
+      }
+    ],
+    "global_state_context": [
+      {
+        "instruction_va": 211,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 108590,
+        "file_offset": 16595,
+        "owner": null
+      },
+      {
+        "instruction_va": 356,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 108445,
+        "file_offset": 16740,
+        "owner": null
+      },
+      {
+        "instruction_va": 548,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 108253,
+        "file_offset": 16932,
+        "owner": null
+      },
+      {
+        "instruction_va": 849,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 107952,
+        "file_offset": 17233,
+        "owner": null
+      },
+      {
+        "instruction_va": 907,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 107894,
+        "file_offset": 17291,
+        "owner": null
+      },
+      {
+        "instruction_va": 1168,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 107633,
+        "file_offset": 17552,
+        "owner": null
+      },
+      {
+        "instruction_va": 1200,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 107601,
+        "file_offset": 17584,
+        "owner": null
+      },
+      {
+        "instruction_va": 1240,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 107561,
+        "file_offset": 17624,
+        "owner": null
+      },
+      {
+        "instruction_va": 1315,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 107486,
+        "file_offset": 17699,
+        "owner": null
+      },
+      {
+        "instruction_va": 1395,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 107406,
+        "file_offset": 17779,
+        "owner": null
+      },
+      {
+        "instruction_va": 2186,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 106615,
+        "file_offset": 18570,
+        "owner": null
+      },
+      {
+        "instruction_va": 2315,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 106486,
+        "file_offset": 18699,
+        "owner": {
+          "raw_name": "Um-jkyDy9rI#F#A",
+          "value": 2288,
+          "size": 73,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "Um-jkyDy9rI",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverGetReservedDmemForAgc"
+        }
+      },
+      {
+        "instruction_va": 3960,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 104841,
+        "file_offset": 20344,
+        "owner": null
+      },
+      {
+        "instruction_va": 4170,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 104631,
+        "file_offset": 20554,
+        "owner": null
+      },
+      {
+        "instruction_va": 4963,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 103838,
+        "file_offset": 21347,
+        "owner": null
+      },
+      {
+        "instruction_va": 5587,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 103214,
+        "file_offset": 21971,
+        "owner": null
+      },
+      {
+        "instruction_va": 6190,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 102611,
+        "file_offset": 22574,
+        "owner": null
+      },
+      {
+        "instruction_va": 6408,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 102393,
+        "file_offset": 22792,
+        "owner": {
+          "raw_name": "b4fpgH5ZXxQ#F#A",
+          "value": 6320,
+          "size": 380,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "b4fpgH5ZXxQ",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSubmitCommandBuffer"
+        }
+      },
+      {
+        "instruction_va": 6725,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 102076,
+        "file_offset": 23109,
+        "owner": null
+      },
+      {
+        "instruction_va": 6789,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 102012,
+        "file_offset": 23173,
+        "owner": null
+      },
+      {
+        "instruction_va": 6990,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 101811,
+        "file_offset": 23374,
+        "owner": null
+      },
+      {
+        "instruction_va": 7192,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 101609,
+        "file_offset": 23576,
+        "owner": {
+          "raw_name": "QcmHLO2n7mk#F#A",
+          "value": 7168,
+          "size": 767,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "QcmHLO2n7mk",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSuspendPointSubmit"
+        }
+      },
+      {
+        "instruction_va": 8036,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 100765,
+        "file_offset": 24420,
+        "owner": null
+      },
+      {
+        "instruction_va": 8374,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 100427,
+        "file_offset": 24758,
+        "owner": null
+      },
+      {
+        "instruction_va": 8502,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 100299,
+        "file_offset": 24886,
+        "owner": null
+      },
+      {
+        "instruction_va": 9903,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 98898,
+        "file_offset": 26287,
+        "owner": {
+          "raw_name": "XNbrdwCsZ9A#F#A",
+          "value": 9888,
+          "size": 242,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "XNbrdwCsZ9A",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverDestroyQueue"
+        }
+      },
+      {
+        "instruction_va": 10436,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 98365,
+        "file_offset": 26820,
+        "owner": {
+          "raw_name": "AhGvpITrf4M#F#A",
+          "value": 10432,
+          "size": 72,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "AhGvpITrf4M",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverAgrSubmitDcb"
+        }
+      },
+      {
+        "instruction_va": 10760,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 98041,
+        "file_offset": 27144,
+        "owner": {
+          "raw_name": "F5ZTyyVUHTs#F#A",
+          "value": 10592,
+          "size": 449,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "F5ZTyyVUHTs",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSubmitReprojectionAcb"
+        }
+      },
+      {
+        "instruction_va": 11319,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 97482,
+        "file_offset": 27703,
+        "owner": {
+          "raw_name": "dwoD-LJDQy8#F#A",
+          "value": 11296,
+          "size": 518,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "dwoD-LJDQy8",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverAcquireHDRScopesACQ"
+        }
+      },
+      {
+        "instruction_va": 11828,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 96973,
+        "file_offset": 28212,
+        "owner": {
+          "raw_name": "NRO47jBXLiI#F#A",
+          "value": 11824,
+          "size": 113,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "NRO47jBXLiI",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverReleaseHDRScopesACQ"
+        }
+      },
+      {
+        "instruction_va": 12120,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 96681,
+        "file_offset": 28504,
+        "owner": {
+          "raw_name": "C2yjkNdzbW4#F#A",
+          "value": 12096,
+          "size": 183,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "C2yjkNdzbW4",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverIDHSSubmit"
+        }
+      },
+      {
+        "instruction_va": 12292,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 96509,
+        "file_offset": 28676,
+        "owner": {
+          "raw_name": "SOAMmdlyaIc#F#A",
+          "value": 12288,
+          "size": 37,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "SOAMmdlyaIc",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverCwsrSuspendAcq"
+        }
+      },
+      {
+        "instruction_va": 12340,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 96461,
+        "file_offset": 28724,
+        "owner": {
+          "raw_name": "1DXIHxWHZAQ#F#A",
+          "value": 12336,
+          "size": 34,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "1DXIHxWHZAQ",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverCwsrResumeAcq"
+        }
+      },
+      {
+        "instruction_va": 12411,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 96390,
+        "file_offset": 28795,
+        "owner": {
+          "raw_name": "Hj4eWnDektQ#F#A",
+          "value": 12384,
+          "size": 301,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "Hj4eWnDektQ",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSetupRegisterShadow"
+        }
+      },
+      {
+        "instruction_va": 12693,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 96108,
+        "file_offset": 29077,
+        "owner": {
+          "raw_name": "CP-kVAMmWVw#F#A",
+          "value": 12688,
+          "size": 56,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "CP-kVAMmWVw",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverGetRegShadowInfo"
+        }
+      },
+      {
+        "instruction_va": 12757,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 96044,
+        "file_offset": 29141,
+        "owner": {
+          "raw_name": "ME1eUot7+Qw#F#A",
+          "value": 12752,
+          "size": 56,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "ME1eUot7+Qw",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverGetRegShadowInfoAgr"
+        }
+      },
+      {
+        "instruction_va": 13566,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 95235,
+        "file_offset": 29950,
+        "owner": {
+          "raw_name": "lYz7vbL4W4A#F#A",
+          "value": 12816,
+          "size": 958,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "lYz7vbL4W4A",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverPatchClearState"
+        }
+      },
+      {
+        "instruction_va": 14656,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 94145,
+        "file_offset": 31040,
+        "owner": {
+          "raw_name": "nR6xhiFsOoc#F#A",
+          "value": 13872,
+          "size": 1159,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "nR6xhiFsOoc",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverNotifyDefaultStates"
+        }
+      },
+      {
+        "instruction_va": 15051,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 93750,
+        "file_offset": 31435,
+        "owner": {
+          "raw_name": "Vlaj1gwmIFA#F#A",
+          "value": 15040,
+          "size": 161,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "Vlaj1gwmIFA",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSetupAsyncGraphics"
+        }
+      },
+      {
+        "instruction_va": 15227,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 93574,
+        "file_offset": 31611,
+        "owner": {
+          "raw_name": "oFb2hMcoJa4#F#A",
+          "value": 15216,
+          "size": 335,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "oFb2hMcoJa4",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": null
+        }
+      },
+      {
+        "instruction_va": 15600,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 93201,
+        "file_offset": 31984,
+        "owner": null
+      },
+      {
+        "instruction_va": 16285,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 92516,
+        "file_offset": 32669,
+        "owner": null
+      },
+      {
+        "instruction_va": 16518,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 92283,
+        "file_offset": 32902,
+        "owner": null
+      },
+      {
+        "instruction_va": 16734,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 92067,
+        "file_offset": 33118,
+        "owner": null
+      },
+      {
+        "instruction_va": 17597,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 91204,
+        "file_offset": 33981,
+        "owner": null
+      },
+      {
+        "instruction_va": 17702,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 91099,
+        "file_offset": 34086,
+        "owner": null
+      },
+      {
+        "instruction_va": 17854,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 90947,
+        "file_offset": 34238,
+        "owner": null
+      },
+      {
+        "instruction_va": 17880,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 90921,
+        "file_offset": 34264,
+        "owner": null
+      },
+      {
+        "instruction_va": 17937,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 90864,
+        "file_offset": 34321,
+        "owner": null
+      },
+      {
+        "instruction_va": 17952,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 90849,
+        "file_offset": 34336,
+        "owner": null
+      },
+      {
+        "instruction_va": 18075,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 90726,
+        "file_offset": 34459,
+        "owner": {
+          "raw_name": "Fj7r9EHzF38#F#A",
+          "value": 18000,
+          "size": 579,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "Fj7r9EHzF38",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+        }
+      },
+      {
+        "instruction_va": 18258,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 90543,
+        "file_offset": 34642,
+        "owner": {
+          "raw_name": "Fj7r9EHzF38#F#A",
+          "value": 18000,
+          "size": 579,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "Fj7r9EHzF38",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+        }
+      },
+      {
+        "instruction_va": 18275,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 90526,
+        "file_offset": 34659,
+        "owner": {
+          "raw_name": "Fj7r9EHzF38#F#A",
+          "value": 18000,
+          "size": 579,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "Fj7r9EHzF38",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+        }
+      },
+      {
+        "instruction_va": 18336,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 90465,
+        "file_offset": 34720,
+        "owner": {
+          "raw_name": "Fj7r9EHzF38#F#A",
+          "value": 18000,
+          "size": 579,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "Fj7r9EHzF38",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+        }
+      },
+      {
+        "instruction_va": 18368,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 90433,
+        "file_offset": 34752,
+        "owner": {
+          "raw_name": "Fj7r9EHzF38#F#A",
+          "value": 18000,
+          "size": 579,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "Fj7r9EHzF38",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+        }
+      },
+      {
+        "instruction_va": 18628,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 90173,
+        "file_offset": 35012,
+        "owner": {
+          "raw_name": "+T8Xo6LtFJI#F#A",
+          "value": 18624,
+          "size": 77,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "+T8Xo6LtFJI",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverAgrSubmitMultiDcbs"
+        }
+      },
+      {
+        "instruction_va": 24190,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 84611,
+        "file_offset": 40574,
+        "owner": null
+      },
+      {
+        "instruction_va": 26149,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 82652,
+        "file_offset": 42533,
+        "owner": {
+          "raw_name": "1BUTwixUG5Y#F#A",
+          "value": 26144,
+          "size": 24,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "1BUTwixUG5Y",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverDebugHardwareStatus"
+        }
+      },
+      {
+        "instruction_va": 26596,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 82205,
+        "file_offset": 42980,
+        "owner": null
+      },
+      {
+        "instruction_va": 26644,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 82157,
+        "file_offset": 43028,
+        "owner": null
+      },
+      {
+        "instruction_va": 26705,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 82096,
+        "file_offset": 43089,
+        "owner": {
+          "raw_name": "XlNp7jzGiPo#F#A",
+          "value": 26688,
+          "size": 75,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "XlNp7jzGiPo",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSetTFRing"
+        }
+      },
+      {
+        "instruction_va": 26803,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 81998,
+        "file_offset": 43187,
+        "owner": {
+          "raw_name": "e-YMQ+2tj9M#F#A",
+          "value": 26768,
+          "size": 104,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "e-YMQ+2tj9M",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverGetTFRing"
+        }
+      },
+      {
+        "instruction_va": 26880,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 81921,
+        "file_offset": 43264,
+        "owner": {
+          "raw_name": "MM4IZSEYytQ#F#A",
+          "value": 26880,
+          "size": 27,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "MM4IZSEYytQ",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSetHsOffchipParam"
+        }
+      },
+      {
+        "instruction_va": 26916,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 81885,
+        "file_offset": 43300,
+        "owner": {
+          "raw_name": "r28hEh6cNH0#F#A",
+          "value": 26912,
+          "size": 40,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "r28hEh6cNH0",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverGetHsOffchipParam"
+        }
+      },
+      {
+        "instruction_va": 29739,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 79062,
+        "file_offset": 46123,
+        "owner": {
+          "raw_name": "kuE1uTiWfuk#F#A",
+          "value": 29712,
+          "size": 103,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "kuE1uTiWfuk",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSysGetClientNumber"
+        }
+      },
+      {
+        "instruction_va": 29851,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 78950,
+        "file_offset": 46235,
+        "owner": {
+          "raw_name": "ftf-xlfBQpo#F#A",
+          "value": 29824,
+          "size": 68,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "ftf-xlfBQpo",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSysIsGameClosed"
+        }
+      },
+      {
+        "instruction_va": 29908,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 78893,
+        "file_offset": 46292,
+        "owner": {
+          "raw_name": "x3K61sY5m8Q#F#A",
+          "value": 29904,
+          "size": 64,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "x3K61sY5m8Q",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSysEnableSubmitDone45Exception"
+        }
+      },
+      {
+        "instruction_va": 29988,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 78813,
+        "file_offset": 46372,
+        "owner": {
+          "raw_name": "SOo3Lwyglfo#F#A",
+          "value": 29984,
+          "size": 34,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "SOo3Lwyglfo",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverHp3dLockStart"
+        }
+      },
+      {
+        "instruction_va": 30036,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 78765,
+        "file_offset": 46420,
+        "owner": {
+          "raw_name": "u2g5VER9UnM#F#A",
+          "value": 30032,
+          "size": 34,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "u2g5VER9UnM",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverHp3dLockEnd"
+        }
+      },
+      {
+        "instruction_va": 30166,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 78635,
+        "file_offset": 46550,
+        "owner": {
+          "raw_name": "4JOwdjYqMpU#H#A",
+          "value": 30160,
+          "size": 73,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "4JOwdjYqMpU",
+          "lid": "H",
+          "mid": "A",
+          "mapped_name": "sceAgdSetApplicationGpuDebug"
+        }
+      },
+      {
+        "instruction_va": 30240,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 78561,
+        "file_offset": 46624,
+        "owner": {
+          "raw_name": "KKrEe-LWNG8#H#A",
+          "value": 30240,
+          "size": 14,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "KKrEe-LWNG8",
+          "lid": "H",
+          "mid": "A",
+          "mapped_name": "sceAgdGetApplicationGpuDebug"
+        }
+      },
+      {
+        "instruction_va": 30256,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 78545,
+        "file_offset": 46640,
+        "owner": {
+          "raw_name": "qDjJ+CgiMzs#H#A",
+          "value": 30256,
+          "size": 14,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "qDjJ+CgiMzs",
+          "lid": "H",
+          "mid": "A",
+          "mapped_name": "sceAgdGetSystemGpuDebug"
+        }
+      },
+      {
+        "instruction_va": 30794,
+        "target_va": 108808,
+        "target_name": "global_state_context",
+        "opcode": "0x8d",
+        "displacement": 78007,
+        "file_offset": 47178,
+        "owner": null
+      }
+    ],
+    "acb_table": [
+      {
+        "instruction_va": 3883,
+        "target_va": 99424,
+        "target_name": "acb_table",
+        "opcode": "0x8d",
+        "displacement": 95534,
+        "file_offset": 20267,
+        "owner": null
+      },
+      {
+        "instruction_va": 4297,
+        "target_va": 99424,
+        "target_name": "acb_table",
+        "opcode": "0x8d",
+        "displacement": 95120,
+        "file_offset": 20681,
+        "owner": null
+      },
+      {
+        "instruction_va": 4322,
+        "target_va": 99424,
+        "target_name": "acb_table",
+        "opcode": "0x8d",
+        "displacement": 95095,
+        "file_offset": 20706,
+        "owner": null
+      },
+      {
+        "instruction_va": 8209,
+        "target_va": 99424,
+        "target_name": "acb_table",
+        "opcode": "0x8d",
+        "displacement": 91208,
+        "file_offset": 24593,
+        "owner": null
+      },
+      {
+        "instruction_va": 8355,
+        "target_va": 99424,
+        "target_name": "acb_table",
+        "opcode": "0x8d",
+        "displacement": 91062,
+        "file_offset": 24739,
+        "owner": null
+      },
+      {
+        "instruction_va": 10289,
+        "target_va": 99424,
+        "target_name": "acb_table",
+        "opcode": "0x8d",
+        "displacement": 89128,
+        "file_offset": 26673,
+        "owner": null
+      },
+      {
+        "instruction_va": 10545,
+        "target_va": 99424,
+        "target_name": "acb_table",
+        "opcode": "0x8d",
+        "displacement": 88872,
+        "file_offset": 26929,
+        "owner": {
+          "raw_name": "gSRnr79F8tQ#F#A",
+          "value": 10512,
+          "size": 67,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "gSRnr79F8tQ",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSubmitAcb"
+        }
+      },
+      {
+        "instruction_va": 10654,
+        "target_va": 99424,
+        "target_name": "acb_table",
+        "opcode": "0x8d",
+        "displacement": 88763,
+        "file_offset": 27038,
+        "owner": {
+          "raw_name": "F5ZTyyVUHTs#F#A",
+          "value": 10592,
+          "size": 449,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "F5ZTyyVUHTs",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSubmitReprojectionAcb"
+        }
+      },
+      {
+        "instruction_va": 15645,
+        "target_va": 99424,
+        "target_name": "acb_table",
+        "opcode": "0x8d",
+        "displacement": 83772,
+        "file_offset": 32029,
+        "owner": null
+      },
+      {
+        "instruction_va": 15678,
+        "target_va": 99424,
+        "target_name": "acb_table",
+        "opcode": "0x8d",
+        "displacement": 83739,
+        "file_offset": 32062,
+        "owner": null
+      },
+      {
+        "instruction_va": 18737,
+        "target_va": 99424,
+        "target_name": "acb_table",
+        "opcode": "0x8d",
+        "displacement": 80680,
+        "file_offset": 35121,
+        "owner": {
+          "raw_name": "HF3YllT3mXU#F#A",
+          "value": 18704,
+          "size": 67,
+          "type": "STT_FUNC",
+          "bind": "STB_GLOBAL",
+          "nid": "HF3YllT3mXU",
+          "lid": "F",
+          "mid": "A",
+          "mapped_name": "sceAgcDriverSubmitMultiAcbs"
+        }
+      },
+      {
+        "instruction_va": 31466,
+        "target_va": 99424,
+        "target_name": "acb_table",
+        "opcode": "0x8d",
+        "displacement": 67951,
+        "file_offset": 47850,
+        "owner": null
+      }
+    ]
+  },
+  "windows": [
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 211,
+      "owner": null,
+      "raw": {
+        "va": 163,
+        "file_offset": 16547,
+        "size": 151,
+        "bytes_hex": "f6 48 83 c4 08 5b 41 5c 41 5d 41 5e 41 5f 5d e9 e9 7b 00 00 31 c0 48 83 c4 08 5b 41 5c 41 5d 41 5e 41 5f 5d c3 00 00 00 00 00 00 00 00 48 63 c7 48 8d 0d 2e a8 01 00 48 8d 35 1f 0f 00 00 48 ba 78 00 00 00 0e 00 01 00 c5 f8 57 c0 48 8d 3d ca 3b 00 00 48 6b c0 78 c5 fc 11 84 01 80 00 00 00 c5 fc 11 44 01 30 c5 fc 11 44 01 50 c5 fc 11 44 01 70 48 89 54 01 28 c6 44 01 35 ff 48 89 74 01 50 48 8d 35 05 19 00 00 48 89 7c 01 58 48 8d 3d a9 66 00 00 48 89 74"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 356,
+      "owner": null,
+      "raw": {
+        "va": 308,
+        "file_offset": 16692,
+        "size": 151,
+        "bytes_hex": "66 00 00 48 89 74 01 68 48 8d 35 cd 66 00 00 48 89 bc 01 80 00 00 00 48 89 b4 01 88 00 00 00 c3 cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 9d a7 01 00 83 b8 a0 00 00 00 00 74 24 48 8b 0d 65 3f 01 00 48 8d 3d bf f5 00 00 be 30 00 00 00 ba 01 00 00 00 e8 df a9 00 00 b8 06 00 6d 8a 5d c3 48 8d 15 61 0e 00 00 48 b9 78 00 00 00 0e 00 01 00 c5 f8 57 c0 c5 fc 11 80 80 00 00 00 c5 fc 11 40 30 c5 fc 11 40 50 c5 fc 11 40 70 48 8d 35 f5 3a 00 00"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 548,
+      "owner": null,
+      "raw": {
+        "va": 500,
+        "file_offset": 16884,
+        "size": 151,
+        "bytes_hex": "18 66 00 00 48 89 b0 80 00 00 00 48 89 90 88 00 00 00 c7 80 a0 00 00 00 01 00 00 00 c5 f8 11 80 a4 00 00 00 31 c0 5d c3 cc cc cc cc 55 48 89 e5 4c 8d 05 dd a6 01 00 41 8b b0 a0 00 00 00 89 f0 ff c8 74 1c 49 8d 78 35 89 c0 31 d2 8b 4f fb 83 f9 ff 75 3f 48 ff c2 48 83 c7 78 48 39 d0 75 ec 48 6b c6 78 c5 f8 57 c0 c4 c1 7c 11 44 00 08 c4 c1 7c 11 44 00 f0 c4 c1 7c 11 44 00 d0 c4 c1 7c 11 44 00 b0 41 c7 80 a0 00 00 00 00 00 00 00 31 c0 5d c3 44 0f b6 0f"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 849,
+      "owner": null,
+      "raw": {
+        "va": 801,
+        "file_offset": 17185,
+        "size": 151,
+        "bytes_hex": "ba 01 00 00 00 e8 45 a8 00 00 b8 03 00 6d 8a 5d c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc b8 03 00 6d 8a 83 ff 06 7f 33 89 f9 48 85 f6 74 18 48 8d 05 b0 a5 01 00 48 8d 3d 11 fd 00 00 8b 3c cf 48 03 78 10 48 89 3e 31 c0 48 85 d2 74 0d 48 8d 35 f9 fc 00 00 8b 4c ce 04 89 0a c3 cc cc 55 48 89 e5 41 56 53 48 83 ec 10 4c 8d 35 76 a5 01 00 48 b8 00 00 00 e0 0f 00 00 00 49 89 46 10 49 c7 46 18 00 00 00 00 41 8b 4e 08 85 c9 74 1e 31 c0 83 f9 01 0f 85 cc"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 907,
+      "owner": null,
+      "raw": {
+        "va": 859,
+        "file_offset": 17243,
+        "size": 151,
+        "bytes_hex": "11 fd 00 00 8b 3c cf 48 03 78 10 48 89 3e 31 c0 48 85 d2 74 0d 48 8d 35 f9 fc 00 00 8b 4c ce 04 89 0a c3 cc cc 55 48 89 e5 41 56 53 48 83 ec 10 4c 8d 35 76 a5 01 00 48 b8 00 00 00 e0 0f 00 00 00 49 89 46 10 49 c7 46 18 00 00 00 00 41 8b 4e 08 85 c9 74 1e 31 c0 83 f9 01 0f 85 cc 00 00 00 bb 00 00 01 00 ba 00 00 01 00 48 8d 35 34 fd 00 00 eb 18 bb 00 00 20 00 48 8d 05 16 fd 00 00 ba 00 00 20 00 48 8d 35 ca fc 00 00 85 c9 48 89 35 31 7c 01 00 89 15 33"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 1168,
+      "owner": null,
+      "raw": {
+        "va": 1120,
+        "file_offset": 17504,
+        "size": 151,
+        "bytes_hex": "7e 10 48 89 de 49 89 d9 31 c9 48 89 04 24 e8 3d a7 00 00 85 c0 75 10 49 8b 7e 10 48 89 da 31 f6 e8 3b a7 00 00 31 c0 48 83 c4 10 5b 41 5e 5d c3 48 8d 05 71 a4 01 00 be 00 80 00 00 ba 10 00 00 00 48 8b 78 10 e9 26 a7 00 00 cc cc cc cc cc cc 48 8d 05 51 a4 01 00 be 00 80 00 00 ba 33 00 00 00 48 8b 78 10 e9 06 a7 00 00 cc cc cc cc cc cc 83 ff 02 76 03 31 c0 c3 48 8d 0d 29 a4 01 00 89 f8 48 8d 15 58 fc 00 00 8b 04 c2 48 03 41 10 c3 b8 ff ff ff ff 83 ff"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 1200,
+      "owner": null,
+      "raw": {
+        "va": 1152,
+        "file_offset": 17536,
+        "size": 151,
+        "bytes_hex": "e8 3b a7 00 00 31 c0 48 83 c4 10 5b 41 5e 5d c3 48 8d 05 71 a4 01 00 be 00 80 00 00 ba 10 00 00 00 48 8b 78 10 e9 26 a7 00 00 cc cc cc cc cc cc 48 8d 05 51 a4 01 00 be 00 80 00 00 ba 33 00 00 00 48 8b 78 10 e9 06 a7 00 00 cc cc cc cc cc cc 83 ff 02 76 03 31 c0 c3 48 8d 0d 29 a4 01 00 89 f8 48 8d 15 58 fc 00 00 8b 04 c2 48 03 41 10 c3 b8 ff ff ff ff 83 ff 02 77 0d 89 f8 48 8d 0d 3d fc 00 00 8b 44 c1 04 c3 cc cc cc cc cc cc cc cc 48 8b 0d 09 7b 01 00"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 1240,
+      "owner": null,
+      "raw": {
+        "va": 1192,
+        "file_offset": 17576,
+        "size": 151,
+        "bytes_hex": "00 00 cc cc cc cc cc cc 48 8d 05 51 a4 01 00 be 00 80 00 00 ba 33 00 00 00 48 8b 78 10 e9 06 a7 00 00 cc cc cc cc cc cc 83 ff 02 76 03 31 c0 c3 48 8d 0d 29 a4 01 00 89 f8 48 8d 15 58 fc 00 00 8b 04 c2 48 03 41 10 c3 b8 ff ff ff ff 83 ff 02 77 0d 89 f8 48 8d 0d 3d fc 00 00 8b 44 c1 04 c3 cc cc cc cc cc cc cc cc 48 8b 0d 09 7b 01 00 31 c0 48 85 c9 74 15 83 ff 07 77 10 48 8d 15 de a3 01 00 89 f8 8b 04 c1 48 03 42 10 c3 cc cc cc cc cc cc cc cc cc cc cc"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 1315,
+      "owner": null,
+      "raw": {
+        "va": 1267,
+        "file_offset": 17651,
+        "size": 151,
+        "bytes_hex": "ff ff 83 ff 02 77 0d 89 f8 48 8d 0d 3d fc 00 00 8b 44 c1 04 c3 cc cc cc cc cc cc cc cc 48 8b 0d 09 7b 01 00 31 c0 48 85 c9 74 15 83 ff 07 77 10 48 8d 15 de a3 01 00 89 f8 8b 04 c1 48 03 42 10 c3 cc cc cc cc cc cc cc cc cc cc cc cc 48 8b 0d d9 7a 01 00 b8 ff ff ff ff 48 85 c9 74 0b 83 ff 07 77 06 89 f8 8b 44 c1 04 c3 cc cc cc 48 8b 0d c9 7a 01 00 31 c0 48 85 c9 74 15 83 ff 01 77 10 48 8d 15 8e a3 01 00 89 f8 8b 04 c1 48 03 42 10 c3 cc cc cc cc cc cc"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 1395,
+      "owner": null,
+      "raw": {
+        "va": 1347,
+        "file_offset": 17731,
+        "size": 151,
+        "bytes_hex": "d9 7a 01 00 b8 ff ff ff ff 48 85 c9 74 0b 83 ff 07 77 06 89 f8 8b 44 c1 04 c3 cc cc cc 48 8b 0d c9 7a 01 00 31 c0 48 85 c9 74 15 83 ff 01 77 10 48 8d 15 8e a3 01 00 89 f8 8b 04 c1 48 03 42 10 c3 cc cc cc cc cc cc cc cc cc cc cc cc 48 8b 0d 99 7a 01 00 b8 ff ff ff ff 48 85 c9 74 0b 83 ff 01 77 06 89 f8 8b 44 c1 04 c3 cc cc cc 55 41 57 41 56 53 48 8b 0d 63 7a 01 00 48 85 c9 0f 84 60 01 00 00 8b 15 5c 7a 01 00 8b 71 04 8b 29 01 f5 89 d3 29 eb 0f 88 59"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 2186,
+      "owner": null,
+      "raw": {
+        "va": 2138,
+        "file_offset": 18522,
+        "size": 151,
+        "bytes_hex": "ff 49 83 c1 08 ff c9 31 c0 81 fa 00 d0 ff 5f 75 e5 eb 93 41 81 c2 ff 1f 00 a0 44 89 d0 c3 f7 d9 89 c8 c3 cc cc cc b8 ff ff ff ff 83 ff 02 77 59 48 8d 0d 77 a0 01 00 48 8b 49 10 48 85 c9 74 49 89 ff 4c 8d 05 9d f8 00 00 31 c0 41 8b 54 f8 04 8d 72 03 83 fe 07 72 31 41 8b 04 f8 48 01 c1 85 d2 0f 49 f2 ba 01 00 00 00 c1 fe 02 83 fe 02 0f 43 d6 31 c0 31 f6 89 f7 83 3c b9 00 75 0b ff c6 83 c0 fc 39 f2 75 ef 31 c0 c3 cc cc cc cc cc cc cc cc cc cc cc cc b8"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 2315,
+      "owner": {
+        "raw_name": "Um-jkyDy9rI#F#A",
+        "value": 2288,
+        "size": 73,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Um-jkyDy9rI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetReservedDmemForAgc"
+      },
+      "raw": {
+        "va": 2267,
+        "file_offset": 18651,
+        "size": 151,
+        "bytes_hex": "c0 fc 39 f2 75 ef 31 c0 c3 cc cc cc cc cc cc cc cc cc cc cc cc b8 03 00 6d 8a 48 85 ff 74 3e 48 85 f6 74 39 48 8b 05 1a 77 01 00 48 85 c0 74 20 48 8d 0d f6 9f 01 00 8b 50 30 48 03 51 10 48 89 17 8b 40 34 89 c1 c1 f9 1f c4 e2 70 f2 c0 eb 09 48 c7 07 00 00 00 00 31 c0 89 06 31 c0 c3 cc cc cc cc cc cc cc b8 03 00 6d 8a 83 ff 01 75 1d 55 48 89 e5 bf 0a 03 02 a0 e8 88 a2 00 00 31 c9 85 c0 0f 95 c1 8d 84 09 03 00 6d 8a 5d c3 cc cc cc cc cc cc cc cc 55 48"
+      }
+    },
+    {
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "instruction_va": 3883,
+      "owner": null,
+      "raw": {
+        "va": 3835,
+        "file_offset": 20219,
+        "size": 151,
+        "bytes_hex": "83 c4 18 5b 5d c3 e8 2a 9d 00 00 0f 0b cc cc cc cc cc cc cc cc 31 c9 83 ff 20 72 45 83 ff 58 72 0c 83 c7 a8 48 8d 05 ba 94 01 00 eb 0a 83 c7 e0 48 8d 05 2e 75 01 00 48 8d 0c ff 48 c1 e1 04 48 01 c8 31 d2 31 ff 48 8b 48 70 8b 31 8b 48 7c 8b 80 88 00 00 00 c1 e9 02 f7 f1 29 d6 0f 47 cf 01 f1 89 c8 c3 cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 18 4c 8b 25 70 31 01 00 4c 8d 2d 89 99 01 00 41 89 fe 48 89 f3 41 89 d7 44 89 f6 49 8b 04 24 48 89 45"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 3960,
+      "owner": null,
+      "raw": {
+        "va": 3912,
+        "file_offset": 20296,
+        "size": 151,
+        "bytes_hex": "48 7c 8b 80 88 00 00 00 c1 e9 02 f7 f1 29 d6 0f 47 cf 01 f1 89 c8 c3 cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 18 4c 8b 25 70 31 01 00 4c 8d 2d 89 99 01 00 41 89 fe 48 89 f3 41 89 d7 44 89 f6 49 8b 04 24 48 89 45 d0 41 8b 7d 04 e8 f4 8e 00 00 48 89 d8 49 c1 e7 20 48 c1 eb 20 41 8b 7d 04 48 b9 ff ff 00 00 ff ff 0f 00 ba 00 3f 02 c0 44 89 f6 48 c1 e0 20 4c 09 fb 48 21 d9 48 09 c2 48 89 4d c8 48 89 55 c0 48 8d 4d c0 ba 01 00 00 00 e8 00 77 00"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 4170,
+      "owner": null,
+      "raw": {
+        "va": 4122,
+        "file_offset": 20506,
+        "size": 151,
+        "bytes_hex": "01 00 49 89 f2 48 89 fb 49 8b 07 48 89 44 24 40 8b 47 04 83 f8 20 72 18 83 f8 58 0f 82 8b 00 00 00 8d 48 a8 4c 8d 2d 9b 93 01 00 e9 86 00 00 00 4c 8d 35 b7 98 01 00 41 83 7e 08 01 0f 85 14 02 00 00 41 8b 7e 04 be 03 00 00 00 4d 89 d4 e8 d3 75 00 00 c5 f8 57 c0 c5 fc 11 44 24 20 4d 89 e1 49 b8 ff ff 00 00 ff ff 0f 00 49 8b 0c 24 48 85 c9 0f 84 06 02 00 00 41 8b 71 08 48 89 ca 48 c1 e9 20 48 c1 e2 20 48 c1 e6 20 48 09 ce b9 00 3f 02 c0 48 09 d1 4c 21"
+      }
+    },
+    {
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "instruction_va": 4297,
+      "owner": null,
+      "raw": {
+        "va": 4249,
+        "file_offset": 20633,
+        "size": 151,
+        "bytes_hex": "c1 e9 20 48 c1 e2 20 48 c1 e6 20 48 09 ce b9 00 3f 02 c0 48 09 d1 4c 21 c6 48 89 4c 24 20 b9 01 00 00 00 48 89 74 24 28 e9 d3 01 00 00 8d 48 e0 4c 8d 2d 90 73 01 00 48 8d 0c c9 48 c1 e1 04 49 01 cd 4c 8d 05 fe 92 01 00 4c 8d 0d 77 73 01 00 31 f6 eb 38 0f 1f 00 83 c0 e0 48 8d 04 c0 48 c1 e0 04 4c 01 c8 48 8b 50 70 8b 78 7c 8b 80 88 00 00 00 8b 0a c1 ef 02 31 d2 f7 f7 29 d1 0f 47 fe 01 cf 83 ff 08 77 1f f3 90 8b 43 04 83 f8 20 72 f6 83 f8 58 72 c1 83"
+      }
+    },
+    {
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "instruction_va": 4322,
+      "owner": null,
+      "raw": {
+        "va": 4274,
+        "file_offset": 20658,
+        "size": 151,
+        "bytes_hex": "48 89 4c 24 20 b9 01 00 00 00 48 89 74 24 28 e9 d3 01 00 00 8d 48 e0 4c 8d 2d 90 73 01 00 48 8d 0c c9 48 c1 e1 04 49 01 cd 4c 8d 05 fe 92 01 00 4c 8d 0d 77 73 01 00 31 f6 eb 38 0f 1f 00 83 c0 e0 48 8d 04 c0 48 c1 e0 04 4c 01 c8 48 8b 50 70 8b 78 7c 8b 80 88 00 00 00 8b 0a c1 ef 02 31 d2 f7 f7 29 d1 0f 47 fe 01 cf 83 ff 08 77 1f f3 90 8b 43 04 83 f8 20 72 f6 83 f8 58 72 c1 83 c0 a8 48 8d 04 c0 48 c1 e0 04 4c 01 c0 eb bf 45 8b 65 7c 4d 8b 75 60 45 8b"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 4963,
+      "owner": null,
+      "raw": {
+        "va": 4915,
+        "file_offset": 21299,
+        "size": 151,
+        "bytes_hex": "00 00 0f 0b cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 e4 e0 48 81 ec 00 01 00 00 4c 8b 35 89 2d 01 00 c5 f8 57 c0 48 8d 1d 9e 95 01 00 49 89 fc 45 31 ed 41 bf 01 00 00 00 49 8b 06 48 89 84 24 e0 00 00 00 c5 fc 11 84 24 bc 00 00 00 c5 fc 11 84 24 a0 00 00 00 8b 57 04 bf 00 00 02 00 83 fa 04 41 0f 94 c5 41 23 7c 24 08 46 8b 84 ab 50 01 00 00 45 85 c0 74 4b 48 85 f6 0f 84 14 04 00 00 c5 f8 57 c0 c5 fc 11 44 24 60 4d 89 f5"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 5587,
+      "owner": null,
+      "raw": {
+        "va": 5539,
+        "file_offset": 21923,
+        "size": 151,
+        "bytes_hex": "8b 7b 04 41 8b 74 24 04 44 89 fa 4c 89 f1 e8 da 8e 00 00 89 c1 e9 30 01 00 00 c5 f8 10 05 9b eb 00 00 c5 f8 11 84 24 cc 00 00 00 4c 8b 64 24 30 4c 8d 3d 2e 93 01 00 48 8d 94 24 a0 00 00 00 31 c9 41 8b 7f 04 41 8b 74 24 04 e8 7e 8d 00 00 4c 8b 35 ef 2a 01 00 83 f8 01 75 58 43 ff 84 af 50 01 00 00 49 c1 e5 05 4c 89 fb c5 f8 57 c0 c5 fc 11 44 24 40 4b 8b 84 2f 58 01 00 00 48 85 c0 0f 84 ec 00 00 00 89 44 24 40 48 c1 e8 20 b9 00 00 f0 ff 66 89 44 24 44"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 6190,
+      "owner": null,
+      "raw": {
+        "va": 6142,
+        "file_offset": 22526,
+        "size": 151,
+        "bytes_hex": "00 00 75 0f 48 8d 65 d8 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 1a 94 00 00 0f 0b cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 50 4c 8d 3d d3 90 01 00 49 89 f6 49 89 fc 41 8b 87 a0 00 00 00 85 c0 74 37 4d 8d 6f 48 31 db eb 10 66 90 48 ff c3 89 c1 49 83 c5 78 48 39 cb 73 1f 49 8b 4d 00 48 85 c9 74 e9 4c 89 e7 4c 89 f6 ba 01 00 00 00 ff d1 41 8b 87 a0 00 00 00 eb d3 41 8b 87 a4 00 00 00 4c 89 e7 4c 89 f6 48 6b c0 78 49 8b 44 07 50 48 83"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 6408,
+      "owner": {
+        "raw_name": "b4fpgH5ZXxQ#F#A",
+        "value": 6320,
+        "size": 380,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "b4fpgH5ZXxQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitCommandBuffer"
+      },
+      "raw": {
+        "va": 6360,
+        "file_offset": 22744,
+        "size": 151,
+        "bytes_hex": "48 89 45 d0 e8 2f 93 00 00 85 c0 0f 88 b3 00 00 00 41 bf 00 00 6d 8a 0f 85 15 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 48 8d 1d f9 8f 01 00 4c 89 6d a8 49 8b 06 48 89 45 c0 41 8b 46 08 89 45 c8 41 8a 46 0c 88 45 cc b8 01 00 00 00 f0 48 0f c1 83 40 01 00 00 49 89 44 24 20 49 ff 44 24 28 49 c7 44 24 14 00 00 00 00 41 80 64 24 08 fe 49 c7 44 24 30 00 00 00 00 8b 83 a0 00 00 00 85 c0 74 5f 4c 8d 6b 48 4c 8d 7d b0 45 31 f6 eb 0f"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 6725,
+      "owner": null,
+      "raw": {
+        "va": 6677,
+        "file_offset": 23061,
+        "size": 151,
+        "bytes_hex": "f8 48 83 c4 38 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 06 92 00 00 0f 0b cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 50 44 8b 6f 04 45 31 f6 48 8d 1d bc 8e 01 00 49 89 fc 48 89 55 d0 41 83 fd 04 41 0f 94 c6 4c 89 f0 48 c1 e0 05 48 83 bc 03 68 01 00 00 00 4c 8d bc 03 58 01 00 00 74 17 4c 89 e7 48 89 f3 31 f6 e8 be f8 ff ff 48 89 de 48 8d 1d 7c 8e 01 00 c5 fc 10 06 c4 c1 7c 11 07 42 83 bc b3 50 01 00 00 00 74 19 8b 7b 04 41 8b 74 24 04 e8 63 8a 00"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 6789,
+      "owner": null,
+      "raw": {
+        "va": 6741,
+        "file_offset": 23125,
+        "size": 151,
+        "bytes_hex": "fd 04 41 0f 94 c6 4c 89 f0 48 c1 e0 05 48 83 bc 03 68 01 00 00 00 4c 8d bc 03 58 01 00 00 74 17 4c 89 e7 48 89 f3 31 f6 e8 be f8 ff ff 48 89 de 48 8d 1d 7c 8e 01 00 c5 fc 10 06 c4 c1 7c 11 07 42 83 bc b3 50 01 00 00 00 74 19 8b 7b 04 41 8b 74 24 04 e8 63 8a 00 00 42 c7 84 b3 50 01 00 00 00 00 00 00 45 31 ff 41 83 fd 04 74 67 8b 7b 04 48 8b 75 d0 48 8d 93 98 01 00 00 e8 bb 85 00 00 41 89 c6 0f 31 89 c0 48 c1 e2 20 48 09 c2 48 c1 ea 04 48 89 93 a0 01"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 6990,
+      "owner": null,
+      "raw": {
+        "va": 6942,
+        "file_offset": 23326,
+        "size": 151,
+        "bytes_hex": "e8 5d 90 00 00 41 bf 00 00 6d 8a 44 89 f8 48 83 c4 08 5b 41 5c 41 5d 41 5e 41 5f 5d c3 cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 50 4c 8d 25 b3 8d 01 00 48 89 55 d0 b8 01 00 00 00 49 89 f7 49 89 fd f0 49 0f c1 84 24 40 01 00 00 48 89 47 20 48 ff 47 28 48 c7 47 14 00 00 00 00 80 67 08 fe 48 c7 47 30 00 00 00 00 41 8b 84 24 a0 00 00 00 85 c0 74 32 49 8d 5c 24 60 45 31 f6 eb 0e 49 ff c6 89 c1 48 83 c3 78 49 39 ce 73 1a 48 8b 0b 48 85 c9 74"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 7192,
+      "owner": {
+        "raw_name": "QcmHLO2n7mk#F#A",
+        "value": 7168,
+        "size": 767,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "QcmHLO2n7mk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSuspendPointSubmit"
+      },
+      "raw": {
+        "va": 7144,
+        "file_offset": 23528,
+        "size": 151,
+        "bytes_hex": "41 5c 41 5d 41 5e 41 5f 5d ff e0 cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 38 48 8b 1d d0 24 01 00 4c 8d 2d e9 8c 01 00 49 89 f7 49 89 fc 41 be 00 00 6d 8a 48 8b 03 48 89 45 d0 41 83 bd 48 01 00 00 00 0f 84 53 01 00 00 48 8d 3d 59 8c 01 00 e8 c4 8f 00 00 85 c0 0f 88 c3 00 00 00 0f 85 39 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 4c 89 7d a8 4c 89 65 a0 49 8b 04 24 48 89 45 c0 41 8b"
+      }
+    },
+    {
+      "target_name": "agr_submit_dcb_context",
+      "target_va": 108648,
+      "instruction_va": 7381,
+      "owner": {
+        "raw_name": "QcmHLO2n7mk#F#A",
+        "value": 7168,
+        "size": 767,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "QcmHLO2n7mk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSuspendPointSubmit"
+      },
+      "raw": {
+        "va": 7333,
+        "file_offset": 23717,
+        "size": 151,
+        "bytes_hex": "e7 8b 01 00 48 c7 05 c8 8b 01 00 00 00 00 00 80 25 b5 8b 01 00 fe 41 8b 85 a0 00 00 00 48 c7 05 cb 8b 01 00 00 00 00 00 85 c0 74 65 4d 8d 75 60 4c 8d 25 8c 8b 01 00 48 8d 5d b0 45 31 ff eb 19 66 66 2e 0f 1f 84 00 00 00 00 00 49 ff c7 89 c1 49 83 c6 78 49 39 cf 73 38 49 8b 0e 48 85 c9 74 ea 4c 89 e7 48 89 de ff d1 41 8b 85 a0 00 00 00 eb d9 48 8b 0d c2 23 01 00 48 8d 3d ff d6 00 00 be 34 00 00 00 ba 01 00 00 00 e8 3c 8e 00 00 eb 5d 41 8b 85 a8 00 00"
+      }
+    },
+    {
+      "target_name": "agr_submit_dcb_context",
+      "target_va": 108648,
+      "instruction_va": 7489,
+      "owner": {
+        "raw_name": "QcmHLO2n7mk#F#A",
+        "value": 7168,
+        "size": 767,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "QcmHLO2n7mk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSuspendPointSubmit"
+      },
+      "raw": {
+        "va": 7441,
+        "file_offset": 23825,
+        "size": 151,
+        "bytes_hex": "a0 00 00 00 eb d9 48 8b 0d c2 23 01 00 48 8d 3d ff d6 00 00 be 34 00 00 00 ba 01 00 00 00 e8 3c 8e 00 00 eb 5d 41 8b 85 a8 00 00 00 4c 8b 7d a8 48 8d 3d 20 8b 01 00 48 8d 75 b0 48 6b c0 78 4c 89 fa 41 ff 54 05 68 48 8d 3d 41 8b 01 00 41 89 c6 e8 b9 8e 00 00 85 c0 79 1d 48 8b 0d 6e 23 01 00 48 8d 3d f7 db 00 00 be 32 00 00 00 ba 01 00 00 00 e8 e8 8d 00 00 48 8b 1d 59 23 01 00 4c 8b 65 a0 48 8d 3d 56 8b 01 00 e8 71 8e 00 00 85 c0 0f 88 c1 00 00 00 0f"
+      }
+    },
+    {
+      "target_name": "submit_dcb_context",
+      "target_va": 108728,
+      "instruction_va": 7716,
+      "owner": {
+        "raw_name": "QcmHLO2n7mk#F#A",
+        "value": 7168,
+        "size": 767,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "QcmHLO2n7mk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSuspendPointSubmit"
+      },
+      "raw": {
+        "va": 7668,
+        "file_offset": 24052,
+        "size": 151,
+        "bytes_hex": "e8 8a 01 00 48 c7 05 c9 8a 01 00 00 00 00 00 80 25 b6 8a 01 00 fe 41 8b 85 a0 00 00 00 48 c7 05 cc 8a 01 00 00 00 00 00 85 c0 74 67 4d 8d 65 60 4c 8d 3d 8d 8a 01 00 4c 8d 75 b0 31 db eb 1b 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c4 78 48 39 cb 73 39 49 8b 0c 24 48 85 c9 74 e9 4c 89 ff 4c 89 f6 ff d1 41 8b 85 a0 00 00 00 eb d8 48 8b 0d 71 22 01 00 48 8d 3d ae d5 00 00 be 34 00 00 00 ba 01 00 00 00 e8 eb 8c 00 00 eb 56 41 8b 85 a8"
+      }
+    },
+    {
+      "target_name": "submit_dcb_context",
+      "target_va": 108728,
+      "instruction_va": 7826,
+      "owner": {
+        "raw_name": "QcmHLO2n7mk#F#A",
+        "value": 7168,
+        "size": 767,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "QcmHLO2n7mk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSuspendPointSubmit"
+      },
+      "raw": {
+        "va": 7778,
+        "file_offset": 24162,
+        "size": 151,
+        "bytes_hex": "a0 00 00 00 eb d8 48 8b 0d 71 22 01 00 48 8d 3d ae d5 00 00 be 34 00 00 00 ba 01 00 00 00 e8 eb 8c 00 00 eb 56 41 8b 85 a8 00 00 00 48 8b 55 a8 48 8d 3d 1f 8a 01 00 48 8d 75 b0 48 6b c0 78 41 ff 54 05 68 48 8d 3d 43 8a 01 00 41 89 c6 e8 6b 8d 00 00 85 c0 79 1d 48 8b 0d 20 22 01 00 48 8d 3d a9 da 00 00 be 32 00 00 00 ba 01 00 00 00 e8 9a 8c 00 00 48 8b 1d 0b 22 01 00 48 8b 03 48 3b 45 d0 75 12 44 89 f0 48 83 c4 38 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 8036,
+      "owner": null,
+      "raw": {
+        "va": 7988,
+        "file_offset": 24372,
+        "size": 151,
+        "bytes_hex": "48 89 45 d0 48 85 f6 0f 84 f1 03 00 00 b8 05 02 00 00 41 89 fd c4 62 78 f7 f7 41 83 fe 03 0f 84 da 03 00 00 49 89 d4 45 85 f6 0f 85 a6 00 00 00 4c 8d 35 9d 89 01 00 41 83 7e 08 01 75 46 41 83 be e8 00 00 00 00 74 3c 49 8d 7e 04 49 89 f7 e8 08 66 00 00 83 f8 01 0f 85 91 02 00 00 41 c7 86 e8 00 00 00 00 00 00 00 48 8b 3d 4d 21 01 00 48 8d 35 fd d3 00 00 31 c0 41 8b 56 04 e8 cb 8b 00 00 4c 89 fe 4c 8d 35 f9 88 01 00 41 83 fd 04 48 8d 15 9e 88 01 00 4d"
+      }
+    },
+    {
+      "target_name": "submit_dcb_context",
+      "target_va": 108728,
+      "instruction_va": 8120,
+      "owner": null,
+      "raw": {
+        "va": 8072,
+        "file_offset": 24456,
+        "size": 151,
+        "bytes_hex": "83 f8 01 0f 85 91 02 00 00 41 c7 86 e8 00 00 00 00 00 00 00 48 8b 3d 4d 21 01 00 48 8d 35 fd d3 00 00 31 c0 41 8b 56 04 e8 cb 8b 00 00 4c 89 fe 4c 8d 35 f9 88 01 00 41 83 fd 04 48 8d 15 9e 88 01 00 4d 89 f7 4c 0f 44 fa 49 c7 47 08 00 00 00 00 45 89 6f 04 41 c7 07 38 00 00 00 41 c7 47 10 00 00 00 00 41 83 fd 58 0f 82 9b 00 00 00 41 8d 45 a8 48 8d 0c c0 48 8d 05 db 83 01 00 e9 a0 00 00 00 48 8b 1d 4f 88 01 00 48 8d 05 48 64 01 00 4c 89 a5 b8 fe ff ff"
+      }
+    },
+    {
+      "target_name": "agr_submit_dcb_context",
+      "target_va": 108648,
+      "instruction_va": 8131,
+      "owner": null,
+      "raw": {
+        "va": 8083,
+        "file_offset": 24467,
+        "size": 151,
+        "bytes_hex": "86 e8 00 00 00 00 00 00 00 48 8b 3d 4d 21 01 00 48 8d 35 fd d3 00 00 31 c0 41 8b 56 04 e8 cb 8b 00 00 4c 89 fe 4c 8d 35 f9 88 01 00 41 83 fd 04 48 8d 15 9e 88 01 00 4d 89 f7 4c 0f 44 fa 49 c7 47 08 00 00 00 00 45 89 6f 04 41 c7 07 38 00 00 00 41 c7 47 10 00 00 00 00 41 83 fd 58 0f 82 9b 00 00 00 41 8d 45 a8 48 8d 0c c0 48 8d 05 db 83 01 00 e9 a0 00 00 00 48 8b 1d 4f 88 01 00 48 8d 05 48 64 01 00 4c 89 a5 b8 fe ff ff 41 8d 55 a8 45 8d 65 e0 bf 08 00"
+      }
+    },
+    {
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "instruction_va": 8209,
+      "owner": null,
+      "raw": {
+        "va": 8161,
+        "file_offset": 24545,
+        "size": 151,
+        "bytes_hex": "00 00 00 41 c7 47 10 00 00 00 00 41 83 fd 58 0f 82 9b 00 00 00 41 8d 45 a8 48 8d 0c c0 48 8d 05 db 83 01 00 e9 a0 00 00 00 48 8b 1d 4f 88 01 00 48 8d 05 48 64 01 00 4c 89 a5 b8 fe ff ff 41 8d 55 a8 45 8d 65 e0 bf 08 00 00 00 48 39 c3 b8 38 00 00 00 44 0f 45 e2 0f 44 f8 41 39 fc 73 2d 44 89 e0 4c 8d 3c c0 49 c1 e7 04 84 c9 75 67 42 83 7c 3b 78 00 74 5f 48 8b 3d 82 20 01 00 48 8d 35 5b d8 00 00 45 31 ff 44 89 ea eb 11 48 8b 3d 6c 20 01 00 48 8d 35 a0"
+      }
+    },
+    {
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "instruction_va": 8355,
+      "owner": null,
+      "raw": {
+        "va": 8307,
+        "file_offset": 24691,
+        "size": 151,
+        "bytes_hex": "00 48 8d 35 a0 d2 00 00 44 89 e2 31 c0 e8 fb 8a 00 00 48 8b 1d 5c 20 01 00 e9 a1 02 00 00 41 83 fd 20 0f 82 a9 01 00 00 41 8d 45 e0 48 8d 0c c0 48 8d 05 b6 63 01 00 48 c1 e1 04 48 01 c8 e9 90 01 00 00 48 8d 05 4b 88 01 00 48 89 b5 e8 fe ff ff 48 8d b5 10 ff ff ff 8b 78 04 e8 8d 62 00 00 83 f8 01 0f 85 10 02 00 00 48 8b 45 b8 44 89 e1 c5 f8 10 05 35 e1 00 00 c1 e1 0f 48 8d 14 08 48 89 95 c8 fe ff ff 4a 89 54 3b 60 48 8d 94 08 00 40 00 00 48 89 95 c0"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 8374,
+      "owner": null,
+      "raw": {
+        "va": 8326,
+        "file_offset": 24710,
+        "size": 151,
+        "bytes_hex": "8b 1d 5c 20 01 00 e9 a1 02 00 00 41 83 fd 20 0f 82 a9 01 00 00 41 8d 45 e0 48 8d 0c c0 48 8d 05 b6 63 01 00 48 c1 e1 04 48 01 c8 e9 90 01 00 00 48 8d 05 4b 88 01 00 48 89 b5 e8 fe ff ff 48 8d b5 10 ff ff ff 8b 78 04 e8 8d 62 00 00 83 f8 01 0f 85 10 02 00 00 48 8b 45 b8 44 89 e1 c5 f8 10 05 35 e1 00 00 c1 e1 0f 48 8d 14 08 48 89 95 c8 fe ff ff 4a 89 54 3b 60 48 8d 94 08 00 40 00 00 48 89 95 c0 fe ff ff 4a 89 54 3b 70 44 89 e2 c1 e2 0c 48 03 95 58 ff"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 8502,
+      "owner": null,
+      "raw": {
+        "va": 8454,
+        "file_offset": 24838,
+        "size": 151,
+        "bytes_hex": "48 89 95 c0 fe ff ff 4a 89 54 3b 70 44 89 e2 c1 e2 0c 48 03 95 58 ff ff ff 4a 89 54 3b 68 c4 a1 78 11 44 3b 7c c7 84 08 00 40 00 00 00 00 00 00 48 8d 05 cb 87 01 00 48 89 95 d0 fe ff ff 42 8b 7c 3b 7c 8b 40 04 c1 ef 02 89 85 dc fe ff ff b8 03 02 00 00 c4 c2 78 f7 c5 89 85 e0 fe ff ff 44 89 e8 83 e0 07 89 85 e4 fe ff ff e8 6a 02 00 00 46 8b 9c 3b 80 00 00 00 8b bd dc fe ff ff 8b 95 e0 fe ff ff 8b 8d e4 fe ff ff 4c 8b 85 c8 fe ff ff 41 ff c4 4e 8d 54"
+      }
+    },
+    {
+      "target_name": "agr_submit_dcb_context",
+      "target_va": 108648,
+      "instruction_va": 8887,
+      "owner": null,
+      "raw": {
+        "va": 8839,
+        "file_offset": 25223,
+        "size": 151,
+        "bytes_hex": "41 80 7c 24 48 00 75 55 48 89 b5 e8 fe ff ff 48 8d 15 9b d3 00 00 48 8d bd 10 ff ff ff be 20 00 00 00 44 89 e9 31 c0 e8 9d 89 00 00 41 83 fd 04 48 8d 05 aa 85 01 00 48 8d 95 10 ff ff ff 4c 0f 44 f0 31 f6 49 83 c6 38 4c 89 f7 e8 29 89 00 00 48 8b b5 e8 fe ff ff 41 c6 44 24 48 01 4c 89 3e 45 31 ff eb 46 48 8b 0d ed 1d 01 00 48 8d 3d 62 d5 00 00 be 2d 00 00 00 ba 01 00 00 00 e8 67 88 00 00 eb 1a 48 8b 3d ce 1d 01 00 89 c1 48 8d 35 b8 d0 00 00 44 89 ea"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 9903,
+      "owner": {
+        "raw_name": "XNbrdwCsZ9A#F#A",
+        "value": 9888,
+        "size": 242,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "XNbrdwCsZ9A",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverDestroyQueue"
+      },
+      "raw": {
+        "va": 9855,
+        "file_offset": 26239,
+        "size": 151,
+        "bytes_hex": "74 16 81 e7 00 00 00 c0 31 c9 b8 1e 00 00 00 81 ff 00 00 00 40 0f 45 c1 c3 cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 53 50 48 85 ff 74 6f 4c 8d 3d 52 82 01 00 48 89 fb 41 83 7f 08 01 75 06 83 7b 04 1f 76 60 48 83 7b 40 00 41 be 00 00 6d 8a 0f 84 ad 00 00 00 8b 4b 04 83 f9 1f 0f 86 81 00 00 00 41 8b 7f 04 b8 05 02 00 00 c4 e2 78 f7 f1 b8 03 02 00 00 c4 e2 78 f7 d1 83 e1 07 e8 bd 68 00 00 83 f8 01 75 7c 48 8d 7b 38 e8 4f 85 00 00 48 8b 43 40 c7"
+      }
+    },
+    {
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "instruction_va": 10289,
+      "owner": null,
+      "raw": {
+        "va": 10241,
+        "file_offset": 26625,
+        "size": 151,
+        "bytes_hex": "0f 0b cc cc cc cc cc cc cc cc cc cc cc cc cc 83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 7b 01 00 eb 13 83 ff 20 72 1e 83 c7 e0 48 8d 04 ff 48 8d 3d 28 5c 01 00 48 c1 e0 04 48 01 c7 48 83 c7 08 e9 58 fe ff ff 31 ff 48 83 c7 08 e9 4d fe ff ff cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 53 48 83 ec 18 48 8b 1d 78 18 01 00 48 8d 75 e8 b9 01 00 00 00 31 d2 48 8b 03 48 89 45 f0 48 c7 45 e8 00 00 00 00 e8 81 f6 ff ff 48 8b 0b 48 3b 4d f0 75 07"
+      }
+    },
+    {
+      "target_name": "submit_dcb_context",
+      "target_va": 108728,
+      "instruction_va": 10419,
+      "owner": {
+        "raw_name": "UglJIZjGssM#F#A",
+        "value": 10416,
+        "size": 15,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "UglJIZjGssM",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitDcb"
+      },
+      "raw": {
+        "va": 10371,
+        "file_offset": 26755,
+        "size": 151,
+        "bytes_hex": "c7 45 e8 00 00 00 00 e8 81 f6 ff ff 48 8b 0b 48 3b 4d f0 75 07 48 83 c4 18 5b 5d c3 e8 8c 83 00 00 0f 0b cc cc cc cc cc cc cc cc cc cc 48 89 fe 48 8d 3d fe 7f 01 00 e9 f1 ef ff ff cc 55 48 89 e5 48 8d 05 3d 80 01 00 83 b8 48 01 00 00 00 74 10 48 89 fe 48 8d 3d 8a 7f 01 00 5d e9 cc ef ff ff 48 8b 0d f5 17 01 00 48 8d 3d 6c d4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6f 82 00 00 b8 03 00 6d 8a 5d c3 cc cc cc cc cc cc cc cc 83 ff 58 72 10 83 c7 a8 48 8d"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 10436,
+      "owner": {
+        "raw_name": "AhGvpITrf4M#F#A",
+        "value": 10432,
+        "size": 72,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "AhGvpITrf4M",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitDcb"
+      },
+      "raw": {
+        "va": 10388,
+        "file_offset": 26772,
+        "size": 151,
+        "bytes_hex": "4d f0 75 07 48 83 c4 18 5b 5d c3 e8 8c 83 00 00 0f 0b cc cc cc cc cc cc cc cc cc cc 48 89 fe 48 8d 3d fe 7f 01 00 e9 f1 ef ff ff cc 55 48 89 e5 48 8d 05 3d 80 01 00 83 b8 48 01 00 00 00 74 10 48 89 fe 48 8d 3d 8a 7f 01 00 5d e9 cc ef ff ff 48 8b 0d f5 17 01 00 48 8d 3d 6c d4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6f 82 00 00 b8 03 00 6d 8a 5d c3 cc cc cc cc cc cc cc cc 83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 7a 01 00 eb 13 83 ff 20 72 1e 83"
+      }
+    },
+    {
+      "target_name": "agr_submit_dcb_context",
+      "target_va": 108648,
+      "instruction_va": 10455,
+      "owner": {
+        "raw_name": "AhGvpITrf4M#F#A",
+        "value": 10432,
+        "size": 72,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "AhGvpITrf4M",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitDcb"
+      },
+      "raw": {
+        "va": 10407,
+        "file_offset": 26791,
+        "size": 151,
+        "bytes_hex": "cc cc cc cc cc cc cc cc cc 48 89 fe 48 8d 3d fe 7f 01 00 e9 f1 ef ff ff cc 55 48 89 e5 48 8d 05 3d 80 01 00 83 b8 48 01 00 00 00 74 10 48 89 fe 48 8d 3d 8a 7f 01 00 5d e9 cc ef ff ff 48 8b 0d f5 17 01 00 48 8d 3d 6c d4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6f 82 00 00 b8 03 00 6d 8a 5d c3 cc cc cc cc cc cc cc cc 83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 7a 01 00 eb 13 83 ff 20 72 1e 83 c7 e0 48 8d 04 ff 48 8d 3d 28 5b 01 00 48 c1 e0 04 48 01"
+      }
+    },
+    {
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "instruction_va": 10545,
+      "owner": {
+        "raw_name": "gSRnr79F8tQ#F#A",
+        "value": 10512,
+        "size": 67,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "gSRnr79F8tQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitAcb"
+      },
+      "raw": {
+        "va": 10497,
+        "file_offset": 26881,
+        "size": 151,
+        "bytes_hex": "b8 03 00 6d 8a 5d c3 cc cc cc cc cc cc cc cc 83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 7a 01 00 eb 13 83 ff 20 72 1e 83 c7 e0 48 8d 04 ff 48 8d 3d 28 5b 01 00 48 c1 e0 04 48 01 c7 48 83 c7 08 e9 68 ef ff ff 31 ff 48 83 c7 08 e9 5d ef ff ff cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 38 4c 8b 35 70 17 01 00 49 89 d7 49 89 f4 49 8b 06 48 89 45 d0 83 ff 58 72 0c 83 c7 a8 4c 8d 2d 4c 7a 01 00 eb 0f 83 ff"
+      }
+    },
+    {
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "instruction_va": 10654,
+      "owner": {
+        "raw_name": "F5ZTyyVUHTs#F#A",
+        "value": 10592,
+        "size": 449,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "F5ZTyyVUHTs",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitReprojectionAcb"
+      },
+      "raw": {
+        "va": 10606,
+        "file_offset": 26990,
+        "size": 151,
+        "bytes_hex": "83 ec 38 4c 8b 35 70 17 01 00 49 89 d7 49 89 f4 49 8b 06 48 89 45 d0 83 ff 58 72 0c 83 c7 a8 4c 8d 2d 4c 7a 01 00 eb 0f 83 ff 20 72 17 83 c7 e0 4c 8d 2d bb 5a 01 00 48 8d 04 ff 48 c1 e0 04 49 01 c5 eb 03 45 31 ed 49 8d 5d 40 48 89 df e8 4f 82 00 00 85 c0 0f 88 c5 00 00 00 4c 89 f9 41 bf 00 00 6d 8a 48 89 5d a8 0f 85 23 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 4d 8d 7d 08 49 8b 04 24 48 89 45 c0 41 8b 44 24 08 89 45 c8 41 8a"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 10760,
+      "owner": {
+        "raw_name": "F5ZTyyVUHTs#F#A",
+        "value": 10592,
+        "size": 449,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "F5ZTyyVUHTs",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitReprojectionAcb"
+      },
+      "raw": {
+        "va": 10712,
+        "file_offset": 27096,
+        "size": 151,
+        "bytes_hex": "23 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 4d 8d 7d 08 49 8b 04 24 48 89 45 c0 41 8b 44 24 08 89 45 c8 41 8a 44 24 0c 4c 8d 25 f9 7e 01 00 88 45 cc b8 01 00 00 00 f0 49 0f c1 84 24 40 01 00 00 49 89 45 28 49 ff 45 30 49 c7 45 1c 00 00 00 00 41 80 4d 10 01 49 89 4d 38 41 8b 84 24 a0 00 00 00 85 c0 74 6d 4d 8d 6c 24 48 4c 8d 75 b0 31 db eb 1b 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c5 78 48 39 cb 73 45 49"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 11319,
+      "owner": {
+        "raw_name": "dwoD-LJDQy8#F#A",
+        "value": 11296,
+        "size": 518,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "dwoD-LJDQy8",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAcquireHDRScopesACQ"
+      },
+      "raw": {
+        "va": 11271,
+        "file_offset": 27655,
+        "size": 151,
+        "bytes_hex": "00 00 31 c0 e8 70 7f 00 00 b8 01 00 6d 8a 5d c3 cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 53 48 81 ec e8 00 00 00 4c 8b 3d b1 14 01 00 48 8d 1d ca 7c 01 00 49 8b 07 48 89 45 e0 83 7b 08 00 74 26 48 8b 3d 8e 14 01 00 48 8d 35 85 cf 00 00 48 8d 15 78 d3 00 00 31 c0 e8 19 7f 00 00 bb 05 00 6d 8a e9 95 01 00 00 83 3d b0 7a 01 00 00 74 21 48 8b 3d 6f 14 01 00 48 8d 35 0f d1 00 00 ba 5d 00 00 00 31 c0 31 db e8 ea 7e 00 00 e9 6b 01 00 00 8b 7b 04"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 11828,
+      "owner": {
+        "raw_name": "NRO47jBXLiI#F#A",
+        "value": 11824,
+        "size": 113,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "NRO47jBXLiI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverReleaseHDRScopesACQ"
+      },
+      "raw": {
+        "va": 11780,
+        "file_offset": 28164,
+        "size": 151,
+        "bytes_hex": "6d 8a 49 8b 07 48 3b 45 e0 75 10 89 d8 48 81 c4 e8 00 00 00 5b 41 5e 41 5f 5d c3 e8 0c 7e 00 00 0f 0b cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 cd 7a 01 00 83 78 08 00 74 23 48 8b 3d 98 12 01 00 48 8d 35 8f cd 00 00 48 8d 15 58 d0 00 00 31 c0 e8 23 7d 00 00 b8 05 00 6d 8a 5d c3 8b 78 04 be b7 80 1e af ba 90 dd 4c 8b b9 6c 8d f6 99 e8 45 61 00 00 89 c1 b8 00 00 6d 8a 83 f9 01 75 18 48 8d 3d 62 78 01 00 e8 cd 7d 00 00 31 c0 c7 05 89 78 01 00"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 12120,
+      "owner": {
+        "raw_name": "C2yjkNdzbW4#F#A",
+        "value": 12096,
+        "size": 183,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "C2yjkNdzbW4",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverIDHSSubmit"
+      },
+      "raw": {
+        "va": 12072,
+        "file_offset": 28456,
+        "size": 151,
+        "bytes_hex": "8a 48 8b 0b 48 3b 4d f0 75 07 48 83 c4 28 5b 5d c3 e8 f2 7c 00 00 0f 0b 55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 18 4c 8b 35 90 11 01 00 4c 8d 3d a9 79 01 00 49 8b 06 48 89 45 d0 31 c0 41 83 7f 08 00 4c 8b 2f 8b 5f 08 0f 95 c0 44 8d 24 40 41 8b 47 04 44 89 e6 89 c7 e8 08 6f 00 00 4c 89 e8 49 c1 ed 20 48 c1 e3 20 41 8b 7f 04 48 b9 ff ff 00 00 ff ff 0f 00 ba 00 3f 02 c0 44 89 e6 48 c1 e0 20 4c 09 eb 48 21 d9 48 09 c2 48 89 4d c8 48 89 55 c0 48"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 12292,
+      "owner": {
+        "raw_name": "SOAMmdlyaIc#F#A",
+        "value": 12288,
+        "size": 37,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "SOAMmdlyaIc",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverCwsrSuspendAcq"
+      },
+      "raw": {
+        "va": 12244,
+        "file_offset": 28628,
+        "size": 151,
+        "bytes_hex": "8a 0f 44 c1 49 8b 0e 48 3b 4d d0 75 0f 48 83 c4 18 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 3b 7c 00 00 0f 0b cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 fd 78 01 00 48 89 fe 8b 78 04 e8 aa 71 00 00 31 c9 83 f8 01 b8 00 00 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 cd 78 01 00 8b 78 04 e8 ed 71 00 00 31 c9 83 f8 01 b8 00 00 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 12340,
+      "owner": {
+        "raw_name": "1DXIHxWHZAQ#F#A",
+        "value": 12336,
+        "size": 34,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "1DXIHxWHZAQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverCwsrResumeAcq"
+      },
+      "raw": {
+        "va": 12292,
+        "file_offset": 28676,
+        "size": 151,
+        "bytes_hex": "48 8d 05 fd 78 01 00 48 89 fe 8b 78 04 e8 aa 71 00 00 31 c9 83 f8 01 b8 00 00 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 cd 78 01 00 8b 78 04 e8 ed 71 00 00 31 c9 83 f8 01 b8 00 00 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 28 41 89 d7 48 8b 15 6d 10 01 00 4c 8d 2d 86 78 01 00 48 8b 02 48 89 45 d0 b8 01 00 6d 8a 41 83 7d 08 00 0f 85 d5 00 00 00 44 89"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 12411,
+      "owner": {
+        "raw_name": "Hj4eWnDektQ#F#A",
+        "value": 12384,
+        "size": 301,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Hj4eWnDektQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSetupRegisterShadow"
+      },
+      "raw": {
+        "va": 12363,
+        "file_offset": 28747,
+        "size": 151,
+        "bytes_hex": "6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 28 41 89 d7 48 8b 15 6d 10 01 00 4c 8d 2d 86 78 01 00 48 8b 02 48 89 45 d0 b8 01 00 6d 8a 41 83 7d 08 00 0f 85 d5 00 00 00 44 89 c3 41 89 f4 41 89 fe 84 c9 74 33 49 8d 85 18 01 00 00 49 8d 8d f0 00 00 00 45 84 e4 49 8d 95 20 01 00 00 49 8d b5 f8 00 00 00 48 0f 45 f2 48 0f 45 c8 8b 16 48 8b 39 31 f6 e8 e7 7a 00 00 80 f3 01 31 c9 45 84 e4 48"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 12693,
+      "owner": {
+        "raw_name": "CP-kVAMmWVw#F#A",
+        "value": 12688,
+        "size": 56,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "CP-kVAMmWVw",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetRegShadowInfo"
+      },
+      "raw": {
+        "va": 12645,
+        "file_offset": 29029,
+        "size": 151,
+        "bytes_hex": "48 8b 15 7c 0f 01 00 31 c0 48 8b 0a 48 3b 4d d0 75 0f 48 83 c4 28 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 a5 7a 00 00 0f 0b cc cc cc 48 85 ff 74 13 48 8d 0d 6c 77 01 00 b8 01 00 6d 8a 83 79 08 00 74 07 c3 b8 03 00 6d 8a c3 48 8b 81 10 01 00 00 48 89 47 20 31 c0 c5 fc 10 81 f0 00 00 00 c5 fc 11 07 c3 cc cc cc cc cc cc cc cc 48 85 ff 74 13 48 8d 0d 2c 77 01 00 b8 01 00 6d 8a 83 79 08 00 74 07 c3 b8 03 00 6d 8a c3 48 8b 81 38 01 00 00 48 89 47 20 31 c0 c5"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 12757,
+      "owner": {
+        "raw_name": "ME1eUot7+Qw#F#A",
+        "value": 12752,
+        "size": 56,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "ME1eUot7+Qw",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetRegShadowInfoAgr"
+      },
+      "raw": {
+        "va": 12709,
+        "file_offset": 29093,
+        "size": 151,
+        "bytes_hex": "74 07 c3 b8 03 00 6d 8a c3 48 8b 81 10 01 00 00 48 89 47 20 31 c0 c5 fc 10 81 f0 00 00 00 c5 fc 11 07 c3 cc cc cc cc cc cc cc cc 48 85 ff 74 13 48 8d 0d 2c 77 01 00 b8 01 00 6d 8a 83 79 08 00 74 07 c3 b8 03 00 6d 8a c3 48 8b 81 38 01 00 00 48 89 47 20 31 c0 c5 fc 10 81 18 01 00 00 c5 fc 11 07 c3 cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 48 81 ec a8 00 00 00 48 8b 0d bd 0e 01 00 48 8b 01 48 89 45 d0 85 f6 0f 84 f0 00 00 00 b8 03"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 13566,
+      "owner": {
+        "raw_name": "lYz7vbL4W4A#F#A",
+        "value": 12816,
+        "size": 958,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "lYz7vbL4W4A",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverPatchClearState"
+      },
+      "raw": {
+        "va": 13518,
+        "file_offset": 29902,
+        "size": 151,
+        "bytes_hex": "45 90 c5 f8 11 44 24 18 48 8b 45 c0 48 89 44 24 10 c5 f8 10 45 b0 c5 f8 11 04 24 e8 02 15 00 00 48 83 c4 30 48 8b bd 58 ff ff ff e8 92 77 00 00 4c 8d 3d 03 74 01 00 48 8b b5 40 ff ff ff 44 89 e2 41 8b 7f 04 e8 a8 64 00 00 41 83 7f 08 00 41 89 c6 75 78 49 8b bf f0 00 00 00 41 8b 97 f8 00 00 00 31 f6 e8 89 76 00 00 48 8d 75 90 48 8d 95 70 ff ff ff bf 02 00 00 00 e8 f4 cd ff ff 41 8b 7f 04 48 8b 5d 90 31 f6 e8 35 69 00 00 b8 20 10 00 00 41 8b 7f 04 b9"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 14656,
+      "owner": {
+        "raw_name": "nR6xhiFsOoc#F#A",
+        "value": 13872,
+        "size": 1159,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "nR6xhiFsOoc",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverNotifyDefaultStates"
+      },
+      "raw": {
+        "va": 14608,
+        "file_offset": 30992,
+        "size": 151,
+        "bytes_hex": "00 31 ff 48 89 c3 44 89 0c c8 89 54 c8 04 48 8d 55 b4 e8 19 ca ff ff 48 8d 75 b8 48 8d 55 b0 bf 01 00 00 00 e8 07 ca ff ff 8b 45 b4 48 8b 7d c0 4c 8d 3d c1 6f 01 00 4c 8b 45 a0 45 89 f1 83 e0 fc c7 44 38 e0 00 00 00 00 48 8d 4c 38 e0 8b 55 b0 48 8b 45 b8 49 89 8f d8 00 00 00 83 e2 fc 48 8d 74 02 e0 c7 44 02 e0 00 00 00 00 48 b8 e0 ff ff ff 03 00 00 00 49 89 b7 e0 00 00 00 48 89 75 90 8b 75 b4 49 8b 97 f0 00 00 00 48 01 c6 48 c1 ee 02 41 55 48 89 5d"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 15051,
+      "owner": {
+        "raw_name": "Vlaj1gwmIFA#F#A",
+        "value": 15040,
+        "size": 161,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Vlaj1gwmIFA",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSetupAsyncGraphics"
+      },
+      "raw": {
+        "va": 15003,
+        "file_offset": 31387,
+        "size": 151,
+        "bytes_hex": "48 3b 4d d0 75 0f 48 83 c4 58 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 7b 71 00 00 0f 0b cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 54 53 4c 8d 25 36 6e 01 00 41 89 fe 41 8b 9c 24 4c 01 00 00 83 e3 0f 75 35 41 8b 7c 24 04 be 01 00 00 00 bb 01 00 00 00 e8 1a 66 00 00 41 bf 05 00 6d 8a 83 f8 01 75 54 41 8b 84 24 4c 01 00 00 83 e0 f0 83 c8 01 41 89 84 24 4c 01 00 00 45 31 c9 45 85 f6 48 8b 3d cc 05 01 00 48 8d 35 62 c4 00 00 48 8d 15 8b b9 00 00"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 15227,
+      "owner": {
+        "raw_name": "oFb2hMcoJa4#F#A",
+        "value": 15216,
+        "size": 335,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "oFb2hMcoJa4",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": null
+      },
+      "raw": {
+        "va": 15179,
+        "file_offset": 31563,
+        "size": 151,
+        "bytes_hex": "24 48 01 00 00 e8 2b 70 00 00 44 89 f8 5b 41 5c 41 5e 41 5f 5d c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 54 53 48 8d 05 86 6d 01 00 bb 05 00 6d 8a 83 78 08 00 0f 85 23 01 00 00 4c 8b 25 48 05 01 00 41 89 fe 48 8d 1d 4e 6d 01 00 4c 8d 3d 7b b8 00 00 eb 1c 0f 1f 44 00 00 be 34 00 00 00 ba 01 00 00 00 4c 89 ff 4c 89 e1 e8 ab 6f 00 00 f3 90 48 89 df e8 41 70 00 00 85 c0 78 dd 75 f0 4c 8b 25 04 05 01 00 48 8d 1d bd 6c 01"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 15600,
+      "owner": null,
+      "raw": {
+        "va": 15552,
+        "file_offset": 31936,
+        "size": 151,
+        "bytes_hex": "55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 18 8b 47 04 41 89 d0 49 89 f7 83 f8 20 72 11 83 f8 58 72 36 8d 48 a8 4c 8d 35 f2 66 01 00 eb 34 48 8d 05 11 6c 01 00 83 78 08 01 0f 85 52 02 00 00 4c 89 fe 44 89 c2 48 83 c4 18 5b 41 5c 41 5d 41 5e 41 5f 5d e9 56 02 00 00 8d 48 e0 4c 8d 35 3c 47 01 00 48 8d 0c c9 48 c1 e1 04 42 8d 34 c5 00 00 00 00 49 01 ce 4c 8d 0d a2 66 01 00 4c 8d 15 1b 47 01 00 45 31 db eb 3b 66 0f 1f 44 00 00 83 c0 e0 48 8d 04 c0"
+      }
+    },
+    {
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "instruction_va": 15645,
+      "owner": null,
+      "raw": {
+        "va": 15597,
+        "file_offset": 31981,
+        "size": 151,
+        "bytes_hex": "00 eb 34 48 8d 05 11 6c 01 00 83 78 08 01 0f 85 52 02 00 00 4c 89 fe 44 89 c2 48 83 c4 18 5b 41 5c 41 5d 41 5e 41 5f 5d e9 56 02 00 00 8d 48 e0 4c 8d 35 3c 47 01 00 48 8d 0c c9 48 c1 e1 04 42 8d 34 c5 00 00 00 00 49 01 ce 4c 8d 0d a2 66 01 00 4c 8d 15 1b 47 01 00 45 31 db eb 3b 66 0f 1f 44 00 00 83 c0 e0 48 8d 04 c0 48 c1 e0 04 4c 01 d0 48 8b 50 70 8b 48 7c 8b 80 88 00 00 00 8b 1a c1 e9 02 31 d2 f7 f1 29 d3 41 0f 47 cb 01 d9 39 f1 77 1f f3 90 8b 47"
+      }
+    },
+    {
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "instruction_va": 15678,
+      "owner": null,
+      "raw": {
+        "va": 15630,
+        "file_offset": 32014,
+        "size": 151,
+        "bytes_hex": "41 5d 41 5e 41 5f 5d e9 56 02 00 00 8d 48 e0 4c 8d 35 3c 47 01 00 48 8d 0c c9 48 c1 e1 04 42 8d 34 c5 00 00 00 00 49 01 ce 4c 8d 0d a2 66 01 00 4c 8d 15 1b 47 01 00 45 31 db eb 3b 66 0f 1f 44 00 00 83 c0 e0 48 8d 04 c0 48 c1 e0 04 4c 01 d0 48 8b 50 70 8b 48 7c 8b 80 88 00 00 00 8b 1a c1 e9 02 31 d2 f7 f1 29 d3 41 0f 47 cb 01 d9 39 f1 77 1f f3 90 8b 47 04 83 f8 20 72 f6 83 f8 58 72 c1 83 c0 a8 48 8d 04 c0 48 c1 e0 04 4c 01 c8 eb bf 45 8b 56 7c 41 8b"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 16285,
+      "owner": null,
+      "raw": {
+        "va": 16237,
+        "file_offset": 32621,
+        "size": 151,
+        "bytes_hex": "cc cc cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 18 48 8b 05 60 01 01 00 48 89 7d c8 49 89 f7 be 03 00 00 00 89 d3 48 8b 00 48 89 45 d0 48 8d 05 64 69 01 00 8b 78 04 e8 94 46 00 00 41 89 de 49 89 e0 49 c1 e6 05 4d 29 f0 4c 89 c4 85 db 0f 84 bc 00 00 00 49 bd 00 00 ff ff 00 00 f0 ff 41 ba 20 10 00 00 41 bb ff ff 0f 00 41 b9 00 3f 02 c0 31 d2 31 c9 eb 4f 66 2e 0f 1f 84 00 00 00 00 00 89 c8 49 8b 74 17 10 ff c1 48 c1 e0 04 49 8b 7c 00 08 c4 e2"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 16518,
+      "owner": null,
+      "raw": {
+        "va": 16470,
+        "file_offset": 32854,
+        "size": 151,
+        "bytes_hex": "48 c1 e0 20 4d 21 ec c4 62 a8 f7 ee 48 c1 e6 20 4d 09 e5 4c 09 ce 4c 09 e8 49 89 dd 49 89 34 38 49 89 44 38 08 e9 70 ff ff ff 31 c9 48 8b 45 c8 48 8d 15 7b 68 01 00 8b 70 10 8b 7a 04 85 f6 74 0c ba 03 00 00 00 e8 9f 46 00 00 eb 0f 89 ca be 03 00 00 00 4c 89 c1 e8 2e 46 00 00 48 8b 15 2f 00 01 00 31 c9 83 f8 01 b8 00 00 6d 8a 0f 44 c1 48 8b 0a 48 3b 4d d0 75 0f 48 8d 65 d8 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 4d 6b 00 00 0f 0b cc cc cc cc cc cc cc cc"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 16734,
+      "owner": null,
+      "raw": {
+        "va": 16686,
+        "file_offset": 33070,
+        "size": 151,
+        "bytes_hex": "43 5c c5 fc 11 43 40 48 89 7b 28 8b 47 04 83 f8 04 89 43 14 b8 00 00 02 00 0f 94 c1 23 47 08 89 43 10 41 8d 40 02 48 c1 e0 05 49 29 c7 4c 89 fc 4c 8d 35 a3 67 01 00 41 83 bc 8e 50 01 00 00 00 0f 85 05 02 00 00 8b 53 14 48 89 4b 30 49 8d 8e d4 00 00 00 49 8d b6 c4 00 00 00 49 8d 86 d0 00 00 00 4d 8d ae b8 00 00 00 48 8d 7b 40 4c 89 43 20 83 fa 04 48 0f 44 f1 49 8d 8e c0 00 00 00 83 fa 04 48 0f 44 c8 49 8d 86 c8 00 00 00 83 fa 04 48 89 73 08 4c 0f 44"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 17597,
+      "owner": null,
+      "raw": {
+        "va": 17549,
+        "file_offset": 33933,
+        "size": 151,
+        "bytes_hex": "3c 83 e6 fe 09 ce 41 89 74 07 3c e9 49 ff ff ff 44 8b 6b 18 48 8b 4b 08 4c 8b 73 28 45 39 c5 49 0f 45 cf 83 7b 14 04 75 07 41 f6 46 0a 04 75 1d 48 8d 05 44 64 01 00 41 8b 76 04 44 89 ea 8b 78 04 e8 bd 5f 00 00 89 c1 e9 85 00 00 00 48 8d 7b 38 4d 89 c4 48 89 4b 08 e8 a6 37 00 00 48 8b 43 38 41 ff c4 c5 f8 57 c0 ba 00 00 f0 ff 41 ff c5 49 c1 e4 05 c4 81 7c 11 04 27 48 8b 08 43 89 4c 27 10 48 c1 e9 20 66 43 89 4c 27 14 b9 ff ff 0f 00 23 48 08 43 23 54"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 17702,
+      "owner": null,
+      "raw": {
+        "va": 17654,
+        "file_offset": 34038,
+        "size": 151,
+        "bytes_hex": "00 00 f0 ff 41 ff c5 49 c1 e4 05 c4 81 7c 11 04 27 48 8b 08 43 89 4c 27 10 48 c1 e9 20 66 43 89 4c 27 14 b9 ff ff 0f 00 23 48 08 43 23 54 27 18 48 8d 05 db 63 01 00 8b 78 04 09 ca 48 8b 4b 08 43 89 54 27 18 44 89 ea 41 8b 76 04 e8 49 5f 00 00 48 8b 73 38 89 c1 48 8b 56 10 48 ff 02 48 8b 46 18 48 c7 00 01 00 00 00 31 c0 83 f9 01 74 14 e8 15 60 00 00 89 c1 31 c0 83 f9 5c 0f 94 c0 0d 00 01 6d 8a 48 8b 0d 67 fb 00 00 48 8b 09 48 3b 8b 80 00 00 00 75 0f"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 17854,
+      "owner": null,
+      "raw": {
+        "va": 17806,
+        "file_offset": 34190,
+        "size": 151,
+        "bytes_hex": "8d 65 d8 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 8f 66 00 00 0f 0b cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 50 48 8d 05 43 63 01 00 41 89 d6 49 89 f7 49 89 fd 8b 80 a0 00 00 00 85 c0 74 48 48 8d 0d 29 63 01 00 45 31 e4 48 8d 59 48 eb 16 0f 1f 84 00 00 00 00 00 49 ff c4 89 c1 48 83 c3 78 49 39 cc 73 22 48 8b 0b 48 85 c9 74 ea 4c 89 ef 4c 89 fe 44 89 f2 ff d1 48 8d 05 f0 62 01 00 8b 80 a0 00 00 00 eb d0 48 8d 0d e1 62"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 17880,
+      "owner": null,
+      "raw": {
+        "va": 17832,
+        "file_offset": 34216,
+        "size": 151,
+        "bytes_hex": "cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 50 48 8d 05 43 63 01 00 41 89 d6 49 89 f7 49 89 fd 8b 80 a0 00 00 00 85 c0 74 48 48 8d 0d 29 63 01 00 45 31 e4 48 8d 59 48 eb 16 0f 1f 84 00 00 00 00 00 49 ff c4 89 c1 48 83 c3 78 49 39 cc 73 22 48 8b 0b 48 85 c9 74 ea 4c 89 ef 4c 89 fe 44 89 f2 ff d1 48 8d 05 f0 62 01 00 8b 80 a0 00 00 00 eb d0 48 8d 0d e1 62 01 00 4c 89 ef 4c 89 fe 44 89 f2 8b 81 a4 00 00 00 48 6b c0 78 48 8b 44 01 58"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 17937,
+      "owner": null,
+      "raw": {
+        "va": 17889,
+        "file_offset": 34273,
+        "size": 151,
+        "bytes_hex": "e4 48 8d 59 48 eb 16 0f 1f 84 00 00 00 00 00 49 ff c4 89 c1 48 83 c3 78 49 39 cc 73 22 48 8b 0b 48 85 c9 74 ea 4c 89 ef 4c 89 fe 44 89 f2 ff d1 48 8d 05 f0 62 01 00 8b 80 a0 00 00 00 eb d0 48 8d 0d e1 62 01 00 4c 89 ef 4c 89 fe 44 89 f2 8b 81 a4 00 00 00 48 6b c0 78 48 8b 44 01 58 48 83 c4 08 5b 41 5c 41 5d 41 5e 41 5f 5d ff e0 cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 28 4c 8b 35 80 fa 00 00 48 8d 5f 38 41 89 cc 49 89 d7 49 89 f5 49 8b 06"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 17952,
+      "owner": null,
+      "raw": {
+        "va": 17904,
+        "file_offset": 34288,
+        "size": 151,
+        "bytes_hex": "49 ff c4 89 c1 48 83 c3 78 49 39 cc 73 22 48 8b 0b 48 85 c9 74 ea 4c 89 ef 4c 89 fe 44 89 f2 ff d1 48 8d 05 f0 62 01 00 8b 80 a0 00 00 00 eb d0 48 8d 0d e1 62 01 00 4c 89 ef 4c 89 fe 44 89 f2 8b 81 a4 00 00 00 48 6b c0 78 48 8b 44 01 58 48 83 c4 08 5b 41 5c 41 5d 41 5e 41 5f 5d ff e0 cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 28 4c 8b 35 80 fa 00 00 48 8d 5f 38 41 89 cc 49 89 d7 49 89 f5 49 8b 06 48 89 45 d0 48 89 7d c8 48 89 df e8 88 65 00"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 18075,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      },
+      "raw": {
+        "va": 18027,
+        "file_offset": 34411,
+        "size": 151,
+        "bytes_hex": "38 41 89 cc 49 89 d7 49 89 f5 49 8b 06 48 89 45 d0 48 89 7d c8 48 89 df e8 88 65 00 00 85 c0 0f 88 7e 01 00 00 b8 00 00 6d 8a 0f 85 d9 01 00 00 48 8d 0d 66 62 01 00 b8 01 00 00 00 48 89 e7 48 81 c7 00 f0 ff ff f0 48 0f c1 81 40 01 00 00 48 8b 4d c8 48 89 41 20 48 ff 41 28 c7 41 14 00 00 00 00 44 89 61 18 80 61 08 fe 48 c7 41 30 00 00 00 00 48 89 fc 45 85 e4 0f 84 49 01 00 00 48 8d 47 1c 45 31 f6 48 89 5d b8 48 89 7d c0 48 89 45 b0 0f 1f 40 00 41 81"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 18258,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      },
+      "raw": {
+        "va": 18210,
+        "file_offset": 34594,
+        "size": 151,
+        "bytes_hex": "e2 4c 89 e0 66 2e 0f 1f 84 00 00 00 00 00 44 89 f7 41 ff c6 49 8b 74 fd 00 48 89 71 f4 41 8b 34 bf 89 71 fc c6 01 00 48 83 c1 20 48 ff c8 75 de 48 8d 05 af 61 01 00 8b 80 a0 00 00 00 85 c0 74 5d 48 8d 0d 9e 61 01 00 31 db 4c 8d 71 48 eb 1c 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c6 78 48 39 cb 73 32 49 8b 0e 48 85 c9 74 ea 48 8b 7d c8 48 8b 75 c0 ff d1 48 8d 05 61 61 01 00 4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 18275,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      },
+      "raw": {
+        "va": 18227,
+        "file_offset": 34611,
+        "size": 151,
+        "bytes_hex": "41 ff c6 49 8b 74 fd 00 48 89 71 f4 41 8b 34 bf 89 71 fc c6 01 00 48 83 c1 20 48 ff c8 75 de 48 8d 05 af 61 01 00 8b 80 a0 00 00 00 85 c0 74 5d 48 8d 0d 9e 61 01 00 31 db 4c 8d 71 48 eb 1c 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c6 78 48 39 cb 73 32 49 8b 0e 48 85 c9 74 ea 48 8b 7d c8 48 8b 75 c0 ff d1 48 8d 05 61 61 01 00 4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 8d 0d 41 61 01 00 48 8b 5d"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 18336,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      },
+      "raw": {
+        "va": 18288,
+        "file_offset": 34672,
+        "size": 151,
+        "bytes_hex": "eb 1c 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c6 78 48 39 cb 73 32 49 8b 0e 48 85 c9 74 ea 48 8b 7d c8 48 8b 75 c0 ff d1 48 8d 05 61 61 01 00 4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 8d 0d 41 61 01 00 48 8b 5d c8 48 8b 75 c0 49 89 d4 8b 81 a4 00 00 00 48 89 df 48 6b c0 78 ff 54 01 58 85 c0 75 53 44 8b 73 14 8b 43 18 48 8b 7d c0 41 83 ee 80 44 29 e0 41 89 c4 44 89 73 14 89 43 18 0f 85 f7 fe"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 18368,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      },
+      "raw": {
+        "va": 18320,
+        "file_offset": 34704,
+        "size": 151,
+        "bytes_hex": "0e 48 85 c9 74 ea 48 8b 7d c8 48 8b 75 c0 ff d1 48 8d 05 61 61 01 00 4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 8d 0d 41 61 01 00 48 8b 5d c8 48 8b 75 c0 49 89 d4 8b 81 a4 00 00 00 48 89 df 48 6b c0 78 ff 54 01 58 85 c0 75 53 44 8b 73 14 8b 43 18 48 8b 7d c0 41 83 ee 80 44 29 e0 41 89 c4 44 89 73 14 89 43 18 0f 85 f7 fe ff ff 45 31 ff eb 2f 48 8b 0d cb f8 00 00 48 8d 3d 08 ac 00 00 be 34 00 00 00 ba 01 00 00 00 e8"
+      }
+    },
+    {
+      "target_name": "submit_dcb_context",
+      "target_va": 108728,
+      "instruction_va": 18600,
+      "owner": {
+        "raw_name": "6UzEidRZwkg#F#A",
+        "value": 18592,
+        "size": 20,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "6UzEidRZwkg",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiDcbs"
+      },
+      "raw": {
+        "va": 18552,
+        "file_offset": 34936,
+        "size": 151,
+        "bytes_hex": "3b 4d d0 75 0f 48 8d 65 d8 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 9f 63 00 00 0f 0b cc cc cc cc cc cc cc cc cc cc cc cc cc 89 d1 48 89 f2 48 89 fe 48 8d 3d 09 60 01 00 e9 9c fd ff ff cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 3d 60 01 00 83 b8 48 01 00 00 00 74 15 89 d1 48 89 f2 48 89 fe 48 8d 3d 85 5f 01 00 5d e9 67 fd ff ff 48 8b 0d f0 f7 00 00 48 8d 3d 67 b4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6a 62 00 00 b8 03 00 6d 8a 5d c3 cc cc"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 18628,
+      "owner": {
+        "raw_name": "+T8Xo6LtFJI#F#A",
+        "value": 18624,
+        "size": 77,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "+T8Xo6LtFJI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitMultiDcbs"
+      },
+      "raw": {
+        "va": 18580,
+        "file_offset": 34964,
+        "size": 151,
+        "bytes_hex": "cc cc cc cc cc cc cc cc cc cc cc cc 89 d1 48 89 f2 48 89 fe 48 8d 3d 09 60 01 00 e9 9c fd ff ff cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 3d 60 01 00 83 b8 48 01 00 00 00 74 15 89 d1 48 89 f2 48 89 fe 48 8d 3d 85 5f 01 00 5d e9 67 fd ff ff 48 8b 0d f0 f7 00 00 48 8d 3d 67 b4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6a 62 00 00 b8 03 00 6d 8a 5d c3 cc cc cc 83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 5a 01 00 eb 13 83 ff 20 72 1e 83"
+      }
+    },
+    {
+      "target_name": "agr_submit_dcb_context",
+      "target_va": 108648,
+      "instruction_va": 18652,
+      "owner": {
+        "raw_name": "+T8Xo6LtFJI#F#A",
+        "value": 18624,
+        "size": 77,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "+T8Xo6LtFJI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitMultiDcbs"
+      },
+      "raw": {
+        "va": 18604,
+        "file_offset": 34988,
+        "size": 151,
+        "bytes_hex": "60 01 00 e9 9c fd ff ff cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 3d 60 01 00 83 b8 48 01 00 00 00 74 15 89 d1 48 89 f2 48 89 fe 48 8d 3d 85 5f 01 00 5d e9 67 fd ff ff 48 8b 0d f0 f7 00 00 48 8d 3d 67 b4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6a 62 00 00 b8 03 00 6d 8a 5d c3 cc cc cc 83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 5a 01 00 eb 13 83 ff 20 72 1e 83 c7 e0 48 8d 04 ff 48 8d 3d 28 3b 01 00 48 c1 e0 04 48 01 c7 48 83 c7 08"
+      }
+    },
+    {
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "instruction_va": 18737,
+      "owner": {
+        "raw_name": "HF3YllT3mXU#F#A",
+        "value": 18704,
+        "size": 67,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "HF3YllT3mXU",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiAcbs"
+      },
+      "raw": {
+        "va": 18689,
+        "file_offset": 35073,
+        "size": 151,
+        "bytes_hex": "e8 6a 62 00 00 b8 03 00 6d 8a 5d c3 cc cc cc 83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 5a 01 00 eb 13 83 ff 20 72 1e 83 c7 e0 48 8d 04 ff 48 8d 3d 28 3b 01 00 48 c1 e0 04 48 01 c7 48 83 c7 08 e9 08 fd ff ff 31 ff 48 83 c7 08 e9 fd fc ff ff cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8b 3d 75 f7 00 00 48 8d 35 3b a9 00 00 48 8d 15 6e a8 00 00 31 c0 e8 00 62 00 00 b8 01 00 6d 8a 5d c3 cc cc cc cc cc cc cc cc cc b8 01 00 6d 8a c3 cc cc"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 24190,
+      "owner": null,
+      "raw": {
+        "va": 24142,
+        "file_offset": 40526,
+        "size": 151,
+        "bytes_hex": "74 9b 04 41 2b 34 9b 48 83 c3 02 ff c6 89 34 a8 49 39 d9 75 dd 44 89 c6 48 8d 04 b0 eb 12 48 be 00 00 00 00 44 04 00 00 48 89 70 0c 48 83 c0 14 4c 8d 05 83 4a 01 00 41 b9 00 00 ad de 41 8b 70 0c c7 00 00 61 03 c0 40 f6 c6 01 be 00 00 ad de 48 0f 44 f2 83 e1 fc 89 f5 48 89 f3 83 e5 fc 48 c1 eb 20 89 68 04 48 8d ae 00 80 00 00 48 81 c6 00 90 00 00 89 58 08 48 c7 40 0c 00 00 00 00 c7 40 14 00 5f 03 c0 89 eb 41 89 f3 48 c1 ed 20 48 c1 ee 20 83 e3 fc 41"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 26149,
+      "owner": {
+        "raw_name": "1BUTwixUG5Y#F#A",
+        "value": 26144,
+        "size": 24,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "1BUTwixUG5Y",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverDebugHardwareStatus"
+      },
+      "raw": {
+        "va": 26101,
+        "file_offset": 42485,
+        "size": 151,
+        "bytes_hex": "00 00 0f 0b cc cc cc cc cc cc cc 55 48 89 e5 e8 f7 46 00 00 5d c3 cc cc cc cc cc 55 48 89 e5 e8 e7 46 00 00 48 c1 e8 10 5d c3 cc 85 ff 74 01 c3 48 8d 05 dc 42 01 00 31 f6 31 d2 8b 78 04 e9 08 2d 00 00 cc cc cc cc cc cc cc cc c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc 31 c0 c3 cc cc cc cc cc cc cc cc cc cc cc cc cc 31 c0 c3 cc cc cc cc cc cc cc cc cc cc cc cc cc b8 01 00 6d 8a c3 cc cc cc cc cc cc"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 26596,
+      "owner": null,
+      "raw": {
+        "va": 26548,
+        "file_offset": 42932,
+        "size": 151,
+        "bytes_hex": "cc cc cc cc cc cc cc cc cc cc cc cc 48 85 ff 74 09 31 c0 c7 07 00 00 00 00 c3 b8 03 00 6d 8a c3 cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 1d 41 01 00 89 f2 48 89 fe 8b 78 04 e8 88 29 00 00 31 c9 83 f8 01 b8 ff ff 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 ed 40 01 00 89 f2 89 fe 8b 78 04 e8 39 2a 00 00 31 c9 83 f8 01 b8 ff ff 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 56 53 89 f3 49 89"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 26644,
+      "owner": null,
+      "raw": {
+        "va": 26596,
+        "file_offset": 42980,
+        "size": 151,
+        "bytes_hex": "48 8d 05 1d 41 01 00 89 f2 48 89 fe 8b 78 04 e8 88 29 00 00 31 c9 83 f8 01 b8 ff ff 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 ed 40 01 00 89 f2 89 fe 8b 78 04 e8 39 2a 00 00 31 c9 83 f8 01 b8 ff ff 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 56 53 89 f3 49 89 fe e8 bf 44 00 00 48 8d 15 b0 40 01 00 81 fb 01 40 00 00 b9 00 40 00 00 4c 89 f7 0f 42 cb 3d 00 0f 84 00 0f 44 d9 89 de 8b 8a ac 00 00 00 48 6b"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 26705,
+      "owner": {
+        "raw_name": "XlNp7jzGiPo#F#A",
+        "value": 26688,
+        "size": 75,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "XlNp7jzGiPo",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSetTFRing"
+      },
+      "raw": {
+        "va": 26657,
+        "file_offset": 43041,
+        "size": 151,
+        "bytes_hex": "04 e8 39 2a 00 00 31 c9 83 f8 01 b8 ff ff 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 56 53 89 f3 49 89 fe e8 bf 44 00 00 48 8d 15 b0 40 01 00 81 fb 01 40 00 00 b9 00 40 00 00 4c 89 f7 0f 42 cb 3d 00 0f 84 00 0f 44 d9 89 de 8b 8a ac 00 00 00 48 6b c9 78 48 8b 84 0a 80 00 00 00 5b 41 5e 5d ff e0 cc cc cc cc cc 55 48 89 e5 41 56 53 48 83 ec 10 4c 8b 35 46 d8 00 00 48 89 fb 48 89 f2 48 8d 75 e0 49 8b 06 48 89 45 e8 48 8d 05 4e 40"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 26803,
+      "owner": {
+        "raw_name": "e-YMQ+2tj9M#F#A",
+        "value": 26768,
+        "size": 104,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "e-YMQ+2tj9M",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetTFRing"
+      },
+      "raw": {
+        "va": 26755,
+        "file_offset": 43139,
+        "size": 151,
+        "bytes_hex": "00 00 5b 41 5e 5d ff e0 cc cc cc cc cc 55 48 89 e5 41 56 53 48 83 ec 10 4c 8b 35 46 d8 00 00 48 89 fb 48 89 f2 48 8d 75 e0 49 8b 06 48 89 45 e8 48 8d 05 4e 40 01 00 48 c7 45 e0 00 00 00 00 8b 78 04 e8 16 29 00 00 89 c1 b8 ff ff 6d 8a 83 f9 01 75 09 48 8b 45 e0 48 89 03 31 c0 49 8b 0e 48 3b 4d e8 75 09 48 83 c4 10 5b 41 5e 5d c3 e8 3a 43 00 00 0f 0b cc cc cc cc cc cc cc cc 48 8d 05 01 40 01 00 8b 88 b0 00 00 00 48 6b c9 78 48 8b 84 08 88 00 00 00 ff"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 26880,
+      "owner": {
+        "raw_name": "MM4IZSEYytQ#F#A",
+        "value": 26880,
+        "size": 27,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "MM4IZSEYytQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSetHsOffchipParam"
+      },
+      "raw": {
+        "va": 26832,
+        "file_offset": 43216,
+        "size": 151,
+        "bytes_hex": "8a 83 f9 01 75 09 48 8b 45 e0 48 89 03 31 c0 49 8b 0e 48 3b 4d e8 75 09 48 83 c4 10 5b 41 5e 5d c3 e8 3a 43 00 00 0f 0b cc cc cc cc cc cc cc cc 48 8d 05 01 40 01 00 8b 88 b0 00 00 00 48 6b c9 78 48 8b 84 08 88 00 00 00 ff e0 cc cc cc cc cc 55 48 89 e5 48 8d 05 dd 3f 01 00 48 89 f2 48 89 fe 8b 78 04 e8 87 29 00 00 31 c9 83 f8 01 b8 ff ff 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc 55 48 89 e5 48 8b 3d 85 d7 00 00 48 8d 35 4b 89 00 00 48 8d 15 22 8a"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 26916,
+      "owner": {
+        "raw_name": "r28hEh6cNH0#F#A",
+        "value": 26912,
+        "size": 40,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "r28hEh6cNH0",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetHsOffchipParam"
+      },
+      "raw": {
+        "va": 26868,
+        "file_offset": 43252,
+        "size": 151,
+        "bytes_hex": "00 00 0f 0b cc cc cc cc cc cc cc cc 48 8d 05 01 40 01 00 8b 88 b0 00 00 00 48 6b c9 78 48 8b 84 08 88 00 00 00 ff e0 cc cc cc cc cc 55 48 89 e5 48 8d 05 dd 3f 01 00 48 89 f2 48 89 fe 8b 78 04 e8 87 29 00 00 31 c9 83 f8 01 b8 ff ff 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc 55 48 89 e5 48 8b 3d 85 d7 00 00 48 8d 35 4b 89 00 00 48 8d 15 22 8a 00 00 31 c0 e8 10 42 00 00 b8 01 00 6d 8a 5d c3 cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8b 3d 55 d7 00 00"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 29739,
+      "owner": {
+        "raw_name": "kuE1uTiWfuk#F#A",
+        "value": 29712,
+        "size": 103,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "kuE1uTiWfuk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSysGetClientNumber"
+      },
+      "raw": {
+        "va": 29691,
+        "file_offset": 46075,
+        "size": 151,
+        "bytes_hex": "41 5c 41 5d 41 5e 41 5f 5d c3 e8 26 38 00 00 0f 0b cc cc cc cc 55 48 89 e5 53 48 83 ec 18 48 8b 1d c8 cc 00 00 48 8d 75 ec 48 8b 03 48 89 45 f0 48 8d 05 d6 34 01 00 8b 78 04 e8 56 1f 00 00 83 f8 01 75 05 8b 45 ec eb 1c 48 8b 3d 95 cc 00 00 89 c2 48 8d 35 4f 85 00 00 31 c0 e8 25 37 00 00 b8 ff ff 6d 8a 48 8b 0b 48 3b 4d f0 75 07 48 83 c4 18 5b 5d c3 e8 bb 37 00 00 0f 0b cc cc cc cc cc cc cc cc cc 55 48 89 e5 53 48 83 ec 18 48 8b 1d 58 cc 00 00 48 8d"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 29851,
+      "owner": {
+        "raw_name": "ftf-xlfBQpo#F#A",
+        "value": 29824,
+        "size": 68,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "ftf-xlfBQpo",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSysIsGameClosed"
+      },
+      "raw": {
+        "va": 29803,
+        "file_offset": 46187,
+        "size": 151,
+        "bytes_hex": "c4 18 5b 5d c3 e8 bb 37 00 00 0f 0b cc cc cc cc cc cc cc cc cc 55 48 89 e5 53 48 83 ec 18 48 8b 1d 58 cc 00 00 48 8d 75 ec 48 8b 03 48 89 45 f0 48 8d 05 66 34 01 00 8b 78 04 e8 a6 1f 00 00 8b 45 ec 48 8b 0b 48 3b 4d f0 75 07 48 83 c4 18 5b 5d c3 e8 6e 37 00 00 0f 0b cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 2d 34 01 00 8b 78 04 e8 2d 23 00 00 89 c1 31 c0 83 f9 01 74 22 48 8b 0d ed cb 00 00 48 8d 3d 90 83 00 00 be 25 00 00 00 ba 01 00"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 29908,
+      "owner": {
+        "raw_name": "x3K61sY5m8Q#F#A",
+        "value": 29904,
+        "size": 64,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "x3K61sY5m8Q",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSysEnableSubmitDone45Exception"
+      },
+      "raw": {
+        "va": 29860,
+        "file_offset": 46244,
+        "size": 151,
+        "bytes_hex": "04 e8 a6 1f 00 00 8b 45 ec 48 8b 0b 48 3b 4d f0 75 07 48 83 c4 18 5b 5d c3 e8 6e 37 00 00 0f 0b cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 2d 34 01 00 8b 78 04 e8 2d 23 00 00 89 c1 31 c0 83 f9 01 74 22 48 8b 0d ed cb 00 00 48 8d 3d 90 83 00 00 be 25 00 00 00 ba 01 00 00 00 e8 67 36 00 00 b8 ff ff 6d 8a 5d c3 31 c0 c3 cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 dd 33 01 00 8b 78 04 e8 5d 31 00 00 31 c9 83 f8 01 b8 ff ff"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 29988,
+      "owner": {
+        "raw_name": "SOo3Lwyglfo#F#A",
+        "value": 29984,
+        "size": 34,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "SOo3Lwyglfo",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverHp3dLockStart"
+      },
+      "raw": {
+        "va": 29940,
+        "file_offset": 46324,
+        "size": 151,
+        "bytes_hex": "8d 3d 90 83 00 00 be 25 00 00 00 ba 01 00 00 00 e8 67 36 00 00 b8 ff ff 6d 8a 5d c3 31 c0 c3 cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 dd 33 01 00 8b 78 04 e8 5d 31 00 00 31 c9 83 f8 01 b8 ff ff 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 ad 33 01 00 8b 78 04 e8 7d 31 00 00 31 c9 83 f8 01 b8 ff ff 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 3d 05 cb 00 00"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 30036,
+      "owner": {
+        "raw_name": "u2g5VER9UnM#F#A",
+        "value": 30032,
+        "size": 34,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "u2g5VER9UnM",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverHp3dLockEnd"
+      },
+      "raw": {
+        "va": 29988,
+        "file_offset": 46372,
+        "size": 151,
+        "bytes_hex": "48 8d 05 dd 33 01 00 8b 78 04 e8 5d 31 00 00 31 c9 83 f8 01 b8 ff ff 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 ad 33 01 00 8b 78 04 e8 7d 31 00 00 31 c9 83 f8 01 b8 ff ff 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 3d 05 cb 00 00 e8 f0 32 00 00 31 c0 5d c3 cc cc cc cc cc cc cc cc cc cc cc cc 31 c0 c3 cc cc cc cc cc cc cc cc cc cc cc cc cc 31 c0 c3 cc cc cc cc cc cc cc cc"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 30166,
+      "owner": {
+        "raw_name": "4JOwdjYqMpU#H#A",
+        "value": 30160,
+        "size": 73,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "4JOwdjYqMpU",
+        "lid": "H",
+        "mid": "A",
+        "mapped_name": "sceAgdSetApplicationGpuDebug"
+      },
+      "raw": {
+        "va": 30118,
+        "file_offset": 46502,
+        "size": 151,
+        "bytes_hex": "cc cc cc cc cc cc cc cc cc cc 31 c0 c3 cc cc cc cc cc cc cc cc cc cc cc cc cc b8 45 00 6c 8a c3 cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 53 50 48 8d 1d 2b 33 01 00 8b 83 b0 01 00 00 c4 e2 78 f2 c7 b8 47 00 6c 8a 75 23 89 bb b4 01 00 00 83 e7 01 e8 a3 00 00 00 b8 01 01 00 00 c4 e2 78 f7 bb b4 01 00 00 e8 30 e5 ff ff 31 c0 48 83 c4 08 5b 5d c3 cc cc cc cc cc cc cc 48 8d 05 e1 32 01 00 8b 80 b4 01 00 00 c3 cc cc 48 8d 05 d1 32 01 00 8b 80 b0 01 00 00"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 30240,
+      "owner": {
+        "raw_name": "KKrEe-LWNG8#H#A",
+        "value": 30240,
+        "size": 14,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "KKrEe-LWNG8",
+        "lid": "H",
+        "mid": "A",
+        "mapped_name": "sceAgdGetApplicationGpuDebug"
+      },
+      "raw": {
+        "va": 30192,
+        "file_offset": 46576,
+        "size": 151,
+        "bytes_hex": "bb b4 01 00 00 83 e7 01 e8 a3 00 00 00 b8 01 01 00 00 c4 e2 78 f7 bb b4 01 00 00 e8 30 e5 ff ff 31 c0 48 83 c4 08 5b 5d c3 cc cc cc cc cc cc cc 48 8d 05 e1 32 01 00 8b 80 b4 01 00 00 c3 cc cc 48 8d 05 d1 32 01 00 8b 80 b0 01 00 00 c3 cc cc 48 85 c9 74 0e 48 c7 01 00 00 00 00 c7 41 08 00 00 00 00 b8 01 00 6d 8a c3 cc cc cc cc cc cc cc 48 85 f6 74 0e 48 c7 06 00 00 00 00 c7 46 08 00 00 00 00 b8 01 00 6d 8a c3 cc cc cc cc cc cc cc c3 cc cc cc cc cc cc"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 30256,
+      "owner": {
+        "raw_name": "qDjJ+CgiMzs#H#A",
+        "value": 30256,
+        "size": 14,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "qDjJ+CgiMzs",
+        "lid": "H",
+        "mid": "A",
+        "mapped_name": "sceAgdGetSystemGpuDebug"
+      },
+      "raw": {
+        "va": 30208,
+        "file_offset": 46592,
+        "size": 151,
+        "bytes_hex": "00 00 c4 e2 78 f7 bb b4 01 00 00 e8 30 e5 ff ff 31 c0 48 83 c4 08 5b 5d c3 cc cc cc cc cc cc cc 48 8d 05 e1 32 01 00 8b 80 b4 01 00 00 c3 cc cc 48 8d 05 d1 32 01 00 8b 80 b0 01 00 00 c3 cc cc 48 85 c9 74 0e 48 c7 01 00 00 00 00 c7 41 08 00 00 00 00 b8 01 00 6d 8a c3 cc cc cc cc cc cc cc 48 85 f6 74 0e 48 c7 06 00 00 00 00 c7 46 08 00 00 00 00 b8 01 00 6d 8a c3 cc cc cc cc cc cc cc c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc c3 cc cc cc cc cc cc"
+      }
+    },
+    {
+      "target_name": "global_state_context",
+      "target_va": 108808,
+      "instruction_va": 30794,
+      "owner": null,
+      "raw": {
+        "va": 30746,
+        "file_offset": 47130,
+        "size": 151,
+        "bytes_hex": "c7 45 d4 00 00 00 00 c5 fc 11 05 57 32 01 00 e8 52 fd ff ff 48 8d 3d d7 30 01 00 48 8d 75 d4 e8 82 04 00 00 83 f8 01 0f 85 65 02 00 00 8b 45 d4 48 8d 3d b7 30 01 00 0f b7 c8 c1 e8 10 89 0d b3 30 01 00 89 05 b1 30 01 00 e8 f8 34 00 00 85 c0 74 0a c7 05 92 30 01 00 00 00 00 00 e8 e5 88 ff ff 85 c0 74 17 48 8b 3d 5a c8 00 00 89 c2 48 8d 35 ac 83 00 00 31 c0 e8 ea 32 00 00 e8 e5 8a ff ff 85 c0 74 17 48 8b 3d 3a c8 00 00 89 c2 48 8d 35 ce 7b 00 00 31 c0"
+      }
+    },
+    {
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "instruction_va": 31466,
+      "owner": null,
+      "raw": {
+        "va": 31418,
+        "file_offset": 47802,
+        "size": 151,
+        "bytes_hex": "00 00 31 c0 e8 bd 30 00 00 b8 ff ff 6d 8a e9 9e 01 00 00 48 8d 75 c8 31 ff 31 d2 e8 26 a4 ff ff 48 8d 75 c0 bf 04 00 00 00 31 d2 e8 16 a4 ff ff 48 8d 3d 6f 09 01 00 48 8d 05 68 2d 01 00 ba 80 1f 00 00 31 f6 48 89 38 e8 b9 30 00 00 bb 20 00 00 00 0f 1f 40 00 89 df e8 a9 ac ff ff ff c3 83 fb 58 75 f2 8b 1d f0 2d 01 00 f6 c3 01 74 1c 48 8b 3d b0 c5 00 00 48 8d 35 c0 7c 00 00 48 8d 15 d6 7e 00 00 31 c0 e8 3b 30 00 00 45 31 c0 f6 c3 01 ba 01 00 00 00 b9"
+      }
+    }
+  ],
+  "loads": [
+    {
+      "offset": 16384,
+      "vaddr": 0,
+      "filesz": 44754,
+      "memsz": 44754,
+      "flags": 1
+    },
+    {
+      "offset": 65536,
+      "vaddr": 49152,
+      "filesz": 26636,
+      "memsz": 26636,
+      "flags": 4
+    },
+    {
+      "offset": 98304,
+      "vaddr": 81920,
+      "filesz": 728,
+      "memsz": 728,
+      "flags": 6
+    },
+    {
+      "offset": 114688,
+      "vaddr": 98304,
+      "filesz": 17,
+      "memsz": 12328,
+      "flags": 6
+    },
+    {
+      "offset": 127024,
+      "vaddr": 110640,
+      "filesz": 12480,
+      "memsz": 12480,
+      "flags": 0
+    }
+  ]
+}
