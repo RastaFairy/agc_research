@@ -1,0 +1,4 @@
+Stage 15 callback-slot provenance checks: PASS
+Submit dispatcher enters the logical +0x48 slot.
+Registration writes +0x48 from a pointer derived as RBX + R15.
+Pointer target remains unresolved by design.

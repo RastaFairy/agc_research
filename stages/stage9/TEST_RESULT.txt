@@ -1,0 +1,3 @@
+Stage 9 static call-site extractor: PASS
+Purpose: recover candidate argument-register writes from x86-64 call-sites without claiming a Sony ABI.
+No PS5/SCE function was invoked.

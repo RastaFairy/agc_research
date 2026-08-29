@@ -1,0 +1,7 @@
+Stage 14 static callback-registration evidence: PASS
+- callback entry stride: 0x78
+- callback dispatch slot: entry+0x48
+- fallback slot: entry+0x50
+- initializer at 0xD0 writes entry+0x50/+0x58/+0x68/+0x80/+0x88
+- initializer at 0x160 establishes first active entry and count=1
+- no internal function received an invented Sony API name

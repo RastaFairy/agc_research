@@ -1,0 +1,1 @@
+Stage 8 ABI manifest: PASS\nsymbols = 17\nw1KFAHVqpaU = sceAgcCbBranch\nsceAgcDriverSubmitDcb = UglJIZjGssM\nNo typed Sony ABI call enabled.\n

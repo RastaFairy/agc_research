@@ -1,0 +1,14 @@
+0000000000000000 <sceAgcInit>:
+   0: c3 ret
+0000000000000001 <test_caller>:
+   1: 55 push rbp
+   2: 48 89 e5 mov rbp,rsp
+   5: 48 83 ec 20 sub rsp,0x20
+   9: 48 8d 3d 00 00 00 00 lea rdi,[rip+0x0]
+  10: be 20 00 00 00 mov esi,0x20
+  15: 48 c7 c2 34 12 00 00 mov rdx,0x1234
+  1c: 31 c9 xor ecx,ecx
+  1e: e8 00 00 00 00 call sceAgcInit
+  23: b8 00 00 00 00 mov eax,0
+  28: c9 leave
+  29: c3 ret

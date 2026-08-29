@@ -1,0 +1,7 @@
+Stage 6 submit packet probe
+packet.size = 16
+packet.addr = 0x7ffc9beb6940
+packet.dw_num = 4
+packet.reserved = 0
+packet ABI: PASS
+native submit invocation: intentionally disabled

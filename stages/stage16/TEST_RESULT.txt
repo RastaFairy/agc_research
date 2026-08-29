@@ -1,0 +1,5 @@
+Stage 16 callback-table correction: PASS
+Confirmed: dispatcher table base = 0x1a908, entry stride = 0x78, logical callback slot = +0x48.
+Confirmed: write at 0x2364 uses RAX from [RBP-0x48], not the global 0x1a908 table base.
+Confirmed: the compared/modified structures in that path use a separate stride derived from index * 0x90.
+No callback function identity inferred.

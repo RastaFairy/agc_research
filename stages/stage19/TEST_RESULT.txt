@@ -1,0 +1,3 @@
+Stage 19 binary consistency audit: PASS
+0x1e908 - 0x1a908 = 0x4000
+No callback ABI has been inferred from the mixed-image evidence.

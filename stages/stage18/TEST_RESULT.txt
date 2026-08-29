@@ -1,0 +1,11 @@
+Stage 18 static evidence review: PASS
+
+Confirmed:
+- dispatcher callback slot = entry + 0x48
+- fallback slot = entry + 0x50
+- entry stride = 0x78
+- default helper pointers initialized by 0xd0 / 0x160
+- no write to entry + 0x48 in those initializers
+- Stage 15 store remains unrelated to the global callback table
+
+No Sony ABI prototype was invented.

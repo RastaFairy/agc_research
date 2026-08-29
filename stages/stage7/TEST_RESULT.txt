@@ -1,0 +1,4 @@
+NID table entries = 12
+final state = SUBMIT_READY
+AGC PS5 Stage 7 bootstrap inventory: PASS
+No Sony function prototype has been assumed.

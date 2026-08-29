@@ -1,0 +1,2 @@
+Stage 12 packet layout: PASS
+size=16 addr=0 dw_num=8 byte_0c=12

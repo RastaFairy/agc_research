@@ -1,0 +1,38 @@
+{
+  "tool": "AGC PS5 Stage 9",
+  "target": "sceAgcInit",
+  "source": "/mnt/data/agc_ps5_stage9/sample_calls.asm.txt",
+  "calls": [
+    {
+      "function": "test_caller",
+      "function_address": "0000000000000001",
+      "call_site": "1e",
+      "callee": "sceAgcInit",
+      "instructions_before": [
+        "1: push rbp",
+        "2: mov rbp,rsp",
+        "5: sub rsp,0x20",
+        "9: lea rdi,[rip+0x0]",
+        "10: mov esi,0x20",
+        "15: mov rdx,0x1234",
+        "1c: xor ecx,ecx"
+      ],
+      "register_writes": {
+        "rdi": [
+          "9: lea rdi,[rip+0x0]"
+        ],
+        "rsi": [
+          "10: mov esi,0x20"
+        ],
+        "rdx": [
+          "15: mov rdx,0x1234"
+        ],
+        "rcx": [
+          "1c: xor ecx,ecx"
+        ]
+      },
+      "stack_refs": [],
+      "note": "Static candidate extraction only; does not establish a Sony C prototype."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+Stage 13 callback dispatcher mapping: PASS
+
+Verified from libSceAgcDriver.sprx:
+- callback table base references at 0x1a908
+- callback stride 0x78
+- callback pointer at entry +0x00
+- fallback function pointer at entry +0x50
+- callback invocation convention observed: (context, submit_packet, 1)

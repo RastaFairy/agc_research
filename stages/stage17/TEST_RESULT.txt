@@ -1,0 +1,6 @@
+Stage 17 callback write-site audit: PASS
+Confirmed global dispatcher table = 0x1a908, stride = 0x78, callback slot = +0x48.
+Confirmed init path clears +0x48 as part of the +0x30 vector clear.
+Rejected 0x2364 as global callback write.
+Rejected 0x6262 as global callback write.
+No internal writer to the global +0x48 slot has been proven yet.
