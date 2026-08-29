@@ -1,0 +1,117 @@
+{
+  "stage": 46,
+  "timestamp": "2026-08-25T01:51:31.8143815+02:00",
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "nid": "b4fpgH5ZXxQ",
+    "va": "0x18b0"
+  },
+  "wrapper_count": 4,
+  "wrappers": [
+    {
+      "opcode": "JMP",
+      "source_va": "0x28ba",
+      "destination_va": "0x18b0",
+      "region_start": "0x289a",
+      "region_size": 48,
+      "owners": [
+        {
+          "name": "sceAgcDriverSubmitDcb",
+          "nid": "UglJIZjGssM",
+          "va": "0x28b0",
+          "size": 15
+        }
+      ]
+    },
+    {
+      "opcode": "JMP",
+      "source_va": "0x28df",
+      "destination_va": "0x18b0",
+      "region_start": "0x28bf",
+      "region_size": 48,
+      "owners": [
+        {
+          "name": "sceAgcDriverAgrSubmitDcb",
+          "nid": "AhGvpITrf4M",
+          "va": "0x28c0",
+          "size": 72
+        }
+      ]
+    },
+    {
+      "opcode": "JMP",
+      "source_va": "0x2943",
+      "destination_va": "0x18b0",
+      "region_start": "0x2923",
+      "region_size": 48,
+      "owners": [
+        {
+          "name": "sceAgcDriverSubmitAcb",
+          "nid": "gSRnr79F8tQ",
+          "va": "0x2910",
+          "size": 67
+        }
+      ]
+    },
+    {
+      "opcode": "JMP",
+      "source_va": "0x294e",
+      "destination_va": "0x18b0",
+      "region_start": "0x292e",
+      "region_size": 48,
+      "owners": [
+        {
+          "name": "sceAgcDriverSubmitAcb",
+          "nid": "gSRnr79F8tQ",
+          "va": "0x2910",
+          "size": 67
+        }
+      ]
+    }
+  ],
+  "analysis": {
+    "wrapper_family_found": true,
+    "wrapper_disassembly": true,
+    "abi_prototype_inferred": false
+  },
+  "execution": {
+    "performed": false
+  },
+  "artifacts": [
+    {
+      "file": "stage46_static.json",
+      "size": 3970,
+      "sha256": "f14dd36cff7e440c8b00522f8b89e596213aaa83384c930ea7ae6a76068724a9"
+    },
+    {
+      "file": "wrapper_summary.txt",
+      "size": 1520,
+      "sha256": "fb41923ddad0144ea9c7a6dc1e90564bffc2093c0f92f963a2dc2d4197bec4db"
+    },
+    {
+      "file": "wrapper_disassembly.txt",
+      "size": 4635,
+      "sha256": "20b4f05bf1390c448b6fb0958d2ec76d1ab26c4a7d24bc737309b3ef1d656a32"
+    },
+    {
+      "file": "wrapper_bins/wrapper_01.bin",
+      "size": 48,
+      "sha256": "7a1a29a1ca09c0ce7c46b05080305ade98992deb9ecab9a6d45fa826461b32db"
+    },
+    {
+      "file": "wrapper_bins/wrapper_02.bin",
+      "size": 48,
+      "sha256": "2a44d0303aaa2f16f02cd2a6e180979e8ac000f2a9577c6d4693c2637b94f45b"
+    },
+    {
+      "file": "wrapper_bins/wrapper_03.bin",
+      "size": 48,
+      "sha256": "f96d28aab971ff5548a7b889cf332a159d11f7e5266f6524cb58acdac3718cc4"
+    },
+    {
+      "file": "wrapper_bins/wrapper_04.bin",
+      "size": 48,
+      "sha256": "af5c123a61b6b8d006446b070decb77e91ebd6ed02541d31d428538087abc9b7"
+    }
+  ]
+}

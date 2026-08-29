@@ -1,0 +1,3 @@
+
+/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx:     file format elf64-x86-64
+

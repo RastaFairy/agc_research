@@ -1,0 +1,119 @@
+============================================
+wrapper_01.bin START_VA=0x289a
+============================================
+
+/mnt/d/agc_work/stage46_results/wrapper_bins/wrapper_01.bin:     file format binary
+
+
+Disassembly of section .data:
+
+000000000000289a <.data>:
+    289a:	c4                   	(bad)
+    289b:	18 5b 5d             	sbb    %bl,0x5d(%rbx)
+    289e:	c3                   	ret
+    289f:	e8 8c 83 00 00       	call   0xac30
+    28a4:	0f 0b                	ud2
+    28a6:	cc                   	int3
+    28a7:	cc                   	int3
+    28a8:	cc                   	int3
+    28a9:	cc                   	int3
+    28aa:	cc                   	int3
+    28ab:	cc                   	int3
+    28ac:	cc                   	int3
+    28ad:	cc                   	int3
+    28ae:	cc                   	int3
+    28af:	cc                   	int3
+    28b0:	48 89 fe             	mov    %rdi,%rsi
+    28b3:	48 8d 3d fe 7f 01 00 	lea    0x17ffe(%rip),%rdi        # 0x1a8b8
+    28ba:	e9 f1 ef ff ff       	jmp    0x18b0
+    28bf:	cc                   	int3
+    28c0:	55                   	push   %rbp
+    28c1:	48 89 e5             	mov    %rsp,%rbp
+    28c4:	48                   	rex.W
+    28c5:	8d                   	.byte 0x8d
+    28c6:	05                   	.byte 0x5
+    28c7:	3d                   	.byte 0x3d
+    28c8:	80                   	.byte 0x80
+    28c9:	01                   	.byte 0x1
+
+============================================
+wrapper_02.bin START_VA=0x28bf
+============================================
+
+/mnt/d/agc_work/stage46_results/wrapper_bins/wrapper_02.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000000028bf <.data>:
+    28bf:	cc                   	int3
+    28c0:	55                   	push   %rbp
+    28c1:	48 89 e5             	mov    %rsp,%rbp
+    28c4:	48 8d 05 3d 80 01 00 	lea    0x1803d(%rip),%rax        # 0x1a908
+    28cb:	83 b8 48 01 00 00 00 	cmpl   $0x0,0x148(%rax)
+    28d2:	74 10                	je     0x28e4
+    28d4:	48 89 fe             	mov    %rdi,%rsi
+    28d7:	48 8d 3d 8a 7f 01 00 	lea    0x17f8a(%rip),%rdi        # 0x1a868
+    28de:	5d                   	pop    %rbp
+    28df:	e9 cc ef ff ff       	jmp    0x18b0
+    28e4:	48 8b 0d f5 17 01 00 	mov    0x117f5(%rip),%rcx        # 0x140e0
+    28eb:	48                   	rex.W
+    28ec:	8d                   	.byte 0x8d
+    28ed:	3d                   	.byte 0x3d
+    28ee:	6c                   	insb   (%dx),%es:(%rdi)
+
+============================================
+wrapper_03.bin START_VA=0x2923
+============================================
+
+/mnt/d/agc_work/stage46_results/wrapper_bins/wrapper_03.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0000000000002923 <.data>:
+    2923:	eb 13                	jmp    0x2938
+    2925:	83 ff 20             	cmp    $0x20,%edi
+    2928:	72 1e                	jb     0x2948
+    292a:	83 c7 e0             	add    $0xffffffe0,%edi
+    292d:	48 8d 04 ff          	lea    (%rdi,%rdi,8),%rax
+    2931:	48 8d 3d 28 5b 01 00 	lea    0x15b28(%rip),%rdi        # 0x18460
+    2938:	48 c1 e0 04          	shl    $0x4,%rax
+    293c:	48 01 c7             	add    %rax,%rdi
+    293f:	48 83 c7 08          	add    $0x8,%rdi
+    2943:	e9 68 ef ff ff       	jmp    0x18b0
+    2948:	31 ff                	xor    %edi,%edi
+    294a:	48 83 c7 08          	add    $0x8,%rdi
+    294e:	e9 5d ef ff ff       	jmp    0x18b0
+
+============================================
+wrapper_04.bin START_VA=0x292e
+============================================
+
+/mnt/d/agc_work/stage46_results/wrapper_bins/wrapper_04.bin:     file format binary
+
+
+Disassembly of section .data:
+
+000000000000292e <.data>:
+    292e:	8d 04 ff             	lea    (%rdi,%rdi,8),%eax
+    2931:	48 8d 3d 28 5b 01 00 	lea    0x15b28(%rip),%rdi        # 0x18460
+    2938:	48 c1 e0 04          	shl    $0x4,%rax
+    293c:	48 01 c7             	add    %rax,%rdi
+    293f:	48 83 c7 08          	add    $0x8,%rdi
+    2943:	e9 68 ef ff ff       	jmp    0x18b0
+    2948:	31 ff                	xor    %edi,%edi
+    294a:	48 83 c7 08          	add    $0x8,%rdi
+    294e:	e9 5d ef ff ff       	jmp    0x18b0
+    2953:	cc                   	int3
+    2954:	cc                   	int3
+    2955:	cc                   	int3
+    2956:	cc                   	int3
+    2957:	cc                   	int3
+    2958:	cc                   	int3
+    2959:	cc                   	int3
+    295a:	cc                   	int3
+    295b:	cc                   	int3
+    295c:	cc                   	int3
+    295d:	cc                   	int3
+

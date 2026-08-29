@@ -1,0 +1,8 @@
+
+/tmp/agc_stage44/context.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0000000000000000 <.data>:
+	...

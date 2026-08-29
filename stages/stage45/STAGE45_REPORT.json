@@ -1,0 +1,50 @@
+{
+  "stage": 45,
+  "timestamp": "2026-08-25T01:48:07.7296353+02:00",
+  "submit_dcb": {
+    "nid": "UglJIZjGssM",
+    "name": "sceAgcDriverSubmitDcb",
+    "va": "0x28b0"
+  },
+  "internal": {
+    "nid": "b4fpgH5ZXxQ",
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "va": "0x18b0",
+    "size": 380
+  },
+  "argument_structure": {
+    "source_register": "RSI after SubmitDcb thunk",
+    "fields": [
+      {
+        "offset": "0x00",
+        "width": 8
+      },
+      {
+        "offset": "0x08",
+        "width": 4
+      },
+      {
+        "offset": "0x0c",
+        "width": 1
+      }
+    ]
+  },
+  "execution": {
+    "performed": false
+  },
+  "prototype": {
+    "inferred": false
+  },
+  "artifacts": [
+    {
+      "file": "stage45_static.json",
+      "size": 7835,
+      "sha256": "66db7e9dce005390bcfc1471314e75874d6eced81a74509ced3014125f58f966"
+    },
+    {
+      "file": "submitcommandbuffer_disassembly.txt",
+      "size": 5176,
+      "sha256": "495bc004c9330ffb46ac7adc476d77c52be9d9c2ed267925bbe2a3bcd4402c93"
+    }
+  ]
+}

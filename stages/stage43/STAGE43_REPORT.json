@@ -1,0 +1,46 @@
+{
+  "stage": 43,
+  "timestamp": "2026-08-25T01:45:20.9260181+02:00",
+  "target": {
+    "name": "sceAgcDriverSubmitDcb",
+    "nid": "UglJIZjGssM",
+    "va": "0x28b0",
+    "size": 15
+  },
+  "decoded": {
+    "jmp_displacement": -4111,
+    "jmp_next": 10431,
+    "jmp_target": 6320,
+    "lea_displacement": 98302,
+    "lea_next": 10426,
+    "lea_target": 108728
+  },
+  "execution": {
+    "performed": false
+  },
+  "prototype": {
+    "inferred": false
+  },
+  "artifacts": [
+    {
+      "file": "stage43_static.json",
+      "size": 1745,
+      "sha256": "8c7ae77bbbbd3b44f7f3876d25e3fe0f4524688ae9c32ae0c409e0916fc11f2b"
+    },
+    {
+      "file": "target_disassembly.txt",
+      "size": 79,
+      "sha256": "45fbfafc9c1c5cde9296c1e03ffb92c8fdb37683a0163d804750b80fbe38152e"
+    },
+    {
+      "file": "target_raw.txt",
+      "size": 79,
+      "sha256": "45fbfafc9c1c5cde9296c1e03ffb92c8fdb37683a0163d804750b80fbe38152e"
+    },
+    {
+      "file": "target_matches.txt",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

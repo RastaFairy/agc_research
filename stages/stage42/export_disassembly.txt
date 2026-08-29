@@ -1,0 +1,10 @@
+
+/tmp/agc_stage42/export_bytes.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0000000000000000 <.data>:
+   0:	48 89 fe             	mov    %rdi,%rsi
+   3:	48 8d 3d fe 7f 01 00 	lea    0x17ffe(%rip),%rdi        # 0x18008
+   a:	e9 f1 ef ff ff       	jmp    0xfffffffffffff000

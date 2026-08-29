@@ -1,0 +1,40 @@
+{
+  "stage": 44,
+  "timestamp": "2026-08-25T01:46:48.1652722+02:00",
+  "submit_dcb": {
+    "nid": "UglJIZjGssM",
+    "va": "0x28b0",
+    "size": 15
+  },
+  "internal": {
+    "nid": "b4fpgH5ZXxQ",
+    "va": "0x18b0",
+    "size": 380
+  },
+  "context": {
+    "va": "0x1a8b8"
+  },
+  "execution": {
+    "performed": false
+  },
+  "prototype": {
+    "inferred": false
+  },
+  "artifacts": [
+    {
+      "file": "stage44_static.json",
+      "size": 4353,
+      "sha256": "645335884f7810b59ea872887fd5efc51c2925c7ce04c2d28467c13e23596b18"
+    },
+    {
+      "file": "internal_disassembly.txt",
+      "size": 4747,
+      "sha256": "963358250e95257d3b6b7a331d8a7afed2a2cf5fb3ae56aaa2125930e806c1af"
+    },
+    {
+      "file": "context_disassembly.txt",
+      "size": 118,
+      "sha256": "6e495b706aea0b0756d08d5c64c568792326d85c2de473aa42f61ada0a386f1b"
+    }
+  ]
+}

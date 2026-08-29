@@ -1,0 +1,35 @@
+{
+  "stage": 47,
+  "timestamp": "2026-08-25T01:52:41.0933329+02:00",
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "nid": "b4fpgH5ZXxQ",
+    "va": "0x18b0"
+  },
+  "contexts": {
+    "dcb": "0x1a8b8",
+    "agr": "0x1a868",
+    "global": "0x1a908",
+    "acb_table": "0x18460",
+    "acb_stride": "0x90"
+  },
+  "execution": {
+    "performed": false
+  },
+  "abi": {
+    "prototype_inferred": false,
+    "context_model": true
+  },
+  "artifacts": [
+    {
+      "file": "stage47_static.json",
+      "size": 21829,
+      "sha256": "b3f11687dae17b3aefe29836cfb96150e8496986696ed905d0e42a3fe1acd79c"
+    },
+    {
+      "file": "context_summary.txt",
+      "size": 5414,
+      "sha256": "e388ea3daf7656ce11cfca410956bd0f874318b654239909db5bc86739ef68c7"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+AGC PS5 Stage 41
+=================
+
+Identity confirmed : True
+NID                : UglJIZjGssM
+Name               : sceAgcDriverSubmitDcb
+SPRX exports found : 1
+Stub name present  : True
+Stub NID literal   : False
+
+ABI prototype      : NOT inferred
+Execution          : NO
+
+Report             : D:\agc_work\stage41_results\STAGE41_REPORT.json

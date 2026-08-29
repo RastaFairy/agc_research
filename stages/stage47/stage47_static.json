@@ -1,0 +1,1014 @@
+{
+  "targets": {
+    "submit_dcb_context": {
+      "va": 108728,
+      "classification": {
+        "region": "BSS_OR_ZERO_FILL",
+        "permissions": "RW",
+        "segment_vaddr": 98304,
+        "segment_filesz": 17,
+        "segment_memsz": 12328,
+        "in_file": false
+      },
+      "nearby_symbols": [],
+      "dump_256": {
+        "va": 108728,
+        "file_offset": null,
+        "size": 0,
+        "bytes_hex": null
+      }
+    },
+    "agr_submit_dcb_context": {
+      "va": 108648,
+      "classification": {
+        "region": "BSS_OR_ZERO_FILL",
+        "permissions": "RW",
+        "segment_vaddr": 98304,
+        "segment_filesz": 17,
+        "segment_memsz": 12328,
+        "in_file": false
+      },
+      "nearby_symbols": [],
+      "dump_256": {
+        "va": 108648,
+        "file_offset": null,
+        "size": 0,
+        "bytes_hex": null
+      }
+    },
+    "global_state_context": {
+      "va": 108808,
+      "classification": {
+        "region": "BSS_OR_ZERO_FILL",
+        "permissions": "RW",
+        "segment_vaddr": 98304,
+        "segment_filesz": 17,
+        "segment_memsz": 12328,
+        "in_file": false
+      },
+      "nearby_symbols": [],
+      "dump_256": {
+        "va": 108808,
+        "file_offset": null,
+        "size": 0,
+        "bytes_hex": null
+      }
+    },
+    "acb_table": {
+      "va": 99424,
+      "classification": {
+        "region": "BSS_OR_ZERO_FILL",
+        "permissions": "RW",
+        "segment_vaddr": 98304,
+        "segment_filesz": 17,
+        "segment_memsz": 12328,
+        "in_file": false
+      },
+      "nearby_symbols": [],
+      "dump_256": {
+        "va": 99424,
+        "file_offset": null,
+        "size": 0,
+        "bytes_hex": null
+      }
+    }
+  },
+  "acb_table": {
+    "base": 99424,
+    "stride": 144,
+    "entry_count_dumped": 8,
+    "entries": [
+      {
+        "index": 0,
+        "entry_va": 99424,
+        "entry_plus_8": 99432,
+        "bytes": {
+          "va": 99424,
+          "file_offset": null,
+          "size": 0,
+          "bytes_hex": null
+        },
+        "classification": {
+          "region": "BSS_OR_ZERO_FILL",
+          "permissions": "RW",
+          "segment_vaddr": 98304,
+          "segment_filesz": 17,
+          "segment_memsz": 12328,
+          "in_file": false
+        }
+      },
+      {
+        "index": 1,
+        "entry_va": 99568,
+        "entry_plus_8": 99576,
+        "bytes": {
+          "va": 99568,
+          "file_offset": null,
+          "size": 0,
+          "bytes_hex": null
+        },
+        "classification": {
+          "region": "BSS_OR_ZERO_FILL",
+          "permissions": "RW",
+          "segment_vaddr": 98304,
+          "segment_filesz": 17,
+          "segment_memsz": 12328,
+          "in_file": false
+        }
+      },
+      {
+        "index": 2,
+        "entry_va": 99712,
+        "entry_plus_8": 99720,
+        "bytes": {
+          "va": 99712,
+          "file_offset": null,
+          "size": 0,
+          "bytes_hex": null
+        },
+        "classification": {
+          "region": "BSS_OR_ZERO_FILL",
+          "permissions": "RW",
+          "segment_vaddr": 98304,
+          "segment_filesz": 17,
+          "segment_memsz": 12328,
+          "in_file": false
+        }
+      },
+      {
+        "index": 3,
+        "entry_va": 99856,
+        "entry_plus_8": 99864,
+        "bytes": {
+          "va": 99856,
+          "file_offset": null,
+          "size": 0,
+          "bytes_hex": null
+        },
+        "classification": {
+          "region": "BSS_OR_ZERO_FILL",
+          "permissions": "RW",
+          "segment_vaddr": 98304,
+          "segment_filesz": 17,
+          "segment_memsz": 12328,
+          "in_file": false
+        }
+      },
+      {
+        "index": 4,
+        "entry_va": 100000,
+        "entry_plus_8": 100008,
+        "bytes": {
+          "va": 100000,
+          "file_offset": null,
+          "size": 0,
+          "bytes_hex": null
+        },
+        "classification": {
+          "region": "BSS_OR_ZERO_FILL",
+          "permissions": "RW",
+          "segment_vaddr": 98304,
+          "segment_filesz": 17,
+          "segment_memsz": 12328,
+          "in_file": false
+        }
+      },
+      {
+        "index": 5,
+        "entry_va": 100144,
+        "entry_plus_8": 100152,
+        "bytes": {
+          "va": 100144,
+          "file_offset": null,
+          "size": 0,
+          "bytes_hex": null
+        },
+        "classification": {
+          "region": "BSS_OR_ZERO_FILL",
+          "permissions": "RW",
+          "segment_vaddr": 98304,
+          "segment_filesz": 17,
+          "segment_memsz": 12328,
+          "in_file": false
+        }
+      },
+      {
+        "index": 6,
+        "entry_va": 100288,
+        "entry_plus_8": 100296,
+        "bytes": {
+          "va": 100288,
+          "file_offset": null,
+          "size": 0,
+          "bytes_hex": null
+        },
+        "classification": {
+          "region": "BSS_OR_ZERO_FILL",
+          "permissions": "RW",
+          "segment_vaddr": 98304,
+          "segment_filesz": 17,
+          "segment_memsz": 12328,
+          "in_file": false
+        }
+      },
+      {
+        "index": 7,
+        "entry_va": 100432,
+        "entry_plus_8": 100440,
+        "bytes": {
+          "va": 100432,
+          "file_offset": null,
+          "size": 0,
+          "bytes_hex": null
+        },
+        "classification": {
+          "region": "BSS_OR_ZERO_FILL",
+          "permissions": "RW",
+          "segment_vaddr": 98304,
+          "segment_filesz": 17,
+          "segment_memsz": 12328,
+          "in_file": false
+        }
+      }
+    ]
+  },
+  "rip_references": [
+    {
+      "instruction_va": 211,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 108590,
+      "file_offset": 16595
+    },
+    {
+      "instruction_va": 356,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 108445,
+      "file_offset": 16740
+    },
+    {
+      "instruction_va": 548,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 108253,
+      "file_offset": 16932
+    },
+    {
+      "instruction_va": 849,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 107952,
+      "file_offset": 17233
+    },
+    {
+      "instruction_va": 907,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 107894,
+      "file_offset": 17291
+    },
+    {
+      "instruction_va": 1168,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 107633,
+      "file_offset": 17552
+    },
+    {
+      "instruction_va": 1200,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 107601,
+      "file_offset": 17584
+    },
+    {
+      "instruction_va": 1240,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 107561,
+      "file_offset": 17624
+    },
+    {
+      "instruction_va": 1315,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 107486,
+      "file_offset": 17699
+    },
+    {
+      "instruction_va": 1395,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 107406,
+      "file_offset": 17779
+    },
+    {
+      "instruction_va": 2186,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 106615,
+      "file_offset": 18570
+    },
+    {
+      "instruction_va": 2315,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 106486,
+      "file_offset": 18699
+    },
+    {
+      "instruction_va": 3883,
+      "target_va": 99424,
+      "opcode": "0x8d",
+      "displacement": 95534,
+      "file_offset": 20267
+    },
+    {
+      "instruction_va": 3960,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 104841,
+      "file_offset": 20344
+    },
+    {
+      "instruction_va": 4170,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 104631,
+      "file_offset": 20554
+    },
+    {
+      "instruction_va": 4297,
+      "target_va": 99424,
+      "opcode": "0x8d",
+      "displacement": 95120,
+      "file_offset": 20681
+    },
+    {
+      "instruction_va": 4322,
+      "target_va": 99424,
+      "opcode": "0x8d",
+      "displacement": 95095,
+      "file_offset": 20706
+    },
+    {
+      "instruction_va": 4963,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 103838,
+      "file_offset": 21347
+    },
+    {
+      "instruction_va": 5587,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 103214,
+      "file_offset": 21971
+    },
+    {
+      "instruction_va": 6190,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 102611,
+      "file_offset": 22574
+    },
+    {
+      "instruction_va": 6408,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 102393,
+      "file_offset": 22792
+    },
+    {
+      "instruction_va": 6725,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 102076,
+      "file_offset": 23109
+    },
+    {
+      "instruction_va": 6789,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 102012,
+      "file_offset": 23173
+    },
+    {
+      "instruction_va": 6990,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 101811,
+      "file_offset": 23374
+    },
+    {
+      "instruction_va": 7192,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 101609,
+      "file_offset": 23576
+    },
+    {
+      "instruction_va": 7381,
+      "target_va": 108648,
+      "opcode": "0x8d",
+      "displacement": 101260,
+      "file_offset": 23765
+    },
+    {
+      "instruction_va": 7489,
+      "target_va": 108648,
+      "opcode": "0x8d",
+      "displacement": 101152,
+      "file_offset": 23873
+    },
+    {
+      "instruction_va": 7716,
+      "target_va": 108728,
+      "opcode": "0x8d",
+      "displacement": 101005,
+      "file_offset": 24100
+    },
+    {
+      "instruction_va": 7826,
+      "target_va": 108728,
+      "opcode": "0x8d",
+      "displacement": 100895,
+      "file_offset": 24210
+    },
+    {
+      "instruction_va": 8036,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 100765,
+      "file_offset": 24420
+    },
+    {
+      "instruction_va": 8120,
+      "target_va": 108728,
+      "opcode": "0x8d",
+      "displacement": 100601,
+      "file_offset": 24504
+    },
+    {
+      "instruction_va": 8131,
+      "target_va": 108648,
+      "opcode": "0x8d",
+      "displacement": 100510,
+      "file_offset": 24515
+    },
+    {
+      "instruction_va": 8209,
+      "target_va": 99424,
+      "opcode": "0x8d",
+      "displacement": 91208,
+      "file_offset": 24593
+    },
+    {
+      "instruction_va": 8355,
+      "target_va": 99424,
+      "opcode": "0x8d",
+      "displacement": 91062,
+      "file_offset": 24739
+    },
+    {
+      "instruction_va": 8374,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 100427,
+      "file_offset": 24758
+    },
+    {
+      "instruction_va": 8502,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 100299,
+      "file_offset": 24886
+    },
+    {
+      "instruction_va": 8887,
+      "target_va": 108648,
+      "opcode": "0x8d",
+      "displacement": 99754,
+      "file_offset": 25271
+    },
+    {
+      "instruction_va": 9903,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 98898,
+      "file_offset": 26287
+    },
+    {
+      "instruction_va": 10289,
+      "target_va": 99424,
+      "opcode": "0x8d",
+      "displacement": 89128,
+      "file_offset": 26673
+    },
+    {
+      "instruction_va": 10419,
+      "target_va": 108728,
+      "opcode": "0x8d",
+      "displacement": 98302,
+      "file_offset": 26803
+    },
+    {
+      "instruction_va": 10436,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 98365,
+      "file_offset": 26820
+    },
+    {
+      "instruction_va": 10455,
+      "target_va": 108648,
+      "opcode": "0x8d",
+      "displacement": 98186,
+      "file_offset": 26839
+    },
+    {
+      "instruction_va": 10545,
+      "target_va": 99424,
+      "opcode": "0x8d",
+      "displacement": 88872,
+      "file_offset": 26929
+    },
+    {
+      "instruction_va": 10654,
+      "target_va": 99424,
+      "opcode": "0x8d",
+      "displacement": 88763,
+      "file_offset": 27038
+    },
+    {
+      "instruction_va": 10760,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 98041,
+      "file_offset": 27144
+    },
+    {
+      "instruction_va": 11319,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 97482,
+      "file_offset": 27703
+    },
+    {
+      "instruction_va": 11828,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 96973,
+      "file_offset": 28212
+    },
+    {
+      "instruction_va": 12120,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 96681,
+      "file_offset": 28504
+    },
+    {
+      "instruction_va": 12292,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 96509,
+      "file_offset": 28676
+    },
+    {
+      "instruction_va": 12340,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 96461,
+      "file_offset": 28724
+    },
+    {
+      "instruction_va": 12411,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 96390,
+      "file_offset": 28795
+    },
+    {
+      "instruction_va": 12693,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 96108,
+      "file_offset": 29077
+    },
+    {
+      "instruction_va": 12757,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 96044,
+      "file_offset": 29141
+    },
+    {
+      "instruction_va": 13566,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 95235,
+      "file_offset": 29950
+    },
+    {
+      "instruction_va": 14656,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 94145,
+      "file_offset": 31040
+    },
+    {
+      "instruction_va": 15051,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 93750,
+      "file_offset": 31435
+    },
+    {
+      "instruction_va": 15227,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 93574,
+      "file_offset": 31611
+    },
+    {
+      "instruction_va": 15600,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 93201,
+      "file_offset": 31984
+    },
+    {
+      "instruction_va": 15645,
+      "target_va": 99424,
+      "opcode": "0x8d",
+      "displacement": 83772,
+      "file_offset": 32029
+    },
+    {
+      "instruction_va": 15678,
+      "target_va": 99424,
+      "opcode": "0x8d",
+      "displacement": 83739,
+      "file_offset": 32062
+    },
+    {
+      "instruction_va": 16285,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 92516,
+      "file_offset": 32669
+    },
+    {
+      "instruction_va": 16518,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 92283,
+      "file_offset": 32902
+    },
+    {
+      "instruction_va": 16734,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 92067,
+      "file_offset": 33118
+    },
+    {
+      "instruction_va": 17597,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 91204,
+      "file_offset": 33981
+    },
+    {
+      "instruction_va": 17702,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 91099,
+      "file_offset": 34086
+    },
+    {
+      "instruction_va": 17854,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 90947,
+      "file_offset": 34238
+    },
+    {
+      "instruction_va": 17880,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 90921,
+      "file_offset": 34264
+    },
+    {
+      "instruction_va": 17937,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 90864,
+      "file_offset": 34321
+    },
+    {
+      "instruction_va": 17952,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 90849,
+      "file_offset": 34336
+    },
+    {
+      "instruction_va": 18075,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 90726,
+      "file_offset": 34459
+    },
+    {
+      "instruction_va": 18258,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 90543,
+      "file_offset": 34642
+    },
+    {
+      "instruction_va": 18275,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 90526,
+      "file_offset": 34659
+    },
+    {
+      "instruction_va": 18336,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 90465,
+      "file_offset": 34720
+    },
+    {
+      "instruction_va": 18368,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 90433,
+      "file_offset": 34752
+    },
+    {
+      "instruction_va": 18600,
+      "target_va": 108728,
+      "opcode": "0x8d",
+      "displacement": 90121,
+      "file_offset": 34984
+    },
+    {
+      "instruction_va": 18628,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 90173,
+      "file_offset": 35012
+    },
+    {
+      "instruction_va": 18652,
+      "target_va": 108648,
+      "opcode": "0x8d",
+      "displacement": 89989,
+      "file_offset": 35036
+    },
+    {
+      "instruction_va": 18737,
+      "target_va": 99424,
+      "opcode": "0x8d",
+      "displacement": 80680,
+      "file_offset": 35121
+    },
+    {
+      "instruction_va": 24190,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 84611,
+      "file_offset": 40574
+    },
+    {
+      "instruction_va": 26149,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 82652,
+      "file_offset": 42533
+    },
+    {
+      "instruction_va": 26596,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 82205,
+      "file_offset": 42980
+    },
+    {
+      "instruction_va": 26644,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 82157,
+      "file_offset": 43028
+    },
+    {
+      "instruction_va": 26705,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 82096,
+      "file_offset": 43089
+    },
+    {
+      "instruction_va": 26803,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 81998,
+      "file_offset": 43187
+    },
+    {
+      "instruction_va": 26880,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 81921,
+      "file_offset": 43264
+    },
+    {
+      "instruction_va": 26916,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 81885,
+      "file_offset": 43300
+    },
+    {
+      "instruction_va": 29739,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 79062,
+      "file_offset": 46123
+    },
+    {
+      "instruction_va": 29851,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 78950,
+      "file_offset": 46235
+    },
+    {
+      "instruction_va": 29908,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 78893,
+      "file_offset": 46292
+    },
+    {
+      "instruction_va": 29988,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 78813,
+      "file_offset": 46372
+    },
+    {
+      "instruction_va": 30036,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 78765,
+      "file_offset": 46420
+    },
+    {
+      "instruction_va": 30166,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 78635,
+      "file_offset": 46550
+    },
+    {
+      "instruction_va": 30240,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 78561,
+      "file_offset": 46624
+    },
+    {
+      "instruction_va": 30256,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 78545,
+      "file_offset": 46640
+    },
+    {
+      "instruction_va": 30794,
+      "target_va": 108808,
+      "opcode": "0x8d",
+      "displacement": 78007,
+      "file_offset": 47178
+    },
+    {
+      "instruction_va": 31466,
+      "target_va": 99424,
+      "opcode": "0x8d",
+      "displacement": 67951,
+      "file_offset": 47850
+    }
+  ],
+  "pointer_references": [],
+  "submit_command_buffer_fields": [
+    {
+      "offset": "0x0",
+      "dcb_va": 108728,
+      "agr_va": 108648
+    },
+    {
+      "offset": "0x8",
+      "dcb_va": 108736,
+      "agr_va": 108656
+    },
+    {
+      "offset": "0xc",
+      "dcb_va": 108740,
+      "agr_va": 108660
+    },
+    {
+      "offset": "0x14",
+      "dcb_va": 108748,
+      "agr_va": 108668
+    },
+    {
+      "offset": "0x20",
+      "dcb_va": 108760,
+      "agr_va": 108680
+    },
+    {
+      "offset": "0x28",
+      "dcb_va": 108768,
+      "agr_va": 108688
+    },
+    {
+      "offset": "0x30",
+      "dcb_va": 108776,
+      "agr_va": 108696
+    },
+    {
+      "offset": "0x38",
+      "dcb_va": 108784,
+      "agr_va": 108704
+    },
+    {
+      "offset": "0x48",
+      "dcb_va": 108800,
+      "agr_va": 108720
+    },
+    {
+      "offset": "0xa0",
+      "dcb_va": 108888,
+      "agr_va": 108808
+    },
+    {
+      "offset": "0xa4",
+      "dcb_va": 108892,
+      "agr_va": 108812
+    },
+    {
+      "offset": "0x140",
+      "dcb_va": 109048,
+      "agr_va": 108968
+    },
+    {
+      "offset": "0x148",
+      "dcb_va": 109056,
+      "agr_va": 108976
+    }
+  ],
+  "loads": [
+    {
+      "offset": 16384,
+      "vaddr": 0,
+      "filesz": 44754,
+      "memsz": 44754,
+      "flags": 1
+    },
+    {
+      "offset": 65536,
+      "vaddr": 49152,
+      "filesz": 26636,
+      "memsz": 26636,
+      "flags": 4
+    },
+    {
+      "offset": 98304,
+      "vaddr": 81920,
+      "filesz": 728,
+      "memsz": 728,
+      "flags": 6
+    },
+    {
+      "offset": 114688,
+      "vaddr": 98304,
+      "filesz": 17,
+      "memsz": 12328,
+      "flags": 6
+    },
+    {
+      "offset": 127024,
+      "vaddr": 110640,
+      "filesz": 12480,
+      "memsz": 12480,
+      "flags": 0
+    }
+  ]
+}

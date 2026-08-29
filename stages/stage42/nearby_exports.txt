@@ -1,0 +1,3 @@
+delta=+0 va=0x28b0 size=15 type=STT_FUNC bind=STB_GLOBAL UglJIZjGssM#F#A
+delta=+16 va=0x28c0 size=72 type=STT_FUNC bind=STB_GLOBAL AhGvpITrf4M#F#A
+delta=+96 va=0x2910 size=67 type=STT_FUNC bind=STB_GLOBAL gSRnr79F8tQ#F#A

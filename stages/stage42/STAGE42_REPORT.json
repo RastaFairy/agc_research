@@ -1,0 +1,54 @@
+{
+  "stage": 42,
+  "timestamp": "2026-08-25T01:44:01.3360990+02:00",
+  "target": {
+    "name": "sceAgcDriverSubmitDcb",
+    "nid": "UglJIZjGssM"
+  },
+  "export": {
+    "name": "sceAgcDriverSubmitDcb",
+    "raw_name": "UglJIZjGssM#F#A",
+    "nid": "UglJIZjGssM",
+    "lid": "F",
+    "mid": "A",
+    "st_value": 10416,
+    "st_size": 15,
+    "binding": "STB_GLOBAL",
+    "type": "STT_FUNC",
+    "section_index": "3"
+  },
+  "evidence": {
+    "source": "PT_DYNAMIC",
+    "exact_body_extracted": true,
+    "byte_count": 15,
+    "executed": false,
+    "abi_prototype_inferred": false
+  },
+  "artifacts": [
+    {
+      "file": "export_metadata.json",
+      "size": 378,
+      "sha256": "384b89f3a1eaae7e970823cfb5081509489975da34d530ecf4a36fa701ab8cd2"
+    },
+    {
+      "file": "export_bytes.bin",
+      "size": 15,
+      "sha256": "5b002b97e6413082b9b93886cc85d782297d018e9c48af29b53294b63d5eaad7"
+    },
+    {
+      "file": "export_bytes.hex",
+      "size": 45,
+      "sha256": "53ca12f087beb132a6d30763838abee3990b050e808c2605490fdc25202d8ce8"
+    },
+    {
+      "file": "export_disassembly.txt",
+      "size": 288,
+      "sha256": "80da0555c82acce7fb219d451891bc1d2d8823b3ed538019ad6cf1e4a3e76440"
+    },
+    {
+      "file": "nearby_exports.txt",
+      "size": 221,
+      "sha256": "75be10f48af56f4bbd926a09d54e5bf8ebc7b95489615c46d79b8cfe439e042f"
+    }
+  ]
+}

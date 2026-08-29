@@ -1,0 +1,49 @@
+{
+  "submit_dcb": {
+    "nid": "UglJIZjGssM",
+    "va": 10416,
+    "size": 15
+  },
+  "decoded": {
+    "jmp_displacement": -4111,
+    "jmp_next": 10431,
+    "jmp_target": 6320,
+    "lea_displacement": 98302,
+    "lea_next": 10426,
+    "lea_target": 108728
+  },
+  "analyses": {
+    "submit_export": {
+      "va": 10416,
+      "file_offset": 26800,
+      "read_size": 15,
+      "bytes_hex": "48 89 fe 48 8d 3d fe 7f 01 00 e9 f1 ef ff ff",
+      "bytes_count": 15
+    },
+    "jmp_target": {
+      "va": 6320,
+      "file_offset": 22704,
+      "read_size": 128,
+      "bytes_hex": "55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 38 48 8b 1d 20 28 01 00 4c 8d 6f 38 49 89 fc 49 89 f6 4c 89 ef 48 8b 03 48 89 45 d0 e8 2f 93 00 00 85 c0 0f 88 b3 00 00 00 41 bf 00 00 6d 8a 0f 85 15 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 48 8d 1d f9 8f 01 00 4c 89 6d a8 49 8b 06 48 89 45 c0 41 8b 46 08 89 45 c8 41 8a 46 0c 88 45 cc b8 01 00 00 00 f0 48 0f",
+      "bytes_count": 128
+    },
+    "lea_target": {
+      "va": 108728,
+      "file_offset": 125112,
+      "read_size": 128,
+      "bytes_hex": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+      "bytes_count": 128
+    }
+  },
+  "nearby_jmp_symbols": [
+    {
+      "delta": 0,
+      "value": 6320,
+      "size": 380,
+      "type": "STT_FUNC",
+      "bind": "STB_GLOBAL",
+      "name": "b4fpgH5ZXxQ#F#A"
+    }
+  ],
+  "nearby_lea_symbols": []
+}

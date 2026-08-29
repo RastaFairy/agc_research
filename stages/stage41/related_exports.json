@@ -1,0 +1,218 @@
+[
+  {
+    "line": 14,
+    "text": "asm(\".global sceAgcDriverAgrSubmitDcb\\n\""
+  },
+  {
+    "line": 15,
+    "text": "\".type sceAgcDriverAgrSubmitDcb @function\\n\""
+  },
+  {
+    "line": 16,
+    "text": "\"sceAgcDriverAgrSubmitDcb:\\n\");"
+  },
+  {
+    "line": 18,
+    "text": "asm(\".global sceAgcDriverAgrSubmitMultiDcbs\\n\""
+  },
+  {
+    "line": 19,
+    "text": "\".type sceAgcDriverAgrSubmitMultiDcbs @function\\n\""
+  },
+  {
+    "line": 20,
+    "text": "\"sceAgcDriverAgrSubmitMultiDcbs:\\n\");"
+  },
+  {
+    "line": 190,
+    "text": "asm(\".global sceAgcDriverIDHSSubmit\\n\""
+  },
+  {
+    "line": 191,
+    "text": "\".type sceAgcDriverIDHSSubmit @function\\n\""
+  },
+  {
+    "line": 192,
+    "text": "\"sceAgcDriverIDHSSubmit:\\n\");"
+  },
+  {
+    "line": 214,
+    "text": "asm(\".global sceAgcDriverIsSubmitValidationEnabled\\n\""
+  },
+  {
+    "line": 215,
+    "text": "\".type sceAgcDriverIsSubmitValidationEnabled @function\\n\""
+  },
+  {
+    "line": 216,
+    "text": "\"sceAgcDriverIsSubmitValidationEnabled:\\n\");"
+  },
+  {
+    "line": 358,
+    "text": "asm(\".global sceAgcDriverSubmitAcb\\n\""
+  },
+  {
+    "line": 359,
+    "text": "\".type sceAgcDriverSubmitAcb @function\\n\""
+  },
+  {
+    "line": 360,
+    "text": "\"sceAgcDriverSubmitAcb:\\n\");"
+  },
+  {
+    "line": 362,
+    "text": "asm(\".global sceAgcDriverSubmitCommandBuffer\\n\""
+  },
+  {
+    "line": 363,
+    "text": "\".type sceAgcDriverSubmitCommandBuffer @function\\n\""
+  },
+  {
+    "line": 364,
+    "text": "\"sceAgcDriverSubmitCommandBuffer:\\n\");"
+  },
+  {
+    "line": 366,
+    "text": "asm(\".global sceAgcDriverSubmitDcb\\n\""
+  },
+  {
+    "line": 367,
+    "text": "\".type sceAgcDriverSubmitDcb @function\\n\""
+  },
+  {
+    "line": 368,
+    "text": "\"sceAgcDriverSubmitDcb:\\n\");"
+  },
+  {
+    "line": 370,
+    "text": "asm(\".global sceAgcDriverSubmitMultiAcbs\\n\""
+  },
+  {
+    "line": 371,
+    "text": "\".type sceAgcDriverSubmitMultiAcbs @function\\n\""
+  },
+  {
+    "line": 372,
+    "text": "\"sceAgcDriverSubmitMultiAcbs:\\n\");"
+  },
+  {
+    "line": 374,
+    "text": "asm(\".global sceAgcDriverSubmitMultiCommandBuffers\\n\""
+  },
+  {
+    "line": 375,
+    "text": "\".type sceAgcDriverSubmitMultiCommandBuffers @function\\n\""
+  },
+  {
+    "line": 376,
+    "text": "\"sceAgcDriverSubmitMultiCommandBuffers:\\n\");"
+  },
+  {
+    "line": 378,
+    "text": "asm(\".global sceAgcDriverSubmitMultiCommandBuffersDirect\\n\""
+  },
+  {
+    "line": 379,
+    "text": "\".type sceAgcDriverSubmitMultiCommandBuffersDirect @function\\n\""
+  },
+  {
+    "line": 380,
+    "text": "\"sceAgcDriverSubmitMultiCommandBuffersDirect:\\n\");"
+  },
+  {
+    "line": 382,
+    "text": "asm(\".global sceAgcDriverSubmitMultiDcbs\\n\""
+  },
+  {
+    "line": 383,
+    "text": "\".type sceAgcDriverSubmitMultiDcbs @function\\n\""
+  },
+  {
+    "line": 384,
+    "text": "\"sceAgcDriverSubmitMultiDcbs:\\n\");"
+  },
+  {
+    "line": 386,
+    "text": "asm(\".global sceAgcDriverSubmitReprojectionAcb\\n\""
+  },
+  {
+    "line": 387,
+    "text": "\".type sceAgcDriverSubmitReprojectionAcb @function\\n\""
+  },
+  {
+    "line": 388,
+    "text": "\"sceAgcDriverSubmitReprojectionAcb:\\n\");"
+  },
+  {
+    "line": 390,
+    "text": "asm(\".global sceAgcDriverSubmitToHDRScopesACQ\\n\""
+  },
+  {
+    "line": 391,
+    "text": "\".type sceAgcDriverSubmitToHDRScopesACQ @function\\n\""
+  },
+  {
+    "line": 392,
+    "text": "\"sceAgcDriverSubmitToHDRScopesACQ:\\n\");"
+  },
+  {
+    "line": 394,
+    "text": "asm(\".global sceAgcDriverSubmitToRazorACQ\\n\""
+  },
+  {
+    "line": 395,
+    "text": "\".type sceAgcDriverSubmitToRazorACQ @function\\n\""
+  },
+  {
+    "line": 396,
+    "text": "\"sceAgcDriverSubmitToRazorACQ:\\n\");"
+  },
+  {
+    "line": 398,
+    "text": "asm(\".global sceAgcDriverSuspendPointSubmit\\n\""
+  },
+  {
+    "line": 399,
+    "text": "\".type sceAgcDriverSuspendPointSubmit @function\\n\""
+  },
+  {
+    "line": 400,
+    "text": "\"sceAgcDriverSuspendPointSubmit:\\n\");"
+  },
+  {
+    "line": 402,
+    "text": "asm(\".global sceAgcDriverSuspendPointSubmitDirect\\n\""
+  },
+  {
+    "line": 403,
+    "text": "\".type sceAgcDriverSuspendPointSubmitDirect @function\\n\""
+  },
+  {
+    "line": 404,
+    "text": "\"sceAgcDriverSuspendPointSubmitDirect:\\n\");"
+  },
+  {
+    "line": 406,
+    "text": "asm(\".global sceAgcDriverSysEnableSubmitDone45Exception\\n\""
+  },
+  {
+    "line": 407,
+    "text": "\".type sceAgcDriverSysEnableSubmitDone45Exception @function\\n\""
+  },
+  {
+    "line": 408,
+    "text": "\"sceAgcDriverSysEnableSubmitDone45Exception:\\n\");"
+  },
+  {
+    "line": 418,
+    "text": "asm(\".global sceAgcDriverSysSubmitFlipHandleProxy\\n\""
+  },
+  {
+    "line": 419,
+    "text": "\".type sceAgcDriverSysSubmitFlipHandleProxy @function\\n\""
+  },
+  {
+    "line": 420,
+    "text": "\"sceAgcDriverSysSubmitFlipHandleProxy:\\n\");"
+  }
+]

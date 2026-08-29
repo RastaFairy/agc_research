@@ -1,0 +1,194 @@
+{
+  "internal_function": {
+    "va": 6320,
+    "size": 380,
+    "symbols": [
+      {
+        "raw_name": "b4fpgH5ZXxQ#F#A",
+        "value": 6320,
+        "size": 380,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "b4fpgH5ZXxQ",
+        "lid": "F",
+        "mid": "A"
+      }
+    ],
+    "raw": {
+      "va": 6320,
+      "file_offset": 22704,
+      "size": 380,
+      "bytes_hex": "55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 38 48 8b 1d 20 28 01 00 4c 8d 6f 38 49 89 fc 49 89 f6 4c 89 ef 48 8b 03 48 89 45 d0 e8 2f 93 00 00 85 c0 0f 88 b3 00 00 00 41 bf 00 00 6d 8a 0f 85 15 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 48 8d 1d f9 8f 01 00 4c 89 6d a8 49 8b 06 48 89 45 c0 41 8b 46 08 89 45 c8 41 8a 46 0c 88 45 cc b8 01 00 00 00 f0 48 0f c1 83 40 01 00 00 49 89 44 24 20 49 ff 44 24 28 49 c7 44 24 14 00 00 00 00 41 80 64 24 08 fe 49 c7 44 24 30 00 00 00 00 8b 83 a0 00 00 00 85 c0 74 5f 4c 8d 6b 48 4c 8d 7d b0 45 31 f6 eb 0f 90 49 ff c6 89 c1 49 83 c5 78 49 39 ce 73 43 49 8b 4d 00 48 85 c9 74 e9 4c 89 e7 4c 89 fe ba 01 00 00 00 ff d1 8b 83 a0 00 00 00 eb d4 48 8b 0d 3d 27 01 00 48 8d 3d 7a da 00 00 be 34 00 00 00 ba 01 00 00 00 e8 b7 91 00 00 41 bf 00 00 6d 8a eb 49 8b 83 a4 00 00 00 48 8d 75 b0 4c 89 e7 48 6b c0 78 ff 54 03 50 48 8b 7d a8 41 89 c7 e8 3e 92 00 00 85 c0 79 1d 48 8b 0d f3 26 01 00 48 8d 3d 7c df 00 00 be 32 00 00 00 ba 01 00 00 00 e8 6d 91 00 00 48 8b 1d de 26 01 00 48 8b 03 48 3b 45 d0 75 12 44 89 f8 48 83 c4 38 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 06 92 00 00 0f 0b"
+    }
+  },
+  "known_field_accesses": {
+    "argument_register": "RSI/R14 after thunk",
+    "field_offsets": [
+      {
+        "offset": "0x00",
+        "width": 8,
+        "instruction": "mov (%r14), %rax"
+      },
+      {
+        "offset": "0x08",
+        "width": 4,
+        "instruction": "mov 0x8(%r14), %eax"
+      },
+      {
+        "offset": "0x0c",
+        "width": 1,
+        "instruction": "mov 0xc(%r14), %al"
+      }
+    ]
+  },
+  "observed_call_targets": [
+    {
+      "internal_offset": 44,
+      "target_offset": 37728,
+      "target_va": 44048,
+      "nearby_symbols": [],
+      "target_bytes": {
+        "va": 44048,
+        "file_offset": 60432,
+        "size": 64,
+        "bytes_hex": "ff 25 62 95 00 00 68 0b 00 00 00 e9 30 ff ff ff ff 25 5a 95 00 00 68 0c 00 00 00 e9 20 ff ff ff ff 25 52 95 00 00 68 0d 00 00 00 e9 10 ff ff ff ff 25 4a 95 00 00 68 0e 00 00 00 e9 00 ff ff ff"
+      }
+    },
+    {
+      "internal_offset": 260,
+      "target_offset": 37568,
+      "target_va": 43888,
+      "nearby_symbols": [],
+      "target_bytes": {
+        "va": 43888,
+        "file_offset": 60272,
+        "size": 64,
+        "bytes_hex": "ff 25 b2 95 00 00 68 01 00 00 00 e9 d0 ff ff ff ff 25 aa 95 00 00 68 02 00 00 00 e9 c0 ff ff ff ff 25 a2 95 00 00 68 03 00 00 00 e9 b0 ff ff ff ff 25 9a 95 00 00 68 04 00 00 00 e9 a0 ff ff ff"
+      }
+    },
+    {
+      "internal_offset": 301,
+      "target_offset": 37744,
+      "target_va": 44064,
+      "nearby_symbols": [],
+      "target_bytes": {
+        "va": 44064,
+        "file_offset": 60448,
+        "size": 64,
+        "bytes_hex": "ff 25 5a 95 00 00 68 0c 00 00 00 e9 20 ff ff ff ff 25 52 95 00 00 68 0d 00 00 00 e9 10 ff ff ff ff 25 4a 95 00 00 68 0e 00 00 00 e9 00 ff ff ff ff 25 42 95 00 00 68 0f 00 00 00 e9 f0 fe ff ff"
+      }
+    },
+    {
+      "internal_offset": 334,
+      "target_offset": 37568,
+      "target_va": 43888,
+      "nearby_symbols": [],
+      "target_bytes": {
+        "va": 43888,
+        "file_offset": 60272,
+        "size": 64,
+        "bytes_hex": "ff 25 b2 95 00 00 68 01 00 00 00 e9 d0 ff ff ff ff 25 aa 95 00 00 68 02 00 00 00 e9 c0 ff ff ff ff 25 a2 95 00 00 68 03 00 00 00 e9 b0 ff ff ff ff 25 9a 95 00 00 68 04 00 00 00 e9 a0 ff ff ff"
+      }
+    },
+    {
+      "internal_offset": 373,
+      "target_offset": 37760,
+      "target_va": 44080,
+      "nearby_symbols": [],
+      "target_bytes": {
+        "va": 44080,
+        "file_offset": 60464,
+        "size": 64,
+        "bytes_hex": "ff 25 52 95 00 00 68 0d 00 00 00 e9 10 ff ff ff ff 25 4a 95 00 00 68 0e 00 00 00 e9 00 ff ff ff ff 25 42 95 00 00 68 0f 00 00 00 e9 f0 fe ff ff ff 25 3a 95 00 00 68 10 00 00 00 e9 e0 fe ff ff"
+      }
+    }
+  ],
+  "observed_data_targets": [
+    {
+      "instruction_offset": 17,
+      "description": "global pointer loaded into RBX",
+      "displacement": 75808,
+      "next_instruction_offset": 24,
+      "target_va": 82152,
+      "nearby_symbols": [],
+      "target_bytes": {
+        "va": 82152,
+        "file_offset": 98536,
+        "size": 128,
+        "bytes_hex": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 dd 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 66 ab 00 00 00 00 00 00 76 ab 00 00 00 00 00 00 86 ab 00 00 00 00 00 00 96 ab 00 00 00 00 00 00 a6 ab 00 00 00 00 00 00 b6 ab 00 00 00 00 00 00 c6 ab 00 00 00 00 00 00 d6 ab 00 00 00 00 00 00 e6 ab 00 00 00 00 00 00"
+      }
+    },
+    {
+      "instruction_offset": 88,
+      "description": "RIP-relative address placed in RBX",
+      "displacement": 102393,
+      "next_instruction_offset": 95,
+      "target_va": 108808,
+      "nearby_symbols": [],
+      "target_bytes": {
+        "va": 108808,
+        "file_offset": 125192,
+        "size": 128,
+        "bytes_hex": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
+      }
+    },
+    {
+      "instruction_offset": 236,
+      "description": "global error/log object",
+      "displacement": 75581,
+      "next_instruction_offset": 243,
+      "target_va": 82144,
+      "nearby_symbols": [],
+      "target_bytes": {
+        "va": 82144,
+        "file_offset": 98528,
+        "size": 128,
+        "bytes_hex": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 dd 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 66 ab 00 00 00 00 00 00 76 ab 00 00 00 00 00 00 86 ab 00 00 00 00 00 00 96 ab 00 00 00 00 00 00 a6 ab 00 00 00 00 00 00 b6 ab 00 00 00 00 00 00 c6 ab 00 00 00 00 00 00 d6 ab 00 00 00 00 00 00"
+      }
+    },
+    {
+      "instruction_offset": 339,
+      "description": "global pointer reloaded into RBX",
+      "displacement": 75486,
+      "next_instruction_offset": 346,
+      "target_va": 82152,
+      "nearby_symbols": [],
+      "target_bytes": {
+        "va": 82152,
+        "file_offset": 98536,
+        "size": 128,
+        "bytes_hex": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 80 dd 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 66 ab 00 00 00 00 00 00 76 ab 00 00 00 00 00 00 86 ab 00 00 00 00 00 00 96 ab 00 00 00 00 00 00 a6 ab 00 00 00 00 00 00 b6 ab 00 00 00 00 00 00 c6 ab 00 00 00 00 00 00 d6 ab 00 00 00 00 00 00 e6 ab 00 00 00 00 00 00"
+      }
+    }
+  ],
+  "direct_references_to_internal": [
+    {
+      "type": "JMP",
+      "source_va": 10426,
+      "destination_va": 6320,
+      "file_offset": 26810,
+      "displacement": -4111
+    },
+    {
+      "type": "JMP",
+      "source_va": 10463,
+      "destination_va": 6320,
+      "file_offset": 26847,
+      "displacement": -4148
+    },
+    {
+      "type": "JMP",
+      "source_va": 10563,
+      "destination_va": 6320,
+      "file_offset": 26947,
+      "displacement": -4248
+    },
+    {
+      "type": "JMP",
+      "source_va": 10574,
+      "destination_va": 6320,
+      "file_offset": 26958,
+      "displacement": -4259
+    }
+  ]
+}

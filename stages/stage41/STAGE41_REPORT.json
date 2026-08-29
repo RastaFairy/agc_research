@@ -1,0 +1,43 @@
+{
+  "stage": 41,
+  "timestamp": "2026-08-25T01:41:25.3882115+02:00",
+  "target": {
+    "name": "sceAgcDriverSubmitDcb",
+    "nid": "UglJIZjGssM"
+  },
+  "sources": {
+    "sprx": "D:\\agc_work\\sce_stubs\\libSceAgcDriver.sprx",
+    "sprx_sha256": "2765597643c1bc6bac755b33c2fb00926b24057660521bd2bdb6510caeb18212",
+    "stub_c": "D:\\agc_work\\sce_stubs\\libSceAgcDriver.c",
+    "stub_c_sha256": "0fcde37abcd7d4ab6108b817f9a111536b7fbfc6616baac6f032aa96aa80c7f4",
+    "aerolib": "D:\\sdk-master\\sce_stubs\\aerolib.csv",
+    "aerolib_sha256": "f1e7f0a8c22b8bce44e75438feec1c50abd8f6c7a698262e7c26ab169cf74139"
+  },
+  "identity": {
+    "aerolib_mapping": "UglJIZjGssM sceAgcDriverSubmitDcb",
+    "stub_name_present": true,
+    "stub_nid_literal_present": false,
+    "stub_dlsym_hits": [],
+    "sprx_matching_exports": [
+      {
+        "raw_name": "UglJIZjGssM#F#A",
+        "nid": "UglJIZjGssM",
+        "lid": "F",
+        "mid": "A",
+        "st_value": 10416,
+        "st_size": 15,
+        "binding": "STB_GLOBAL",
+        "type": "STT_FUNC",
+        "section_index": "3"
+      }
+    ],
+    "identity_confirmed": true
+  },
+  "abi": {
+    "argument_count_confirmed": false,
+    "argument_types_confirmed": false,
+    "return_type_confirmed": false,
+    "execution_performed": false,
+    "note": "Stage 41 is static. It does not infer a C prototype from the export name and does not invoke SubmitDcb."
+  }
+}
