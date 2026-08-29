@@ -1,0 +1,33 @@
+{
+  "stage": 58,
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "nid": "b4fpgH5ZXxQ",
+    "va": "0x18b0",
+    "size": 380
+  },
+  "conclusions": {
+    "GLOBAL_FIELD_SCAN_COMPLETED": true,
+    "SYMBOL_INVENTORY_AVAILABLE": false,
+    "FIELD_00_CONSUMER_CANDIDATE_FOUND": true,
+    "FIELD_08_CONSUMER_CANDIDATE_FOUND": true,
+    "FIELD_0C_CONSUMER_CANDIDATE_FOUND": true,
+    "ALL_THREE_FIELDS_CONSUMED_BY_ONE_FUNCTION_CANDIDATE": true,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "FIELD_00_POINTER_SEMANTICS_PROVEN": false,
+    "FIELD_08_SIZE_SEMANTICS_PROVEN": false,
+    "FIELD_08_COUNT_SEMANTICS_PROVEN": false,
+    "FIELD_08_INDEX_SEMANTICS_PROVEN": false,
+    "FIELD_0C_FLAG_SEMANTICS_PROVEN": false,
+    "EXACT_STRUCT_SIZE_PROVEN": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "hashes": {
+    "stage58_static.json": "5234b8ce8baea2ce9b0be86f516886d5113442ea546238ed3ccd110b993c38d9",
+    "backend_consumer_summary.txt": "30cfe94f2ebca91c3688efad0ebf8761c1e64e4860549d97ec89b5728c818437",
+    "consumer_candidate_disassembly.txt": "1963a60dd4356aac9d774ea115366f59699855a67588ff1911165798bf2ab834",
+    "global_field_hits.txt": "c712061b049a9531a0af08f59706ace91672a33e39568b65028c9e97bc9f7009",
+    "symbol_inventory.txt": "1346cb7a1fa968f0ad670e14ba7f165c5204de16b4270fb216221407ae1f41db"
+  }
+}

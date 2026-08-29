@@ -1,0 +1,56 @@
+AGC PS5 Stage 56 - SubmitDcb Field Usage / Consumer Audit
+
+=== DIRECT FIELD LOADS ===
+field_00 = 8 bytes
+field_08 = 4 bytes
+field_0c = 1 byte
+
+=== LOCAL TEMPORARY RECORD ===
+base = rbp-0x50
++0x00 <- field_00
++0x08 <- field_08
++0x0C <- field_0c
+observed bytes = 0x0D
+exact sizeof(struct) = NOT PROVEN
+
+=== BACKEND CONSUMPTION ===
+RSI <- temporary record
+call *0x50(%rbx,%rax,1)
+the three fields are passed together as one record
+
+=== FIELD 0x00 ===
+64-bit downstream value
+pointer-compatible = True
+pointer semantics proven = False
+
+=== FIELD 0x08 ===
+32-bit downstream value
+size-compatible = True
+count-compatible = True
+index-compatible = True
+exact semantic name = NOT PROVEN
+
+=== FIELD 0x0C ===
+8-bit downstream value
+flag-compatible = True
+boolean-compatible = True
+exact semantic name = NOT PROVEN
+
+=== IMPORTANT LIMIT ===
+The audit proves downstream record consumption,
+but still does not establish the exact semantic
+names of the three fields.
+
+=== CONCLUSIONS ===
+FIELD_00_DOWNSTREAM_USE_PROVEN=True
+FIELD_08_DOWNSTREAM_USE_PROVEN=True
+FIELD_0C_DOWNSTREAM_USE_PROVEN=True
+PACKED_RECORD_CONSUMED_BY_BACKEND_CALL=True
+FIELD_00_POINTER_SEMANTICS_PROVEN=False
+FIELD_08_SIZE_SEMANTICS_PROVEN=False
+FIELD_08_COUNT_SEMANTICS_PROVEN=False
+FIELD_08_INDEX_SEMANTICS_PROVEN=False
+FIELD_0C_FLAG_SEMANTICS_PROVEN=False
+EXACT_STRUCT_SIZE_PROVEN=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False

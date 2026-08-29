@@ -1,0 +1,99 @@
+{
+  "stage": 52,
+  "sprx": "/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx",
+  "nid_db": "/mnt/d/sdk-master/sce_stubs/aerolib.csv",
+  "previous_results": "/mnt/d/agc_work/stage51_results",
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "nid": "b4fpgH5ZXxQ",
+    "va": 6320,
+    "size": 380
+  },
+  "wrapper_register_shape": {
+    "sceAgcDriverSubmitDcb": {
+      "wrapper_va": 10416,
+      "wrapper_size": 15,
+      "target": "sceAgcDriverSubmitCommandBuffer",
+      "RDI": "dcb_context",
+      "RSI": "original_wrapper_argument",
+      "evidence_bytes": "48 89 fe 48 8d 3d fe 7f 01 00 e9 f1 ef ff ff",
+      "interpretation": "mov rsi,rdi; load dcb_context into rdi; tail-jump"
+    },
+    "sceAgcDriverAgrSubmitDcb": {
+      "wrapper_va": 10432,
+      "wrapper_size": 72,
+      "target": "sceAgcDriverSubmitCommandBuffer",
+      "RDI": "agr_context",
+      "RSI": "original_wrapper_argument",
+      "evidence_bytes": "48 89 fe 48 8d 3d 8a 7f 01 00 5d e9 cc ef ff ff",
+      "interpretation": "mov rsi,rdi; load agr_context into rdi; tail-jump"
+    }
+  },
+  "submit_argument_fields": [
+    {
+      "instruction_va": 6419,
+      "instruction": "mov (%r14),%rax",
+      "base_register": "r14",
+      "field_offset": 0,
+      "field_offset_hex": "0x0",
+      "access_type": "READ",
+      "access_size": 8,
+      "access_size_hex": "0x8",
+      "meaning": "8-byte value / pointer-sized field",
+      "evidence": "DIRECT_BYTE_PATTERN"
+    },
+    {
+      "instruction_va": 6426,
+      "instruction": "mov 0x8(%r14),%eax",
+      "base_register": "r14",
+      "field_offset": 8,
+      "field_offset_hex": "0x8",
+      "access_type": "READ",
+      "access_size": 4,
+      "access_size_hex": "0x4",
+      "meaning": "32-bit field",
+      "evidence": "DIRECT_BYTE_PATTERN"
+    },
+    {
+      "instruction_va": 6433,
+      "instruction": "mov 0xc(%r14),%al",
+      "base_register": "r14",
+      "field_offset": 12,
+      "field_offset_hex": "0xc",
+      "access_type": "READ",
+      "access_size": 1,
+      "access_size_hex": "0x1",
+      "meaning": "8-bit field",
+      "evidence": "DIRECT_BYTE_PATTERN"
+    }
+  ],
+  "expected_argument_shape": [
+    {
+      "offset": 0,
+      "offset_hex": "0x00",
+      "width": 8,
+      "width_hex": "0x8"
+    },
+    {
+      "offset": 8,
+      "offset_hex": "0x08",
+      "width": 4,
+      "width_hex": "0x4"
+    },
+    {
+      "offset": 12,
+      "offset_hex": "0x0c",
+      "width": 1,
+      "width_hex": "0x1"
+    }
+  ],
+  "previous_stage_available": true,
+  "conclusions": {
+    "SUBMIT_DCB_REGISTER_PLACEMENT_PROVEN": true,
+    "SUBMIT_ARGUMENT_OFFSETS_PROVEN": true,
+    "SUBMIT_ARGUMENT_WIDTHS_EXACT": true,
+    "SUBMIT_ARGUMENT_SHAPE_MATCHES_EXPECTED": true,
+    "ABI_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}

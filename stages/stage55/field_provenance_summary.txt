@@ -1,0 +1,47 @@
+AGC PS5 Stage 55 - SubmitDcb Field Provenance Audit
+
+=== CANONICAL RECORD ===
+stride = 0x20
+0x00 = 8 bytes
+0x08 = 4 bytes
+0x0C = 1 byte
+
+=== FIELD 0x00 ===
+provenance = 64-bit array element
+source element stride = 8
+pointer semantics proven = False
+address semantics proven = False
+
+=== FIELD 0x08 ===
+provenance = 32-bit array element
+source element stride = 4
+size semantics proven = False
+count semantics proven = False
+index semantics proven = False
+
+=== FIELD 0x0C ===
+provenance = producer writes constant zero
+flag semantics proven = False
+boolean semantics proven = False
+
+=== MULTI ABI CANDIDATE ===
+int sceAgcDriverSubmitMultiCommandBuffers(void *context, const uint64_t *field00_array, const uint32_t *field08_array, uint32_t count);
+
+=== IMPORTANT LIMIT ===
+The record layout and source provenance are proven.
+Semantic names such as pointer, GPU address, size,
+count, index or flags are NOT proven by this stage.
+
+=== CONCLUSIONS ===
+
+CANONICAL_0x20_RECORD_LAYOUT_PROVEN=True
+FIELD_00_PROVEN_AS_64BIT_ARRAY_VALUE=True
+FIELD_08_PROVEN_AS_32BIT_ARRAY_VALUE=True
+FIELD_0C_PROVEN_ZERO_INITIALIZED_BY_MULTI=True
+FIELD_00_POINTER_SEMANTICS_PROVEN=False
+FIELD_08_SIZE_SEMANTICS_PROVEN=False
+FIELD_08_COUNT_SEMANTICS_PROVEN=False
+FIELD_0C_FLAG_SEMANTICS_PROVEN=False
+ARGUMENT_RECORD_STRIDE_PROVEN=True
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False

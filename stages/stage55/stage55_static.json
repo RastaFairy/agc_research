@@ -1,0 +1,186 @@
+{
+  "stage": 55,
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "va": 6320,
+    "size": 380
+  },
+  "multi_source": {
+    "name": "sceAgcDriverSubmitMultiCommandBuffers",
+    "va": 18000,
+    "size": 579
+  },
+  "stage54_carry_forward": {
+    "field_widths_confirmed": true,
+    "multi_family_corrobates_layout": true,
+    "semantic_prototype_inferred": false
+  },
+  "submit_command_buffer": {
+    "field_evidence": [
+      {
+        "instruction_va": 6419,
+        "field_offset": 0,
+        "width": 8,
+        "description": "64-bit load from RSI/R14 + 0x00",
+        "evidence": "DIRECT_MACHINE_CODE"
+      },
+      {
+        "instruction_va": 6426,
+        "field_offset": 8,
+        "width": 4,
+        "description": "32-bit load from RSI/R14 + 0x08",
+        "evidence": "DIRECT_MACHINE_CODE"
+      },
+      {
+        "instruction_va": 6433,
+        "field_offset": 12,
+        "width": 1,
+        "description": "8-bit load from RSI/R14 + 0x0C",
+        "evidence": "DIRECT_MACHINE_CODE"
+      }
+    ],
+    "disassembly": "\n/mnt/d/agc_work/stage55_results/_tmp.bin:     file format binary\n\n\nDisassembly of section .data:\n\n00000000000018b0 <.data>:\n    18b0:\t55                   \tpush   %rbp\n    18b1:\t48 89 e5             \tmov    %rsp,%rbp\n    18b4:\t41 57                \tpush   %r15\n    18b6:\t41 56                \tpush   %r14\n    18b8:\t41 55                \tpush   %r13\n    18ba:\t41 54                \tpush   %r12\n    18bc:\t53                   \tpush   %rbx\n    18bd:\t48 83 ec 38          \tsub    $0x38,%rsp\n    18c1:\t48 8b 1d 20 28 01 00 \tmov    0x12820(%rip),%rbx        # 0x140e8\n    18c8:\t4c 8d 6f 38          \tlea    0x38(%rdi),%r13\n    18cc:\t49 89 fc             \tmov    %rdi,%r12\n    18cf:\t49 89 f6             \tmov    %rsi,%r14\n    18d2:\t4c 89 ef             \tmov    %r13,%rdi\n    18d5:\t48 8b 03             \tmov    (%rbx),%rax\n    18d8:\t48 89 45 d0          \tmov    %rax,-0x30(%rbp)\n    18dc:\te8 2f 93 00 00       \tcall   0xac10\n    18e1:\t85 c0                \ttest   %eax,%eax\n    18e3:\t0f 88 b3 00 00 00    \tjs     0x199c\n    18e9:\t41 bf 00 00 6d 8a    \tmov    $0x8a6d0000,%r15d\n    18ef:\t0f 85 15 01 00 00    \tjne    0x1a0a\n    18f5:\t48 c7 45 b0 00 00 00 \tmovq   $0x0,-0x50(%rbp)\n    18fc:\t00 \n    18fd:\tc7 45 b8 00 00 00 00 \tmovl   $0x0,-0x48(%rbp)\n    1904:\tc6 45 bc 00          \tmovb   $0x0,-0x44(%rbp)\n    1908:\t48 8d 1d f9 8f 01 00 \tlea    0x18ff9(%rip),%rbx        # 0x1a908\n    190f:\t4c 89 6d a8          \tmov    %r13,-0x58(%rbp)\n    1913:\t49 8b 06             \tmov    (%r14),%rax\n    1916:\t48 89 45 c0          \tmov    %rax,-0x40(%rbp)\n    191a:\t41 8b 46 08          \tmov    0x8(%r14),%eax\n    191e:\t89 45 c8             \tmov    %eax,-0x38(%rbp)\n    1921:\t41 8a 46 0c          \tmov    0xc(%r14),%al\n    1925:\t88 45 cc             \tmov    %al,-0x34(%rbp)\n    1928:\tb8 01 00 00 00       \tmov    $0x1,%eax\n    192d:\tf0 48 0f c1 83 40 01 \tlock xadd %rax,0x140(%rbx)\n    1934:\t00 00 \n    1936:\t49 89 44 24 20       \tmov    %rax,0x20(%r12)\n    193b:\t49 ff 44 24 28       \tincq   0x28(%r12)\n    1940:\t49 c7 44 24 14 00 00 \tmovq   $0x0,0x14(%r12)\n    1947:\t00 00 \n    1949:\t41 80 64 24 08 fe    \tandb   $0xfe,0x8(%r12)\n    194f:\t49 c7 44 24 30 00 00 \tmovq   $0x0,0x30(%r12)\n    1956:\t00 00 \n    1958:\t8b 83 a0 00 00 00    \tmov    0xa0(%rbx),%eax\n    195e:\t85 c0                \ttest   %eax,%eax\n    1960:\t74 5f                \tje     0x19c1\n    1962:\t4c 8d 6b 48          \tlea    0x48(%rbx),%r13\n    1966:\t4c 8d 7d b0          \tlea    -0x50(%rbp),%r15\n    196a:\t45 31 f6             \txor    %r14d,%r14d\n    196d:\teb 0f                \tjmp    0x197e\n    196f:\t90                   \tnop\n    1970:\t49 ff c6             \tinc    %r14\n    1973:\t89 c1                \tmov    %eax,%ecx\n    1975:\t49 83 c5 78          \tadd    $0x78,%r13\n    1979:\t49 39 ce             \tcmp    %rcx,%r14\n    197c:\t73 43                \tjae    0x19c1\n    197e:\t49 8b 4d 00          \tmov    0x0(%r13),%rcx\n    1982:\t48 85 c9             \ttest   %rcx,%rcx\n    1985:\t74 e9                \tje     0x1970\n    1987:\t4c 89 e7             \tmov    %r12,%rdi\n    198a:\t4c 89 fe             \tmov    %r15,%rsi\n    198d:\tba 01 00 00 00       \tmov    $0x1,%edx\n    1992:\tff d1                \tcall   *%rcx\n    1994:\t8b 83 a0 00 00 00    \tmov    0xa0(%rbx),%eax\n    199a:\teb d4                \tjmp    0x1970\n    199c:\t48 8b 0d 3d 27 01 00 \tmov    0x1273d(%rip),%rcx        # 0x140e0\n    19a3:\t48 8d 3d 7a da 00 00 \tlea    0xda7a(%rip),%rdi        # 0xf424\n    19aa:\tbe 34 00 00 00       \tmov    $0x34,%esi\n    19af:\tba 01 00 00 00       \tmov    $0x1,%edx\n    19b4:\te8 b7 91 00 00       \tcall   0xab70\n    19b9:\t41 bf 00 00 6d 8a    \tmov    $0x8a6d0000,%r15d\n    19bf:\teb 49                \tjmp    0x1a0a\n    19c1:\t8b 83 a4 00 00 00    \tmov    0xa4(%rbx),%eax\n    19c7:\t48 8d 75 b0          \tlea    -0x50(%rbp),%rsi\n    19cb:\t4c 89 e7             \tmov    %r12,%rdi\n    19ce:\t48 6b c0 78          \timul   $0x78,%rax,%rax\n    19d2:\tff 54 03 50          \tcall   *0x50(%rbx,%rax,1)\n    19d6:\t48 8b 7d a8          \tmov    -0x58(%rbp),%rdi\n    19da:\t41 89 c7             \tmov    %eax,%r15d\n    19dd:\te8 3e 92 00 00       \tcall   0xac20\n    19e2:\t85 c0                \ttest   %eax,%eax\n    19e4:\t79 1d                \tjns    0x1a03\n    19e6:\t48 8b 0d f3 26 01 00 \tmov    0x126f3(%rip),%rcx        # 0x140e0\n    19ed:\t48 8d 3d 7c df 00 00 \tlea    0xdf7c(%rip),%rdi        # 0xf970\n    19f4:\tbe 32 00 00 00       \tmov    $0x32,%esi\n    19f9:\tba 01 00 00 00       \tmov    $0x1,%edx\n    19fe:\te8 6d 91 00 00       \tcall   0xab70\n    1a03:\t48 8b 1d de 26 01 00 \tmov    0x126de(%rip),%rbx        # 0x140e8\n    1a0a:\t48 8b 03             \tmov    (%rbx),%rax\n    1a0d:\t48 3b 45 d0          \tcmp    -0x30(%rbp),%rax\n    1a11:\t75 12                \tjne    0x1a25\n    1a13:\t44 89 f8             \tmov    %r15d,%eax\n    1a16:\t48 83 c4 38          \tadd    $0x38,%rsp\n    1a1a:\t5b                   \tpop    %rbx\n    1a1b:\t41 5c                \tpop    %r12\n    1a1d:\t41 5d                \tpop    %r13\n    1a1f:\t41 5e                \tpop    %r14\n    1a21:\t41 5f                \tpop    %r15\n    1a23:\t5d                   \tpop    %rbp\n    1a24:\tc3                   \tret\n    1a25:\te8 06 92 00 00       \tcall   0xac30\n    1a2a:\t0f 0b                \tud2\n"
+  },
+  "multi_command_buffers": {
+    "register_evidence": [
+      {
+        "instruction_va": 18034,
+        "description": "RSI -> R13",
+        "source": "RSI",
+        "destination": "R13"
+      },
+      {
+        "instruction_va": 18031,
+        "description": "RDX -> R15",
+        "source": "RDX",
+        "destination": "R15"
+      },
+      {
+        "instruction_va": 18028,
+        "description": "ECX -> R12D",
+        "source": "ECX",
+        "destination": "R12D"
+      }
+    ],
+    "source_array_provenance": [
+      {
+        "instruction_va": 18230,
+        "field": "field_00",
+        "width": 8,
+        "source_register": "R13",
+        "source_stride": 8,
+        "description": "source array element is loaded with scale 8",
+        "evidence": "DIRECT_MACHINE_CODE"
+      },
+      {
+        "instruction_va": 18239,
+        "field": "field_08",
+        "width": 4,
+        "source_register": "R15",
+        "source_stride": 4,
+        "description": "source array element is loaded with scale 4",
+        "evidence": "DIRECT_MACHINE_CODE"
+      }
+    ],
+    "record_builder": {
+      "anchor_instruction_va": 18172,
+      "anchor_description": "lea 0x1c(%rdi),%rax followed by RCX=temporary record cursor",
+      "stores": [
+        {
+          "instruction_va": 18238,
+          "relative_expression": "mov [r13+rdi*8] -> [rcx-0x0c]",
+          "record_offset": 0,
+          "width": 8
+        },
+        {
+          "instruction_va": 18247,
+          "relative_expression": "mov [r15+rdi*4] -> [rcx-0x04]",
+          "record_offset": 8,
+          "width": 4
+        },
+        {
+          "instruction_va": 18256,
+          "relative_expression": "movb $0 -> [rcx]",
+          "record_offset": 12,
+          "width": 1,
+          "constant_value": 0
+        }
+      ],
+      "stride_increment": {
+        "instruction_va": 18265,
+        "record_offset": 0,
+        "increment": 32
+      },
+      "record_stride": 32
+    },
+    "disassembly": "\n/mnt/d/agc_work/stage55_results/_tmp.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0000000000004650 <.data>:\n    4650:\t55                   \tpush   %rbp\n    4651:\t48 89 e5             \tmov    %rsp,%rbp\n    4654:\t41 57                \tpush   %r15\n    4656:\t41 56                \tpush   %r14\n    4658:\t41 55                \tpush   %r13\n    465a:\t41 54                \tpush   %r12\n    465c:\t53                   \tpush   %rbx\n    465d:\t48 83 ec 28          \tsub    $0x28,%rsp\n    4661:\t4c 8b 35 80 fa 00 00 \tmov    0xfa80(%rip),%r14        # 0x140e8\n    4668:\t48 8d 5f 38          \tlea    0x38(%rdi),%rbx\n    466c:\t41 89 cc             \tmov    %ecx,%r12d\n    466f:\t49 89 d7             \tmov    %rdx,%r15\n    4672:\t49 89 f5             \tmov    %rsi,%r13\n    4675:\t49 8b 06             \tmov    (%r14),%rax\n    4678:\t48 89 45 d0          \tmov    %rax,-0x30(%rbp)\n    467c:\t48 89 7d c8          \tmov    %rdi,-0x38(%rbp)\n    4680:\t48 89 df             \tmov    %rbx,%rdi\n    4683:\te8 88 65 00 00       \tcall   0xac10\n    4688:\t85 c0                \ttest   %eax,%eax\n    468a:\t0f 88 7e 01 00 00    \tjs     0x480e\n    4690:\tb8 00 00 6d 8a       \tmov    $0x8a6d0000,%eax\n    4695:\t0f 85 d9 01 00 00    \tjne    0x4874\n    469b:\t48 8d 0d 66 62 01 00 \tlea    0x16266(%rip),%rcx        # 0x1a908\n    46a2:\tb8 01 00 00 00       \tmov    $0x1,%eax\n    46a7:\t48 89 e7             \tmov    %rsp,%rdi\n    46aa:\t48 81 c7 00 f0 ff ff \tadd    $0xfffffffffffff000,%rdi\n    46b1:\tf0 48 0f c1 81 40 01 \tlock xadd %rax,0x140(%rcx)\n    46b8:\t00 00 \n    46ba:\t48 8b 4d c8          \tmov    -0x38(%rbp),%rcx\n    46be:\t48 89 41 20          \tmov    %rax,0x20(%rcx)\n    46c2:\t48 ff 41 28          \tincq   0x28(%rcx)\n    46c6:\tc7 41 14 00 00 00 00 \tmovl   $0x0,0x14(%rcx)\n    46cd:\t44 89 61 18          \tmov    %r12d,0x18(%rcx)\n    46d1:\t80 61 08 fe          \tandb   $0xfe,0x8(%rcx)\n    46d5:\t48 c7 41 30 00 00 00 \tmovq   $0x0,0x30(%rcx)\n    46dc:\t00 \n    46dd:\t48 89 fc             \tmov    %rdi,%rsp\n    46e0:\t45 85 e4             \ttest   %r12d,%r12d\n    46e3:\t0f 84 49 01 00 00    \tje     0x4832\n    46e9:\t48 8d 47 1c          \tlea    0x1c(%rdi),%rax\n    46ed:\t45 31 f6             \txor    %r14d,%r14d\n    46f0:\t48 89 5d b8          \tmov    %rbx,-0x48(%rbp)\n    46f4:\t48 89 7d c0          \tmov    %rdi,-0x40(%rbp)\n    46f8:\t48 89 45 b0          \tmov    %rax,-0x50(%rbp)\n    46fc:\t0f 1f 40 00          \tnopl   0x0(%rax)\n    4700:\t41 81 fc 80 00 00 00 \tcmp    $0x80,%r12d\n    4707:\tb8 80 00 00 00       \tmov    $0x80,%eax\n    470c:\tba 00 10 00 00       \tmov    $0x1000,%edx\n    4711:\t44 0f 43 e0          \tcmovae %eax,%r12d\n    4715:\t31 f6                \txor    %esi,%esi\n    4717:\te8 a4 64 00 00       \tcall   0xabc0\n    471c:\t48 8b 4d b0          \tmov    -0x50(%rbp),%rcx\n    4720:\t4c 89 e2             \tmov    %r12,%rdx\n    4723:\t4c 89 e0             \tmov    %r12,%rax\n    4726:\t66 2e 0f 1f 84 00 00 \tcs nopw 0x0(%rax,%rax,1)\n    472d:\t00 00 00 \n    4730:\t44 89 f7             \tmov    %r14d,%edi\n    4733:\t41 ff c6             \tinc    %r14d\n    4736:\t49 8b 74 fd 00       \tmov    0x0(%r13,%rdi,8),%rsi\n    473b:\t48 89 71 f4          \tmov    %rsi,-0xc(%rcx)\n    473f:\t41 8b 34 bf          \tmov    (%r15,%rdi,4),%esi\n    4743:\t89 71 fc             \tmov    %esi,-0x4(%rcx)\n    4746:\tc6 01 00             \tmovb   $0x0,(%rcx)\n    4749:\t48 83 c1 20          \tadd    $0x20,%rcx\n    474d:\t48 ff c8             \tdec    %rax\n    4750:\t75 de                \tjne    0x4730\n    4752:\t48 8d 05 af 61 01 00 \tlea    0x161af(%rip),%rax        # 0x1a908\n    4759:\t8b 80 a0 00 00 00    \tmov    0xa0(%rax),%eax\n    475f:\t85 c0                \ttest   %eax,%eax\n    4761:\t74 5d                \tje     0x47c0\n    4763:\t48 8d 0d 9e 61 01 00 \tlea    0x1619e(%rip),%rcx        # 0x1a908\n    476a:\t31 db                \txor    %ebx,%ebx\n    476c:\t4c 8d 71 48          \tlea    0x48(%rcx),%r14\n    4770:\teb 1c                \tjmp    0x478e\n    4772:\t66 66 66 66 66 2e 0f \tdata16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)\n    4779:\t1f 84 00 00 00 00 00 \n    4780:\t48 ff c3             \tinc    %rbx\n    4783:\t89 c1                \tmov    %eax,%ecx\n    4785:\t49 83 c6 78          \tadd    $0x78,%r14\n    4789:\t48 39 cb             \tcmp    %rcx,%rbx\n    478c:\t73 32                \tjae    0x47c0\n    478e:\t49 8b 0e             \tmov    (%r14),%rcx\n    4791:\t48 85 c9             \ttest   %rcx,%rcx\n    4794:\t74 ea                \tje     0x4780\n    4796:\t48 8b 7d c8          \tmov    -0x38(%rbp),%rdi\n    479a:\t48 8b 75 c0          \tmov    -0x40(%rbp),%rsi\n    479e:\tff d1                \tcall   *%rcx\n    47a0:\t48 8d 05 61 61 01 00 \tlea    0x16161(%rip),%rax        # 0x1a908\n    47a7:\t4c 89 e2             \tmov    %r12,%rdx\n    47aa:\t8b 80 a0 00 00 00    \tmov    0xa0(%rax),%eax\n    47b0:\teb ce                \tjmp    0x4780\n    47b2:\t66 66 66 66 66 2e 0f \tdata16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)\n    47b9:\t1f 84 00 00 00 00 00 \n    47c0:\t48 8d 0d 41 61 01 00 \tlea    0x16141(%rip),%rcx        # 0x1a908\n    47c7:\t48 8b 5d c8          \tmov    -0x38(%rbp),%rbx\n    47cb:\t48 8b 75 c0          \tmov    -0x40(%rbp),%rsi\n    47cf:\t49 89 d4             \tmov    %rdx,%r12\n    47d2:\t8b 81 a4 00 00 00    \tmov    0xa4(%rcx),%eax\n    47d8:\t48 89 df             \tmov    %rbx,%rdi\n    47db:\t48 6b c0 78          \timul   $0x78,%rax,%rax\n    47df:\tff 54 01 58          \tcall   *0x58(%rcx,%rax,1)\n    47e3:\t85 c0                \ttest   %eax,%eax\n    47e5:\t75 53                \tjne    0x483a\n    47e7:\t44 8b 73 14          \tmov    0x14(%rbx),%r14d\n    47eb:\t8b 43 18             \tmov    0x18(%rbx),%eax\n    47ee:\t48 8b 7d c0          \tmov    -0x40(%rbp),%rdi\n    47f2:\t41 83 ee 80          \tsub    $0xffffff80,%r14d\n    47f6:\t44 29 e0             \tsub    %r12d,%eax\n    47f9:\t41 89 c4             \tmov    %eax,%r12d\n    47fc:\t44 89 73 14          \tmov    %r14d,0x14(%rbx)\n    4800:\t89 43 18             \tmov    %eax,0x18(%rbx)\n    4803:\t0f 85 f7 fe ff ff    \tjne    0x4700\n    4809:\t45 31 ff             \txor    %r15d,%r15d\n    480c:\teb 2f                \tjmp    0x483d\n    480e:\t48 8b 0d cb f8 00 00 \tmov    0xf8cb(%rip),%rcx        # 0x140e0\n    4815:\t48 8d 3d 08 ac 00 00 \tlea    0xac08(%rip),%rdi        # 0xf424\n    481c:\tbe 34 00 00 00       \tmov    $0x34,%esi\n    4821:\tba 01 00 00 00       \tmov    $0x1,%edx\n    4826:\te8 45 63 00 00       \tcall   0xab70\n    482b:\tb8 00 00 6d 8a       \tmov    $0x8a6d0000,%eax\n    4830:\teb 42                \tjmp    0x4874\n    4832:\t41 bf 00 00 6d 8a    \tmov    $0x8a6d0000,%r15d\n    4838:\teb 0e                \tjmp    0x4848\n    483a:\t41 89 c7             \tmov    %eax,%r15d\n    483d:\t4c 8b 35 a4 f8 00 00 \tmov    0xf8a4(%rip),%r14        # 0x140e8\n    4844:\t48 8b 5d b8          \tmov    -0x48(%rbp),%rbx\n    4848:\t48 89 df             \tmov    %rbx,%rdi\n    484b:\te8 d0 63 00 00       \tcall   0xac20\n    4850:\t85 c0                \ttest   %eax,%eax\n    4852:\t79 1d                \tjns    0x4871\n    4854:\t48 8b 0d 85 f8 00 00 \tmov    0xf885(%rip),%rcx        # 0x140e0\n    485b:\t48 8d 3d 0e b1 00 00 \tlea    0xb10e(%rip),%rdi        # 0xf970\n    4862:\tbe 32 00 00 00       \tmov    $0x32,%esi\n    4867:\tba 01 00 00 00       \tmov    $0x1,%edx\n    486c:\te8 ff 62 00 00       \tcall   0xab70\n    4871:\t44 89 f8             \tmov    %r15d,%eax\n    4874:\t49 8b 0e             \tmov    (%r14),%rcx\n    4877:\t48 3b 4d d0          \tcmp    -0x30(%rbp),%rcx\n    487b:\t75 0f                \tjne    0x488c\n    487d:\t48 8d 65 d8          \tlea    -0x28(%rbp),%rsp\n    4881:\t5b                   \tpop    %rbx\n    4882:\t41 5c                \tpop    %r12\n    4884:\t41 5d                \tpop    %r13\n    4886:\t41 5e                \tpop    %r14\n    4888:\t41 5f                \tpop    %r15\n    488a:\t5d                   \tpop    %rbp\n    488b:\tc3                   \tret\n    488c:\te8 9f 63 00 00       \tcall   0xac30\n    4891:\t0f 0b                \tud2\n"
+  },
+  "canonical_record_layout": {
+    "stride": 32,
+    "fields": [
+      {
+        "offset": 0,
+        "width": 8,
+        "source": "RSI array element"
+      },
+      {
+        "offset": 8,
+        "width": 4,
+        "source": "RDX array element"
+      },
+      {
+        "offset": 12,
+        "width": 1,
+        "source": "constant zero in multi producer"
+      }
+    ]
+  },
+  "field_semantics": {
+    "field_00": {
+      "offset": 0,
+      "width": 8,
+      "provenance": "64-bit array element",
+      "source_element_stride": 8,
+      "semantic_class": "OPAQUE_64BIT_VALUE",
+      "pointer_semantics_proven": false,
+      "address_semantics_proven": false,
+      "size_semantics_proven": false
+    },
+    "field_08": {
+      "offset": 8,
+      "width": 4,
+      "provenance": "32-bit array element",
+      "source_element_stride": 4,
+      "semantic_class": "OPAQUE_32BIT_VALUE",
+      "size_semantics_proven": false,
+      "count_semantics_proven": false,
+      "index_semantics_proven": false
+    },
+    "field_0c": {
+      "offset": 12,
+      "width": 1,
+      "provenance": "producer initializes byte to zero",
+      "constant_value_in_multi": 0,
+      "semantic_class": "BYTE_WITH_ZERO_DEFAULT",
+      "flag_semantics_proven": false,
+      "boolean_semantics_proven": false
+    }
+  },
+  "multi_candidate_prototype": "int sceAgcDriverSubmitMultiCommandBuffers(void *context, const uint64_t *field00_array, const uint32_t *field08_array, uint32_t count);",
+  "dcb_wrapper": {
+    "valid": true
+  },
+  "conclusions": {
+    "CANONICAL_0x20_RECORD_LAYOUT_PROVEN": true,
+    "FIELD_00_PROVEN_AS_64BIT_ARRAY_VALUE": true,
+    "FIELD_08_PROVEN_AS_32BIT_ARRAY_VALUE": true,
+    "FIELD_0C_PROVEN_ZERO_INITIALIZED_BY_MULTI": true,
+    "FIELD_00_POINTER_SEMANTICS_PROVEN": false,
+    "FIELD_08_SIZE_SEMANTICS_PROVEN": false,
+    "FIELD_08_COUNT_SEMANTICS_PROVEN": false,
+    "FIELD_0C_FLAG_SEMANTICS_PROVEN": false,
+    "ARGUMENT_RECORD_STRIDE_PROVEN": true,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}

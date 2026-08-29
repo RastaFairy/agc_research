@@ -1,0 +1,68 @@
+AGC PS5 Stage 58 - Global Backend Consumer / Field Provenance Audit
+
+=== INVENTORY ===
+symbols = 0
+executable_segments = 1
+global_field_hits = 58
+register_copy_hits = 36
+
+=== TARGET FIELD HITS ===
+No target field hits detected.
+
+=== TOP CONSUMER CANDIDATES ===
+01. <no-symbol> VA=<none> SIZE=<none> SCORE=110 FIELDS=field_00,field_08,field_0c
+02. <no-symbol> VA=<none> SIZE=<none> SCORE=40 FIELDS=field_00,field_08
+03. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+04. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+05. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+06. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+07. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+08. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+09. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+10. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+11. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+12. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+13. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+14. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+15. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+16. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+17. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+18. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+19. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+20. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+21. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+22. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+23. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+24. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+25. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+26. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+27. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+28. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+29. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+30. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+
+=== ALL-THREE FIELD CANDIDATES ===
+<no-symbol> VA=<none> SIZE=<none> SCORE=110
+
+=== IMPORTANT LIMIT ===
+Global field matches do not by themselves establish
+pointer/size/count/index/flag semantic names.
+A real backend consumer still requires confirmed
+register/data flow through an actual call target.
+
+=== CONCLUSIONS ===
+GLOBAL_FIELD_SCAN_COMPLETED=True
+SYMBOL_INVENTORY_AVAILABLE=False
+FIELD_00_CONSUMER_CANDIDATE_FOUND=True
+FIELD_08_CONSUMER_CANDIDATE_FOUND=True
+FIELD_0C_CONSUMER_CANDIDATE_FOUND=True
+ALL_THREE_FIELDS_CONSUMED_BY_ONE_FUNCTION_CANDIDATE=True
+BACKEND_CONSUMER_IDENTIFIED=False
+FIELD_00_POINTER_SEMANTICS_PROVEN=False
+FIELD_08_SIZE_SEMANTICS_PROVEN=False
+FIELD_08_COUNT_SEMANTICS_PROVEN=False
+FIELD_08_INDEX_SEMANTICS_PROVEN=False
+FIELD_0C_FLAG_SEMANTICS_PROVEN=False
+EXACT_STRUCT_SIZE_PROVEN=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False

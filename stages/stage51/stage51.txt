@@ -1,0 +1,2690 @@
+PowerShell 7.6.5
+PS D:\agc_ps5_stage51> .\stage51_field_audit.ps1
+
+============================================
+AGC PS5 Stage 51 - Precise Field Type / Access Audit
+============================================
+[INFO] StageDir       = D:\agc_ps5_stage51
+[INFO] SPRX           = D:\agc_work\sce_stubs\libSceAgcDriver.sprx
+[INFO] NID DB         = D:\sdk-master\sce_stubs\aerolib.csv
+[INFO] Output         = D:\agc_work\stage51_results
+[INFO] SPRX WSL       = /mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx
+[INFO] Output WSL     = /mnt/d/agc_work/stage51_results
+[INFO] SDK            = /opt/ps5-payload-sdk
+
+==> Preparar workspace Linux
+
+[WSL] set -e
+
+rm -rf '/tmp/agc_stage51'
+
+mkdir -p '/tmp/agc_stage51'
+mkdir -p '/mnt/d/agc_work/stage51_results'
+
+cp '/mnt/d/agc_work/stage51_results/analyze_field_types.py' \
+   '/tmp/agc_stage51/analyze_field_types.py'
+
+sed -i 's/\r$//' \
+   '/tmp/agc_stage51/analyze_field_types.py'
+
+python3 -m py_compile \
+   '/tmp/agc_stage51/analyze_field_types.py'
+
+ls -lh \
+   '/tmp/agc_stage51/analyze_field_types.py'
+-rwxr-xr-x 1 user user 30K Aug 25 02:05 /tmp/agc_stage51/analyze_field_types.py
+0
+
+==> Verificar Python + pyelftools + toolchain
+
+[WSL] set -e
+
+test -x '/opt/ps5-payload-sdk/bin/prospero-clang'
+test -x '/opt/ps5-payload-sdk/bin/prospero-nm'
+test -x '/opt/ps5-payload-sdk/bin/prospero-lld'
+
+echo '--- prospero-clang ---'
+'/opt/ps5-payload-sdk/bin/prospero-clang' --version
+
+echo '--- prospero-nm ---'
+'/opt/ps5-payload-sdk/bin/prospero-nm' --version
+
+echo '--- pyelftools ---'
+python3 -c "from elftools.elf.elffile import ELFFile; print('pyelftools=OK')"
+--- prospero-clang ---
+Ubuntu clang version 18.1.3 (1ubuntu1)
+Target: x86_64-sie-ps5
+Thread model: posix
+InstalledDir: /usr/lib/llvm-18/bin
+--- prospero-nm ---
+llvm-nm, compatible with GNU nm
+Ubuntu LLVM version 18.1.3
+  Optimized build.
+--- pyelftools ---
+pyelftools=OK
+0
+
+==> Analizar tamaño y dirección exacta de los accesos
+
+[WSL] set -e
+
+python3 '/tmp/agc_stage51/analyze_field_types.py' \
+    '/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx' \
+    '/mnt/d/sdk-master/sce_stubs/aerolib.csv' \
+    '/tmp/agc_stage51'
+{
+  "stage": 51,
+  "contexts": {
+    "global_context": 108808,
+    "agr_context": 108648,
+    "dcb_context": 108728,
+    "acb_table": 99424
+  },
+  "context_reference_count": 14,
+  "context_access_count": 17,
+  "precise_width_count": 13,
+  "submit_argument_field_count": 3,
+  "context_write_count": 4,
+  "context_rmw_count": 0,
+  "functions": {
+    "sceAgcDriverSubmitDcb": {
+      "name": "sceAgcDriverSubmitDcb",
+      "nid": "UglJIZjGssM",
+      "va": 10416,
+      "size": 15,
+      "file_offset": 26800,
+      "context_references": [
+        {
+          "instruction_va": 10419,
+          "instruction": "lea    0x17ffe(%rip),%rdi        # 0x1a8b8",
+          "register": "rdi",
+          "context": "dcb_context",
+          "target_va": 108728,
+          "displacement": 98302
+        }
+      ],
+      "context_accesses": [],
+      "argument_struct_fields": [],
+      "raw_bytes": "48 89 fe 48 8d 3d fe 7f 01 00 e9 f1 ef ff ff",
+      "instructions": [
+        {
+          "va": 10416,
+          "bytes": "48 89 fe",
+          "text": "mov    %rdi,%rsi"
+        },
+        {
+          "va": 10419,
+          "bytes": "48 8d 3d fe 7f 01 00",
+          "text": "lea    0x17ffe(%rip),%rdi        # 0x1a8b8"
+        },
+        {
+          "va": 10426,
+          "bytes": "e9 f1 ef ff ff",
+          "text": "jmp    0x18b0"
+        }
+      ]
+    },
+    "sceAgcDriverAgrSubmitDcb": {
+      "name": "sceAgcDriverAgrSubmitDcb",
+      "nid": "AhGvpITrf4M",
+      "va": 10432,
+      "size": 72,
+      "file_offset": 26816,
+      "context_references": [
+        {
+          "instruction_va": 10436,
+          "instruction": "lea    0x1803d(%rip),%rax        # 0x1a908",
+          "register": "rax",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 98365
+        },
+        {
+          "instruction_va": 10455,
+          "instruction": "lea    0x17f8a(%rip),%rdi        # 0x1a868",
+          "register": "rdi",
+          "context": "agr_context",
+          "target_va": 108648,
+          "displacement": 98186
+        }
+      ],
+      "context_accesses": [
+        {
+          "instruction_va": 10443,
+          "instruction": "cmpl   $0x0,0x148(%rax)",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rax",
+          "field_offset": 328,
+          "field_offset_hex": "0x148",
+          "access_type": "WRITE",
+          "access_size": 4,
+          "access_size_hex": "0x4",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        }
+      ],
+      "argument_struct_fields": [],
+      "raw_bytes": "55 48 89 e5 48 8d 05 3d 80 01 00 83 b8 48 01 00 00 00 74 10 48 89 fe 48 8d 3d 8a 7f 01 00 5d e9 cc ef ff ff 48 8b 0d f5 17 01 00 48 8d 3d 6c d4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6f 82 00 00 b8 03 00 6d 8a 5d c3",
+      "instructions": [
+        {
+          "va": 10432,
+          "bytes": "55",
+          "text": "push   %rbp"
+        },
+        {
+          "va": 10433,
+          "bytes": "48 89 e5",
+          "text": "mov    %rsp,%rbp"
+        },
+        {
+          "va": 10436,
+          "bytes": "48 8d 05 3d 80 01 00",
+          "text": "lea    0x1803d(%rip),%rax        # 0x1a908"
+        },
+        {
+          "va": 10443,
+          "bytes": "83 b8 48 01 00 00 00",
+          "text": "cmpl   $0x0,0x148(%rax)"
+        },
+        {
+          "va": 10450,
+          "bytes": "74 10",
+          "text": "je     0x28e4"
+        },
+        {
+          "va": 10452,
+          "bytes": "48 89 fe",
+          "text": "mov    %rdi,%rsi"
+        },
+        {
+          "va": 10455,
+          "bytes": "48 8d 3d 8a 7f 01 00",
+          "text": "lea    0x17f8a(%rip),%rdi        # 0x1a868"
+        },
+        {
+          "va": 10462,
+          "bytes": "5d",
+          "text": "pop    %rbp"
+        },
+        {
+          "va": 10463,
+          "bytes": "e9 cc ef ff ff",
+          "text": "jmp    0x18b0"
+        },
+        {
+          "va": 10468,
+          "bytes": "48 8b 0d f5 17 01 00",
+          "text": "mov    0x117f5(%rip),%rcx        # 0x140e0"
+        },
+        {
+          "va": 10475,
+          "bytes": "48 8d 3d 6c d4 00 00",
+          "text": "lea    0xd46c(%rip),%rdi        # 0xfd5e"
+        },
+        {
+          "va": 10482,
+          "bytes": "be 38 00 00 00",
+          "text": "mov    $0x38,%esi"
+        },
+        {
+          "va": 10487,
+          "bytes": "ba 01 00 00 00",
+          "text": "mov    $0x1,%edx"
+        },
+        {
+          "va": 10492,
+          "bytes": "e8 6f 82 00 00       \tca",
+          "text": "ll   0xab70"
+        },
+        {
+          "va": 10497,
+          "bytes": "b8 03 00 6d 8a",
+          "text": "mov    $0x8a6d0003,%eax"
+        },
+        {
+          "va": 10502,
+          "bytes": "5d",
+          "text": "pop    %rbp"
+        },
+        {
+          "va": 10503,
+          "bytes": "c3",
+          "text": "ret"
+        }
+      ]
+    },
+    "sceAgcDriverSubmitAcb": {
+      "name": "sceAgcDriverSubmitAcb",
+      "nid": "gSRnr79F8tQ",
+      "va": 10512,
+      "size": 67,
+      "file_offset": 26896,
+      "context_references": [
+        {
+          "instruction_va": 10545,
+          "instruction": "lea    0x15b28(%rip),%rdi        # 0x18460",
+          "register": "rdi",
+          "context": "acb_table",
+          "target_va": 99424,
+          "displacement": 88872
+        }
+      ],
+      "context_accesses": [],
+      "argument_struct_fields": [],
+      "raw_bytes": "83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 7a 01 00 eb 13 83 ff 20 72 1e 83 c7 e0 48 8d 04 ff 48 8d 3d 28 5b 01 00 48 c1 e0 04 48 01 c7 48 83 c7 08 e9 68 ef ff ff 31 ff 48 83 c7 08 e9 5d ef ff ff",
+      "instructions": [
+        {
+          "va": 10512,
+          "bytes": "83 ff 58",
+          "text": "cmp    $0x58,%edi"
+        },
+        {
+          "va": 10515,
+          "bytes": "72 10",
+          "text": "jb     0x2925"
+        },
+        {
+          "va": 10517,
+          "bytes": "83 c7 a8             \tad",
+          "text": "d    $0xffffffa8,%edi"
+        },
+        {
+          "va": 10520,
+          "bytes": "48 8d 04 ff",
+          "text": "lea    (%rdi,%rdi,8),%rax"
+        },
+        {
+          "va": 10524,
+          "bytes": "48 8d 3d bd 7a 01 00",
+          "text": "lea    0x17abd(%rip),%rdi        # 0x1a3e0"
+        },
+        {
+          "va": 10531,
+          "bytes": "eb 13",
+          "text": "jmp    0x2938"
+        },
+        {
+          "va": 10533,
+          "bytes": "83 ff 20",
+          "text": "cmp    $0x20,%edi"
+        },
+        {
+          "va": 10536,
+          "bytes": "72 1e",
+          "text": "jb     0x2948"
+        },
+        {
+          "va": 10538,
+          "bytes": "83 c7 e0             \tad",
+          "text": "d    $0xffffffe0,%edi"
+        },
+        {
+          "va": 10541,
+          "bytes": "48 8d 04 ff",
+          "text": "lea    (%rdi,%rdi,8),%rax"
+        },
+        {
+          "va": 10545,
+          "bytes": "48 8d 3d 28 5b 01 00",
+          "text": "lea    0x15b28(%rip),%rdi        # 0x18460"
+        },
+        {
+          "va": 10552,
+          "bytes": "48 c1 e0 04",
+          "text": "shl    $0x4,%rax"
+        },
+        {
+          "va": 10556,
+          "bytes": "48 01 c7             \tad",
+          "text": "d    %rax,%rdi"
+        },
+        {
+          "va": 10559,
+          "bytes": "48 83 c7 08          \tad",
+          "text": "d    $0x8,%rdi"
+        },
+        {
+          "va": 10563,
+          "bytes": "e9 68 ef ff ff",
+          "text": "jmp    0x18b0"
+        },
+        {
+          "va": 10568,
+          "bytes": "31 ff",
+          "text": "xor    %edi,%edi"
+        },
+        {
+          "va": 10570,
+          "bytes": "48 83 c7 08          \tad",
+          "text": "d    $0x8,%rdi"
+        },
+        {
+          "va": 10574,
+          "bytes": "e9 5d ef ff ff",
+          "text": "jmp    0x18b0"
+        }
+      ]
+    },
+    "sceAgcDriverSubmitCommandBuffer": {
+      "name": "sceAgcDriverSubmitCommandBuffer",
+      "nid": "b4fpgH5ZXxQ",
+      "va": 6320,
+      "size": 380,
+      "file_offset": 22704,
+      "context_references": [
+        {
+          "instruction_va": 6408,
+          "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+          "register": "rbx",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 102393
+        }
+      ],
+      "context_accesses": [
+        {
+          "instruction_va": 6445,
+          "instruction": "lock xadd %rax,0x140(%rbx)",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rbx",
+          "field_offset": 320,
+          "field_offset_hex": "0x140",
+          "access_type": "WRITE",
+          "access_size": null,
+          "access_size_hex": null,
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 6488,
+          "instruction": "mov    0xa0(%rbx),%eax",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rbx",
+          "field_offset": 160,
+          "field_offset_hex": "0xa0",
+          "access_type": "READ",
+          "access_size": 4,
+          "access_size_hex": "0x4",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 6498,
+          "instruction": "lea    0x48(%rbx),%r13",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rbx",
+          "field_offset": 72,
+          "field_offset_hex": "0x48",
+          "access_type": "READ",
+          "access_size": 8,
+          "access_size_hex": "0x8",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 6548,
+          "instruction": "mov    0xa0(%rbx),%eax",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rbx",
+          "field_offset": 160,
+          "field_offset_hex": "0xa0",
+          "access_type": "READ",
+          "access_size": 4,
+          "access_size_hex": "0x4",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 6593,
+          "instruction": "mov    0xa4(%rbx),%eax",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rbx",
+          "field_offset": 164,
+          "field_offset_hex": "0xa4",
+          "access_type": "READ",
+          "access_size": 4,
+          "access_size_hex": "0x4",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 6610,
+          "instruction": "ll   *0x50(%rbx,%rax,1)",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rbx",
+          "field_offset": 80,
+          "field_offset_hex": "0x50",
+          "access_type": "READ",
+          "access_size": 4,
+          "access_size_hex": "0x4",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 6666,
+          "instruction": "mov    (%rbx),%rax",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rbx",
+          "field_offset": 0,
+          "field_offset_hex": "0x0",
+          "access_type": "READ",
+          "access_size": 8,
+          "access_size_hex": "0x8",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        }
+      ],
+      "argument_struct_fields": [
+        {
+          "instruction_va": 6419,
+          "instruction": "mov    (%r14),%rax",
+          "base_register": "r14",
+          "field_offset": 0,
+          "field_offset_hex": "0x0",
+          "access_type": "READ",
+          "access_size": 8,
+          "access_size_hex": "0x8"
+        },
+        {
+          "instruction_va": 6426,
+          "instruction": "mov    0x8(%r14),%eax",
+          "base_register": "r14",
+          "field_offset": 8,
+          "field_offset_hex": "0x8",
+          "access_type": "READ",
+          "access_size": 4,
+          "access_size_hex": "0x4"
+        },
+        {
+          "instruction_va": 6433,
+          "instruction": "mov    0xc(%r14),%al",
+          "base_register": "r14",
+          "field_offset": 12,
+          "field_offset_hex": "0xc",
+          "access_type": "READ",
+          "access_size": 4,
+          "access_size_hex": "0x4"
+        }
+      ],
+      "raw_bytes": "55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 38 48 8b 1d 20 28 01 00 4c 8d 6f 38 49 89 fc 49 89 f6 4c 89 ef 48 8b 03 48 89 45 d0 e8 2f 93 00 00 85 c0 0f 88 b3 00 00 00 41 bf 00 00 6d 8a 0f 85 15 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 48 8d 1d f9 8f 01 00 4c 89 6d a8 49 8b 06 48 89 45 c0 41 8b 46 08 89 45 c8 41 8a 46 0c 88 45 cc b8 01 00 00 00 f0 48 0f c1 83 40 01 00 00 49 89 44 24 20 49 ff 44 24 28 49 c7 44 24 14 00 00 00 00 41 80 64 24 08 fe 49 c7 44 24 30 00 00 00 00 8b 83 a0 00 00 00 85 c0 74 5f 4c 8d 6b 48 4c 8d 7d b0 45 31 f6 eb 0f 90 49 ff c6 89 c1 49 83 c5 78 49 39 ce 73 43 49 8b 4d 00 48 85 c9 74 e9 4c 89 e7 4c 89 fe ba 01 00 00 00 ff d1 8b 83 a0 00 00 00 eb d4 48 8b 0d 3d 27 01 00 48 8d 3d 7a da 00 00 be 34 00 00 00 ba 01 00 00 00 e8 b7 91 00 00 41 bf 00 00 6d 8a eb 49 8b 83 a4 00 00 00 48 8d 75 b0 4c 89 e7 48 6b c0 78 ff 54 03 50 48 8b 7d a8 41 89 c7 e8 3e 92 00 00 85 c0 79 1d 48 8b 0d f3 26 01 00 48 8d 3d 7c df 00 00 be 32 00 00 00 ba 01 00 00 00 e8 6d 91 00 00 48 8b 1d de 26 01 00 48 8b 03 48 3b 45 d0 75 12 44 89 f8 48 83 c4 38 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 06 92 00 00 0f 0b",
+      "instructions": [
+        {
+          "va": 6320,
+          "bytes": "55",
+          "text": "push   %rbp"
+        },
+        {
+          "va": 6321,
+          "bytes": "48 89 e5",
+          "text": "mov    %rsp,%rbp"
+        },
+        {
+          "va": 6324,
+          "bytes": "41 57",
+          "text": "push   %r15"
+        },
+        {
+          "va": 6326,
+          "bytes": "41 56",
+          "text": "push   %r14"
+        },
+        {
+          "va": 6328,
+          "bytes": "41 55",
+          "text": "push   %r13"
+        },
+        {
+          "va": 6330,
+          "bytes": "41 54",
+          "text": "push   %r12"
+        },
+        {
+          "va": 6332,
+          "bytes": "53",
+          "text": "push   %rbx"
+        },
+        {
+          "va": 6333,
+          "bytes": "48 83 ec 38",
+          "text": "sub    $0x38,%rsp"
+        },
+        {
+          "va": 6337,
+          "bytes": "48 8b 1d 20 28 01 00",
+          "text": "mov    0x12820(%rip),%rbx        # 0x140e8"
+        },
+        {
+          "va": 6344,
+          "bytes": "4c 8d 6f 38",
+          "text": "lea    0x38(%rdi),%r13"
+        },
+        {
+          "va": 6348,
+          "bytes": "49 89 fc",
+          "text": "mov    %rdi,%r12"
+        },
+        {
+          "va": 6351,
+          "bytes": "49 89 f6",
+          "text": "mov    %rsi,%r14"
+        },
+        {
+          "va": 6354,
+          "bytes": "4c 89 ef",
+          "text": "mov    %r13,%rdi"
+        },
+        {
+          "va": 6357,
+          "bytes": "48 8b 03",
+          "text": "mov    (%rbx),%rax"
+        },
+        {
+          "va": 6360,
+          "bytes": "48 89 45 d0",
+          "text": "mov    %rax,-0x30(%rbp)"
+        },
+        {
+          "va": 6364,
+          "bytes": "e8 2f 93 00 00       \tca",
+          "text": "ll   0xac10"
+        },
+        {
+          "va": 6369,
+          "bytes": "85 c0",
+          "text": "test   %eax,%eax"
+        },
+        {
+          "va": 6371,
+          "bytes": "0f 88 b3 00 00 00",
+          "text": "js     0x199c"
+        },
+        {
+          "va": 6377,
+          "bytes": "41 bf 00 00 6d 8a",
+          "text": "mov    $0x8a6d0000,%r15d"
+        },
+        {
+          "va": 6383,
+          "bytes": "0f 85 15 01 00 00",
+          "text": "jne    0x1a0a"
+        },
+        {
+          "va": 6389,
+          "bytes": "48 c7 45 b0 00 00 00",
+          "text": "movq   $0x0,-0x50(%rbp)"
+        },
+        {
+          "va": 6396,
+          "bytes": "00",
+          "text": ""
+        },
+        {
+          "va": 6397,
+          "bytes": "c7 45 b8 00 00 00 00",
+          "text": "movl   $0x0,-0x48(%rbp)"
+        },
+        {
+          "va": 6404,
+          "bytes": "c6 45 bc 00",
+          "text": "movb   $0x0,-0x44(%rbp)"
+        },
+        {
+          "va": 6408,
+          "bytes": "48 8d 1d f9 8f 01 00",
+          "text": "lea    0x18ff9(%rip),%rbx        # 0x1a908"
+        },
+        {
+          "va": 6415,
+          "bytes": "4c 89 6d a8",
+          "text": "mov    %r13,-0x58(%rbp)"
+        },
+        {
+          "va": 6419,
+          "bytes": "49 8b 06",
+          "text": "mov    (%r14),%rax"
+        },
+        {
+          "va": 6422,
+          "bytes": "48 89 45 c0",
+          "text": "mov    %rax,-0x40(%rbp)"
+        },
+        {
+          "va": 6426,
+          "bytes": "41 8b 46 08",
+          "text": "mov    0x8(%r14),%eax"
+        },
+        {
+          "va": 6430,
+          "bytes": "89 45 c8",
+          "text": "mov    %eax,-0x38(%rbp)"
+        },
+        {
+          "va": 6433,
+          "bytes": "41 8a 46 0c",
+          "text": "mov    0xc(%r14),%al"
+        },
+        {
+          "va": 6437,
+          "bytes": "88 45 cc",
+          "text": "mov    %al,-0x34(%rbp)"
+        },
+        {
+          "va": 6440,
+          "bytes": "b8 01 00 00 00",
+          "text": "mov    $0x1,%eax"
+        },
+        {
+          "va": 6445,
+          "bytes": "f0 48 0f c1 83 40 01",
+          "text": "lock xadd %rax,0x140(%rbx)"
+        },
+        {
+          "va": 6452,
+          "bytes": "00 00",
+          "text": ""
+        },
+        {
+          "va": 6454,
+          "bytes": "49 89 44 24 20",
+          "text": "mov    %rax,0x20(%r12)"
+        },
+        {
+          "va": 6459,
+          "bytes": "49 ff 44 24 28",
+          "text": "incq   0x28(%r12)"
+        },
+        {
+          "va": 6464,
+          "bytes": "49 c7 44 24 14 00 00",
+          "text": "movq   $0x0,0x14(%r12)"
+        },
+        {
+          "va": 6471,
+          "bytes": "00 00",
+          "text": ""
+        },
+        {
+          "va": 6473,
+          "bytes": "41 80 64 24 08 fe",
+          "text": "andb   $0xfe,0x8(%r12)"
+        },
+        {
+          "va": 6479,
+          "bytes": "49 c7 44 24 30 00 00",
+          "text": "movq   $0x0,0x30(%r12)"
+        },
+        {
+          "va": 6486,
+          "bytes": "00 00",
+          "text": ""
+        },
+        {
+          "va": 6488,
+          "bytes": "8b 83 a0 00 00 00",
+          "text": "mov    0xa0(%rbx),%eax"
+        },
+        {
+          "va": 6494,
+          "bytes": "85 c0",
+          "text": "test   %eax,%eax"
+        },
+        {
+          "va": 6496,
+          "bytes": "74 5f",
+          "text": "je     0x19c1"
+        },
+        {
+          "va": 6498,
+          "bytes": "4c 8d 6b 48",
+          "text": "lea    0x48(%rbx),%r13"
+        },
+        {
+          "va": 6502,
+          "bytes": "4c 8d 7d b0",
+          "text": "lea    -0x50(%rbp),%r15"
+        },
+        {
+          "va": 6506,
+          "bytes": "45 31 f6",
+          "text": "xor    %r14d,%r14d"
+        },
+        {
+          "va": 6509,
+          "bytes": "eb 0f",
+          "text": "jmp    0x197e"
+        },
+        {
+          "va": 6511,
+          "bytes": "90",
+          "text": "nop"
+        },
+        {
+          "va": 6512,
+          "bytes": "49 ff c6",
+          "text": "inc    %r14"
+        },
+        {
+          "va": 6515,
+          "bytes": "89 c1",
+          "text": "mov    %eax,%ecx"
+        },
+        {
+          "va": 6517,
+          "bytes": "49 83 c5 78          \tad",
+          "text": "d    $0x78,%r13"
+        },
+        {
+          "va": 6521,
+          "bytes": "49 39 ce",
+          "text": "cmp    %rcx,%r14"
+        },
+        {
+          "va": 6524,
+          "bytes": "73 43",
+          "text": "jae    0x19c1"
+        },
+        {
+          "va": 6526,
+          "bytes": "49 8b 4d 00",
+          "text": "mov    0x0(%r13),%rcx"
+        },
+        {
+          "va": 6530,
+          "bytes": "48 85 c9",
+          "text": "test   %rcx,%rcx"
+        },
+        {
+          "va": 6533,
+          "bytes": "74 e9",
+          "text": "je     0x1970"
+        },
+        {
+          "va": 6535,
+          "bytes": "4c 89 e7",
+          "text": "mov    %r12,%rdi"
+        },
+        {
+          "va": 6538,
+          "bytes": "4c 89 fe",
+          "text": "mov    %r15,%rsi"
+        },
+        {
+          "va": 6541,
+          "bytes": "ba 01 00 00 00",
+          "text": "mov    $0x1,%edx"
+        },
+        {
+          "va": 6546,
+          "bytes": "ff d1                \tca",
+          "text": "ll   *%rcx"
+        },
+        {
+          "va": 6548,
+          "bytes": "8b 83 a0 00 00 00",
+          "text": "mov    0xa0(%rbx),%eax"
+        },
+        {
+          "va": 6554,
+          "bytes": "eb d4",
+          "text": "jmp    0x1970"
+        },
+        {
+          "va": 6556,
+          "bytes": "48 8b 0d 3d 27 01 00",
+          "text": "mov    0x1273d(%rip),%rcx        # 0x140e0"
+        },
+        {
+          "va": 6563,
+          "bytes": "48 8d 3d 7a da 00 00",
+          "text": "lea    0xda7a(%rip),%rdi        # 0xf424"
+        },
+        {
+          "va": 6570,
+          "bytes": "be 34 00 00 00",
+          "text": "mov    $0x34,%esi"
+        },
+        {
+          "va": 6575,
+          "bytes": "ba 01 00 00 00",
+          "text": "mov    $0x1,%edx"
+        },
+        {
+          "va": 6580,
+          "bytes": "e8 b7 91 00 00       \tca",
+          "text": "ll   0xab70"
+        },
+        {
+          "va": 6585,
+          "bytes": "41 bf 00 00 6d 8a",
+          "text": "mov    $0x8a6d0000,%r15d"
+        },
+        {
+          "va": 6591,
+          "bytes": "eb 49",
+          "text": "jmp    0x1a0a"
+        },
+        {
+          "va": 6593,
+          "bytes": "8b 83 a4 00 00 00",
+          "text": "mov    0xa4(%rbx),%eax"
+        },
+        {
+          "va": 6599,
+          "bytes": "48 8d 75 b0",
+          "text": "lea    -0x50(%rbp),%rsi"
+        },
+        {
+          "va": 6603,
+          "bytes": "4c 89 e7",
+          "text": "mov    %r12,%rdi"
+        },
+        {
+          "va": 6606,
+          "bytes": "48 6b c0 78",
+          "text": "imul   $0x78,%rax,%rax"
+        },
+        {
+          "va": 6610,
+          "bytes": "ff 54 03 50          \tca",
+          "text": "ll   *0x50(%rbx,%rax,1)"
+        },
+        {
+          "va": 6614,
+          "bytes": "48 8b 7d a8",
+          "text": "mov    -0x58(%rbp),%rdi"
+        },
+        {
+          "va": 6618,
+          "bytes": "41 89 c7",
+          "text": "mov    %eax,%r15d"
+        },
+        {
+          "va": 6621,
+          "bytes": "e8 3e 92 00 00       \tca",
+          "text": "ll   0xac20"
+        },
+        {
+          "va": 6626,
+          "bytes": "85 c0",
+          "text": "test   %eax,%eax"
+        },
+        {
+          "va": 6628,
+          "bytes": "79 1d",
+          "text": "jns    0x1a03"
+        },
+        {
+          "va": 6630,
+          "bytes": "48 8b 0d f3 26 01 00",
+          "text": "mov    0x126f3(%rip),%rcx        # 0x140e0"
+        },
+        {
+          "va": 6637,
+          "bytes": "48 8d 3d 7c df 00 00",
+          "text": "lea    0xdf7c(%rip),%rdi        # 0xf970"
+        },
+        {
+          "va": 6644,
+          "bytes": "be 32 00 00 00",
+          "text": "mov    $0x32,%esi"
+        },
+        {
+          "va": 6649,
+          "bytes": "ba 01 00 00 00",
+          "text": "mov    $0x1,%edx"
+        },
+        {
+          "va": 6654,
+          "bytes": "e8 6d 91 00 00       \tca",
+          "text": "ll   0xab70"
+        },
+        {
+          "va": 6659,
+          "bytes": "48 8b 1d de 26 01 00",
+          "text": "mov    0x126de(%rip),%rbx        # 0x140e8"
+        },
+        {
+          "va": 6666,
+          "bytes": "48 8b 03",
+          "text": "mov    (%rbx),%rax"
+        },
+        {
+          "va": 6669,
+          "bytes": "48 3b 45 d0",
+          "text": "cmp    -0x30(%rbp),%rax"
+        },
+        {
+          "va": 6673,
+          "bytes": "75 12",
+          "text": "jne    0x1a25"
+        },
+        {
+          "va": 6675,
+          "bytes": "44 89 f8",
+          "text": "mov    %r15d,%eax"
+        },
+        {
+          "va": 6678,
+          "bytes": "48 83 c4 38          \tad",
+          "text": "d    $0x38,%rsp"
+        },
+        {
+          "va": 6682,
+          "bytes": "5b",
+          "text": "pop    %rbx"
+        },
+        {
+          "va": 6683,
+          "bytes": "41 5c",
+          "text": "pop    %r12"
+        },
+        {
+          "va": 6685,
+          "bytes": "41 5d",
+          "text": "pop    %r13"
+        },
+        {
+          "va": 6687,
+          "bytes": "41 5e",
+          "text": "pop    %r14"
+        },
+        {
+          "va": 6689,
+          "bytes": "41 5f",
+          "text": "pop    %r15"
+        },
+        {
+          "va": 6691,
+          "bytes": "5d",
+          "text": "pop    %rbp"
+        },
+        {
+          "va": 6692,
+          "bytes": "c3",
+          "text": "ret"
+        },
+        {
+          "va": 6693,
+          "bytes": "e8 06 92 00 00       \tca",
+          "text": "ll   0xac30"
+        },
+        {
+          "va": 6698,
+          "bytes": "0f 0b",
+          "text": "ud2"
+        }
+      ]
+    },
+    "sceAgcDriverSubmitMultiCommandBuffers": {
+      "name": "sceAgcDriverSubmitMultiCommandBuffers",
+      "nid": "Fj7r9EHzF38",
+      "va": 18000,
+      "size": 579,
+      "file_offset": 34384,
+      "context_references": [
+        {
+          "instruction_va": 18075,
+          "instruction": "lea    0x16266(%rip),%rcx        # 0x1a908",
+          "register": "rcx",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 90726
+        },
+        {
+          "instruction_va": 18258,
+          "instruction": "lea    0x161af(%rip),%rax        # 0x1a908",
+          "register": "rax",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 90543
+        },
+        {
+          "instruction_va": 18275,
+          "instruction": "lea    0x1619e(%rip),%rcx        # 0x1a908",
+          "register": "rcx",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 90526
+        },
+        {
+          "instruction_va": 18336,
+          "instruction": "lea    0x16161(%rip),%rax        # 0x1a908",
+          "register": "rax",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 90465
+        },
+        {
+          "instruction_va": 18368,
+          "instruction": "lea    0x16141(%rip),%rcx        # 0x1a908",
+          "register": "rcx",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 90433
+        }
+      ],
+      "context_accesses": [
+        {
+          "instruction_va": 18097,
+          "instruction": "lock xadd %rax,0x140(%rcx)",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rcx",
+          "field_offset": 320,
+          "field_offset_hex": "0x140",
+          "access_type": "WRITE",
+          "access_size": null,
+          "access_size_hex": null,
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 18265,
+          "instruction": "mov    0xa0(%rax),%eax",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rax",
+          "field_offset": 160,
+          "field_offset_hex": "0xa0",
+          "access_type": "READ",
+          "access_size": 4,
+          "access_size_hex": "0x4",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 18284,
+          "instruction": "lea    0x48(%rcx),%r14",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rcx",
+          "field_offset": 72,
+          "field_offset_hex": "0x48",
+          "access_type": "READ",
+          "access_size": 8,
+          "access_size_hex": "0x8",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 18290,
+          "instruction": "ta16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rax",
+          "field_offset": 0,
+          "field_offset_hex": "0x0",
+          "access_type": "READ",
+          "access_size": null,
+          "access_size_hex": null,
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 18346,
+          "instruction": "mov    0xa0(%rax),%eax",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rax",
+          "field_offset": 160,
+          "field_offset_hex": "0xa0",
+          "access_type": "READ",
+          "access_size": 4,
+          "access_size_hex": "0x4",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 18354,
+          "instruction": "ta16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rax",
+          "field_offset": 0,
+          "field_offset_hex": "0x0",
+          "access_type": "READ",
+          "access_size": null,
+          "access_size_hex": null,
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 18386,
+          "instruction": "mov    0xa4(%rcx),%eax",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rcx",
+          "field_offset": 164,
+          "field_offset_hex": "0xa4",
+          "access_type": "READ",
+          "access_size": 4,
+          "access_size_hex": "0x4",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 18399,
+          "instruction": "ll   *0x58(%rcx,%rax,1)",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rcx",
+          "field_offset": 88,
+          "field_offset_hex": "0x58",
+          "access_type": "READ",
+          "access_size": 4,
+          "access_size_hex": "0x4",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        }
+      ],
+      "argument_struct_fields": [],
+      "raw_bytes": "55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 28 4c 8b 35 80 fa 00 00 48 8d 5f 38 41 89 cc 49 89 d7 49 89 f5 49 8b 06 48 89 45 d0 48 89 7d c8 48 89 df e8 88 65 00 00 85 c0 0f 88 7e 01 00 00 b8 00 00 6d 8a 0f 85 d9 01 00 00 48 8d 0d 66 62 01 00 b8 01 00 00 00 48 89 e7 48 81 c7 00 f0 ff ff f0 48 0f c1 81 40 01 00 00 48 8b 4d c8 48 89 41 20 48 ff 41 28 c7 41 14 00 00 00 00 44 89 61 18 80 61 08 fe 48 c7 41 30 00 00 00 00 48 89 fc 45 85 e4 0f 84 49 01 00 00 48 8d 47 1c 45 31 f6 48 89 5d b8 48 89 7d c0 48 89 45 b0 0f 1f 40 00 41 81 fc 80 00 00 00 b8 80 00 00 00 ba 00 10 00 00 44 0f 43 e0 31 f6 e8 a4 64 00 00 48 8b 4d b0 4c 89 e2 4c 89 e0 66 2e 0f 1f 84 00 00 00 00 00 44 89 f7 41 ff c6 49 8b 74 fd 00 48 89 71 f4 41 8b 34 bf 89 71 fc c6 01 00 48 83 c1 20 48 ff c8 75 de 48 8d 05 af 61 01 00 8b 80 a0 00 00 00 85 c0 74 5d 48 8d 0d 9e 61 01 00 31 db 4c 8d 71 48 eb 1c 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c6 78 48 39 cb 73 32 49 8b 0e 48 85 c9 74 ea 48 8b 7d c8 48 8b 75 c0 ff d1 48 8d 05 61 61 01 00 4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 8d 0d 41 61 01 00 48 8b 5d c8 48 8b 75 c0 49 89 d4 8b 81 a4 00 00 00 48 89 df 48 6b c0 78 ff 54 01 58 85 c0 75 53 44 8b 73 14 8b 43 18 48 8b 7d c0 41 83 ee 80 44 29 e0 41 89 c4 44 89 73 14 89 43 18 0f 85 f7 fe ff ff 45 31 ff eb 2f 48 8b 0d cb f8 00 00 48 8d 3d 08 ac 00 00 be 34 00 00 00 ba 01 00 00 00 e8 45 63 00 00 b8 00 00 6d 8a eb 42 41 bf 00 00 6d 8a eb 0e 41 89 c7 4c 8b 35 a4 f8 00 00 48 8b 5d b8 48 89 df e8 d0 63 00 00 85 c0 79 1d 48 8b 0d 85 f8 00 00 48 8d 3d 0e b1 00 00 be 32 00 00 00 ba 01 00 00 00 e8 ff 62 00 00 44 89 f8 49 8b 0e 48 3b 4d d0 75 0f 48 8d 65 d8 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 9f 63 00 00 0f 0b",
+      "instructions": [
+        {
+          "va": 18000,
+          "bytes": "55",
+          "text": "push   %rbp"
+        },
+        {
+          "va": 18001,
+          "bytes": "48 89 e5",
+          "text": "mov    %rsp,%rbp"
+        },
+        {
+          "va": 18004,
+          "bytes": "41 57",
+          "text": "push   %r15"
+        },
+        {
+          "va": 18006,
+          "bytes": "41 56",
+          "text": "push   %r14"
+        },
+        {
+          "va": 18008,
+          "bytes": "41 55",
+          "text": "push   %r13"
+        },
+        {
+          "va": 18010,
+          "bytes": "41 54",
+          "text": "push   %r12"
+        },
+        {
+          "va": 18012,
+          "bytes": "53",
+          "text": "push   %rbx"
+        },
+        {
+          "va": 18013,
+          "bytes": "48 83 ec 28",
+          "text": "sub    $0x28,%rsp"
+        },
+        {
+          "va": 18017,
+          "bytes": "4c 8b 35 80 fa 00 00",
+          "text": "mov    0xfa80(%rip),%r14        # 0x140e8"
+        },
+        {
+          "va": 18024,
+          "bytes": "48 8d 5f 38",
+          "text": "lea    0x38(%rdi),%rbx"
+        },
+        {
+          "va": 18028,
+          "bytes": "41 89 cc",
+          "text": "mov    %ecx,%r12d"
+        },
+        {
+          "va": 18031,
+          "bytes": "49 89 d7",
+          "text": "mov    %rdx,%r15"
+        },
+        {
+          "va": 18034,
+          "bytes": "49 89 f5",
+          "text": "mov    %rsi,%r13"
+        },
+        {
+          "va": 18037,
+          "bytes": "49 8b 06",
+          "text": "mov    (%r14),%rax"
+        },
+        {
+          "va": 18040,
+          "bytes": "48 89 45 d0",
+          "text": "mov    %rax,-0x30(%rbp)"
+        },
+        {
+          "va": 18044,
+          "bytes": "48 89 7d c8",
+          "text": "mov    %rdi,-0x38(%rbp)"
+        },
+        {
+          "va": 18048,
+          "bytes": "48 89 df",
+          "text": "mov    %rbx,%rdi"
+        },
+        {
+          "va": 18051,
+          "bytes": "e8 88 65 00 00       \tca",
+          "text": "ll   0xac10"
+        },
+        {
+          "va": 18056,
+          "bytes": "85 c0",
+          "text": "test   %eax,%eax"
+        },
+        {
+          "va": 18058,
+          "bytes": "0f 88 7e 01 00 00",
+          "text": "js     0x480e"
+        },
+        {
+          "va": 18064,
+          "bytes": "b8 00 00 6d 8a",
+          "text": "mov    $0x8a6d0000,%eax"
+        },
+        {
+          "va": 18069,
+          "bytes": "0f 85 d9 01 00 00",
+          "text": "jne    0x4874"
+        },
+        {
+          "va": 18075,
+          "bytes": "48 8d 0d 66 62 01 00",
+          "text": "lea    0x16266(%rip),%rcx        # 0x1a908"
+        },
+        {
+          "va": 18082,
+          "bytes": "b8 01 00 00 00",
+          "text": "mov    $0x1,%eax"
+        },
+        {
+          "va": 18087,
+          "bytes": "48 89 e7",
+          "text": "mov    %rsp,%rdi"
+        },
+        {
+          "va": 18090,
+          "bytes": "48 81 c7 00 f0 ff ff \tad",
+          "text": "d    $0xfffffffffffff000,%rdi"
+        },
+        {
+          "va": 18097,
+          "bytes": "f0 48 0f c1 81 40 01",
+          "text": "lock xadd %rax,0x140(%rcx)"
+        },
+        {
+          "va": 18104,
+          "bytes": "00 00",
+          "text": ""
+        },
+        {
+          "va": 18106,
+          "bytes": "48 8b 4d c8",
+          "text": "mov    -0x38(%rbp),%rcx"
+        },
+        {
+          "va": 18110,
+          "bytes": "48 89 41 20",
+          "text": "mov    %rax,0x20(%rcx)"
+        },
+        {
+          "va": 18114,
+          "bytes": "48 ff 41 28",
+          "text": "incq   0x28(%rcx)"
+        },
+        {
+          "va": 18118,
+          "bytes": "c7 41 14 00 00 00 00",
+          "text": "movl   $0x0,0x14(%rcx)"
+        },
+        {
+          "va": 18125,
+          "bytes": "44 89 61 18",
+          "text": "mov    %r12d,0x18(%rcx)"
+        },
+        {
+          "va": 18129,
+          "bytes": "80 61 08 fe",
+          "text": "andb   $0xfe,0x8(%rcx)"
+        },
+        {
+          "va": 18133,
+          "bytes": "48 c7 41 30 00 00 00",
+          "text": "movq   $0x0,0x30(%rcx)"
+        },
+        {
+          "va": 18140,
+          "bytes": "00",
+          "text": ""
+        },
+        {
+          "va": 18141,
+          "bytes": "48 89 fc",
+          "text": "mov    %rdi,%rsp"
+        },
+        {
+          "va": 18144,
+          "bytes": "45 85 e4",
+          "text": "test   %r12d,%r12d"
+        },
+        {
+          "va": 18147,
+          "bytes": "0f 84 49 01 00 00",
+          "text": "je     0x4832"
+        },
+        {
+          "va": 18153,
+          "bytes": "48 8d 47 1c",
+          "text": "lea    0x1c(%rdi),%rax"
+        },
+        {
+          "va": 18157,
+          "bytes": "45 31 f6",
+          "text": "xor    %r14d,%r14d"
+        },
+        {
+          "va": 18160,
+          "bytes": "48 89 5d b8",
+          "text": "mov    %rbx,-0x48(%rbp)"
+        },
+        {
+          "va": 18164,
+          "bytes": "48 89 7d c0",
+          "text": "mov    %rdi,-0x40(%rbp)"
+        },
+        {
+          "va": 18168,
+          "bytes": "48 89 45 b0",
+          "text": "mov    %rax,-0x50(%rbp)"
+        },
+        {
+          "va": 18172,
+          "bytes": "0f 1f 40 00",
+          "text": "nopl   0x0(%rax)"
+        },
+        {
+          "va": 18176,
+          "bytes": "41 81 fc 80 00 00 00",
+          "text": "cmp    $0x80,%r12d"
+        },
+        {
+          "va": 18183,
+          "bytes": "b8 80 00 00 00",
+          "text": "mov    $0x80,%eax"
+        },
+        {
+          "va": 18188,
+          "bytes": "ba 00 10 00 00",
+          "text": "mov    $0x1000,%edx"
+        },
+        {
+          "va": 18193,
+          "bytes": "44 0f 43 e0",
+          "text": "cmovae %eax,%r12d"
+        },
+        {
+          "va": 18197,
+          "bytes": "31 f6",
+          "text": "xor    %esi,%esi"
+        },
+        {
+          "va": 18199,
+          "bytes": "e8 a4 64 00 00       \tca",
+          "text": "ll   0xabc0"
+        },
+        {
+          "va": 18204,
+          "bytes": "48 8b 4d b0",
+          "text": "mov    -0x50(%rbp),%rcx"
+        },
+        {
+          "va": 18208,
+          "bytes": "4c 89 e2",
+          "text": "mov    %r12,%rdx"
+        },
+        {
+          "va": 18211,
+          "bytes": "4c 89 e0",
+          "text": "mov    %r12,%rax"
+        },
+        {
+          "va": 18214,
+          "bytes": "66 2e 0f 1f 84 00 00",
+          "text": "cs nopw 0x0(%rax,%rax,1)"
+        },
+        {
+          "va": 18221,
+          "bytes": "00 00 00",
+          "text": ""
+        },
+        {
+          "va": 18224,
+          "bytes": "44 89 f7",
+          "text": "mov    %r14d,%edi"
+        },
+        {
+          "va": 18227,
+          "bytes": "41 ff c6",
+          "text": "inc    %r14d"
+        },
+        {
+          "va": 18230,
+          "bytes": "49 8b 74 fd 00",
+          "text": "mov    0x0(%r13,%rdi,8),%rsi"
+        },
+        {
+          "va": 18235,
+          "bytes": "48 89 71 f4",
+          "text": "mov    %rsi,-0xc(%rcx)"
+        },
+        {
+          "va": 18239,
+          "bytes": "41 8b 34 bf",
+          "text": "mov    (%r15,%rdi,4),%esi"
+        },
+        {
+          "va": 18243,
+          "bytes": "89 71 fc",
+          "text": "mov    %esi,-0x4(%rcx)"
+        },
+        {
+          "va": 18246,
+          "bytes": "c6 01 00",
+          "text": "movb   $0x0,(%rcx)"
+        },
+        {
+          "va": 18249,
+          "bytes": "48 83 c1 20          \tad",
+          "text": "d    $0x20,%rcx"
+        },
+        {
+          "va": 18253,
+          "bytes": "48 ff c8             \tde",
+          "text": "c    %rax"
+        },
+        {
+          "va": 18256,
+          "bytes": "75 de",
+          "text": "jne    0x4730"
+        },
+        {
+          "va": 18258,
+          "bytes": "48 8d 05 af 61 01 00",
+          "text": "lea    0x161af(%rip),%rax        # 0x1a908"
+        },
+        {
+          "va": 18265,
+          "bytes": "8b 80 a0 00 00 00",
+          "text": "mov    0xa0(%rax),%eax"
+        },
+        {
+          "va": 18271,
+          "bytes": "85 c0",
+          "text": "test   %eax,%eax"
+        },
+        {
+          "va": 18273,
+          "bytes": "74 5d",
+          "text": "je     0x47c0"
+        },
+        {
+          "va": 18275,
+          "bytes": "48 8d 0d 9e 61 01 00",
+          "text": "lea    0x1619e(%rip),%rcx        # 0x1a908"
+        },
+        {
+          "va": 18282,
+          "bytes": "31 db",
+          "text": "xor    %ebx,%ebx"
+        },
+        {
+          "va": 18284,
+          "bytes": "4c 8d 71 48",
+          "text": "lea    0x48(%rcx),%r14"
+        },
+        {
+          "va": 18288,
+          "bytes": "eb 1c",
+          "text": "jmp    0x478e"
+        },
+        {
+          "va": 18290,
+          "bytes": "66 66 66 66 66 2e 0f \tda",
+          "text": "ta16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)"
+        },
+        {
+          "va": 18297,
+          "bytes": "1f 84 00 00 00 00 00",
+          "text": ""
+        },
+        {
+          "va": 18304,
+          "bytes": "48 ff c3",
+          "text": "inc    %rbx"
+        },
+        {
+          "va": 18307,
+          "bytes": "89 c1",
+          "text": "mov    %eax,%ecx"
+        },
+        {
+          "va": 18309,
+          "bytes": "49 83 c6 78          \tad",
+          "text": "d    $0x78,%r14"
+        },
+        {
+          "va": 18313,
+          "bytes": "48 39 cb",
+          "text": "cmp    %rcx,%rbx"
+        },
+        {
+          "va": 18316,
+          "bytes": "73 32",
+          "text": "jae    0x47c0"
+        },
+        {
+          "va": 18318,
+          "bytes": "49 8b 0e",
+          "text": "mov    (%r14),%rcx"
+        },
+        {
+          "va": 18321,
+          "bytes": "48 85 c9",
+          "text": "test   %rcx,%rcx"
+        },
+        {
+          "va": 18324,
+          "bytes": "74 ea",
+          "text": "je     0x4780"
+        },
+        {
+          "va": 18326,
+          "bytes": "48 8b 7d c8",
+          "text": "mov    -0x38(%rbp),%rdi"
+        },
+        {
+          "va": 18330,
+          "bytes": "48 8b 75 c0",
+          "text": "mov    -0x40(%rbp),%rsi"
+        },
+        {
+          "va": 18334,
+          "bytes": "ff d1                \tca",
+          "text": "ll   *%rcx"
+        },
+        {
+          "va": 18336,
+          "bytes": "48 8d 05 61 61 01 00",
+          "text": "lea    0x16161(%rip),%rax        # 0x1a908"
+        },
+        {
+          "va": 18343,
+          "bytes": "4c 89 e2",
+          "text": "mov    %r12,%rdx"
+        },
+        {
+          "va": 18346,
+          "bytes": "8b 80 a0 00 00 00",
+          "text": "mov    0xa0(%rax),%eax"
+        },
+        {
+          "va": 18352,
+          "bytes": "eb ce",
+          "text": "jmp    0x4780"
+        },
+        {
+          "va": 18354,
+          "bytes": "66 66 66 66 66 2e 0f \tda",
+          "text": "ta16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)"
+        },
+        {
+          "va": 18361,
+          "bytes": "1f 84 00 00 00 00 00",
+          "text": ""
+        },
+        {
+          "va": 18368,
+          "bytes": "48 8d 0d 41 61 01 00",
+          "text": "lea    0x16141(%rip),%rcx        # 0x1a908"
+        },
+        {
+          "va": 18375,
+          "bytes": "48 8b 5d c8",
+          "text": "mov    -0x38(%rbp),%rbx"
+        },
+        {
+          "va": 18379,
+          "bytes": "48 8b 75 c0",
+          "text": "mov    -0x40(%rbp),%rsi"
+        },
+        {
+          "va": 18383,
+          "bytes": "49 89 d4",
+          "text": "mov    %rdx,%r12"
+        },
+        {
+          "va": 18386,
+          "bytes": "8b 81 a4 00 00 00",
+          "text": "mov    0xa4(%rcx),%eax"
+        },
+        {
+          "va": 18392,
+          "bytes": "48 89 df",
+          "text": "mov    %rbx,%rdi"
+        },
+        {
+          "va": 18395,
+          "bytes": "48 6b c0 78",
+          "text": "imul   $0x78,%rax,%rax"
+        },
+        {
+          "va": 18399,
+          "bytes": "ff 54 01 58          \tca",
+          "text": "ll   *0x58(%rcx,%rax,1)"
+        },
+        {
+          "va": 18403,
+          "bytes": "85 c0",
+          "text": "test   %eax,%eax"
+        },
+        {
+          "va": 18405,
+          "bytes": "75 53",
+          "text": "jne    0x483a"
+        },
+        {
+          "va": 18407,
+          "bytes": "44 8b 73 14",
+          "text": "mov    0x14(%rbx),%r14d"
+        },
+        {
+          "va": 18411,
+          "bytes": "8b 43 18",
+          "text": "mov    0x18(%rbx),%eax"
+        },
+        {
+          "va": 18414,
+          "bytes": "48 8b 7d c0",
+          "text": "mov    -0x40(%rbp),%rdi"
+        },
+        {
+          "va": 18418,
+          "bytes": "41 83 ee 80",
+          "text": "sub    $0xffffff80,%r14d"
+        },
+        {
+          "va": 18422,
+          "bytes": "44 29 e0",
+          "text": "sub    %r12d,%eax"
+        },
+        {
+          "va": 18425,
+          "bytes": "41 89 c4",
+          "text": "mov    %eax,%r12d"
+        },
+        {
+          "va": 18428,
+          "bytes": "44 89 73 14",
+          "text": "mov    %r14d,0x14(%rbx)"
+        },
+        {
+          "va": 18432,
+          "bytes": "89 43 18",
+          "text": "mov    %eax,0x18(%rbx)"
+        },
+        {
+          "va": 18435,
+          "bytes": "0f 85 f7 fe ff ff",
+          "text": "jne    0x4700"
+        },
+        {
+          "va": 18441,
+          "bytes": "45 31 ff",
+          "text": "xor    %r15d,%r15d"
+        },
+        {
+          "va": 18444,
+          "bytes": "eb 2f",
+          "text": "jmp    0x483d"
+        },
+        {
+          "va": 18446,
+          "bytes": "48 8b 0d cb f8 00 00",
+          "text": "mov    0xf8cb(%rip),%rcx        # 0x140e0"
+        },
+        {
+          "va": 18453,
+          "bytes": "48 8d 3d 08 ac 00 00",
+          "text": "lea    0xac08(%rip),%rdi        # 0xf424"
+        },
+        {
+          "va": 18460,
+          "bytes": "be 34 00 00 00",
+          "text": "mov    $0x34,%esi"
+        },
+        {
+          "va": 18465,
+          "bytes": "ba 01 00 00 00",
+          "text": "mov    $0x1,%edx"
+        },
+        {
+          "va": 18470,
+          "bytes": "e8 45 63 00 00       \tca",
+          "text": "ll   0xab70"
+        },
+        {
+          "va": 18475,
+          "bytes": "b8 00 00 6d 8a",
+          "text": "mov    $0x8a6d0000,%eax"
+        },
+        {
+          "va": 18480,
+          "bytes": "eb 42",
+          "text": "jmp    0x4874"
+        },
+        {
+          "va": 18482,
+          "bytes": "41 bf 00 00 6d 8a",
+          "text": "mov    $0x8a6d0000,%r15d"
+        },
+        {
+          "va": 18488,
+          "bytes": "eb 0e",
+          "text": "jmp    0x4848"
+        },
+        {
+          "va": 18490,
+          "bytes": "41 89 c7",
+          "text": "mov    %eax,%r15d"
+        },
+        {
+          "va": 18493,
+          "bytes": "4c 8b 35 a4 f8 00 00",
+          "text": "mov    0xf8a4(%rip),%r14        # 0x140e8"
+        },
+        {
+          "va": 18500,
+          "bytes": "48 8b 5d b8",
+          "text": "mov    -0x48(%rbp),%rbx"
+        },
+        {
+          "va": 18504,
+          "bytes": "48 89 df",
+          "text": "mov    %rbx,%rdi"
+        },
+        {
+          "va": 18507,
+          "bytes": "e8 d0 63 00 00       \tca",
+          "text": "ll   0xac20"
+        },
+        {
+          "va": 18512,
+          "bytes": "85 c0",
+          "text": "test   %eax,%eax"
+        },
+        {
+          "va": 18514,
+          "bytes": "79 1d",
+          "text": "jns    0x4871"
+        },
+        {
+          "va": 18516,
+          "bytes": "48 8b 0d 85 f8 00 00",
+          "text": "mov    0xf885(%rip),%rcx        # 0x140e0"
+        },
+        {
+          "va": 18523,
+          "bytes": "48 8d 3d 0e b1 00 00",
+          "text": "lea    0xb10e(%rip),%rdi        # 0xf970"
+        },
+        {
+          "va": 18530,
+          "bytes": "be 32 00 00 00",
+          "text": "mov    $0x32,%esi"
+        },
+        {
+          "va": 18535,
+          "bytes": "ba 01 00 00 00",
+          "text": "mov    $0x1,%edx"
+        },
+        {
+          "va": 18540,
+          "bytes": "e8 ff 62 00 00       \tca",
+          "text": "ll   0xab70"
+        },
+        {
+          "va": 18545,
+          "bytes": "44 89 f8",
+          "text": "mov    %r15d,%eax"
+        },
+        {
+          "va": 18548,
+          "bytes": "49 8b 0e",
+          "text": "mov    (%r14),%rcx"
+        },
+        {
+          "va": 18551,
+          "bytes": "48 3b 4d d0",
+          "text": "cmp    -0x30(%rbp),%rcx"
+        },
+        {
+          "va": 18555,
+          "bytes": "75 0f",
+          "text": "jne    0x488c"
+        },
+        {
+          "va": 18557,
+          "bytes": "48 8d 65 d8",
+          "text": "lea    -0x28(%rbp),%rsp"
+        },
+        {
+          "va": 18561,
+          "bytes": "5b",
+          "text": "pop    %rbx"
+        },
+        {
+          "va": 18562,
+          "bytes": "41 5c",
+          "text": "pop    %r12"
+        },
+        {
+          "va": 18564,
+          "bytes": "41 5d",
+          "text": "pop    %r13"
+        },
+        {
+          "va": 18566,
+          "bytes": "41 5e",
+          "text": "pop    %r14"
+        },
+        {
+          "va": 18568,
+          "bytes": "41 5f",
+          "text": "pop    %r15"
+        },
+        {
+          "va": 18570,
+          "bytes": "5d",
+          "text": "pop    %rbp"
+        },
+        {
+          "va": 18571,
+          "bytes": "c3",
+          "text": "ret"
+        },
+        {
+          "va": 18572,
+          "bytes": "e8 9f 63 00 00       \tca",
+          "text": "ll   0xac30"
+        },
+        {
+          "va": 18577,
+          "bytes": "0f 0b",
+          "text": "ud2"
+        }
+      ]
+    },
+    "sceAgcDriverSubmitMultiDcbs": {
+      "name": "sceAgcDriverSubmitMultiDcbs",
+      "nid": "6UzEidRZwkg",
+      "va": 18592,
+      "size": 20,
+      "file_offset": 34976,
+      "context_references": [
+        {
+          "instruction_va": 18600,
+          "instruction": "lea    0x16009(%rip),%rdi        # 0x1a8b8",
+          "register": "rdi",
+          "context": "dcb_context",
+          "target_va": 108728,
+          "displacement": 90121
+        }
+      ],
+      "context_accesses": [],
+      "argument_struct_fields": [],
+      "raw_bytes": "89 d1 48 89 f2 48 89 fe 48 8d 3d 09 60 01 00 e9 9c fd ff ff",
+      "instructions": [
+        {
+          "va": 18592,
+          "bytes": "89 d1",
+          "text": "mov    %edx,%ecx"
+        },
+        {
+          "va": 18594,
+          "bytes": "48 89 f2",
+          "text": "mov    %rsi,%rdx"
+        },
+        {
+          "va": 18597,
+          "bytes": "48 89 fe",
+          "text": "mov    %rdi,%rsi"
+        },
+        {
+          "va": 18600,
+          "bytes": "48 8d 3d 09 60 01 00",
+          "text": "lea    0x16009(%rip),%rdi        # 0x1a8b8"
+        },
+        {
+          "va": 18607,
+          "bytes": "e9 9c fd ff ff",
+          "text": "jmp    0x4650"
+        }
+      ]
+    },
+    "sceAgcDriverAgrSubmitMultiDcbs": {
+      "name": "sceAgcDriverAgrSubmitMultiDcbs",
+      "nid": "+T8Xo6LtFJI",
+      "va": 18624,
+      "size": 77,
+      "file_offset": 35008,
+      "context_references": [
+        {
+          "instruction_va": 18628,
+          "instruction": "lea    0x1603d(%rip),%rax        # 0x1a908",
+          "register": "rax",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 90173
+        },
+        {
+          "instruction_va": 18652,
+          "instruction": "lea    0x15f85(%rip),%rdi        # 0x1a868",
+          "register": "rdi",
+          "context": "agr_context",
+          "target_va": 108648,
+          "displacement": 89989
+        }
+      ],
+      "context_accesses": [
+        {
+          "instruction_va": 18635,
+          "instruction": "cmpl   $0x0,0x148(%rax)",
+          "context": "global_context",
+          "context_va": 108808,
+          "base_register": "rax",
+          "field_offset": 328,
+          "field_offset_hex": "0x148",
+          "access_type": "WRITE",
+          "access_size": 4,
+          "access_size_hex": "0x4",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        }
+      ],
+      "argument_struct_fields": [],
+      "raw_bytes": "55 48 89 e5 48 8d 05 3d 60 01 00 83 b8 48 01 00 00 00 74 15 89 d1 48 89 f2 48 89 fe 48 8d 3d 85 5f 01 00 5d e9 67 fd ff ff 48 8b 0d f0 f7 00 00 48 8d 3d 67 b4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6a 62 00 00 b8 03 00 6d 8a 5d c3",
+      "instructions": [
+        {
+          "va": 18624,
+          "bytes": "55",
+          "text": "push   %rbp"
+        },
+        {
+          "va": 18625,
+          "bytes": "48 89 e5",
+          "text": "mov    %rsp,%rbp"
+        },
+        {
+          "va": 18628,
+          "bytes": "48 8d 05 3d 60 01 00",
+          "text": "lea    0x1603d(%rip),%rax        # 0x1a908"
+        },
+        {
+          "va": 18635,
+          "bytes": "83 b8 48 01 00 00 00",
+          "text": "cmpl   $0x0,0x148(%rax)"
+        },
+        {
+          "va": 18642,
+          "bytes": "74 15",
+          "text": "je     0x48e9"
+        },
+        {
+          "va": 18644,
+          "bytes": "89 d1",
+          "text": "mov    %edx,%ecx"
+        },
+        {
+          "va": 18646,
+          "bytes": "48 89 f2",
+          "text": "mov    %rsi,%rdx"
+        },
+        {
+          "va": 18649,
+          "bytes": "48 89 fe",
+          "text": "mov    %rdi,%rsi"
+        },
+        {
+          "va": 18652,
+          "bytes": "48 8d 3d 85 5f 01 00",
+          "text": "lea    0x15f85(%rip),%rdi        # 0x1a868"
+        },
+        {
+          "va": 18659,
+          "bytes": "5d",
+          "text": "pop    %rbp"
+        },
+        {
+          "va": 18660,
+          "bytes": "e9 67 fd ff ff",
+          "text": "jmp    0x4650"
+        },
+        {
+          "va": 18665,
+          "bytes": "48 8b 0d f0 f7 00 00",
+          "text": "mov    0xf7f0(%rip),%rcx        # 0x140e0"
+        },
+        {
+          "va": 18672,
+          "bytes": "48 8d 3d 67 b4 00 00",
+          "text": "lea    0xb467(%rip),%rdi        # 0xfd5e"
+        },
+        {
+          "va": 18679,
+          "bytes": "be 38 00 00 00",
+          "text": "mov    $0x38,%esi"
+        },
+        {
+          "va": 18684,
+          "bytes": "ba 01 00 00 00",
+          "text": "mov    $0x1,%edx"
+        },
+        {
+          "va": 18689,
+          "bytes": "e8 6a 62 00 00       \tca",
+          "text": "ll   0xab70"
+        },
+        {
+          "va": 18694,
+          "bytes": "b8 03 00 6d 8a",
+          "text": "mov    $0x8a6d0003,%eax"
+        },
+        {
+          "va": 18699,
+          "bytes": "5d",
+          "text": "pop    %rbp"
+        },
+        {
+          "va": 18700,
+          "bytes": "c3",
+          "text": "ret"
+        }
+      ]
+    },
+    "sceAgcDriverSubmitMultiAcbs": {
+      "name": "sceAgcDriverSubmitMultiAcbs",
+      "nid": "HF3YllT3mXU",
+      "va": 18704,
+      "size": 67,
+      "file_offset": 35088,
+      "context_references": [
+        {
+          "instruction_va": 18737,
+          "instruction": "lea    0x13b28(%rip),%rdi        # 0x18460",
+          "register": "rdi",
+          "context": "acb_table",
+          "target_va": 99424,
+          "displacement": 80680
+        }
+      ],
+      "context_accesses": [],
+      "argument_struct_fields": [],
+      "raw_bytes": "83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 5a 01 00 eb 13 83 ff 20 72 1e 83 c7 e0 48 8d 04 ff 48 8d 3d 28 3b 01 00 48 c1 e0 04 48 01 c7 48 83 c7 08 e9 08 fd ff ff 31 ff 48 83 c7 08 e9 fd fc ff ff",
+      "instructions": [
+        {
+          "va": 18704,
+          "bytes": "83 ff 58",
+          "text": "cmp    $0x58,%edi"
+        },
+        {
+          "va": 18707,
+          "bytes": "72 10",
+          "text": "jb     0x4925"
+        },
+        {
+          "va": 18709,
+          "bytes": "83 c7 a8             \tad",
+          "text": "d    $0xffffffa8,%edi"
+        },
+        {
+          "va": 18712,
+          "bytes": "48 8d 04 ff",
+          "text": "lea    (%rdi,%rdi,8),%rax"
+        },
+        {
+          "va": 18716,
+          "bytes": "48 8d 3d bd 5a 01 00",
+          "text": "lea    0x15abd(%rip),%rdi        # 0x1a3e0"
+        },
+        {
+          "va": 18723,
+          "bytes": "eb 13",
+          "text": "jmp    0x4938"
+        },
+        {
+          "va": 18725,
+          "bytes": "83 ff 20",
+          "text": "cmp    $0x20,%edi"
+        },
+        {
+          "va": 18728,
+          "bytes": "72 1e",
+          "text": "jb     0x4948"
+        },
+        {
+          "va": 18730,
+          "bytes": "83 c7 e0             \tad",
+          "text": "d    $0xffffffe0,%edi"
+        },
+        {
+          "va": 18733,
+          "bytes": "48 8d 04 ff",
+          "text": "lea    (%rdi,%rdi,8),%rax"
+        },
+        {
+          "va": 18737,
+          "bytes": "48 8d 3d 28 3b 01 00",
+          "text": "lea    0x13b28(%rip),%rdi        # 0x18460"
+        },
+        {
+          "va": 18744,
+          "bytes": "48 c1 e0 04",
+          "text": "shl    $0x4,%rax"
+        },
+        {
+          "va": 18748,
+          "bytes": "48 01 c7             \tad",
+          "text": "d    %rax,%rdi"
+        },
+        {
+          "va": 18751,
+          "bytes": "48 83 c7 08          \tad",
+          "text": "d    $0x8,%rdi"
+        },
+        {
+          "va": 18755,
+          "bytes": "e9 08 fd ff ff",
+          "text": "jmp    0x4650"
+        },
+        {
+          "va": 18760,
+          "bytes": "31 ff",
+          "text": "xor    %edi,%edi"
+        },
+        {
+          "va": 18762,
+          "bytes": "48 83 c7 08          \tad",
+          "text": "d    $0x8,%rdi"
+        },
+        {
+          "va": 18766,
+          "bytes": "e9 fd fc ff ff",
+          "text": "jmp    0x4650"
+        }
+      ]
+    }
+  },
+  "context_field_map": {
+    "global_context": [
+      {
+        "offset": 0,
+        "offset_hex": "0x0",
+        "functions": [
+          "sceAgcDriverSubmitCommandBuffer",
+          "sceAgcDriverSubmitMultiCommandBuffers"
+        ],
+        "access_types": [
+          "READ"
+        ],
+        "sizes": [
+          8
+        ],
+        "known_field_hint": "unknown_pointer_or_lockword",
+        "accesses": [
+          {
+            "function": "sceAgcDriverSubmitCommandBuffer",
+            "instruction_va": 6666,
+            "instruction": "mov    (%rbx),%rax",
+            "access_type": "READ",
+            "access_size": 8
+          },
+          {
+            "function": "sceAgcDriverSubmitMultiCommandBuffers",
+            "instruction_va": 18290,
+            "instruction": "ta16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)",
+            "access_type": "READ",
+            "access_size": null
+          },
+          {
+            "function": "sceAgcDriverSubmitMultiCommandBuffers",
+            "instruction_va": 18354,
+            "instruction": "ta16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)",
+            "access_type": "READ",
+            "access_size": null
+          }
+        ]
+      },
+      {
+        "offset": 72,
+        "offset_hex": "0x48",
+        "functions": [
+          "sceAgcDriverSubmitCommandBuffer",
+          "sceAgcDriverSubmitMultiCommandBuffers"
+        ],
+        "access_types": [
+          "READ"
+        ],
+        "sizes": [
+          8
+        ],
+        "known_field_hint": "callback_table_or_context_array",
+        "accesses": [
+          {
+            "function": "sceAgcDriverSubmitCommandBuffer",
+            "instruction_va": 6498,
+            "instruction": "lea    0x48(%rbx),%r13",
+            "access_type": "READ",
+            "access_size": 8
+          },
+          {
+            "function": "sceAgcDriverSubmitMultiCommandBuffers",
+            "instruction_va": 18284,
+            "instruction": "lea    0x48(%rcx),%r14",
+            "access_type": "READ",
+            "access_size": 8
+          }
+        ]
+      },
+      {
+        "offset": 80,
+        "offset_hex": "0x50",
+        "functions": [
+          "sceAgcDriverSubmitCommandBuffer"
+        ],
+        "access_types": [
+          "READ"
+        ],
+        "sizes": [
+          4
+        ],
+        "known_field_hint": null,
+        "accesses": [
+          {
+            "function": "sceAgcDriverSubmitCommandBuffer",
+            "instruction_va": 6610,
+            "instruction": "ll   *0x50(%rbx,%rax,1)",
+            "access_type": "READ",
+            "access_size": 4
+          }
+        ]
+      },
+      {
+        "offset": 88,
+        "offset_hex": "0x58",
+        "functions": [
+          "sceAgcDriverSubmitMultiCommandBuffers"
+        ],
+        "access_types": [
+          "READ"
+        ],
+        "sizes": [
+          4
+        ],
+        "known_field_hint": null,
+        "accesses": [
+          {
+            "function": "sceAgcDriverSubmitMultiCommandBuffers",
+            "instruction_va": 18399,
+            "instruction": "ll   *0x58(%rcx,%rax,1)",
+            "access_type": "READ",
+            "access_size": 4
+          }
+        ]
+      },
+      {
+        "offset": 160,
+        "offset_hex": "0xa0",
+        "functions": [
+          "sceAgcDriverSubmitCommandBuffer",
+          "sceAgcDriverSubmitMultiCommandBuffers"
+        ],
+        "access_types": [
+          "READ"
+        ],
+        "sizes": [
+          4
+        ],
+        "known_field_hint": "count_or_active_count",
+        "accesses": [
+          {
+            "function": "sceAgcDriverSubmitCommandBuffer",
+            "instruction_va": 6488,
+            "instruction": "mov    0xa0(%rbx),%eax",
+            "access_type": "READ",
+            "access_size": 4
+          },
+          {
+            "function": "sceAgcDriverSubmitCommandBuffer",
+            "instruction_va": 6548,
+            "instruction": "mov    0xa0(%rbx),%eax",
+            "access_type": "READ",
+            "access_size": 4
+          },
+          {
+            "function": "sceAgcDriverSubmitMultiCommandBuffers",
+            "instruction_va": 18265,
+            "instruction": "mov    0xa0(%rax),%eax",
+            "access_type": "READ",
+            "access_size": 4
+          },
+          {
+            "function": "sceAgcDriverSubmitMultiCommandBuffers",
+            "instruction_va": 18346,
+            "instruction": "mov    0xa0(%rax),%eax",
+            "access_type": "READ",
+            "access_size": 4
+          }
+        ]
+      },
+      {
+        "offset": 164,
+        "offset_hex": "0xa4",
+        "functions": [
+          "sceAgcDriverSubmitCommandBuffer",
+          "sceAgcDriverSubmitMultiCommandBuffers"
+        ],
+        "access_types": [
+          "READ"
+        ],
+        "sizes": [
+          4
+        ],
+        "known_field_hint": "index_or_selector",
+        "accesses": [
+          {
+            "function": "sceAgcDriverSubmitCommandBuffer",
+            "instruction_va": 6593,
+            "instruction": "mov    0xa4(%rbx),%eax",
+            "access_type": "READ",
+            "access_size": 4
+          },
+          {
+            "function": "sceAgcDriverSubmitMultiCommandBuffers",
+            "instruction_va": 18386,
+            "instruction": "mov    0xa4(%rcx),%eax",
+            "access_type": "READ",
+            "access_size": 4
+          }
+        ]
+      },
+      {
+        "offset": 320,
+        "offset_hex": "0x140",
+        "functions": [
+          "sceAgcDriverSubmitCommandBuffer",
+          "sceAgcDriverSubmitMultiCommandBuffers"
+        ],
+        "access_types": [
+          "WRITE"
+        ],
+        "sizes": [],
+        "known_field_hint": "atomic_sequence_or_ticket",
+        "accesses": [
+          {
+            "function": "sceAgcDriverSubmitCommandBuffer",
+            "instruction_va": 6445,
+            "instruction": "lock xadd %rax,0x140(%rbx)",
+            "access_type": "WRITE",
+            "access_size": null
+          },
+          {
+            "function": "sceAgcDriverSubmitMultiCommandBuffers",
+            "instruction_va": 18097,
+            "instruction": "lock xadd %rax,0x140(%rcx)",
+            "access_type": "WRITE",
+            "access_size": null
+          }
+        ]
+      },
+      {
+        "offset": 328,
+        "offset_hex": "0x148",
+        "functions": [
+          "sceAgcDriverAgrSubmitDcb",
+          "sceAgcDriverAgrSubmitMultiDcbs"
+        ],
+        "access_types": [
+          "WRITE"
+        ],
+        "sizes": [
+          4
+        ],
+        "known_field_hint": "mode_or_feature_state",
+        "accesses": [
+          {
+            "function": "sceAgcDriverAgrSubmitDcb",
+            "instruction_va": 10443,
+            "instruction": "cmpl   $0x0,0x148(%rax)",
+            "access_type": "WRITE",
+            "access_size": 4
+          },
+          {
+            "function": "sceAgcDriverAgrSubmitMultiDcbs",
+            "instruction_va": 18635,
+            "instruction": "cmpl   $0x0,0x148(%rax)",
+            "access_type": "WRITE",
+            "access_size": 4
+          }
+        ]
+      }
+    ]
+  },
+  "submit_command_buffer_argument_fields": [
+    {
+      "offset": 0,
+      "offset_hex": "0x0",
+      "sizes": [
+        8
+      ],
+      "access_types": [
+        "READ"
+      ],
+      "accesses": [
+        {
+          "instruction_va": 6419,
+          "instruction": "mov    (%r14),%rax",
+          "base_register": "r14",
+          "field_offset": 0,
+          "field_offset_hex": "0x0",
+          "access_type": "READ",
+          "access_size": 8,
+          "access_size_hex": "0x8"
+        }
+      ]
+    },
+    {
+      "offset": 8,
+      "offset_hex": "0x8",
+      "sizes": [
+        4
+      ],
+      "access_types": [
+        "READ"
+      ],
+      "accesses": [
+        {
+          "instruction_va": 6426,
+          "instruction": "mov    0x8(%r14),%eax",
+          "base_register": "r14",
+          "field_offset": 8,
+          "field_offset_hex": "0x8",
+          "access_type": "READ",
+          "access_size": 4,
+          "access_size_hex": "0x4"
+        }
+      ]
+    },
+    {
+      "offset": 12,
+      "offset_hex": "0xc",
+      "sizes": [
+        4
+      ],
+      "access_types": [
+        "READ"
+      ],
+      "accesses": [
+        {
+          "instruction_va": 6433,
+          "instruction": "mov    0xc(%r14),%al",
+          "base_register": "r14",
+          "field_offset": 12,
+          "field_offset_hex": "0xc",
+          "access_type": "READ",
+          "access_size": 4,
+          "access_size_hex": "0x4"
+        }
+      ]
+    }
+  ],
+  "conclusions": {
+    "CONTEXT_REGISTER_TRACKING": true,
+    "CONTEXT_ACCESS_SIZES_IDENTIFIED": true,
+    "SUBMIT_ARGUMENT_FIELDS_IDENTIFIED": true,
+    "CONTEXT_WRITES_FOUND": true,
+    "CONTEXT_RMW_FOUND": false,
+    "ABI_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}
+0
+
+==> Recopilar artefactos
+
+[WSL] set -e
+
+mkdir -p '/mnt/d/agc_work/stage51_results'
+
+cp '/tmp/agc_stage51/stage51_static.json' \
+   '/mnt/d/agc_work/stage51_results/stage51_static.json'
+
+cp '/tmp/agc_stage51/field_types_summary.txt' \
+   '/mnt/d/agc_work/stage51_results/field_types_summary.txt'
+
+cp '/tmp/agc_stage51/submit_commandbuffer_disassembly.txt' \
+   '/mnt/d/agc_work/stage51_results/submit_commandbuffer_disassembly.txt'
+
+rm -rf '/mnt/d/agc_work/stage51_results/functions'
+
+cp -r '/tmp/agc_stage51/functions' \
+      '/mnt/d/agc_work/stage51_results/functions'
+
+echo '--- field_types_summary.txt ---'
+cat '/tmp/agc_stage51/field_types_summary.txt'
+
+echo '--- output files ---'
+find '/mnt/d/agc_work/stage51_results' \
+    -maxdepth 2 \
+    -type f |
+    sort
+--- field_types_summary.txt ---
+AGC PS5 Stage 51 - Precise Field Type / Access Audit
+
+=== CONTEXT REFERENCES ===
+
+[sceAgcDriverSubmitDcb] VA=0x28b0
+  0x28b3: lea    0x17ffe(%rip),%rdi        # 0x1a8b8 -> dcb_context 0x1a8b8
+
+[sceAgcDriverAgrSubmitDcb] VA=0x28c0
+  0x28c4: lea    0x1803d(%rip),%rax        # 0x1a908 -> global_context 0x1a908
+  0x28d7: lea    0x17f8a(%rip),%rdi        # 0x1a868 -> agr_context 0x1a868
+
+[sceAgcDriverSubmitAcb] VA=0x2910
+  0x2931: lea    0x15b28(%rip),%rdi        # 0x18460 -> acb_table 0x18460
+
+[sceAgcDriverSubmitCommandBuffer] VA=0x18b0
+  0x1908: lea    0x18ff9(%rip),%rbx        # 0x1a908 -> global_context 0x1a908
+
+[sceAgcDriverSubmitMultiCommandBuffers] VA=0x4650
+  0x469b: lea    0x16266(%rip),%rcx        # 0x1a908 -> global_context 0x1a908
+  0x4752: lea    0x161af(%rip),%rax        # 0x1a908 -> global_context 0x1a908
+  0x4763: lea    0x1619e(%rip),%rcx        # 0x1a908 -> global_context 0x1a908
+  0x47a0: lea    0x16161(%rip),%rax        # 0x1a908 -> global_context 0x1a908
+  0x47c0: lea    0x16141(%rip),%rcx        # 0x1a908 -> global_context 0x1a908
+
+[sceAgcDriverSubmitMultiDcbs] VA=0x48a0
+  0x48a8: lea    0x16009(%rip),%rdi        # 0x1a8b8 -> dcb_context 0x1a8b8
+
+[sceAgcDriverAgrSubmitMultiDcbs] VA=0x48c0
+  0x48c4: lea    0x1603d(%rip),%rax        # 0x1a908 -> global_context 0x1a908
+  0x48dc: lea    0x15f85(%rip),%rdi        # 0x1a868 -> agr_context 0x1a868
+
+[sceAgcDriverSubmitMultiAcbs] VA=0x4910
+  0x4931: lea    0x13b28(%rip),%rdi        # 0x18460 -> acb_table 0x18460
+
+=== CONTEXT FIELD TYPES ===
+
+[global_context]
+  0x0 sizes=8 types=READ functions=sceAgcDriverSubmitCommandBuffer, sceAgcDriverSubmitMultiCommandBuffers
+      hint=unknown_pointer_or_lockword
+  0x48 sizes=8 types=READ functions=sceAgcDriverSubmitCommandBuffer, sceAgcDriverSubmitMultiCommandBuffers
+      hint=callback_table_or_context_array
+  0x50 sizes=4 types=READ functions=sceAgcDriverSubmitCommandBuffer
+  0x58 sizes=4 types=READ functions=sceAgcDriverSubmitMultiCommandBuffers
+  0xa0 sizes=4 types=READ functions=sceAgcDriverSubmitCommandBuffer, sceAgcDriverSubmitMultiCommandBuffers
+      hint=count_or_active_count
+  0xa4 sizes=4 types=READ functions=sceAgcDriverSubmitCommandBuffer, sceAgcDriverSubmitMultiCommandBuffers
+      hint=index_or_selector
+  0x140 sizes=- types=WRITE functions=sceAgcDriverSubmitCommandBuffer, sceAgcDriverSubmitMultiCommandBuffers
+      hint=atomic_sequence_or_ticket
+  0x148 sizes=4 types=WRITE functions=sceAgcDriverAgrSubmitDcb, sceAgcDriverAgrSubmitMultiDcbs
+      hint=mode_or_feature_state
+
+=== SubmitCommandBuffer ARGUMENT STRUCT ===
+
+offset=0x0 sizes=8 types=READ
+  0x1913: mov    (%r14),%rax size=8 type=READ
+
+offset=0x8 sizes=4 types=READ
+  0x191a: mov    0x8(%r14),%eax size=4 type=READ
+
+offset=0xc sizes=4 types=READ
+  0x1921: mov    0xc(%r14),%al size=4 type=READ
+
+=== INTERPRETATION ===
+
+This stage does not assert a final C ABI signature.
+It records exact machine-code access width where the opcode/register encoding permits it.
+A NULL size means the width could not be established reliably by this static pass.
+--- output files ---
+/mnt/d/agc_work/stage51_results/analyze_field_types.py
+/mnt/d/agc_work/stage51_results/field_types_summary.txt
+/mnt/d/agc_work/stage51_results/functions/sceAgcDriverAgrSubmitDcb.bin
+/mnt/d/agc_work/stage51_results/functions/sceAgcDriverAgrSubmitMultiDcbs.bin
+/mnt/d/agc_work/stage51_results/functions/sceAgcDriverSubmitAcb.bin
+/mnt/d/agc_work/stage51_results/functions/sceAgcDriverSubmitCommandBuffer.bin
+/mnt/d/agc_work/stage51_results/functions/sceAgcDriverSubmitDcb.bin
+/mnt/d/agc_work/stage51_results/functions/sceAgcDriverSubmitMultiAcbs.bin
+/mnt/d/agc_work/stage51_results/functions/sceAgcDriverSubmitMultiCommandBuffers.bin
+/mnt/d/agc_work/stage51_results/functions/sceAgcDriverSubmitMultiDcbs.bin
+/mnt/d/agc_work/stage51_results/stage51_static.json
+/mnt/d/agc_work/stage51_results/submit_commandbuffer_disassembly.txt
+0
+
+==> Hash artefactos
+[INFO] stage51_static.json SHA256=3375c5ab83c2aaf464fa99c33e328bb488e7769e5ac5ad1ed1c00b4cc8c948e1
+[INFO] field_types_summary.txt SHA256=4ccb51606ed3a369790aa4448065f98465811cc1af363922a0f25d257cebb7c0
+[INFO] submit_commandbuffer_disassembly.txt SHA256=4a00780f11c9404e7596b75ae318f4bea261a96214700d847b0f1bb7563b8135
+
+============================================
+Stage 51 completado
+============================================
+
+CONTEXT_REGISTER_TRACKING = True
+CONTEXT_ACCESS_SIZES_IDENTIFIED = True
+SUBMIT_ARGUMENT_FIELDS_IDENTIFIED = True
+CONTEXT_WRITES_FOUND = True
+CONTEXT_RMW_FOUND = False
+ABI_PROTOTYPE_INFERRED = False
+EXECUTED_AGC = False
+
+Resultados:
+  D:\agc_work\stage51_results
+
+Reporte:
+  D:\agc_work\stage51_results\STAGE51_REPORT.json
+PS D:\agc_ps5_stage51>

@@ -1,0 +1,68 @@
+AGC PS5 Stage 51 - Precise Field Type / Access Audit
+
+=== CONTEXT REFERENCES ===
+
+[sceAgcDriverSubmitDcb] VA=0x28b0
+  0x28b3: lea    0x17ffe(%rip),%rdi        # 0x1a8b8 -> dcb_context 0x1a8b8
+
+[sceAgcDriverAgrSubmitDcb] VA=0x28c0
+  0x28c4: lea    0x1803d(%rip),%rax        # 0x1a908 -> global_context 0x1a908
+  0x28d7: lea    0x17f8a(%rip),%rdi        # 0x1a868 -> agr_context 0x1a868
+
+[sceAgcDriverSubmitAcb] VA=0x2910
+  0x2931: lea    0x15b28(%rip),%rdi        # 0x18460 -> acb_table 0x18460
+
+[sceAgcDriverSubmitCommandBuffer] VA=0x18b0
+  0x1908: lea    0x18ff9(%rip),%rbx        # 0x1a908 -> global_context 0x1a908
+
+[sceAgcDriverSubmitMultiCommandBuffers] VA=0x4650
+  0x469b: lea    0x16266(%rip),%rcx        # 0x1a908 -> global_context 0x1a908
+  0x4752: lea    0x161af(%rip),%rax        # 0x1a908 -> global_context 0x1a908
+  0x4763: lea    0x1619e(%rip),%rcx        # 0x1a908 -> global_context 0x1a908
+  0x47a0: lea    0x16161(%rip),%rax        # 0x1a908 -> global_context 0x1a908
+  0x47c0: lea    0x16141(%rip),%rcx        # 0x1a908 -> global_context 0x1a908
+
+[sceAgcDriverSubmitMultiDcbs] VA=0x48a0
+  0x48a8: lea    0x16009(%rip),%rdi        # 0x1a8b8 -> dcb_context 0x1a8b8
+
+[sceAgcDriverAgrSubmitMultiDcbs] VA=0x48c0
+  0x48c4: lea    0x1603d(%rip),%rax        # 0x1a908 -> global_context 0x1a908
+  0x48dc: lea    0x15f85(%rip),%rdi        # 0x1a868 -> agr_context 0x1a868
+
+[sceAgcDriverSubmitMultiAcbs] VA=0x4910
+  0x4931: lea    0x13b28(%rip),%rdi        # 0x18460 -> acb_table 0x18460
+
+=== CONTEXT FIELD TYPES ===
+
+[global_context]
+  0x0 sizes=8 types=READ functions=sceAgcDriverSubmitCommandBuffer, sceAgcDriverSubmitMultiCommandBuffers
+      hint=unknown_pointer_or_lockword
+  0x48 sizes=8 types=READ functions=sceAgcDriverSubmitCommandBuffer, sceAgcDriverSubmitMultiCommandBuffers
+      hint=callback_table_or_context_array
+  0x50 sizes=4 types=READ functions=sceAgcDriverSubmitCommandBuffer
+  0x58 sizes=4 types=READ functions=sceAgcDriverSubmitMultiCommandBuffers
+  0xa0 sizes=4 types=READ functions=sceAgcDriverSubmitCommandBuffer, sceAgcDriverSubmitMultiCommandBuffers
+      hint=count_or_active_count
+  0xa4 sizes=4 types=READ functions=sceAgcDriverSubmitCommandBuffer, sceAgcDriverSubmitMultiCommandBuffers
+      hint=index_or_selector
+  0x140 sizes=- types=WRITE functions=sceAgcDriverSubmitCommandBuffer, sceAgcDriverSubmitMultiCommandBuffers
+      hint=atomic_sequence_or_ticket
+  0x148 sizes=4 types=WRITE functions=sceAgcDriverAgrSubmitDcb, sceAgcDriverAgrSubmitMultiDcbs
+      hint=mode_or_feature_state
+
+=== SubmitCommandBuffer ARGUMENT STRUCT ===
+
+offset=0x0 sizes=8 types=READ
+  0x1913: mov    (%r14),%rax size=8 type=READ
+
+offset=0x8 sizes=4 types=READ
+  0x191a: mov    0x8(%r14),%eax size=4 type=READ
+
+offset=0xc sizes=4 types=READ
+  0x1921: mov    0xc(%r14),%al size=4 type=READ
+
+=== INTERPRETATION ===
+
+This stage does not assert a final C ABI signature.
+It records exact machine-code access width where the opcode/register encoding permits it.
+A NULL size means the width could not be established reliably by this static pass.

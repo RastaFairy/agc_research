@@ -1,0 +1,4 @@
+AGC PS5 Stage 58 - Symbol Inventory
+
+symbol_count = 0
+

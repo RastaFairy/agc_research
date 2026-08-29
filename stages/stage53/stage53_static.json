@@ -1,0 +1,93 @@
+{
+  "stage": 53,
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "va": 6320,
+    "size": 380
+  },
+  "stage52_conclusions": {
+    "SUBMIT_DCB_REGISTER_PLACEMENT_PROVEN": true,
+    "SUBMIT_ARGUMENT_OFFSETS_PROVEN": true,
+    "SUBMIT_ARGUMENT_WIDTHS_EXACT": true,
+    "SUBMIT_ARGUMENT_SHAPE_MATCHES_EXPECTED": true,
+    "ABI_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "register_evidence": {
+    "rsi_to_r14_positions": [
+      6351
+    ],
+    "submit_dcb_wrapper_valid": true,
+    "agr_submit_dcb_wrapper_valid": true
+  },
+  "argument_field_evidence": [
+    {
+      "instruction_va": 6419,
+      "instruction": "mov (%r14),%rax",
+      "register": "R14",
+      "source_register": "RSI",
+      "field_offset": 0,
+      "field_offset_hex": "0x0",
+      "width": 8,
+      "width_hex": "0x8",
+      "meaning_inference": "pointer-sized / 64-bit load",
+      "evidence": "DIRECT_MACHINE_CODE"
+    },
+    {
+      "instruction_va": 6426,
+      "instruction": "mov 0x8(%r14),%eax",
+      "register": "R14",
+      "source_register": "RSI",
+      "field_offset": 8,
+      "field_offset_hex": "0x8",
+      "width": 4,
+      "width_hex": "0x4",
+      "meaning_inference": "32-bit load",
+      "evidence": "DIRECT_MACHINE_CODE"
+    },
+    {
+      "instruction_va": 6433,
+      "instruction": "mov 0xc(%r14),%al",
+      "register": "R14",
+      "source_register": "RSI",
+      "field_offset": 12,
+      "field_offset_hex": "0xc",
+      "width": 1,
+      "width_hex": "0x1",
+      "meaning_inference": "8-bit load",
+      "evidence": "DIRECT_MACHINE_CODE"
+    }
+  ],
+  "return_evidence": {
+    "eax_from_r15d_positions": [
+      6675
+    ],
+    "return_width_evidence": true
+  },
+  "candidate_prototypes": [
+    {
+      "name": "opaque_struct_candidate",
+      "prototype": "int sceAgcDriverSubmitCommandBuffer(void *context, const struct SceAgcSubmitCommandBufferArgs *args);",
+      "abi_shape": "RDI=context, RSI=args, EAX=return",
+      "confidence": "ABI_COMPATIBLE_CANDIDATE",
+      "semantic_field_names": false
+    },
+    {
+      "name": "byte_layout_exact_candidate",
+      "prototype": "int sceAgcDriverSubmitCommandBuffer(void *context, const unsigned char *args);",
+      "abi_shape": "RDI=context, RSI=args, EAX=return",
+      "confidence": "ABI_COMPATIBLE_BUT_SEMANTICALLY_WEAK",
+      "semantic_field_names": false
+    }
+  ],
+  "conclusions": {
+    "REGISTER_PLACEMENT_PROVEN": true,
+    "ARGUMENT_OFFSETS_PROVEN": true,
+    "ARGUMENT_WIDTHS_EXACT": true,
+    "TWO_ARGUMENT_ABI_SHAPE_PROVEN": true,
+    "RETURN_REGISTER_EVIDENCE": true,
+    "ABI_COMPATIBLE_PROTOTYPE_CANDIDATE": true,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}

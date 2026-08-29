@@ -1,0 +1,123 @@
+AGC PS5 Stage 60 - Dispatch Table Initialization / Index Provenance Audit
+
+=== DISPATCH MODEL ===
+global_context = 0x1A908
+index_offset = 0xA4
+dispatch_base_offset = 0x50
+dispatch_stride = 0x78
+dispatch_expression = global_context + 0x50 + index * 0x78
+
+=== STAGE 59 DISPATCH SITES ===
+call=0x19D2 index_load=True stride_mul=True symbol=<none>
+
+=== INDEX +0xA4 ACCESSES ===
+VA=0x210 type=WRITE field_va=0x1A9AC vmovups %xmm0,0xa4(%rax)
+VA=0x4630 type=READ_OR_MEMORY field_va=0x1A9AC mov 0xa4(%rcx),%eax
+VA=0x47D2 type=READ_OR_MEMORY field_va=0x1A9AC mov 0xa4(%rcx),%eax
+VA=0x19C1 type=READ_OR_MEMORY field_va=0x1A9AC mov 0xa4(%rbx),%eax
+VA=0x2AB3 type=READ_OR_MEMORY field_va=0x1A9AC mov 0xa4(%r12),%eax
+VA=0x187D type=READ_OR_MEMORY field_va=0x1A9AC mov 0xa4(%r15),%eax
+
+=== TABLE WRITE CANDIDATES ===
+VA=0x1BA slot_index=0 slot_offset=0x50 store=True vmovups %ymm0,0x50(%rax)
+VA=0x1D7 slot_index=0 slot_offset=0x50 store=True mov %rdx,0x50(%rax)
+VA=0x2375 slot_index=0 slot_offset=0x50 store=True cmpb $0x0,0x50(%rax,%r15,1)
+VA=0x2A17 slot_index=2 slot_offset=0x140 store=True lock xadd %rax,0x140(%r12)
+VA=0x2AC6 slot_index=0 slot_offset=0x50 store=False call *0x50(%r12,%rax,1)
+VA=0x41B4 slot_index=1 slot_offset=0xC8 store=False lea 0xc8(%r14),%rax
+VA=0x41ED slot_index=0 slot_offset=0x50 store=True mov %eax,0x50(%rbx)
+VA=0x46B1 slot_index=2 slot_offset=0x140 store=True lock xadd %rax,0x140(%rcx)
+VA=0x109 slot_index=0 slot_offset=0x50 store=True vmovups %ymm0,0x50(%rcx,%rax,1)
+VA=0x11F slot_index=0 slot_offset=0x50 store=True mov %rsi,0x50(%rcx,%rax,1)
+VA=0x144F slot_index=1 slot_offset=0xC8 store=False lea 0xc8(%rbx),%rax
+VA=0x192D slot_index=2 slot_offset=0x140 store=True lock xadd %rax,0x140(%rbx)
+VA=0x19D2 slot_index=0 slot_offset=0x50 store=False call *0x50(%rbx,%rax,1)
+VA=0x1B64 slot_index=2 slot_offset=0x140 store=True lock xadd %rax,0x140(%r12)
+VA=0x1C92 slot_index=2 slot_offset=0x140 store=True lock xadd %rax,0x140(%r13)
+VA=0x1DE1 slot_index=2 slot_offset=0x140 store=True lock xadd %rax,0x140(%r13)
+VA=0x1758 slot_index=0 slot_offset=0x50 store=True mov %ecx,0x50(%rsp)
+VA=0x1795 slot_index=0 slot_offset=0x50 store=True movl $0x0,0x50(%rsp)
+VA=0x188E slot_index=0 slot_offset=0x50 store=False mov 0x50(%r15,%rax,1),%rax
+VA=0x3A65 slot_index=1 slot_offset=0xC8 store=True mov %rcx,0xc8(%r15)
+
+=== POINTER STORE WINDOWS ===
+slot_index=0 slot_offset=0x50 instruction=0x1BA
+slot_index=0 slot_offset=0x50 instruction=0x1D7
+slot_index=0 slot_offset=0x50 instruction=0x2375
+slot_index=2 slot_offset=0x140 instruction=0x2A17
+slot_index=0 slot_offset=0x50 instruction=0x41ED
+slot_index=2 slot_offset=0x140 instruction=0x46B1
+slot_index=0 slot_offset=0x50 instruction=0x109
+slot_index=0 slot_offset=0x50 instruction=0x11F
+slot_index=2 slot_offset=0x140 instruction=0x192D
+slot_index=2 slot_offset=0x140 instruction=0x1B64
+slot_index=2 slot_offset=0x140 instruction=0x1C92
+slot_index=2 slot_offset=0x140 instruction=0x1DE1
+slot_index=0 slot_offset=0x50 instruction=0x1758
+slot_index=0 slot_offset=0x50 instruction=0x1795
+slot_index=1 slot_offset=0xC8 instruction=0x3A65
+
+=== FUNCTION RANKING ===
+VA=0x18BD score=415 index_access=1 table_writes=2 dispatch_calls=1 global_refs=1 symbol=<none>
+VA=0x296D score=415 index_access=1 table_writes=2 dispatch_calls=1 global_refs=1 symbol=<none>
+VA=0x160 score=315 index_access=1 table_writes=2 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x1824 score=315 index_access=1 table_writes=1 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x465D score=315 index_access=1 table_writes=1 dispatch_calls=0 global_refs=5 symbol=<none>
+VA=0x45B4 score=215 index_access=1 table_writes=0 dispatch_calls=0 global_refs=4 symbol=<none>
+VA=0x14 score=195 index_access=0 table_writes=2 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x1344 score=170 index_access=0 table_writes=3 dispatch_calls=0 global_refs=2 symbol=<none>
+VA=0x1B44 score=170 index_access=0 table_writes=1 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x1C0D score=170 index_access=0 table_writes=2 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x363D score=170 index_access=0 table_writes=1 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x40F4 score=170 index_access=0 table_writes=2 dispatch_calls=0 global_refs=3 symbol=<none>
+VA=0x1F14 score=145 index_access=0 table_writes=1 dispatch_calls=0 global_refs=3 symbol=<none>
+VA=0x28C0 score=95 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x1A34 score=70 index_access=0 table_writes=0 dispatch_calls=0 global_refs=2 symbol=<none>
+VA=0x34B0 score=70 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x3F7D score=70 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x2F0 score=45 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x387 score=45 index_access=0 table_writes=0 dispatch_calls=0 global_refs=6 symbol=<none>
+VA=0x26A0 score=45 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x2C20 score=45 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x3000 score=45 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x3030 score=45 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x306D score=45 index_access=0 table_writes=0 dispatch_calls=0 global_refs=3 symbol=<none>
+VA=0x48C0 score=45 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x6610 score=45 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x67E0 score=45 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x6810 score=45 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x6897 score=45 index_access=0 table_writes=0 dispatch_calls=0 global_refs=2 symbol=<none>
+VA=0x7550 score=45 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x75D0 score=45 index_access=0 table_writes=0 dispatch_calls=0 global_refs=3 symbol=<none>
+VA=0xF6D score=20 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x1011 score=20 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x2E30 score=20 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x2F4D score=20 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x3AC0 score=20 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x3B70 score=20 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x3CCD score=20 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x6920 score=20 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x7415 score=20 index_access=0 table_writes=0 dispatch_calls=0 global_refs=1 symbol=<none>
+
+=== IMPORTANT LIMIT ===
+The dispatch expression is statically recoverable.
+The +0xA4 index field is statically recoverable.
+Static table-slot writes are collected conservatively.
+Runtime function pointer resolution is not claimed without source-pointer initialization evidence.
+
+=== CONCLUSIONS ===
+STAGE59_DISPATCH_PATTERN_CONFIRMED=True
+DISPATCH_INDEX_FIELD_ACCESS_PROVEN=True
+DISPATCH_TABLE_LITERAL_WRITE_FOUND=True
+DISPATCH_POINTER_STORE_WINDOW_FOUND=True
+TARGET_FUNCTION_CONTAINS_DISPATCH=True
+RUNTIME_FUNCTION_POINTER_RESOLVED=False
+BACKEND_CONSUMER_IDENTIFIED=False
+FIELD_00_POINTER_SEMANTICS_PROVEN=False
+FIELD_08_SIZE_SEMANTICS_PROVEN=False
+FIELD_08_COUNT_SEMANTICS_PROVEN=False
+FIELD_08_INDEX_SEMANTICS_PROVEN=False
+FIELD_0C_FLAG_SEMANTICS_PROVEN=False
+EXACT_STRUCT_SIZE_PROVEN=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False

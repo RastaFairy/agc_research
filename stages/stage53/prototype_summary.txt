@@ -1,0 +1,50 @@
+AGC PS5 Stage 53 - SubmitDcb Prototype / ABI Audit
+
+=== ABI REGISTERS ===
+
+SubmitDcb wrapper:
+  RDI(original) -> RSI
+  RDI <- dcb_context
+  tail-jump -> SubmitCommandBuffer
+
+AgrSubmitDcb wrapper:
+  RDI(original) -> RSI
+  RDI <- agr_context
+  tail-jump -> SubmitCommandBuffer
+
+SubmitCommandBuffer:
+  RSI -> R14
+  R14+0x00 -> 8 bytes
+  R14+0x08 -> 4 bytes
+  R14+0x0C -> 1 byte
+
+=== PROTOTYPE CANDIDATE ===
+
+int sceAgcDriverSubmitCommandBuffer(
+    void *context,
+    const struct SceAgcSubmitCommandBufferArgs *args
+);
+
+Interpretacion:
+  ABI-compatible candidate = True
+  semantic prototype inferred = False
+
+=== FIELD SEMANTICS ===
+
+field_00: 64-bit load
+field_08: 32-bit load
+field_0c: 8-bit load
+
+Los nombres/semantica de esos tres campos
+NO estan demostrados por esta auditoria.
+
+=== CONCLUSIONES ===
+
+REGISTER_PLACEMENT_PROVEN=True
+ARGUMENT_OFFSETS_PROVEN=True
+ARGUMENT_WIDTHS_EXACT=True
+TWO_ARGUMENT_ABI_SHAPE_PROVEN=True
+RETURN_REGISTER_EVIDENCE=True
+ABI_COMPATIBLE_PROTOTYPE_CANDIDATE=True
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False

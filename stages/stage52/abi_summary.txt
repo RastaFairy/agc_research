@@ -1,0 +1,45 @@
+AGC PS5 Stage 52 - SubmitDcb ABI / Argument Shape Audit
+
+=== WRAPPER REGISTER EVIDENCE ===
+
+[sceAgcDriverSubmitDcb]
+  target=sceAgcDriverSubmitCommandBuffer
+  RDI=dcb_context
+  RSI=original_wrapper_argument
+
+[sceAgcDriverAgrSubmitDcb]
+  target=sceAgcDriverSubmitCommandBuffer
+  RDI=agr_context
+  RSI=original_wrapper_argument
+
+=== SUBMITCOMMANDBUFFER ARGUMENT FIELDS ===
+
+0x00 width=8 type=READ
+  0x1913: mov (%r14),%rax
+  meaning=8-byte value / pointer-sized field
+  evidence=DIRECT_BYTE_PATTERN
+
+0x08 width=4 type=READ
+  0x191a: mov 0x8(%r14),%eax
+  meaning=32-bit field
+  evidence=DIRECT_BYTE_PATTERN
+
+0x0c width=1 type=READ
+  0x1921: mov 0xc(%r14),%al
+  meaning=8-bit field
+  evidence=DIRECT_BYTE_PATTERN
+
+=== EXPECTED SHAPE ===
+
+0x00 -> 8 bytes
+0x08 -> 4 bytes
+0x0C -> 1 byte
+
+=== CONCLUSIONS ===
+
+SUBMIT_DCB_REGISTER_PLACEMENT_PROVEN=True
+SUBMIT_ARGUMENT_OFFSETS_PROVEN=True
+SUBMIT_ARGUMENT_WIDTHS_EXACT=True
+SUBMIT_ARGUMENT_SHAPE_MATCHES_EXPECTED=True
+ABI_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False

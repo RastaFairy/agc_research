@@ -1,0 +1,32 @@
+{
+  "stage": 55,
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "nid": "b4fpgH5ZXxQ",
+    "va": "0x18b0",
+    "size": 380
+  },
+  "family": {
+    "name": "sceAgcDriverSubmitMultiCommandBuffers",
+    "va": "0x4650",
+    "size": 579
+  },
+  "conclusions": {
+    "CANONICAL_0x20_RECORD_LAYOUT_PROVEN": true,
+    "FIELD_00_PROVEN_AS_64BIT_ARRAY_VALUE": true,
+    "FIELD_08_PROVEN_AS_32BIT_ARRAY_VALUE": true,
+    "FIELD_0C_PROVEN_ZERO_INITIALIZED_BY_MULTI": true,
+    "ARGUMENT_RECORD_STRIDE_PROVEN": true,
+    "FIELD_00_POINTER_SEMANTICS_PROVEN": false,
+    "FIELD_08_SIZE_SEMANTICS_PROVEN": false,
+    "FIELD_08_COUNT_SEMANTICS_PROVEN": false,
+    "FIELD_0C_FLAG_SEMANTICS_PROVEN": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "hashes": {
+    "stage55_static.json": "222cd3c22c44eccb14ae1ddc0854dd8da7835e4557328b3c340893361cf1fcc7",
+    "field_provenance_summary.txt": "52070639a32c5f3cfe409548bf8b9e66654394fe57f03fdf66a96d71e13fd43f",
+    "submit_family_disassembly.txt": "8c5250eee546cafc4f5bcc2cfbe5e8958a9360fb00c21f6a1b0f93a24cfd73e3"
+  }
+}

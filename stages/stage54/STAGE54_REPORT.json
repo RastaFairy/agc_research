@@ -1,0 +1,26 @@
+{
+  "stage": 54,
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "nid": "b4fpgH5ZXxQ",
+    "va": "0x18b0",
+    "size": 380
+  },
+  "conclusions": {
+    "FIELD_00_WIDTH_CONFIRMED": true,
+    "FIELD_08_WIDTH_CONFIRMED": true,
+    "FIELD_0C_WIDTH_CONFIRMED": true,
+    "MULTI_FAMILY_CORROBORATES_ARGUMENT_LAYOUT": true,
+    "FIELD_00_SEMANTICS_PROVEN": false,
+    "FIELD_08_SEMANTICS_PROVEN": false,
+    "FIELD_0C_SEMANTICS_PROVEN": false,
+    "STRUCT_EXACT_SIZE_PROVEN": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "hashes": {
+    "stage54_static.json": "c1db9220b4fdfb8eff38acea22dfa27e4dcc124ce59541e34dc2ffa6d90e0bf3",
+    "field_semantics_summary.txt": "03da935dca1997c4e0c983e4144691852aec65c4b05c4a925418b1d58aef8361",
+    "submit_family_disassembly.txt": "88aca37be2e5a772ec0b2dda82520f1bef3f5da9a97bff189cd15e7260ac246c"
+  }
+}

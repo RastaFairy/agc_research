@@ -1,0 +1,27 @@
+{
+  "stage": 53,
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "nid": "b4fpgH5ZXxQ",
+    "va": "0x18b0",
+    "size": 380
+  },
+  "candidate_prototype": "int sceAgcDriverSubmitCommandBuffer(void *context, const struct SceAgcSubmitCommandBufferArgs *args);",
+  "conclusions": {
+    "REGISTER_PLACEMENT_PROVEN": true,
+    "ARGUMENT_OFFSETS_PROVEN": true,
+    "ARGUMENT_WIDTHS_EXACT": true,
+    "TWO_ARGUMENT_ABI_SHAPE_PROVEN": true,
+    "RETURN_REGISTER_EVIDENCE": true,
+    "ABI_COMPATIBLE_PROTOTYPE_CANDIDATE": true,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "hashes": {
+    "stage53_static.json": "e3d5fc17ff97027e0afbee6a0bb9a7e898c62e77a0273c36d9242c2ae8a5f9c1",
+    "prototype_summary.txt": "2b2ec814f8fe553d8f59aa9c540dbae438553850ae9be0c0856778d697d51b2d",
+    "prototype_probe.c": "37ee1cdf1ecdc5757649126d36039a10545266cc4867641ecdbea19b2b054bae",
+    "prototype_probe.s": "8b626192a8d446c513aca959a95b0184bb26a1b0a93ce0227e28ddb962e8358b",
+    "submitdcb_prototype_disassembly.txt": "cdcceb63ad57746ff9cbc7efdeea574d13179feb1a86a98cbf9d819c9b979374"
+  }
+}

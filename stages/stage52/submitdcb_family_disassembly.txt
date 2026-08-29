@@ -1,0 +1,198 @@
+============================================
+sceAgcDriverSubmitDcb
+VA=0x28b0 SIZE=0xf
+============================================
+
+
+/mnt/d/agc_work/stage52_results/_stage52_tmp.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000000028b0 <.data>:
+    28b0:	48 89 fe             	mov    %rdi,%rsi
+    28b3:	48 8d 3d fe 7f 01 00 	lea    0x17ffe(%rip),%rdi        # 0x1a8b8
+    28ba:	e9 f1 ef ff ff       	jmp    0x18b0
+
+
+
+============================================
+sceAgcDriverAgrSubmitDcb
+VA=0x28c0 SIZE=0x48
+============================================
+
+
+/mnt/d/agc_work/stage52_results/_stage52_tmp.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000000028c0 <.data>:
+    28c0:	55                   	push   %rbp
+    28c1:	48 89 e5             	mov    %rsp,%rbp
+    28c4:	48 8d 05 3d 80 01 00 	lea    0x1803d(%rip),%rax        # 0x1a908
+    28cb:	83 b8 48 01 00 00 00 	cmpl   $0x0,0x148(%rax)
+    28d2:	74 10                	je     0x28e4
+    28d4:	48 89 fe             	mov    %rdi,%rsi
+    28d7:	48 8d 3d 8a 7f 01 00 	lea    0x17f8a(%rip),%rdi        # 0x1a868
+    28de:	5d                   	pop    %rbp
+    28df:	e9 cc ef ff ff       	jmp    0x18b0
+    28e4:	48 8b 0d f5 17 01 00 	mov    0x117f5(%rip),%rcx        # 0x140e0
+    28eb:	48 8d 3d 6c d4 00 00 	lea    0xd46c(%rip),%rdi        # 0xfd5e
+    28f2:	be 38 00 00 00       	mov    $0x38,%esi
+    28f7:	ba 01 00 00 00       	mov    $0x1,%edx
+    28fc:	e8 6f 82 00 00       	call   0xab70
+    2901:	b8 03 00 6d 8a       	mov    $0x8a6d0003,%eax
+    2906:	5d                   	pop    %rbp
+    2907:	c3                   	ret
+
+
+
+============================================
+sceAgcDriverSubmitAcb
+VA=0x2910 SIZE=0x43
+============================================
+
+
+/mnt/d/agc_work/stage52_results/_stage52_tmp.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0000000000002910 <.data>:
+    2910:	83 ff 58             	cmp    $0x58,%edi
+    2913:	72 10                	jb     0x2925
+    2915:	83 c7 a8             	add    $0xffffffa8,%edi
+    2918:	48 8d 04 ff          	lea    (%rdi,%rdi,8),%rax
+    291c:	48 8d 3d bd 7a 01 00 	lea    0x17abd(%rip),%rdi        # 0x1a3e0
+    2923:	eb 13                	jmp    0x2938
+    2925:	83 ff 20             	cmp    $0x20,%edi
+    2928:	72 1e                	jb     0x2948
+    292a:	83 c7 e0             	add    $0xffffffe0,%edi
+    292d:	48 8d 04 ff          	lea    (%rdi,%rdi,8),%rax
+    2931:	48 8d 3d 28 5b 01 00 	lea    0x15b28(%rip),%rdi        # 0x18460
+    2938:	48 c1 e0 04          	shl    $0x4,%rax
+    293c:	48 01 c7             	add    %rax,%rdi
+    293f:	48 83 c7 08          	add    $0x8,%rdi
+    2943:	e9 68 ef ff ff       	jmp    0x18b0
+    2948:	31 ff                	xor    %edi,%edi
+    294a:	48 83 c7 08          	add    $0x8,%rdi
+    294e:	e9 5d ef ff ff       	jmp    0x18b0
+
+
+
+============================================
+sceAgcDriverSubmitCommandBuffer
+VA=0x18b0 SIZE=0x17c
+============================================
+
+
+/mnt/d/agc_work/stage52_results/_stage52_tmp.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000000018b0 <.data>:
+    18b0:	55                   	push   %rbp
+    18b1:	48 89 e5             	mov    %rsp,%rbp
+    18b4:	41 57                	push   %r15
+    18b6:	41 56                	push   %r14
+    18b8:	41 55                	push   %r13
+    18ba:	41 54                	push   %r12
+    18bc:	53                   	push   %rbx
+    18bd:	48 83 ec 38          	sub    $0x38,%rsp
+    18c1:	48 8b 1d 20 28 01 00 	mov    0x12820(%rip),%rbx        # 0x140e8
+    18c8:	4c 8d 6f 38          	lea    0x38(%rdi),%r13
+    18cc:	49 89 fc             	mov    %rdi,%r12
+    18cf:	49 89 f6             	mov    %rsi,%r14
+    18d2:	4c 89 ef             	mov    %r13,%rdi
+    18d5:	48 8b 03             	mov    (%rbx),%rax
+    18d8:	48 89 45 d0          	mov    %rax,-0x30(%rbp)
+    18dc:	e8 2f 93 00 00       	call   0xac10
+    18e1:	85 c0                	test   %eax,%eax
+    18e3:	0f 88 b3 00 00 00    	js     0x199c
+    18e9:	41 bf 00 00 6d 8a    	mov    $0x8a6d0000,%r15d
+    18ef:	0f 85 15 01 00 00    	jne    0x1a0a
+    18f5:	48 c7 45 b0 00 00 00 	movq   $0x0,-0x50(%rbp)
+    18fc:	00 
+    18fd:	c7 45 b8 00 00 00 00 	movl   $0x0,-0x48(%rbp)
+    1904:	c6 45 bc 00          	movb   $0x0,-0x44(%rbp)
+    1908:	48 8d 1d f9 8f 01 00 	lea    0x18ff9(%rip),%rbx        # 0x1a908
+    190f:	4c 89 6d a8          	mov    %r13,-0x58(%rbp)
+    1913:	49 8b 06             	mov    (%r14),%rax
+    1916:	48 89 45 c0          	mov    %rax,-0x40(%rbp)
+    191a:	41 8b 46 08          	mov    0x8(%r14),%eax
+    191e:	89 45 c8             	mov    %eax,-0x38(%rbp)
+    1921:	41 8a 46 0c          	mov    0xc(%r14),%al
+    1925:	88 45 cc             	mov    %al,-0x34(%rbp)
+    1928:	b8 01 00 00 00       	mov    $0x1,%eax
+    192d:	f0 48 0f c1 83 40 01 	lock xadd %rax,0x140(%rbx)
+    1934:	00 00 
+    1936:	49 89 44 24 20       	mov    %rax,0x20(%r12)
+    193b:	49 ff 44 24 28       	incq   0x28(%r12)
+    1940:	49 c7 44 24 14 00 00 	movq   $0x0,0x14(%r12)
+    1947:	00 00 
+    1949:	41 80 64 24 08 fe    	andb   $0xfe,0x8(%r12)
+    194f:	49 c7 44 24 30 00 00 	movq   $0x0,0x30(%r12)
+    1956:	00 00 
+    1958:	8b 83 a0 00 00 00    	mov    0xa0(%rbx),%eax
+    195e:	85 c0                	test   %eax,%eax
+    1960:	74 5f                	je     0x19c1
+    1962:	4c 8d 6b 48          	lea    0x48(%rbx),%r13
+    1966:	4c 8d 7d b0          	lea    -0x50(%rbp),%r15
+    196a:	45 31 f6             	xor    %r14d,%r14d
+    196d:	eb 0f                	jmp    0x197e
+    196f:	90                   	nop
+    1970:	49 ff c6             	inc    %r14
+    1973:	89 c1                	mov    %eax,%ecx
+    1975:	49 83 c5 78          	add    $0x78,%r13
+    1979:	49 39 ce             	cmp    %rcx,%r14
+    197c:	73 43                	jae    0x19c1
+    197e:	49 8b 4d 00          	mov    0x0(%r13),%rcx
+    1982:	48 85 c9             	test   %rcx,%rcx
+    1985:	74 e9                	je     0x1970
+    1987:	4c 89 e7             	mov    %r12,%rdi
+    198a:	4c 89 fe             	mov    %r15,%rsi
+    198d:	ba 01 00 00 00       	mov    $0x1,%edx
+    1992:	ff d1                	call   *%rcx
+    1994:	8b 83 a0 00 00 00    	mov    0xa0(%rbx),%eax
+    199a:	eb d4                	jmp    0x1970
+    199c:	48 8b 0d 3d 27 01 00 	mov    0x1273d(%rip),%rcx        # 0x140e0
+    19a3:	48 8d 3d 7a da 00 00 	lea    0xda7a(%rip),%rdi        # 0xf424
+    19aa:	be 34 00 00 00       	mov    $0x34,%esi
+    19af:	ba 01 00 00 00       	mov    $0x1,%edx
+    19b4:	e8 b7 91 00 00       	call   0xab70
+    19b9:	41 bf 00 00 6d 8a    	mov    $0x8a6d0000,%r15d
+    19bf:	eb 49                	jmp    0x1a0a
+    19c1:	8b 83 a4 00 00 00    	mov    0xa4(%rbx),%eax
+    19c7:	48 8d 75 b0          	lea    -0x50(%rbp),%rsi
+    19cb:	4c 89 e7             	mov    %r12,%rdi
+    19ce:	48 6b c0 78          	imul   $0x78,%rax,%rax
+    19d2:	ff 54 03 50          	call   *0x50(%rbx,%rax,1)
+    19d6:	48 8b 7d a8          	mov    -0x58(%rbp),%rdi
+    19da:	41 89 c7             	mov    %eax,%r15d
+    19dd:	e8 3e 92 00 00       	call   0xac20
+    19e2:	85 c0                	test   %eax,%eax
+    19e4:	79 1d                	jns    0x1a03
+    19e6:	48 8b 0d f3 26 01 00 	mov    0x126f3(%rip),%rcx        # 0x140e0
+    19ed:	48 8d 3d 7c df 00 00 	lea    0xdf7c(%rip),%rdi        # 0xf970
+    19f4:	be 32 00 00 00       	mov    $0x32,%esi
+    19f9:	ba 01 00 00 00       	mov    $0x1,%edx
+    19fe:	e8 6d 91 00 00       	call   0xab70
+    1a03:	48 8b 1d de 26 01 00 	mov    0x126de(%rip),%rbx        # 0x140e8
+    1a0a:	48 8b 03             	mov    (%rbx),%rax
+    1a0d:	48 3b 45 d0          	cmp    -0x30(%rbp),%rax
+    1a11:	75 12                	jne    0x1a25
+    1a13:	44 89 f8             	mov    %r15d,%eax
+    1a16:	48 83 c4 38          	add    $0x38,%rsp
+    1a1a:	5b                   	pop    %rbx
+    1a1b:	41 5c                	pop    %r12
+    1a1d:	41 5d                	pop    %r13
+    1a1f:	41 5e                	pop    %r14
+    1a21:	41 5f                	pop    %r15
+    1a23:	5d                   	pop    %rbp
+    1a24:	c3                   	ret
+    1a25:	e8 06 92 00 00       	call   0xac30
+    1a2a:	0f 0b                	ud2
+
+

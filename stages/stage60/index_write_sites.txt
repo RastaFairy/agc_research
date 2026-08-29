@@ -1,0 +1,20 @@
+AGC PS5 Stage 60 - Index +0xA4 Access Sites
+
+VA=0x210 TYPE=WRITE FIELD_VA=0x1A9AC
+  vmovups %xmm0,0xa4(%rax)
+
+VA=0x4630 TYPE=READ_OR_MEMORY FIELD_VA=0x1A9AC
+  mov 0xa4(%rcx),%eax
+
+VA=0x47D2 TYPE=READ_OR_MEMORY FIELD_VA=0x1A9AC
+  mov 0xa4(%rcx),%eax
+
+VA=0x19C1 TYPE=READ_OR_MEMORY FIELD_VA=0x1A9AC
+  mov 0xa4(%rbx),%eax
+
+VA=0x2AB3 TYPE=READ_OR_MEMORY FIELD_VA=0x1A9AC
+  mov 0xa4(%r12),%eax
+
+VA=0x187D TYPE=READ_OR_MEMORY FIELD_VA=0x1A9AC
+  mov 0xa4(%r15),%eax
+

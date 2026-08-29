@@ -1,0 +1,40 @@
+AGC PS5 Stage 54 - SubmitDcb Field Semantics Audit
+
+=== ARGUMENT LAYOUT ===
+
+0x00 -> 8 bytes
+0x08 -> 4 bytes
+0x0C -> 1 byte
+minimum observed layout = 0x0D bytes
+exact sizeof(struct) = NOT PROVEN
+
+=== FIELD CLASSIFICATION ===
+
+field_00 = POINTER_OR_64BIT_SCALAR_COMPATIBLE
+field_08 = 32BIT_SCALAR_COMPATIBLE
+field_0C = BYTE_OR_FLAG_COMPATIBLE
+
+=== MULTI CORROBORATION ===
+
+family_shape_match = True
+temp_entry_increment_0x20 = True
+
+=== IMPORTANT LIMIT ===
+
+Los usos actuales permiten clasificar el ancho
+de los campos, pero NO demostrar todavía
+los nombres semánticos exactos de field_00,
+field_08 y field_0c.
+
+=== CONCLUSIONS ===
+
+FIELD_00_WIDTH_CONFIRMED=True
+FIELD_08_WIDTH_CONFIRMED=True
+FIELD_0C_WIDTH_CONFIRMED=True
+MULTI_FAMILY_CORROBORATES_ARGUMENT_LAYOUT=True
+FIELD_00_SEMANTICS_PROVEN=False
+FIELD_08_SEMANTICS_PROVEN=False
+FIELD_0C_SEMANTICS_PROVEN=False
+STRUCT_EXACT_SIZE_PROVEN=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False

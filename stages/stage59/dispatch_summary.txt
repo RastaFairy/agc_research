@@ -1,0 +1,138 @@
+AGC PS5 Stage 59 - Dispatch Table / Indirect Backend Target Audit
+
+=== TARGET ===
+sceAgcDriverSubmitCommandBuffer = 0x18B0
+NID = b4fpgH5ZXxQ
+global_context = 0x1A908
+global_context + 0xA4 = dispatch index
+dispatch stride = 0x78
+dispatch function offset = 0x50
+dispatch formula = global_context + 0x50 + index * 0x78
+
+=== EXACT DISPATCH CALLS ===
+call=0x19D2 index_load=True stride_mul=True symbol=<none>
+
+=== GENERIC INDIRECT DISPATCH CALLS ===
+count=1
+call=0x2AC7 sib=0x04 has_78_stride=True has_a4_reference=True symbol=<none>
+
+=== GLOBAL CONTEXT REFERENCES ===
+count=66
+0x1363 -> 0x1A908 lea_global_context_rbx symbol=<none>
+0x1908 -> 0x1A908 lea_global_context_rbx symbol=<none>
+0x1A45 -> 0x1A908 lea_global_context_rbx symbol=<none>
+0x1A85 -> 0x1A908 lea_global_context_rbx symbol=<none>
+0x2C37 -> 0x1A908 lea_global_context_rbx symbol=<none>
+0x75D6 -> 0x1A908 lea_global_context_rbx symbol=<none>
+0xD3 -> 0x1A908 lea_global_context_rcx symbol=<none>
+0x4D8 -> 0x1A908 lea_global_context_rcx symbol=<none>
+0x88A -> 0x1A908 lea_global_context_rcx symbol=<none>
+0x90B -> 0x1A908 lea_global_context_rcx symbol=<none>
+0x3195 -> 0x1A908 lea_global_context_rcx symbol=<none>
+0x31D5 -> 0x1A908 lea_global_context_rcx symbol=<none>
+0x45D8 -> 0x1A908 lea_global_context_rcx symbol=<none>
+0x4620 -> 0x1A908 lea_global_context_rcx symbol=<none>
+0x469B -> 0x1A908 lea_global_context_rcx symbol=<none>
+0x4763 -> 0x1A908 lea_global_context_rcx symbol=<none>
+0x47C0 -> 0x1A908 lea_global_context_rcx symbol=<none>
+0x164 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x351 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x490 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x4B0 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x20B6 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x2136 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x28C4 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x2E34 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x3004 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x3034 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x3B7B -> 0x1A908 lea_global_context_rax symbol=<none>
+0x3CF0 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x3F9D -> 0x1A908 lea_global_context_rax symbol=<none>
+0x44BD -> 0x1A908 lea_global_context_rax symbol=<none>
+0x4526 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x45BE -> 0x1A908 lea_global_context_rax symbol=<none>
+0x4611 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x4752 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x47A0 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x48C4 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x6625 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x67E4 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x6814 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x68B3 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x6900 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x6924 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x742B -> 0x1A908 lea_global_context_rax symbol=<none>
+0x749B -> 0x1A908 lea_global_context_rax symbol=<none>
+0x74D4 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x7524 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x7554 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x7620 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x7630 -> 0x1A908 lea_global_context_rax symbol=<none>
+0x1B4E -> 0x1A908 lea_global_context_r12 symbol=<none>
+0x2A08 -> 0x1A908 lea_global_context_r12 symbol=<none>
+0x3ACB -> 0x1A908 lea_global_context_r12 symbol=<none>
+0xF78 -> 0x1A908 lea_global_context_r13 symbol=<none>
+0x1C18 -> 0x1A908 lea_global_context_r13 symbol=<none>
+0x307B -> 0x1A908 lea_global_context_r13 symbol=<none>
+0x38B -> 0x1A908 lea_global_context_r14 symbol=<none>
+0x104A -> 0x1A908 lea_global_context_r14 symbol=<none>
+0x1F64 -> 0x1A908 lea_global_context_r14 symbol=<none>
+0x415E -> 0x1A908 lea_global_context_r14 symbol=<none>
+0x15D3 -> 0x1A908 lea_global_context_r15 symbol=<none>
+0x182E -> 0x1A908 lea_global_context_r15 symbol=<none>
+0x26AF -> 0x1A908 lea_global_context_r15 symbol=<none>
+0x2F58 -> 0x1A908 lea_global_context_r15 symbol=<none>
+0x34FE -> 0x1A908 lea_global_context_r15 symbol=<none>
+0x3940 -> 0x1A908 lea_global_context_r15 symbol=<none>
+
+=== FUNCTION-LIKE REGIONS WITH DISPATCH EVIDENCE ===
+VA=0x18BD score=210 dispatch_calls=1 global_refs=1 symbol=<none>
+VA=0x14 score=110 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x160 score=110 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x1824 score=110 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x28C0 score=110 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x296D score=110 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x45B4 score=110 dispatch_calls=0 global_refs=4 symbol=<none>
+VA=0x465D score=110 dispatch_calls=0 global_refs=5 symbol=<none>
+VA=0x1344 score=80 dispatch_calls=0 global_refs=2 symbol=<none>
+VA=0x1A34 score=80 dispatch_calls=0 global_refs=2 symbol=<none>
+VA=0x1B44 score=80 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x1C0D score=80 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x34B0 score=80 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x363D score=80 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x3F7D score=80 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x40F4 score=80 dispatch_calls=0 global_refs=3 symbol=<none>
+VA=0x2F0 score=50 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x387 score=50 dispatch_calls=0 global_refs=6 symbol=<none>
+VA=0x1F14 score=50 dispatch_calls=0 global_refs=3 symbol=<none>
+VA=0x26A0 score=50 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x2C20 score=50 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x3000 score=50 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x3030 score=50 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x306D score=50 dispatch_calls=0 global_refs=3 symbol=<none>
+VA=0x48C0 score=50 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x6610 score=50 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x67E0 score=50 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x6810 score=50 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x6897 score=50 dispatch_calls=0 global_refs=2 symbol=<none>
+VA=0x75D0 score=50 dispatch_calls=0 global_refs=3 symbol=<none>
+VA=0xF6D score=20 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x1011 score=20 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x2E30 score=20 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x2F4D score=20 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x3AC0 score=20 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x3B70 score=20 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x3CCD score=20 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x6920 score=20 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x7415 score=20 dispatch_calls=0 global_refs=1 symbol=<none>
+VA=0x7485 score=20 dispatch_calls=0 global_refs=1 symbol=<none>
+
+=== DIRECT TARGET FLAGS ===
+target_function_contains_dispatch_call=True
+multi_function_contains_dispatch_call=False
+
+=== LIMITS ===
+The dispatch object is runtime RW/BSS state.
+Its actual function-pointer contents are not file-backed.
+Therefore the final backend target address is not fabricated.
+The static indirect-call expression is proven.

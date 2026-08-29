@@ -1,0 +1,1882 @@
+PS D:\agc_ps5_stage58> .\stage58.ps1
+
+============================================
+AGC PS5 Stage 58 - Global Backend Consumer / Field Provenance Audit
+============================================
+[INFO] StageDir        = D:\agc_ps5_stage58
+[INFO] SPRX            = D:\agc_work\sce_stubs\libSceAgcDriver.sprx
+[INFO] NID DB          = D:\sdk-master\sce_stubs\aerolib.csv
+[INFO] Previous stage  = D:\agc_work\stage56_results
+[INFO] Output          = D:\agc_work\stage58_results
+[INFO] SPRX WSL       = /mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx
+[INFO] Previous WSL   = /mnt/d/agc_work/stage56_results
+[INFO] Output WSL     = /mnt/d/agc_work/stage58_results
+[INFO] SDK             = /opt/ps5-payload-sdk
+
+==> Preparar workspace Linux
+
+[WSL] set -e
+
+rm -rf '/tmp/agc_stage58'
+
+mkdir -p '/tmp/agc_stage58'
+mkdir -p '/mnt/d/agc_work/stage58_results'
+
+cp '/mnt/d/agc_work/stage58_results/analyze_backend_consumers.py' \
+   '/tmp/agc_stage58/analyze_backend_consumers.py'
+
+sed -i 's/\r$//' \
+   '/tmp/agc_stage58/analyze_backend_consumers.py'
+
+python3 -m py_compile \
+   '/tmp/agc_stage58/analyze_backend_consumers.py'
+
+ls -lh \
+   '/tmp/agc_stage58/analyze_backend_consumers.py'
+-rwxr-xr-x 1 user user 33K Aug 25 02:17 /tmp/agc_stage58/analyze_backend_consumers.py
+0
+
+==> Verificar Python + pyelftools + toolchain
+
+[WSL] set -e
+
+test -x '/opt/ps5-payload-sdk/bin/prospero-clang'
+test -x '/opt/ps5-payload-sdk/bin/prospero-nm'
+test -x '/opt/ps5-payload-sdk/bin/prospero-lld'
+
+echo '--- prospero-clang ---'
+
+'/opt/ps5-payload-sdk/bin/prospero-clang' --version
+
+echo '--- prospero-nm ---'
+
+'/opt/ps5-payload-sdk/bin/prospero-nm' --version
+
+echo '--- pyelftools ---'
+
+python3 -c "from elftools.elf.elffile import ELFFile; print('pyelftools=OK')"
+
+echo '--- objdump ---'
+
+command -v objdump || true
+
+echo '--- llvm-objdump ---'
+
+command -v llvm-objdump || true
+--- prospero-clang ---
+Ubuntu clang version 18.1.3 (1ubuntu1)
+Target: x86_64-sie-ps5
+Thread model: posix
+InstalledDir: /usr/lib/llvm-18/bin
+--- prospero-nm ---
+llvm-nm, compatible with GNU nm
+Ubuntu LLVM version 18.1.3
+  Optimized build.
+--- pyelftools ---
+pyelftools=OK
+--- objdump ---
+/usr/bin/objdump
+--- llvm-objdump ---
+/usr/bin/llvm-objdump
+0
+
+==> Escaneo global de segmentos ejecutables y consumidores candidatos
+
+[WSL] set -e
+
+python3 '/tmp/agc_stage58/analyze_backend_consumers.py' \
+    '/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx' \
+    '/mnt/d/sdk-master/sce_stubs/aerolib.csv' \
+    '/mnt/d/agc_work/stage56_results' \
+    '/mnt/d/agc_work/stage58_results'
+{
+  "stage": 58,
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "va": 6320,
+    "size": 380
+  },
+  "multi_source": {
+    "name": "sceAgcDriverSubmitMultiCommandBuffers",
+    "va": 18000,
+    "size": 579
+  },
+  "previous_stage_available": true,
+  "elf_segments": [
+    {
+      "offset": 16384,
+      "vaddr": 0,
+      "filesz": 44754,
+      "memsz": 44754,
+      "flags": 1
+    },
+    {
+      "offset": 65536,
+      "vaddr": 49152,
+      "filesz": 26636,
+      "memsz": 26636,
+      "flags": 4
+    },
+    {
+      "offset": 98304,
+      "vaddr": 81920,
+      "filesz": 728,
+      "memsz": 728,
+      "flags": 6
+    },
+    {
+      "offset": 114688,
+      "vaddr": 98304,
+      "filesz": 17,
+      "memsz": 12328,
+      "flags": 6
+    },
+    {
+      "offset": 127024,
+      "vaddr": 110640,
+      "filesz": 12480,
+      "memsz": 12480,
+      "flags": 0
+    }
+  ],
+  "symbol_inventory": {
+    "count": 0,
+    "method": "prospero-nm/llvm-nm"
+  },
+  "global_scan": {
+    "field_hit_count": 58,
+    "register_copy_count": 36,
+    "target_field_hit_count": 0,
+    "multi_field_hit_count": 0
+  },
+  "target_findings": [],
+  "multi_findings": [],
+  "consumer_candidates": [
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00",
+        "field_08",
+        "field_0c"
+      ],
+      "score": 110,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 6419,
+          "file_offset": 22803,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 6426,
+          "file_offset": 22810,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "41 8b 46 08",
+          "description": "mov 0x8(%r14),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 6427,
+          "file_offset": 22811,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 46 08",
+          "description": "mov 0x8(%rsi),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 6433,
+          "file_offset": 22817,
+          "field": "field_0c",
+          "field_offset": 12,
+          "width": 1,
+          "pattern": "41 8a 46 0c",
+          "description": "mov 0xc(%r14),%al / field_0c",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 6434,
+          "file_offset": 22818,
+          "field": "field_0c",
+          "field_offset": 12,
+          "width": 1,
+          "pattern": "8a 46 0c",
+          "description": "mov 0xc(%rsi),%al / field_0c",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00",
+        "field_08"
+      ],
+      "score": 40,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 20698,
+          "file_offset": 37082,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 20706,
+          "file_offset": 37090,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 4e 08",
+          "description": "mov 0x8(%rsi),%ecx / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_08"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 937,
+          "file_offset": 17321,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 4e 08",
+          "description": "mov 0x8(%rsi),%ecx / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 4982,
+          "file_offset": 21366,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 5066,
+          "file_offset": 21450,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "48 8b 06",
+          "description": "mov (%rsi),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 10622,
+          "file_offset": 27006,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 11007,
+          "file_offset": 27391,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 12127,
+          "file_offset": 28511,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 18037,
+          "file_offset": 34421,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_08"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 18966,
+          "file_offset": 35350,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 46 08",
+          "description": "mov 0x8(%rsi),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 19987,
+          "file_offset": 36371,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "48 8b 06",
+          "description": "mov (%rsi),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 19994,
+          "file_offset": 36378,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "48 8b 06",
+          "description": "mov (%rsi),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 20081,
+          "file_offset": 36465,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "48 8b 06",
+          "description": "mov (%rsi),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 20127,
+          "file_offset": 36511,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "48 8b 06",
+          "description": "mov (%rsi),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 20155,
+          "file_offset": 36539,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "48 8b 1e",
+          "description": "mov (%rsi),%rbx / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_08"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 20201,
+          "file_offset": 36585,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 46 08",
+          "description": "mov 0x8(%rsi),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 20220,
+          "file_offset": 36604,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 46 08",
+          "description": "mov 0x8(%rsi),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_08"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 20283,
+          "file_offset": 36667,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 46 08",
+          "description": "mov 0x8(%rsi),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_08"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 20306,
+          "file_offset": 36690,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 46 08",
+          "description": "mov 0x8(%rsi),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 20352,
+          "file_offset": 36736,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "48 8b 06",
+          "description": "mov (%rsi),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 20476,
+          "file_offset": 36860,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "48 8b 06",
+          "description": "mov (%rsi),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 20483,
+          "file_offset": 36867,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "48 8b 06",
+          "description": "mov (%rsi),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 20895,
+          "file_offset": 37279,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_08"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 21786,
+          "file_offset": 38170,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 56 08",
+          "description": "mov 0x8(%rsi),%edx / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_08"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 22296,
+          "file_offset": 38680,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 46 08",
+          "description": "mov 0x8(%rsi),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 22311,
+          "file_offset": 38695,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 46 08",
+          "description": "mov 0x8(%rsi),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 22318,
+          "file_offset": 38702,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 46 08",
+          "description": "mov 0x8(%rsi),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 22328,
+          "file_offset": 38712,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 46 08",
+          "description": "mov 0x8(%rsi),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_08"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 22355,
+          "file_offset": 38739,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 46 08",
+          "description": "mov 0x8(%rsi),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_08"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 22553,
+          "file_offset": 38937,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 56 08",
+          "description": "mov 0x8(%rsi),%edx / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_08"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 22609,
+          "file_offset": 38993,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 56 08",
+          "description": "mov 0x8(%rsi),%edx / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_08"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 22714,
+          "file_offset": 39098,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 56 08",
+          "description": "mov 0x8(%rsi),%edx / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_08"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 22826,
+          "file_offset": 39210,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 56 08",
+          "description": "mov 0x8(%rsi),%edx / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 22925,
+          "file_offset": 39309,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 23148,
+          "file_offset": 39532,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 25884,
+          "file_offset": 42268,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 25946,
+          "file_offset": 42330,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 26017,
+          "file_offset": 42401,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 26078,
+          "file_offset": 42462,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 26796,
+          "file_offset": 43180,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 37029,
+          "file_offset": 53413,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 39297,
+          "file_offset": 55681,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 39323,
+          "file_offset": 55707,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 41858,
+          "file_offset": 58242,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 41964,
+          "file_offset": 58348,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 42020,
+          "file_offset": 58404,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 42086,
+          "file_offset": 58470,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 42150,
+          "file_offset": 58534,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 42216,
+          "file_offset": 58600,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 42280,
+          "file_offset": 58664,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 42336,
+          "file_offset": 58720,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00"
+      ],
+      "score": 20,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 42573,
+          "file_offset": 58957,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 42603,
+          "file_offset": 58987,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    }
+  ],
+  "all_three_field_candidates": [
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00",
+        "field_08",
+        "field_0c"
+      ],
+      "score": 110,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 6419,
+          "file_offset": 22803,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 6426,
+          "file_offset": 22810,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "41 8b 46 08",
+          "description": "mov 0x8(%r14),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 6427,
+          "file_offset": 22811,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 46 08",
+          "description": "mov 0x8(%rsi),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 6433,
+          "file_offset": 22817,
+          "field": "field_0c",
+          "field_offset": 12,
+          "width": 1,
+          "pattern": "41 8a 46 0c",
+          "description": "mov 0xc(%r14),%al / field_0c",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 6434,
+          "file_offset": 22818,
+          "field": "field_0c",
+          "field_offset": 12,
+          "width": 1,
+          "pattern": "8a 46 0c",
+          "description": "mov 0xc(%rsi),%al / field_0c",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    }
+  ],
+  "field00_field08_candidates": [
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00",
+        "field_08",
+        "field_0c"
+      ],
+      "score": 110,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 6419,
+          "file_offset": 22803,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 6426,
+          "file_offset": 22810,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "41 8b 46 08",
+          "description": "mov 0x8(%r14),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 6427,
+          "file_offset": 22811,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 46 08",
+          "description": "mov 0x8(%rsi),%eax / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 6433,
+          "file_offset": 22817,
+          "field": "field_0c",
+          "field_offset": 12,
+          "width": 1,
+          "pattern": "41 8a 46 0c",
+          "description": "mov 0xc(%r14),%al / field_0c",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 6434,
+          "file_offset": 22818,
+          "field": "field_0c",
+          "field_offset": 12,
+          "width": 1,
+          "pattern": "8a 46 0c",
+          "description": "mov 0xc(%rsi),%al / field_0c",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    },
+    {
+      "name": "",
+      "raw_symbol": null,
+      "va": null,
+      "size": null,
+      "fields": [
+        "field_00",
+        "field_08"
+      ],
+      "score": 40,
+      "findings": [
+        {
+          "segment_index": 0,
+          "instruction_va": 20698,
+          "file_offset": 37082,
+          "field": "field_00",
+          "field_offset": 0,
+          "width": 8,
+          "pattern": "49 8b 06",
+          "description": "mov (%r14),%rax / field_00",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        },
+        {
+          "segment_index": 0,
+          "instruction_va": 20706,
+          "file_offset": 37090,
+          "field": "field_08",
+          "field_offset": 8,
+          "width": 4,
+          "pattern": "8b 4e 08",
+          "description": "mov 0x8(%rsi),%ecx / field_08",
+          "symbol_va": null,
+          "symbol_size": null,
+          "raw_symbol": null,
+          "mapped_name": null
+        }
+      ]
+    }
+  ],
+  "conclusions": {
+    "GLOBAL_FIELD_SCAN_COMPLETED": true,
+    "SYMBOL_INVENTORY_AVAILABLE": false,
+    "FIELD_00_CONSUMER_CANDIDATE_FOUND": true,
+    "FIELD_08_CONSUMER_CANDIDATE_FOUND": true,
+    "FIELD_0C_CONSUMER_CANDIDATE_FOUND": true,
+    "ALL_THREE_FIELDS_CONSUMED_BY_ONE_FUNCTION_CANDIDATE": true,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "FIELD_00_POINTER_SEMANTICS_PROVEN": false,
+    "FIELD_08_SIZE_SEMANTICS_PROVEN": false,
+    "FIELD_08_COUNT_SEMANTICS_PROVEN": false,
+    "FIELD_08_INDEX_SEMANTICS_PROVEN": false,
+    "FIELD_0C_FLAG_SEMANTICS_PROVEN": false,
+    "EXACT_STRUCT_SIZE_PROVEN": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "notes": [
+    "Stage 57 reported zero functions.",
+    "Stage 58 scans executable PT_LOAD segments directly.",
+    "Symbols are supplementary and come from prospero-nm/llvm-nm.",
+    "Disassembly is optional and no longer aborts the analysis if objdump is unavailable.",
+    "A field-access hit alone does not prove semantic field names.",
+    "An indirect backend dispatch target is not assumed."
+  ]
+}
+0
+
+==> Verificar artefactos Stage 58
+
+[WSL] set -e
+
+test -f '/mnt/d/agc_work/stage58_results/stage58_static.json'
+test -f '/mnt/d/agc_work/stage58_results/backend_consumer_summary.txt'
+test -f '/mnt/d/agc_work/stage58_results/consumer_candidate_disassembly.txt'
+test -f '/mnt/d/agc_work/stage58_results/global_field_hits.txt'
+test -f '/mnt/d/agc_work/stage58_results/symbol_inventory.txt'
+
+echo '--- backend_consumer_summary.txt ---'
+
+cat '/mnt/d/agc_work/stage58_results/backend_consumer_summary.txt'
+
+echo '--- output files ---'
+
+find '/mnt/d/agc_work/stage58_results' \
+    -maxdepth 2 \
+    -type f |
+    sort
+--- backend_consumer_summary.txt ---
+AGC PS5 Stage 58 - Global Backend Consumer / Field Provenance Audit
+
+=== INVENTORY ===
+symbols = 0
+executable_segments = 1
+global_field_hits = 58
+register_copy_hits = 36
+
+=== TARGET FIELD HITS ===
+No target field hits detected.
+
+=== TOP CONSUMER CANDIDATES ===
+01. <no-symbol> VA=<none> SIZE=<none> SCORE=110 FIELDS=field_00,field_08,field_0c
+02. <no-symbol> VA=<none> SIZE=<none> SCORE=40 FIELDS=field_00,field_08
+03. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+04. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+05. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+06. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+07. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+08. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+09. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+10. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+11. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+12. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+13. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+14. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+15. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+16. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+17. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+18. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+19. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+20. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+21. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+22. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+23. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+24. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+25. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+26. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+27. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_08
+28. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+29. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+30. <no-symbol> VA=<none> SIZE=<none> SCORE=20 FIELDS=field_00
+
+=== ALL-THREE FIELD CANDIDATES ===
+<no-symbol> VA=<none> SIZE=<none> SCORE=110
+
+=== IMPORTANT LIMIT ===
+Global field matches do not by themselves establish
+pointer/size/count/index/flag semantic names.
+A real backend consumer still requires confirmed
+register/data flow through an actual call target.
+
+=== CONCLUSIONS ===
+GLOBAL_FIELD_SCAN_COMPLETED=True
+SYMBOL_INVENTORY_AVAILABLE=False
+FIELD_00_CONSUMER_CANDIDATE_FOUND=True
+FIELD_08_CONSUMER_CANDIDATE_FOUND=True
+FIELD_0C_CONSUMER_CANDIDATE_FOUND=True
+ALL_THREE_FIELDS_CONSUMED_BY_ONE_FUNCTION_CANDIDATE=True
+BACKEND_CONSUMER_IDENTIFIED=False
+FIELD_00_POINTER_SEMANTICS_PROVEN=False
+FIELD_08_SIZE_SEMANTICS_PROVEN=False
+FIELD_08_COUNT_SEMANTICS_PROVEN=False
+FIELD_08_INDEX_SEMANTICS_PROVEN=False
+FIELD_0C_FLAG_SEMANTICS_PROVEN=False
+EXACT_STRUCT_SIZE_PROVEN=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+--- output files ---
+/mnt/d/agc_work/stage58_results/analyze_backend_consumers.py
+/mnt/d/agc_work/stage58_results/backend_consumer_summary.txt
+/mnt/d/agc_work/stage58_results/consumer_candidate_disassembly.txt
+/mnt/d/agc_work/stage58_results/global_field_hits.txt
+/mnt/d/agc_work/stage58_results/stage58_static.json
+/mnt/d/agc_work/stage58_results/symbol_inventory.txt
+0
+
+==> Hash artefactos
+[INFO] stage58_static.json SHA256=5234b8ce8baea2ce9b0be86f516886d5113442ea546238ed3ccd110b993c38d9
+[INFO] backend_consumer_summary.txt SHA256=30cfe94f2ebca91c3688efad0ebf8761c1e64e4860549d97ec89b5728c818437
+[INFO] consumer_candidate_disassembly.txt SHA256=1963a60dd4356aac9d774ea115366f59699855a67588ff1911165798bf2ab834
+[INFO] global_field_hits.txt SHA256=c712061b049a9531a0af08f59706ace91672a33e39568b65028c9e97bc9f7009
+[INFO] symbol_inventory.txt SHA256=1346cb7a1fa968f0ad670e14ba7f165c5204de16b4270fb216221407ae1f41db
+
+============================================
+Stage 58 completado
+============================================
+
+GLOBAL_FIELD_SCAN_COMPLETED = True
+SYMBOL_INVENTORY_AVAILABLE = False
+FIELD_00_CONSUMER_CANDIDATE_FOUND = True
+FIELD_08_CONSUMER_CANDIDATE_FOUND = True
+FIELD_0C_CONSUMER_CANDIDATE_FOUND = True
+ALL_THREE_FIELDS_CONSUMED_BY_ONE_FUNCTION_CANDIDATE = True
+BACKEND_CONSUMER_IDENTIFIED = False
+FIELD_00_POINTER_SEMANTICS_PROVEN = False
+FIELD_08_SIZE_SEMANTICS_PROVEN = False
+FIELD_08_COUNT_SEMANTICS_PROVEN = False
+FIELD_08_INDEX_SEMANTICS_PROVEN = False
+FIELD_0C_FLAG_SEMANTICS_PROVEN = False
+EXACT_STRUCT_SIZE_PROVEN = False
+SEMANTIC_PROTOTYPE_INFERRED = False
+EXECUTED_AGC = False
+
+Resultados:
+  D:\agc_work\stage58_results
+
+Reporte:
+  D:\agc_work\stage58_results\STAGE58_REPORT.json
+PS D:\agc_ps5_stage58>

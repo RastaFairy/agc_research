@@ -1,0 +1,22 @@
+{
+  "stage": 52,
+  "paths": {
+    "sprx": "D:\\agc_work\\sce_stubs\\libSceAgcDriver.sprx",
+    "nid_db": "D:\\sdk-master\\sce_stubs\\aerolib.csv",
+    "previous_results": "D:\\agc_work\\stage51_results",
+    "output": "D:\\agc_work\\stage52_results"
+  },
+  "conclusions": {
+    "SUBMIT_DCB_REGISTER_PLACEMENT_PROVEN": true,
+    "SUBMIT_ARGUMENT_OFFSETS_PROVEN": true,
+    "SUBMIT_ARGUMENT_WIDTHS_EXACT": true,
+    "SUBMIT_ARGUMENT_SHAPE_MATCHES_EXPECTED": true,
+    "ABI_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "hashes": {
+    "stage52_static.json": "a68af3853caebcbfe40a049cba8ac83060d34d27d5c4377246ed1a66d211a556",
+    "abi_summary.txt": "ca7fa68b9052f9497f9b34953fae43164f518077bd2ae74713eb681ff397011a",
+    "submitdcb_family_disassembly.txt": "e444504dcf6cd5ad6f4e9fe0865f1ae2539da9ac4b1e4f572392099121498044"
+  }
+}

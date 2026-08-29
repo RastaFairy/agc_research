@@ -1,0 +1,46 @@
+{
+  "stage": 57,
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "va": 6320,
+    "size": 380
+  },
+  "previous_stage": {
+    "stage": 56,
+    "field_00_downstream_use_proven": true,
+    "field_08_downstream_use_proven": true,
+    "field_0c_downstream_use_proven": true,
+    "packed_record_consumed": true
+  },
+  "symbol_inventory": {
+    "function_count": 0,
+    "candidate_count": 0,
+    "all_three_field_candidates": 0,
+    "field00_field08_candidates": 0,
+    "known_related_candidates": 0
+  },
+  "top_candidates": [],
+  "all_three_field_candidates": [],
+  "known_related_candidates": [],
+  "conclusions": {
+    "FIELD_00_CONSUMER_CANDIDATE_FOUND": false,
+    "FIELD_08_CONSUMER_CANDIDATE_FOUND": false,
+    "FIELD_0C_CONSUMER_CANDIDATE_FOUND": false,
+    "ALL_THREE_FIELDS_CONSUMED_BY_ONE_FUNCTION_CANDIDATE": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "FIELD_00_POINTER_SEMANTICS_PROVEN": false,
+    "FIELD_08_SIZE_SEMANTICS_PROVEN": false,
+    "FIELD_08_COUNT_SEMANTICS_PROVEN": false,
+    "FIELD_08_INDEX_SEMANTICS_PROVEN": false,
+    "FIELD_0C_FLAG_SEMANTICS_PROVEN": false,
+    "EXACT_STRUCT_SIZE_PROVEN": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "scanner_notes": [
+    "Candidate ranking is heuristic only.",
+    "Finding RSI-relative loads does not prove semantic names.",
+    "A true backend consumer requires control/data-flow confirmation.",
+    "Indirect dispatch target is not assumed from table index alone."
+  ]
+}

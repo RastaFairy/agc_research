@@ -1,0 +1,102 @@
+AGC PS5 Stage 58 - GLOBAL FIELD ACCESS SCAN
+
+Executable PT_LOAD segments:
+  segment=0 VA=0x0 FILE=0x4000 FILESZ=0xaed2 MEMSZ=0xaed2 FLAGS=0x1
+
+=== FIELD HITS ===
+0x3a9 file=0x43a9 field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x1376 file=0x5376 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x13ca file=0x53ca field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x1913 file=0x5913 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x191a file=0x591a field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x191b file=0x591b field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x1921 file=0x5921 field_0c offset=0xc width=1 symbol=<no-symbol>
+0x1922 file=0x5922 field_0c offset=0xc width=1 symbol=<no-symbol>
+0x297e file=0x697e field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x2aff file=0x6aff field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x2f5f file=0x6f5f field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x4675 file=0x8675 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x4a16 file=0x8a16 field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x4e13 file=0x8e13 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x4e1a file=0x8e1a field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x4e71 file=0x8e71 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x4e9f file=0x8e9f field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x4ebb file=0x8ebb field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x4ee9 file=0x8ee9 field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x4efc file=0x8efc field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x4f3b file=0x8f3b field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x4f52 file=0x8f52 field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x4f80 file=0x8f80 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x4ffc file=0x8ffc field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x5003 file=0x9003 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x50da file=0x90da field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x50e2 file=0x90e2 field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x519f file=0x919f field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x551a file=0x951a field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x5718 file=0x9718 field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x5727 file=0x9727 field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x572e file=0x972e field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x5738 file=0x9738 field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x5753 file=0x9753 field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x5819 file=0x9819 field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x5851 file=0x9851 field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x58ba file=0x98ba field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x592a file=0x992a field_08 offset=0x8 width=4 symbol=<no-symbol>
+0x598d file=0x998d field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x5a6c file=0x9a6c field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x651c file=0xa51c field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x655a file=0xa55a field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x65a1 file=0xa5a1 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x65de file=0xa5de field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x68ac file=0xa8ac field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x90a5 file=0xd0a5 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x9981 file=0xd981 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0x999b file=0xd99b field_00 offset=0x0 width=8 symbol=<no-symbol>
+0xa382 file=0xe382 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0xa3ec file=0xe3ec field_00 offset=0x0 width=8 symbol=<no-symbol>
+0xa424 file=0xe424 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0xa466 file=0xe466 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0xa4a6 file=0xe4a6 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0xa4e8 file=0xe4e8 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0xa528 file=0xe528 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0xa560 file=0xe560 field_00 offset=0x0 width=8 symbol=<no-symbol>
+0xa64d file=0xe64d field_00 offset=0x0 width=8 symbol=<no-symbol>
+0xa66b file=0xe66b field_00 offset=0x0 width=8 symbol=<no-symbol>
+
+=== RSI / REGISTER COPY HITS ===
+0x28 file=0x4028 RSI->R14 symbol=<no-symbol>
+0x2b file=0x402b RSI->R15 symbol=<no-symbol>
+0x899 file=0x4899 RSI->R15 symbol=<no-symbol>
+0xa26 file=0x4a26 RSI->R14 symbol=<no-symbol>
+0xf82 file=0x4f82 RSI->RBX symbol=<no-symbol>
+0x1835 file=0x5835 RSI->R14 symbol=<no-symbol>
+0x18cf file=0x58cf RSI->R14 symbol=<no-symbol>
+0x1a78 file=0x5a78 RSI->RBX symbol=<no-symbol>
+0x3648 file=0x7648 RSI->R15 symbol=<no-symbol>
+0x4672 file=0x8672 RSI->R13 symbol=<no-symbol>
+0x48a2 file=0x88a2 RSI->RDX symbol=<no-symbol>
+0x48d6 file=0x88d6 RSI->RDX symbol=<no-symbol>
+0x4a08 file=0x8a08 RSI->R13 symbol=<no-symbol>
+0x4c40 file=0x8c40 RSI->RAX symbol=<no-symbol>
+0x5080 file=0x9080 RSI->RBX symbol=<no-symbol>
+0x50d4 file=0x90d4 RSI->R15 symbol=<no-symbol>
+0x5984 file=0x9984 RSI->R15 symbol=<no-symbol>
+0x5ea7 file=0x9ea7 RSI->RBX symbol=<no-symbol>
+0x68a5 file=0xa8a5 RSI->RDX symbol=<no-symbol>
+0x692b file=0xa92b RSI->RDX symbol=<no-symbol>
+0x79f3 file=0xb9f3 RSI->R15 symbol=<no-symbol>
+0x7cd8 file=0xbcd8 RSI->R14 symbol=<no-symbol>
+0x7cdb file=0xbcdb RSI->R15 symbol=<no-symbol>
+0x8834 file=0xc834 RSI->R14 symbol=<no-symbol>
+0x88a4 file=0xc8a4 RSI->R14 symbol=<no-symbol>
+0x93a4 file=0xd3a4 RSI->R14 symbol=<no-symbol>
+0x9464 file=0xd464 RSI->R14 symbol=<no-symbol>
+0x9574 file=0xd574 RSI->R14 symbol=<no-symbol>
+0x9904 file=0xd904 RSI->R14 symbol=<no-symbol>
+0x9c77 file=0xdc77 RSI->RBX symbol=<no-symbol>
+0xa034 file=0xe034 RSI->R14 symbol=<no-symbol>
+0xa1d4 file=0xe1d4 RSI->R14 symbol=<no-symbol>
+0xa2a4 file=0xe2a4 RSI->R14 symbol=<no-symbol>
+0xa744 file=0xe744 RSI->R14 symbol=<no-symbol>
+0xa804 file=0xe804 RSI->R14 symbol=<no-symbol>
+0xa8bb file=0xe8bb RSI->RBX symbol=<no-symbol>

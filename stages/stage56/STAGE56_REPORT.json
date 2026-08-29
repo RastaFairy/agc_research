@@ -1,0 +1,28 @@
+{
+  "stage": 56,
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "nid": "b4fpgH5ZXxQ",
+    "va": "0x18b0",
+    "size": 380
+  },
+  "conclusions": {
+    "FIELD_00_DOWNSTREAM_USE_PROVEN": true,
+    "FIELD_08_DOWNSTREAM_USE_PROVEN": true,
+    "FIELD_0C_DOWNSTREAM_USE_PROVEN": true,
+    "PACKED_RECORD_CONSUMED_BY_BACKEND_CALL": true,
+    "FIELD_00_POINTER_SEMANTICS_PROVEN": false,
+    "FIELD_08_SIZE_SEMANTICS_PROVEN": false,
+    "FIELD_08_COUNT_SEMANTICS_PROVEN": false,
+    "FIELD_08_INDEX_SEMANTICS_PROVEN": false,
+    "FIELD_0C_FLAG_SEMANTICS_PROVEN": false,
+    "EXACT_STRUCT_SIZE_PROVEN": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "hashes": {
+    "stage56_static.json": "2f7df1a7dce8b67d5c2e0bdd7fe3c82dc3a2aaf985e98b7ed31eb056c63ca17a",
+    "field_usage_summary.txt": "109d9be466e4ddff6a9edd4619f87439f93c69e6d9e6efdaca2f862a32bde65b",
+    "submit_usage_disassembly.txt": "45ef140762ff1780e0f7181a7258a617391f7dcf11718ad4e4d2340c36cc1cc7"
+  }
+}

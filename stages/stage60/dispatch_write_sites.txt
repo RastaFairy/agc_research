@@ -1,0 +1,62 @@
+AGC PS5 Stage 60 - Dispatch Table Write Sites
+
+VA=0x1BA SLOT=0 OFFSET=0x50 STORE=True
+  vmovups %ymm0,0x50(%rax)
+
+VA=0x1D7 SLOT=0 OFFSET=0x50 STORE=True
+  mov %rdx,0x50(%rax)
+
+VA=0x2375 SLOT=0 OFFSET=0x50 STORE=True
+  cmpb $0x0,0x50(%rax,%r15,1)
+
+VA=0x2A17 SLOT=2 OFFSET=0x140 STORE=True
+  lock xadd %rax,0x140(%r12)
+
+VA=0x2AC6 SLOT=0 OFFSET=0x50 STORE=False
+  call *0x50(%r12,%rax,1)
+
+VA=0x41B4 SLOT=1 OFFSET=0xC8 STORE=False
+  lea 0xc8(%r14),%rax
+
+VA=0x41ED SLOT=0 OFFSET=0x50 STORE=True
+  mov %eax,0x50(%rbx)
+
+VA=0x46B1 SLOT=2 OFFSET=0x140 STORE=True
+  lock xadd %rax,0x140(%rcx)
+
+VA=0x109 SLOT=0 OFFSET=0x50 STORE=True
+  vmovups %ymm0,0x50(%rcx,%rax,1)
+
+VA=0x11F SLOT=0 OFFSET=0x50 STORE=True
+  mov %rsi,0x50(%rcx,%rax,1)
+
+VA=0x144F SLOT=1 OFFSET=0xC8 STORE=False
+  lea 0xc8(%rbx),%rax
+
+VA=0x192D SLOT=2 OFFSET=0x140 STORE=True
+  lock xadd %rax,0x140(%rbx)
+
+VA=0x19D2 SLOT=0 OFFSET=0x50 STORE=False
+  call *0x50(%rbx,%rax,1)
+
+VA=0x1B64 SLOT=2 OFFSET=0x140 STORE=True
+  lock xadd %rax,0x140(%r12)
+
+VA=0x1C92 SLOT=2 OFFSET=0x140 STORE=True
+  lock xadd %rax,0x140(%r13)
+
+VA=0x1DE1 SLOT=2 OFFSET=0x140 STORE=True
+  lock xadd %rax,0x140(%r13)
+
+VA=0x1758 SLOT=0 OFFSET=0x50 STORE=True
+  mov %ecx,0x50(%rsp)
+
+VA=0x1795 SLOT=0 OFFSET=0x50 STORE=True
+  movl $0x0,0x50(%rsp)
+
+VA=0x188E SLOT=0 OFFSET=0x50 STORE=False
+  mov 0x50(%r15,%rax,1),%rax
+
+VA=0x3A65 SLOT=1 OFFSET=0xC8 STORE=True
+  mov %rcx,0xc8(%r15)
+

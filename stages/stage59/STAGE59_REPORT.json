@@ -1,0 +1,41 @@
+{
+  "stage": 59,
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "nid": "b4fpgH5ZXxQ",
+    "va": "0x18b0",
+    "size": 380
+  },
+  "dispatch": {
+    "global_context": "0x1a908",
+    "index_offset": "0xa4",
+    "stride": "0x78",
+    "function_pointer_offset": "0x50",
+    "formula": "global_context + 0x50 + index * 0x78"
+  },
+  "conclusions": {
+    "DISPATCH_CONSUMER_IDENTIFIED": true,
+    "GLOBAL_CONTEXT_REFERENCE_SCAN_COMPLETED": true,
+    "DISPATCH_INDEX_FIELD_USAGE_PROVEN": true,
+    "DISPATCH_STRIDE_0x78_USAGE_PROVEN": true,
+    "TARGET_FUNCTION_DISPATCH_PATTERN_FOUND": true,
+    "MULTI_FUNCTION_DISPATCH_PATTERN_FOUND": false,
+    "RUNTIME_FUNCTION_POINTER_RESOLVED": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "FIELD_00_POINTER_SEMANTICS_PROVEN": false,
+    "FIELD_08_SIZE_SEMANTICS_PROVEN": false,
+    "FIELD_08_COUNT_SEMANTICS_PROVEN": false,
+    "FIELD_08_INDEX_SEMANTICS_PROVEN": false,
+    "FIELD_0C_FLAG_SEMANTICS_PROVEN": false,
+    "EXACT_STRUCT_SIZE_PROVEN": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "hashes": {
+    "stage59_static.json": "776848a0c7b665bde1dd23b36904986ed0107a0f90ac5a1f670ef405a7b109a1",
+    "dispatch_summary.txt": "6a5919c202d3dd76b47587b58095dae9e60f0cfbafbb20cad6ec05b371256d8b",
+    "dispatch_disassembly.txt": "0332413cbd319c8f7447d08f46a3957a41b39f4fa4bf4905482e4621d875c9ab",
+    "dispatch_candidates.txt": "30b2926d44eb6091681c3d1d5253a4ee17d25f0b9185f7e490efac1c6a1b62af",
+    "global_dispatch_hits.txt": "731a9a9227324bc96814619afaa2dafa5a5232f0f9cd2656520202bb53deb6d7"
+  }
+}
