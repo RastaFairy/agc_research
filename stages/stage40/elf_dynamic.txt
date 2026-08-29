@@ -1,0 +1,24 @@
+
+Dynamic section at offset 0x10000 contains 21 entries:
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libkernel_web.sprx]
+ 0x0000000000000001 (NEEDED)             Shared library: [libSceLibcInternal.sprx]
+ 0x0000000000000001 (NEEDED)             Shared library: [libSceNet.sprx]
+ 0x000000006ffffffb (FLAGS_1)            Flags: PIE
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000007 (RELA)               0xa3b0
+ 0x0000000000000008 (RELASZ)             3360 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000006ffffff9 (RELACOUNT)          140
+ 0x0000000000000006 (SYMTAB)             0xa340
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000005 (STRTAB)             0xa374
+ 0x000000000000000a (STRSZ)              59 (bytes)
+ 0x000000006ffffef5 (GNU_HASH)           0xa358
+ 0x0000000000000020 (PREINIT_ARRAY)      0x0
+ 0x0000000000000021 (PREINIT_ARRAYSZ)    0 (bytes)
+ 0x0000000000000019 (INIT_ARRAY)         0xb0d0
+ 0x000000000000001b (INIT_ARRAYSZ)       0 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0xb0d0
+ 0x000000000000001c (FINI_ARRAYSZ)       0 (bytes)
+ 0x0000000000000000 (NULL)               0x0

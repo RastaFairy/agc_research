@@ -1,0 +1,14 @@
+Stage 32 canonical Vulkan ABI probe
+VkImageCreateInfo size = 88
+VkImageViewCreateInfo size = 80
+createInstance 0
+enumPD 0 1
+graphics_family 0
+createDevice 0
+createImage 0
+alloc 0
+bind 0
+createView 0
+PASS
+
+Important: Stage 31's SIGILL was not reproduced with the specification-derived ctypes layouts.

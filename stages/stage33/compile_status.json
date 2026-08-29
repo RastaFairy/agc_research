@@ -1,0 +1,12 @@
+{
+  "Vertex": {
+    "ExitCode": 0,
+    "Output": "D:\\agc_ps5_stage33\\stage33_results\\fullscreen.vert.spv",
+    "Present": true
+  },
+  "Fragment": {
+    "ExitCode": 0,
+    "Output": "D:\\agc_ps5_stage33\\stage33_results\\solid.frag.spv",
+    "Present": true
+  }
+}

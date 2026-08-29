@@ -1,0 +1,60 @@
+{
+  "stage": 40,
+  "timestamp": "2026-08-25T01:39:13.4022528+02:00",
+  "elf": {
+    "built": true,
+    "valid_elf_magic": true,
+    "submit_dcb": true,
+    "executed": false
+  },
+  "submit_dcb": {
+    "name": "sceAgcDriverSubmitDcb",
+    "nid": "UglJIZjGssM"
+  },
+  "target": {
+    "triple": "x86_64-sie-ps5",
+    "sdk": "/opt/ps5-payload-sdk"
+  },
+  "artifacts": [
+    {
+      "file": "stage40_probe.elf",
+      "size": 102264,
+      "sha256": "0dcf432338b3bef894a6b3c1ce5a87653764911588cafe03f21642160519a74a"
+    },
+    {
+      "file": "stage40_probe.o",
+      "size": 4296,
+      "sha256": "606ef4e464c77f45cb2c314761d062df09e5f16c7d9f46080da56209c02ffb17"
+    },
+    {
+      "file": "libSceAgcDriver.o",
+      "size": 7696,
+      "sha256": "6b3303257d624ee6b5d3467228d44bf175323c7aabe84f0965023c0c12e0a026"
+    },
+    {
+      "file": "stage40_Makefile",
+      "size": 415,
+      "sha256": "bfb664c01e0302c6f0e61cb39434f06a040e34bd7e3bb7ca51afc1259feb1ff2"
+    },
+    {
+      "file": "build.log",
+      "size": 325,
+      "sha256": "31235ce8308a81887bdfb3fccb51ccf8e0bb63f9435bf828dd79d4d6bfede58a"
+    },
+    {
+      "file": "elf_header.txt",
+      "size": 977,
+      "sha256": "83182c1abb6624522148ba96f0cf4bd35bc3ff4a598f3681c9d1e4d7fea7e13b"
+    },
+    {
+      "file": "elf_symbols.txt",
+      "size": 41,
+      "sha256": "f1df0791ab85ca9347abff6436f59000d13d0fd9b427c718dfdd34f7769500e3"
+    },
+    {
+      "file": "elf_dynamic.txt",
+      "size": 1227,
+      "sha256": "4616ce61b5bc6576913ea2abc73749c6ad3c9cd96cc0c757a26748c4d1907f54"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+Stage 35 native submit boundary: PASS
+submit_name=sceAgcDriverSubmitDcb
+submit_nid=UglJIZjGssM
+agr_submit_nid=AhGvpITrf4M
+packet_size=16
+native_call=DISABLED_UNVERIFIED
+Stage 35 is intentionally host-safe; no SCE function is invoked.

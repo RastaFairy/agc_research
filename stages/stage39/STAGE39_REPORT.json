@@ -1,0 +1,67 @@
+{
+  "stage": 39,
+  "timestamp": "2026-08-25T01:36:01.4246514+02:00",
+  "submit_dcb": {
+    "name": "sceAgcDriverSubmitDcb",
+    "nid": "UglJIZjGssM",
+    "linked": true
+  },
+  "probe": {
+    "linked": false
+  },
+  "execution": {
+    "performed": false
+  },
+  "link": {
+    "mode": "relocatable",
+    "target": "x86_64-sie-ps5",
+    "linker": "prospero-lld",
+    "flags": "-r"
+  },
+  "sdk": "/opt/ps5-payload-sdk",
+  "paths": {
+    "stage_windows": "D:\\agc_ps5_stage39",
+    "stage_wsl": "/mnt/d/agc_ps5_stage39",
+    "stub_windows": "D:\\agc_work\\sce_stubs",
+    "stub_wsl": "/mnt/d/agc_work/sce_stubs",
+    "output_windows": "D:\\agc_work\\stage39_results",
+    "output_wsl": "/mnt/d/agc_work/stage39_results"
+  },
+  "artifacts": [
+    {
+      "file": "stage39_probe.c",
+      "size": 399,
+      "sha256": "b53417b7863d7a951b1b97f2eb39c540cf84edf1a8e9916e33d2dfe5aa3af09b"
+    },
+    {
+      "file": "stage39_probe.o",
+      "size": 1168,
+      "sha256": "effd198420c24c74288ad1eae17dba02c6eac11c7fac6a75aed877e989322008"
+    },
+    {
+      "file": "libSceAgcDriver.o",
+      "size": 7696,
+      "sha256": "6b3303257d624ee6b5d3467228d44bf175323c7aabe84f0965023c0c12e0a026"
+    },
+    {
+      "file": "stage39_linked.o",
+      "size": 24448,
+      "sha256": "c7a6a082fc264b20d150872bd2dbd2e9ee88faf7d63e64e88341f8f966af604d"
+    },
+    {
+      "file": "linked_symbols.txt",
+      "size": 41,
+      "sha256": "87502b352413341ec707d03e783b11a1ee69a4d39eda3fe6a13a6eca8a551513"
+    },
+    {
+      "file": "probe_compile.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "partial_link.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

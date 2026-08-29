@@ -1,0 +1,60 @@
+{
+  "stage": 36,
+  "timestamp": "2026-08-25T00:45:37.3523110+02:00",
+  "environment": {
+    "windows_version": "Microsoft Windows NT 10.0.26100.0",
+    "powershell": "7.6.5",
+    "computer_name": "AR5000MI",
+    "user_name": "Rasta"
+  },
+  "sdk": {
+    "requested_path": "D:\\sdk-master",
+    "detected_path": "D:\\sdk-master",
+    "status": "FOUND"
+  },
+  "toolchain": {
+    "clang": "C:\\Program Files\\LLVM\\bin\\clang.exe",
+    "clangxx": "C:\\Program Files\\LLVM\\bin\\clang++.exe",
+    "make": null,
+    "cmake": null,
+    "ninja": null
+  },
+  "agc_driver": {
+    "library_candidates": [],
+    "stub_candidates": [],
+    "symbol_hits": [
+      {
+        "file": "D:\\agc_ps5_stage36\\ABI_CHECK.c",
+        "line": 7,
+        "text": "extern void sceAgcDriverSubmitDcb(void);"
+      },
+      {
+        "file": "D:\\agc_ps5_stage36\\ABI_CHECK.c",
+        "line": 12,
+        "text": "(void)&sceAgcDriverSubmitDcb;"
+      },
+      {
+        "file": "D:\\agc_ps5_stage36\\agc_ps5_submit_boundary.h",
+        "line": 23,
+        "text": "#define AGC_PS5_SUBMIT_DCB_NAME \"sceAgcDriverSubmitDcb\""
+      },
+      {
+        "file": "D:\\agc_ps5_stage36\\EXPECTED_RESULTS.md",
+        "line": 9,
+        "text": "Hemos demostrado que el bridge compila contra el SDK/toolchain real y que el símbolo `sceAgcDriverSubmitDcb` existe en la biblioteca enlazada. La invocación sigue desactivada."
+      },
+      {
+        "file": "D:\\agc_ps5_stage36\\README.md",
+        "line": 7,
+        "text": "- verificar que `sceAgcDriverSubmitDcb` puede resolverse como símbolo de enlace;"
+      }
+    ],
+    "status": "SYMBOL_FOUND"
+  },
+  "compile": {
+    "requested": false,
+    "status": "NOT_REQUESTED",
+    "exit_code": null
+  },
+  "result": "SYMBOL_FOUND"
+}

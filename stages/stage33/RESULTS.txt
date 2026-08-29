@@ -1,0 +1,8 @@
+Stage 33 SPIR-V toolchain
+=========================
+toolchain=UNAVAILABLE
+reason=container has no working DNS/network path to fetch Khronos release
+shader_sources=READY
+build_scripts=READY
+handcrafted_spirv=NONE
+next_action=bootstrap glslang 16.5.0, build shaders, validate with spirv-val

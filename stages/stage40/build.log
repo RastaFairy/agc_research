@@ -1,0 +1,2 @@
+/opt/ps5-payload-sdk/bin/prospero-clang -O0 -g -Wall -Werror -ffreestanding -fno-builtin -fPIC -fno-stack-protector -c stage40_probe.c -o stage40_probe.o
+/opt/ps5-payload-sdk/bin/prospero-clang -O0 -g -Wall -Werror -ffreestanding -fno-builtin -fPIC -fno-stack-protector -o stage40_probe.elf stage40_probe.o libSceAgcDriver.o

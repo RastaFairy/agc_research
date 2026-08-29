@@ -1,0 +1,22 @@
+[
+  {
+    "File": "fullscreen.vert",
+    "Size": 380,
+    "SHA256": "57459ddd70ea10ecf3c5bd64bab3763f687a17689de743400edc3beac656b915"
+  },
+  {
+    "File": "solid.frag",
+    "Size": 111,
+    "SHA256": "ddbaec6199fd4d735361085edc26330861be03bb7ed36a857957740017ab19fa"
+  },
+  {
+    "File": "fullscreen.vert.spv",
+    "Size": 1372,
+    "SHA256": "3e187ea21fcd17632fc237ff2df98091a77ef517c660e2b2943c5abce76f5ea2"
+  },
+  {
+    "File": "solid.frag.spv",
+    "Size": 336,
+    "SHA256": "616e4bae31a19b4dc4c95ca8d54ea963c4493f9c7190aa04d2be5f75f3f9d9ac"
+  }
+]

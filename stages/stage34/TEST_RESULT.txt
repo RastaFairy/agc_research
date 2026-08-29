@@ -1,0 +1,3 @@
+Stage 34 native AGC bridge: PASS
+sequence=init,begin,upload,draw,submit,present
+Sony calls executed: 0

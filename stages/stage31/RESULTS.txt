@@ -1,0 +1,13 @@
+ICD=/usr/lib/chromium/vk_swiftshader_icd.json
+instance=PASS
+graphics_queue_family=PASS
+device=PASS
+queue=PASS
+rgba8_image=0
+memory_alloc=0
+image_bind=0
+image_view=BLOCKED_SIGILL_from_manual_ABI_probe
+shader=BLOCKED_NO_LOCAL_SPIRV_COMPILER
+pipeline=BLOCKED
+render=BLOCKED
+readback=BLOCKED

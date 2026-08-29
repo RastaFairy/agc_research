@@ -1,0 +1,59 @@
+**********************
+PowerShell transcript start
+Start time: 20260825003338
+Username: AR5000MI\Rasta
+RunAs User: AR5000MI\Rasta
+Configuration Name: 
+Machine: AR5000MI (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\Program Files\WindowsApps\Microsoft.PowerShell_7.6.5.0_x64__8wekyb3d8bbwe\pwsh.dll
+Process ID: 11540
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26100
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+
+==> Environment
+
+==> Locate shaders
+[INFO] Vertex shader:   D:\agc_ps5_stage33\shaders\fullscreen.vert
+[INFO] Fragment shader: D:\agc_ps5_stage33\shaders\solid.frag
+
+==> Locate glslang
+[INFO] Using glslang: D:\agc_ps5_stage33\third_party\glslang-16.5.0\bin\glslang.exe
+
+==> glslang version
+[INFO] D:\agc_ps5_stage33\third_party\glslang-16.5.0\bin\glslang.exe --version
+
+==> Compile GLSL -> SPIR-V
+[INFO] D:\agc_ps5_stage33\third_party\glslang-16.5.0\bin\glslang.exe -V D:\agc_ps5_stage33\shaders\fullscreen.vert -o D:\agc_ps5_stage33\stage33_results\fullscreen.vert.spv
+D:\agc_ps5_stage33\shaders\fullscreen.vert
+[INFO] D:\agc_ps5_stage33\third_party\glslang-16.5.0\bin\glslang.exe -V D:\agc_ps5_stage33\shaders\solid.frag -o D:\agc_ps5_stage33\stage33_results\solid.frag.spv
+D:\agc_ps5_stage33\shaders\solid.frag
+
+==> Locate spirv-val
+[WARN] spirv-val not available.
+
+==> Validate SPIR-V
+
+==> Vulkan ICD discovery
+[INFO] ICDs found: 0
+
+==> vulkaninfo
+WARNING: [Loader Message] Code 0 : Layer name GalaxyOverlayVkLayer does not conform to naming standard (Policy #LLP_LAYER_3)
+WARNING: [Loader Message] Code 0 : Layer name GalaxyOverlayVkLayer_VERBOSE does not conform to naming standard (Policy #LLP_LAYER_3)
+WARNING: [Loader Message] Code 0 : Layer name GalaxyOverlayVkLayer_DEBUG does not conform to naming standard (Policy #LLP_LAYER_3)
+WARNING: [Loader Message] Code 0 : vkGetPhysicalDeviceSurfaceCapabilities2KHR: Emulation found unrecognized structure type in pSurfaceInfo->pNext - this struct will be ignored
+
+==> Hashes
+
+==> Summary
+**********************
+PowerShell transcript end
+End time: 20260825003339
+**********************

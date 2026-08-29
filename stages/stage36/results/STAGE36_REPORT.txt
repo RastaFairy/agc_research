@@ -1,0 +1,18 @@
+AGC PS5 Stage 36
+=================
+
+RESULT : SYMBOL_FOUND
+SDK    : FOUND
+SDK    : D:\sdk-master
+AGCDRV : SYMBOL_FOUND
+
+libSceAgcDriver candidates : 0
+Generated stub candidates  : 0
+SubmitDcb symbol hits      : 5
+
+Compile requested : False
+Compile status    : NOT_REQUESTED
+Compile exit      : 
+
+Report:
+D:\agc_ps5_stage36\results\STAGE36_REPORT.json
