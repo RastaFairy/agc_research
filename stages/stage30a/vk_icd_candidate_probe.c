@@ -1,0 +1,16 @@
+#define _GNU_SOURCE
+#include <dlfcn.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef uint32_t VkFlags,VkBool32; typedef int32_t VkResult; typedef struct VkInstance_T* VkInstance; typedef struct VkPhysicalDevice_T* VkPhysicalDevice; typedef struct VkDevice_T* VkDevice; typedef struct VkQueue_T* VkQueue;
+typedef void(*PFN)(void); typedef PFN(*GIP)(VkInstance,const char*);
+typedef struct{uint32_t sType;const void*pNext;const char*pa;uint32_t pav;const char*en;uint32_t ev;uint32_t api;} App;
+typedef struct{uint32_t sType;const void*pNext;uint32_t flags;const App*app;uint32_t lc;const char*const*ln;uint32_t ec;const char*const*en;} ICI;
+typedef VkResult(*CI)(const ICI*,const void*,VkInstance*); typedef void(*DI)(VkInstance,const void*); typedef VkResult(*EP)(VkInstance,uint32_t*,VkPhysicalDevice*);
+typedef void(*GP)(VkPhysicalDevice,void*); typedef void(*GQ)(VkPhysicalDevice,uint32_t*,void*); typedef VkResult(*CD)(VkPhysicalDevice,const void*,const void*,VkDevice*); typedef void(*DD)(VkDevice,const void*); typedef void(*GQDV)(VkDevice,uint32_t,uint32_t,VkQueue*); typedef void(*GFP)(VkPhysicalDevice,int32_t,void*);
+typedef struct{uint32_t apiVersion,driverVersion,vendorID,deviceID,deviceType;char name[256];char uuid[16];uint8_t rest[2048];} Props;
+typedef struct{uint32_t flags,count,timestampBits,gran[3];} QFP;
+typedef struct{uint32_t linear,opt,buff;} FProps;
+int main(){void*so=dlopen("libvulkan.so.1",RTLD_NOW|RTLD_LOCAL); if(!so){puts("LOADER=FAIL");return 1;} GIP gip=(GIP)dlsym(so,"vkGetInstanceProcAddr"); CI ci=(CI)gip(0,"vkCreateInstance"); App a={0,0,"candidate-probe",1,"candidate-probe",1,(1u<<22)|(3u<<12)}; ICI ici={1,0,0,&a,0,0,0,0}; VkInstance ins=0; int r=ci(&ici,0,&ins); printf("INSTANCE=%d\n",r); if(r){return 0;} DI di=(DI)gip(ins,"vkDestroyInstance"); EP ep=(EP)gip(ins,"vkEnumeratePhysicalDevices"); uint32_t n=0; r=ep(ins,&n,0); printf("PHYS=%d count=%u\n",r,n); VkPhysicalDevice pd=0; ep(ins,&n,&pd); Props p; memset(&p,0,sizeof p); ((GP)gip(ins,"vkGetPhysicalDeviceProperties"))(pd,&p); printf("DEVICE=%s API=%u.%u.%u VENDOR=0x%04x TYPE=%u\n",p.name,p.apiVersion>>22,(p.apiVersion>>12)&1023,p.apiVersion&4095,p.vendorID,p.deviceType); uint32_t qn=0; ((GQ)gip(ins,"vkGetPhysicalDeviceQueueFamilyProperties"))(pd,&qn,0); QFP*q=calloc(qn,sizeof*q); ((GQ)gip(ins,"vkGetPhysicalDeviceQueueFamilyProperties"))(pd,&qn,q); for(uint32_t i=0;i<qn;i++) printf("QF%u FLAGS=0x%x COUNT=%u\n",i,q[i].flags,q[i].count); FProps f={0}; ((GFP)gip(ins,"vkGetPhysicalDeviceFormatProperties"))(pd,37,&f); printf("RGBA8_UNORM linear=0x%x optimal=0x%x buffer=0x%x\n",f.linear,f.opt,f.buff); const float prio=1.f; struct{uint32_t sType;const void*pNext;uint32_t flags,qfi,qc;const float*prio;} qci={2,0,0,0,1,&prio}; struct{uint32_t sType;const void*pNext;uint32_t flags,qciCount;const void*qci;uint32_t lc;const char*const*ln;uint32_t ec;const char*const*en;const void*feat;} dci={3,0,0,1,&qci,0,0,0,0,0}; VkDevice dev=0; r=((CD)gip(ins,"vkCreateDevice"))(pd,&dci,0,&dev); printf("DEVICE_CREATE=%d\n",r); if(!r){VkQueue qu=0;((GQDV)gip(ins,"vkGetDeviceQueue"))(dev,0,0,&qu);printf("QUEUE=%s\n",qu?"PASS":"FAIL");((DD)gip(ins,"vkDestroyDevice"))(dev,0);} di(ins,0);free(q);dlclose(so);return 0;}

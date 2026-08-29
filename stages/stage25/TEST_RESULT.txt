@@ -1,0 +1,3 @@
+AGC PS5 Stage 25 P0 decoder: PASS
+P0 IR: SetReg/Draw/WriteData/Sync/Present
+Unsupported opcodes: fail-closed

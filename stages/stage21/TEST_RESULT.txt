@@ -1,0 +1,3 @@
+Stage 21 static classification: PASS
+0x2364 is not a write to the 0x1a908 + index*0x78 + 0x48 callback table.
+No Sony prototype introduced.

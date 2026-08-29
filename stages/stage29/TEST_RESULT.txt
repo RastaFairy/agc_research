@@ -1,0 +1,5 @@
+Stage 29 contract smoke test: PASS
+RGBA8=64x64
+pipeline=render-pass+graphics-pipeline+readback
+Sony ABI dependencies=0
+instance=UNAVAILABLE result=-9

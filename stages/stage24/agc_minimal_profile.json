@@ -1,0 +1,52 @@
+{
+  "stage": 24,
+  "goal": "minimal AGC profile for RetroArch framebuffer/fullscreen draw",
+  "priority": {
+    "P0": [
+      "SET_CONTEXT_REG",
+      "SET_SH_REG",
+      "SET_UCONFIG_REG",
+      "INDEX_BASE",
+      "INDEX_COUNT",
+      "DRAW_INDEX_AUTO",
+      "WRITE_DATA",
+      "EVENT_WRITE",
+      "RELEASE_MEM",
+      "WAIT_REG_MEM",
+      "FLIP",
+      "CreateShader",
+      "CB_COLOR0_BASE",
+      "CB_COLOR0_INFO",
+      "CB_COLOR0_ATTRIB",
+      "viewport",
+      "scissor"
+    ],
+    "P1": [
+      "DRAW_INDEX_INDIRECT",
+      "DRAW_INDIRECT",
+      "SET_BASE",
+      "INDIRECT_BUFFER",
+      "DMA_DATA",
+      "ACQUIRE_MEM",
+      "texture_descriptors",
+      "multiple_render_targets"
+    ],
+    "P2": [
+      "DISPATCH_DIRECT",
+      "DISPATCH_INDIRECT",
+      "predication",
+      "depth_stencil_full",
+      "geometry",
+      "tessellation",
+      "NGG",
+      "multi_queue_engine"
+    ]
+  },
+  "principles": [
+    "Do not invent Sony C prototypes.",
+    "Do not treat KytyPlus host Vulkan code as runnable PS5 code.",
+    "Keep ABI, guest GPU semantics and presentation as separate layers.",
+    "Prefer a single-color-target first proof.",
+    "Make every unsupported opcode fail loudly in the test harness."
+  ]
+}

@@ -1,0 +1,1 @@
+2765597643c1bc6bac755b33c2fb00926b24057660521bd2bdb6510caeb18212  /tmp/agc_ps5_stage21/libSceAgcDriver.sprx
