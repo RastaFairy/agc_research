@@ -1,0 +1,1845 @@
+PS D:\agc_ps5_stage70> .\stage70_a0_provenance.ps1
+
+============================================
+AGC PS5 Stage 70 - Global +0xA0 Value Provenance / Initialization Audit
+============================================
+[INFO] StageDir        = D:\agc_ps5_stage70
+[INFO] SPRX            = D:\agc_work\sce_stubs\libSceAgcDriver.sprx
+[INFO] NID DB          = D:\sdk-master\sce_stubs\aerolib.csv
+[INFO] Previous stage  = D:\agc_work\stage69_results
+[INFO] Output          = D:\agc_work\stage70_results
+[INFO] SPRX WSL        = /mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx
+[INFO] Previous WSL    = /mnt/d/agc_work/stage69_results
+[INFO] Output WSL      = /mnt/d/agc_work/stage70_results
+[INFO] SDK             = /opt/ps5-payload-sdk
+
+==> Preparar workspace Linux
+
+[WSL] set -e
+
+rm -rf '/tmp/agc_stage70'
+
+mkdir -p '/tmp/agc_stage70'
+mkdir -p '/mnt/d/agc_work/stage70_results'
+
+test -f '/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx'
+test -f '/mnt/d/sdk-master/sce_stubs/aerolib.csv'
+test -d '/mnt/d/agc_work/stage69_results'
+
+echo 'Workspace preparado'
+Workspace preparado
+
+==> Verificar Python + pyelftools + toolchain
+
+[WSL] set -e
+
+test -x '/opt/ps5-payload-sdk/bin/prospero-clang'
+test -x '/opt/ps5-payload-sdk/bin/prospero-nm'
+test -x '/opt/ps5-payload-sdk/bin/prospero-lld'
+
+echo '--- prospero-clang ---'
+'/opt/ps5-payload-sdk/bin/prospero-clang' --version
+
+echo '--- prospero-nm ---'
+'/opt/ps5-payload-sdk/bin/prospero-nm' --version
+
+echo '--- pyelftools ---'
+python3 -c "from elftools.elf.elffile import ELFFile; print('pyelftools=OK')"
+
+echo '--- objdump ---'
+command -v objdump
+
+echo '--- llvm-objdump ---'
+command -v llvm-objdump
+--- prospero-clang ---
+Ubuntu clang version 18.1.3 (1ubuntu1)
+Target: x86_64-sie-ps5
+Thread model: posix
+InstalledDir: /usr/lib/llvm-18/bin
+--- prospero-nm ---
+llvm-nm, compatible with GNU nm
+Ubuntu LLVM version 18.1.3
+  Optimized build.
+--- pyelftools ---
+pyelftools=OK
+--- objdump ---
+/usr/bin/objdump
+--- llvm-objdump ---
+/usr/bin/llvm-objdump
+
+==> Validar analizador Stage 70
+
+[WSL] set -e
+
+cp '/mnt/d/agc_work/stage70_results/analyze_a0_provenance.py' '/tmp/agc_stage70/analyze_a0_provenance.py'
+
+sed -i 's/\r$//' \
+    '/tmp/agc_stage70/analyze_a0_provenance.py'
+
+python3 -m py_compile \
+    '/tmp/agc_stage70/analyze_a0_provenance.py'
+
+ls -lh \
+    '/tmp/agc_stage70/analyze_a0_provenance.py'
+-rwxr-xr-x 1 user user 24K Aug 25 02:56 /tmp/agc_stage70/analyze_a0_provenance.py
+
+==> Rastrear procedencia real de global_context +0xA0
+
+[WSL] set -e
+
+python3 '/tmp/agc_stage70/analyze_a0_provenance.py' \
+    '/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx' \
+    '/mnt/d/sdk-master/sce_stubs/aerolib.csv' \
+    '/mnt/d/agc_work/stage69_results' \
+    '/mnt/d/agc_work/stage70_results'
+{
+  "stage": 70,
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "nid": "b4fpgH5ZXxQ",
+    "global_context_va": 108808,
+    "field_offset": 160,
+    "field_va": 108968,
+    "a4_offset": 164,
+    "submit_va": 6320,
+    "multi_va": 18000,
+    "table_stride": 120
+  },
+  "stage69": {
+    "available": true,
+    "count_semantics_proven": true,
+    "submit_a4_dispatch_confirmed": true,
+    "multi_a4_dispatch_confirmed": true
+  },
+  "a0_accesses": [
+    {
+      "instruction_va": 363,
+      "instruction": "cmpl   $0x0,0xa0(%rax)",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "OTHER",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 356,
+        "instruction": "lea    0x1a79d(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 1
+      }
+    },
+    {
+      "instruction_va": 518,
+      "instruction": "movl   $0x1,0xa0(%rax)",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 1,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 356,
+        "instruction": "lea    0x1a79d(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 32
+      }
+    },
+    {
+      "instruction_va": 555,
+      "instruction": "mov    0xa0(%r8),%esi",
+      "base_register": "r8",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 548,
+        "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+        "register": "r8",
+        "distance_instructions": 1
+      }
+    },
+    {
+      "instruction_va": 632,
+      "instruction": "movl   $0x0,0xa0(%r8)",
+      "base_register": "r8",
+      "owner": null,
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 0,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 548,
+        "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+        "register": "r8",
+        "distance_instructions": 21
+      }
+    },
+    {
+      "instruction_va": 5002,
+      "instruction": "vmovups %ymm0,0xa0(%rsp)",
+      "base_register": "rsp",
+      "owner": null,
+      "access_type": "STORE",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null
+    },
+    {
+      "instruction_va": 5166,
+      "instruction": "lea    0xa0(%rsp),%rdi",
+      "base_register": "rsp",
+      "owner": null,
+      "access_type": "OTHER",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null
+    },
+    {
+      "instruction_va": 5594,
+      "instruction": "lea    0xa0(%rsp),%rdx",
+      "base_register": "rsp",
+      "owner": null,
+      "access_type": "OTHER",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null
+    },
+    {
+      "instruction_va": 6203,
+      "instruction": "mov    0xa0(%r15),%eax",
+      "base_register": "r15",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6190,
+        "instruction": "lea    0x190d3(%rip),%r15        # 0x1a908",
+        "register": "r15",
+        "distance_instructions": 3
+      }
+    },
+    {
+      "instruction_va": 6260,
+      "instruction": "mov    0xa0(%r15),%eax",
+      "base_register": "r15",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6190,
+        "instruction": "lea    0x190d3(%rip),%r15        # 0x1a908",
+        "register": "r15",
+        "distance_instructions": 22
+      }
+    },
+    {
+      "instruction_va": 6488,
+      "instruction": "mov    0xa0(%rbx),%eax",
+      "base_register": "rbx",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6408,
+        "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+        "register": "rbx",
+        "distance_instructions": 18
+      }
+    },
+    {
+      "instruction_va": 6548,
+      "instruction": "mov    0xa0(%rbx),%eax",
+      "base_register": "rbx",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6408,
+        "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+        "register": "rbx",
+        "distance_instructions": 38
+      }
+    },
+    {
+      "instruction_va": 7050,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6990,
+        "instruction": "lea    0x18db3(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance_instructions": 14
+      }
+    },
+    {
+      "instruction_va": 7102,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6990,
+        "instruction": "lea    0x18db3(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance_instructions": 32
+      }
+    },
+    {
+      "instruction_va": 7355,
+      "instruction": "mov    0xa0(%r13),%eax",
+      "base_register": "r13",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 7192,
+        "instruction": "lea    0x18ce9(%rip),%r13        # 0x1a908",
+        "register": "r13",
+        "distance_instructions": 34
+      }
+    },
+    {
+      "instruction_va": 7438,
+      "instruction": "mov    0xa0(%r13),%eax",
+      "base_register": "r13",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 7192,
+        "instruction": "lea    0x18ce9(%rip),%r13        # 0x1a908",
+        "register": "r13",
+        "distance_instructions": 57
+      }
+    },
+    {
+      "instruction_va": 7690,
+      "instruction": "mov    0xa0(%r13),%eax",
+      "base_register": "r13",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null
+    },
+    {
+      "instruction_va": 7775,
+      "instruction": "mov    0xa0(%r13),%eax",
+      "base_register": "r13",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null
+    },
+    {
+      "instruction_va": 10810,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 10760,
+        "instruction": "lea    0x17ef9(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance_instructions": 11
+      }
+    },
+    {
+      "instruction_va": 10884,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 10760,
+        "instruction": "lea    0x17ef9(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance_instructions": 33
+      }
+    },
+    {
+      "instruction_va": 12935,
+      "instruction": "movq   $0x0,-0xa0(%rbp)",
+      "base_register": "rbp",
+      "owner": null,
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 0,
+      "global_context_proven": false,
+      "global_context_lea": null
+    },
+    {
+      "instruction_va": 17870,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 17854,
+        "instruction": "lea    0x16343(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 4
+      }
+    },
+    {
+      "instruction_va": 17944,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 17937,
+        "instruction": "lea    0x162f0(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 1
+      }
+    },
+    {
+      "instruction_va": 18265,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 18258,
+        "instruction": "lea    0x161af(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 1
+      }
+    },
+    {
+      "instruction_va": 18346,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 18336,
+        "instruction": "lea    0x16161(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 2
+      }
+    },
+    {
+      "instruction_va": 25679,
+      "instruction": "vmovups %xmm1,0xa0(%rdi)",
+      "base_register": "rdi",
+      "owner": null,
+      "access_type": "STORE",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null
+    },
+    {
+      "instruction_va": 43665,
+      "instruction": "mov    %rdi,-0xa0(%rbp)",
+      "base_register": "rbp",
+      "owner": null,
+      "access_type": "STORE",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null
+    }
+  ],
+  "a0_reads": [
+    {
+      "instruction_va": 555,
+      "instruction": "mov    0xa0(%r8),%esi",
+      "base_register": "r8",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 548,
+        "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+        "register": "r8",
+        "distance_instructions": 1
+      }
+    },
+    {
+      "instruction_va": 6203,
+      "instruction": "mov    0xa0(%r15),%eax",
+      "base_register": "r15",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6190,
+        "instruction": "lea    0x190d3(%rip),%r15        # 0x1a908",
+        "register": "r15",
+        "distance_instructions": 3
+      }
+    },
+    {
+      "instruction_va": 6260,
+      "instruction": "mov    0xa0(%r15),%eax",
+      "base_register": "r15",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6190,
+        "instruction": "lea    0x190d3(%rip),%r15        # 0x1a908",
+        "register": "r15",
+        "distance_instructions": 22
+      }
+    },
+    {
+      "instruction_va": 6488,
+      "instruction": "mov    0xa0(%rbx),%eax",
+      "base_register": "rbx",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6408,
+        "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+        "register": "rbx",
+        "distance_instructions": 18
+      }
+    },
+    {
+      "instruction_va": 6548,
+      "instruction": "mov    0xa0(%rbx),%eax",
+      "base_register": "rbx",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6408,
+        "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+        "register": "rbx",
+        "distance_instructions": 38
+      }
+    },
+    {
+      "instruction_va": 7050,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6990,
+        "instruction": "lea    0x18db3(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance_instructions": 14
+      }
+    },
+    {
+      "instruction_va": 7102,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6990,
+        "instruction": "lea    0x18db3(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance_instructions": 32
+      }
+    },
+    {
+      "instruction_va": 7355,
+      "instruction": "mov    0xa0(%r13),%eax",
+      "base_register": "r13",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 7192,
+        "instruction": "lea    0x18ce9(%rip),%r13        # 0x1a908",
+        "register": "r13",
+        "distance_instructions": 34
+      }
+    },
+    {
+      "instruction_va": 7438,
+      "instruction": "mov    0xa0(%r13),%eax",
+      "base_register": "r13",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 7192,
+        "instruction": "lea    0x18ce9(%rip),%r13        # 0x1a908",
+        "register": "r13",
+        "distance_instructions": 57
+      }
+    },
+    {
+      "instruction_va": 7690,
+      "instruction": "mov    0xa0(%r13),%eax",
+      "base_register": "r13",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null
+    },
+    {
+      "instruction_va": 7775,
+      "instruction": "mov    0xa0(%r13),%eax",
+      "base_register": "r13",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null
+    },
+    {
+      "instruction_va": 10810,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 10760,
+        "instruction": "lea    0x17ef9(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance_instructions": 11
+      }
+    },
+    {
+      "instruction_va": 10884,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 10760,
+        "instruction": "lea    0x17ef9(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance_instructions": 33
+      }
+    },
+    {
+      "instruction_va": 17870,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 17854,
+        "instruction": "lea    0x16343(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 4
+      }
+    },
+    {
+      "instruction_va": 17944,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 17937,
+        "instruction": "lea    0x162f0(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 1
+      }
+    },
+    {
+      "instruction_va": 18265,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 18258,
+        "instruction": "lea    0x161af(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 1
+      }
+    },
+    {
+      "instruction_va": 18346,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 18336,
+        "instruction": "lea    0x16161(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 2
+      }
+    }
+  ],
+  "a0_stores": [
+    {
+      "instruction_va": 518,
+      "instruction": "movl   $0x1,0xa0(%rax)",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 1,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 356,
+        "instruction": "lea    0x1a79d(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 32
+      }
+    },
+    {
+      "instruction_va": 632,
+      "instruction": "movl   $0x0,0xa0(%r8)",
+      "base_register": "r8",
+      "owner": null,
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 0,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 548,
+        "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+        "register": "r8",
+        "distance_instructions": 21
+      }
+    },
+    {
+      "instruction_va": 5002,
+      "instruction": "vmovups %ymm0,0xa0(%rsp)",
+      "base_register": "rsp",
+      "owner": null,
+      "access_type": "STORE",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null
+    },
+    {
+      "instruction_va": 12935,
+      "instruction": "movq   $0x0,-0xa0(%rbp)",
+      "base_register": "rbp",
+      "owner": null,
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 0,
+      "global_context_proven": false,
+      "global_context_lea": null
+    },
+    {
+      "instruction_va": 25679,
+      "instruction": "vmovups %xmm1,0xa0(%rdi)",
+      "base_register": "rdi",
+      "owner": null,
+      "access_type": "STORE",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null
+    },
+    {
+      "instruction_va": 43665,
+      "instruction": "mov    %rdi,-0xa0(%rbp)",
+      "base_register": "rbp",
+      "owner": null,
+      "access_type": "STORE",
+      "immediate_value": null,
+      "global_context_proven": false,
+      "global_context_lea": null
+    }
+  ],
+  "global_a0_reads": [
+    {
+      "instruction_va": 555,
+      "instruction": "mov    0xa0(%r8),%esi",
+      "base_register": "r8",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 548,
+        "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+        "register": "r8",
+        "distance_instructions": 1
+      }
+    },
+    {
+      "instruction_va": 6203,
+      "instruction": "mov    0xa0(%r15),%eax",
+      "base_register": "r15",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6190,
+        "instruction": "lea    0x190d3(%rip),%r15        # 0x1a908",
+        "register": "r15",
+        "distance_instructions": 3
+      }
+    },
+    {
+      "instruction_va": 6260,
+      "instruction": "mov    0xa0(%r15),%eax",
+      "base_register": "r15",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6190,
+        "instruction": "lea    0x190d3(%rip),%r15        # 0x1a908",
+        "register": "r15",
+        "distance_instructions": 22
+      }
+    },
+    {
+      "instruction_va": 6488,
+      "instruction": "mov    0xa0(%rbx),%eax",
+      "base_register": "rbx",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6408,
+        "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+        "register": "rbx",
+        "distance_instructions": 18
+      }
+    },
+    {
+      "instruction_va": 6548,
+      "instruction": "mov    0xa0(%rbx),%eax",
+      "base_register": "rbx",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6408,
+        "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+        "register": "rbx",
+        "distance_instructions": 38
+      }
+    },
+    {
+      "instruction_va": 7050,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6990,
+        "instruction": "lea    0x18db3(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance_instructions": 14
+      }
+    },
+    {
+      "instruction_va": 7102,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6990,
+        "instruction": "lea    0x18db3(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance_instructions": 32
+      }
+    },
+    {
+      "instruction_va": 7355,
+      "instruction": "mov    0xa0(%r13),%eax",
+      "base_register": "r13",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 7192,
+        "instruction": "lea    0x18ce9(%rip),%r13        # 0x1a908",
+        "register": "r13",
+        "distance_instructions": 34
+      }
+    },
+    {
+      "instruction_va": 7438,
+      "instruction": "mov    0xa0(%r13),%eax",
+      "base_register": "r13",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 7192,
+        "instruction": "lea    0x18ce9(%rip),%r13        # 0x1a908",
+        "register": "r13",
+        "distance_instructions": 57
+      }
+    },
+    {
+      "instruction_va": 10810,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 10760,
+        "instruction": "lea    0x17ef9(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance_instructions": 11
+      }
+    },
+    {
+      "instruction_va": 10884,
+      "instruction": "mov    0xa0(%r12),%eax",
+      "base_register": "r12",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 10760,
+        "instruction": "lea    0x17ef9(%rip),%r12        # 0x1a908",
+        "register": "r12",
+        "distance_instructions": 33
+      }
+    },
+    {
+      "instruction_va": 17870,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 17854,
+        "instruction": "lea    0x16343(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 4
+      }
+    },
+    {
+      "instruction_va": 17944,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 17937,
+        "instruction": "lea    0x162f0(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 1
+      }
+    },
+    {
+      "instruction_va": 18265,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 18258,
+        "instruction": "lea    0x161af(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 1
+      }
+    },
+    {
+      "instruction_va": 18346,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 18336,
+        "instruction": "lea    0x16161(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 2
+      }
+    }
+  ],
+  "global_a0_stores": [
+    {
+      "instruction_va": 518,
+      "instruction": "movl   $0x1,0xa0(%rax)",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 1,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 356,
+        "instruction": "lea    0x1a79d(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 32
+      }
+    },
+    {
+      "instruction_va": 632,
+      "instruction": "movl   $0x0,0xa0(%r8)",
+      "base_register": "r8",
+      "owner": null,
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 0,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 548,
+        "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+        "register": "r8",
+        "distance_instructions": 21
+      }
+    }
+  ],
+  "initializer": {
+    "instruction_va": 518,
+    "instruction": "movl   $0x1,0xa0(%rax)",
+    "base_register": "rax",
+    "owner": null,
+    "access_type": "STORE_IMMEDIATE",
+    "immediate_value": 1,
+    "global_context_proven": true,
+    "global_context_lea": {
+      "va": 356,
+      "instruction": "lea    0x1a79d(%rip),%rax        # 0x1a908",
+      "register": "rax",
+      "distance_instructions": 32
+    }
+  },
+  "initializer_window": [
+    {
+      "va": 415,
+      "bytes": [
+        72,
+        185,
+        120,
+        0,
+        0,
+        0,
+        14
+      ],
+      "instruction": "movabs $0x1000e00000078,%rcx"
+    },
+    {
+      "va": 422,
+      "bytes": [
+        0,
+        1,
+        0
+      ],
+      "instruction": ""
+    },
+    {
+      "va": 425,
+      "bytes": [
+        197,
+        248,
+        87,
+        192
+      ],
+      "instruction": "vxorps %xmm0,%xmm0,%xmm0"
+    },
+    {
+      "va": 429,
+      "bytes": [
+        197,
+        252,
+        17,
+        128,
+        128,
+        0,
+        0
+      ],
+      "instruction": "vmovups %ymm0,0x80(%rax)"
+    },
+    {
+      "va": 436,
+      "bytes": [
+        0
+      ],
+      "instruction": ""
+    },
+    {
+      "va": 437,
+      "bytes": [
+        197,
+        252,
+        17,
+        64,
+        48
+      ],
+      "instruction": "vmovups %ymm0,0x30(%rax)"
+    },
+    {
+      "va": 442,
+      "bytes": [
+        197,
+        252,
+        17,
+        64,
+        80
+      ],
+      "instruction": "vmovups %ymm0,0x50(%rax)"
+    },
+    {
+      "va": 447,
+      "bytes": [
+        197,
+        252,
+        17,
+        64,
+        112
+      ],
+      "instruction": "vmovups %ymm0,0x70(%rax)"
+    },
+    {
+      "va": 452,
+      "bytes": [
+        72,
+        141,
+        53,
+        245,
+        58,
+        0,
+        0
+      ],
+      "instruction": "lea    0x3af5(%rip),%rsi        # 0x3cc0"
+    },
+    {
+      "va": 459,
+      "bytes": [
+        197,
+        248,
+        87,
+        192
+      ],
+      "instruction": "vxorps %xmm0,%xmm0,%xmm0"
+    },
+    {
+      "va": 463,
+      "bytes": [
+        72,
+        137,
+        72,
+        40
+      ],
+      "instruction": "mov    %rcx,0x28(%rax)"
+    },
+    {
+      "va": 467,
+      "bytes": [
+        198,
+        64,
+        53,
+        255
+      ],
+      "instruction": "movb   $0xff,0x35(%rax)"
+    },
+    {
+      "va": 471,
+      "bytes": [
+        72,
+        137,
+        80,
+        80
+      ],
+      "instruction": "mov    %rdx,0x50(%rax)"
+    },
+    {
+      "va": 475,
+      "bytes": [
+        72,
+        141,
+        21,
+        78,
+        24,
+        0,
+        0
+      ],
+      "instruction": "lea    0x184e(%rip),%rdx        # 0x1a30"
+    },
+    {
+      "va": 482,
+      "bytes": [
+        72,
+        137,
+        112,
+        88
+      ],
+      "instruction": "mov    %rsi,0x58(%rax)"
+    },
+    {
+      "va": 486,
+      "bytes": [
+        72,
+        141,
+        53,
+        243,
+        101,
+        0,
+        0
+      ],
+      "instruction": "lea    0x65f3(%rip),%rsi        # 0x67e0"
+    },
+    {
+      "va": 493,
+      "bytes": [
+        72,
+        137,
+        80,
+        104
+      ],
+      "instruction": "mov    %rdx,0x68(%rax)"
+    },
+    {
+      "va": 497,
+      "bytes": [
+        72,
+        141,
+        21,
+        24,
+        102,
+        0,
+        0
+      ],
+      "instruction": "lea    0x6618(%rip),%rdx        # 0x6810"
+    },
+    {
+      "va": 504,
+      "bytes": [
+        72,
+        137,
+        176,
+        128,
+        0,
+        0,
+        0
+      ],
+      "instruction": "mov    %rsi,0x80(%rax)"
+    },
+    {
+      "va": 511,
+      "bytes": [
+        72,
+        137,
+        144,
+        136,
+        0,
+        0,
+        0
+      ],
+      "instruction": "mov    %rdx,0x88(%rax)"
+    },
+    {
+      "va": 518,
+      "bytes": [
+        199,
+        128,
+        160,
+        0,
+        0,
+        0,
+        1
+      ],
+      "instruction": "movl   $0x1,0xa0(%rax)"
+    },
+    {
+      "va": 525,
+      "bytes": [
+        0,
+        0,
+        0
+      ],
+      "instruction": ""
+    },
+    {
+      "va": 528,
+      "bytes": [
+        197,
+        248,
+        17,
+        128,
+        164,
+        0,
+        0
+      ],
+      "instruction": "vmovups %xmm0,0xa4(%rax)"
+    },
+    {
+      "va": 535,
+      "bytes": [
+        0
+      ],
+      "instruction": ""
+    },
+    {
+      "va": 536,
+      "bytes": [
+        49,
+        192
+      ],
+      "instruction": "xor    %eax,%eax"
+    },
+    {
+      "va": 538,
+      "bytes": [
+        93
+      ],
+      "instruction": "pop    %rbp"
+    },
+    {
+      "va": 539,
+      "bytes": [
+        195
+      ],
+      "instruction": "ret"
+    },
+    {
+      "va": 540,
+      "bytes": [
+        204
+      ],
+      "instruction": "int3"
+    },
+    {
+      "va": 541,
+      "bytes": [
+        204
+      ],
+      "instruction": "int3"
+    },
+    {
+      "va": 542,
+      "bytes": [
+        204
+      ],
+      "instruction": "int3"
+    },
+    {
+      "va": 543,
+      "bytes": [
+        204
+      ],
+      "instruction": "int3"
+    },
+    {
+      "va": 544,
+      "bytes": [
+        85
+      ],
+      "instruction": "push   %rbp"
+    },
+    {
+      "va": 545,
+      "bytes": [
+        72,
+        137,
+        229
+      ],
+      "instruction": "mov    %rsp,%rbp"
+    },
+    {
+      "va": 548,
+      "bytes": [
+        76,
+        141,
+        5,
+        221,
+        166,
+        1,
+        0
+      ],
+      "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908"
+    },
+    {
+      "va": 555,
+      "bytes": [
+        65,
+        139,
+        176,
+        160,
+        0,
+        0,
+        0
+      ],
+      "instruction": "mov    0xa0(%r8),%esi"
+    },
+    {
+      "va": 562,
+      "bytes": [
+        137,
+        240
+      ],
+      "instruction": "mov    %esi,%eax"
+    },
+    {
+      "va": 564,
+      "bytes": [
+        255,
+        200
+      ],
+      "instruction": "dec    %eax"
+    },
+    {
+      "va": 566,
+      "bytes": [
+        116,
+        28
+      ],
+      "instruction": "je     0x254"
+    },
+    {
+      "va": 568,
+      "bytes": [
+        73,
+        141,
+        120,
+        53
+      ],
+      "instruction": "lea    0x35(%r8),%rdi"
+    },
+    {
+      "va": 572,
+      "bytes": [
+        137,
+        192
+      ],
+      "instruction": "mov    %eax,%eax"
+    },
+    {
+      "va": 574,
+      "bytes": [
+        49,
+        210
+      ],
+      "instruction": "xor    %edx,%edx"
+    },
+    {
+      "va": 576,
+      "bytes": [
+        139,
+        79,
+        251
+      ],
+      "instruction": "mov    -0x5(%rdi),%ecx"
+    },
+    {
+      "va": 579,
+      "bytes": [
+        131,
+        249,
+        255
+      ],
+      "instruction": "cmp    $0xffffffff,%ecx"
+    },
+    {
+      "va": 582,
+      "bytes": [
+        117,
+        63
+      ],
+      "instruction": "jne    0x287"
+    },
+    {
+      "va": 584,
+      "bytes": [
+        72,
+        255,
+        194
+      ],
+      "instruction": "inc    %rdx"
+    },
+    {
+      "va": 587,
+      "bytes": [
+        72,
+        131,
+        199,
+        120
+      ],
+      "instruction": "add    $0x78,%rdi"
+    },
+    {
+      "va": 591,
+      "bytes": [
+        72,
+        57,
+        208
+      ],
+      "instruction": "cmp    %rdx,%rax"
+    },
+    {
+      "va": 594,
+      "bytes": [
+        117,
+        236
+      ],
+      "instruction": "jne    0x240"
+    },
+    {
+      "va": 596,
+      "bytes": [
+        72,
+        107,
+        198,
+        120
+      ],
+      "instruction": "imul   $0x78,%rsi,%rax"
+    }
+  ],
+  "post_initialization_stores": [
+    {
+      "instruction_va": 632,
+      "instruction": "movl   $0x0,0xa0(%r8)",
+      "base_register": "r8",
+      "owner": null,
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 0,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 548,
+        "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+        "register": "r8",
+        "distance_instructions": 21
+      }
+    }
+  ],
+  "submit_reads": [
+    {
+      "instruction_va": 6488,
+      "instruction": "mov    0xa0(%rbx),%eax",
+      "base_register": "rbx",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6408,
+        "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+        "register": "rbx",
+        "distance_instructions": 18
+      }
+    },
+    {
+      "instruction_va": 6548,
+      "instruction": "mov    0xa0(%rbx),%eax",
+      "base_register": "rbx",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 6408,
+        "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+        "register": "rbx",
+        "distance_instructions": 38
+      }
+    }
+  ],
+  "multi_reads": [
+    {
+      "instruction_va": 18265,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 18258,
+        "instruction": "lea    0x161af(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 1
+      }
+    },
+    {
+      "instruction_va": 18346,
+      "instruction": "mov    0xa0(%rax),%eax",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "READ",
+      "immediate_value": null,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 18336,
+        "instruction": "lea    0x16161(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 2
+      }
+    }
+  ],
+  "value_provenance": {
+    "field_va": 108968,
+    "initialization_store_va": 518,
+    "initialization_instruction": "movl   $0x1,0xa0(%rax)",
+    "initial_value": 1,
+    "global_context_base_proven": true,
+    "post_initialization_store_count": 1
+  },
+  "conclusions": {
+    "A0_GLOBAL_ACCESS_SCAN_COMPLETED": true,
+    "A0_GLOBAL_CONTEXT_STORE_FOUND": true,
+    "A0_INITIALIZATION_STORE_FOUND": true,
+    "A0_INITIALIZATION_BASE_PROVEN": true,
+    "A0_INITIAL_VALUE_PROVEN": true,
+    "A0_INITIAL_VALUE_IS_1": true,
+    "A0_POST_INITIALIZATION_STORES_FOUND": true,
+    "A0_POST_INITIALIZATION_STORE_FREE": false,
+    "A0_STATIC_VALUE_AFTER_INITIALIZATION": false,
+    "A0_COUNT_SEMANTICS_STRENGTHENED": true,
+    "STAGE69_COUNT_SEMANTICS_CARRIED_FORWARD": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "notes": [
+    "Stage 70 rastrea la procedencia del registro base de global_context+0xA0.",
+    "Una escritura inmediata solo se considera inicializaci├│n global cuando su base procede de LEA directa de 0x1A908.",
+    "El valor inicial se conserva como literal de m├íquina.",
+    "La ausencia de escrituras posteriores se limita a los segmentos ejecutables analizados.",
+    "La sem├íntica count/l├¡mite se hereda de Stage 69 y se refuerza con la procedencia del valor.",
+    "No se asigna un nombre p├║blico de SDK.",
+    "No se declara ejecuci├│n real de AGC."
+  ]
+}
+
+==> Verificar artefactos Stage 70
+
+[WSL] set -e
+
+set -e
+
+test -f '/mnt/d/agc_work/stage70_results/stage70_static.json'
+test -f '/mnt/d/agc_work/stage70_results/a0_provenance_summary.txt'
+test -f '/mnt/d/agc_work/stage70_results/a0_provenance_disassembly.txt'
+test -f '/mnt/d/agc_work/stage70_results/a0_provenance.json'
+test -f '/mnt/d/agc_work/stage70_results/STAGE70_REPORT.json'
+
+echo '--- a0_provenance_summary.txt ---'
+cat '/mnt/d/agc_work/stage70_results/a0_provenance_summary.txt'
+
+echo '--- output files ---'
+find '/mnt/d/agc_work/stage70_results' \
+    -maxdepth 1 \
+    -type f |
+    sort
+--- a0_provenance_summary.txt ---
+AGC PS5 Stage 70 - Global +0xA0 Value Provenance / Initialization Audit
+
+=== TARGET ===
+global_context = 0x1A908
+field_offset = 0xA0
+field_va = 0x1A9A8
+table_stride = 0x78
+
+=== GLOBAL +0xA0 ACCESS COUNT ===
+reads = 15
+stores = 2
+
+=== GLOBAL +0xA0 READS ===
+VA=0x22B owner=<unknown> base=r8 | mov    0xa0(%r8),%esi
+VA=0x183B owner=<unknown> base=r15 | mov    0xa0(%r15),%eax
+VA=0x1874 owner=<unknown> base=r15 | mov    0xa0(%r15),%eax
+VA=0x1958 owner=<unknown> base=rbx | mov    0xa0(%rbx),%eax
+VA=0x1994 owner=<unknown> base=rbx | mov    0xa0(%rbx),%eax
+VA=0x1B8A owner=<unknown> base=r12 | mov    0xa0(%r12),%eax
+VA=0x1BBE owner=<unknown> base=r12 | mov    0xa0(%r12),%eax
+VA=0x1CBB owner=<unknown> base=r13 | mov    0xa0(%r13),%eax
+VA=0x1D0E owner=<unknown> base=r13 | mov    0xa0(%r13),%eax
+VA=0x2A3A owner=<unknown> base=r12 | mov    0xa0(%r12),%eax
+VA=0x2A84 owner=<unknown> base=r12 | mov    0xa0(%r12),%eax
+VA=0x45CE owner=<unknown> base=rax | mov    0xa0(%rax),%eax
+VA=0x4618 owner=<unknown> base=rax | mov    0xa0(%rax),%eax
+VA=0x4759 owner=<unknown> base=rax | mov    0xa0(%rax),%eax
+VA=0x47AA owner=<unknown> base=rax | mov    0xa0(%rax),%eax
+
+=== GLOBAL +0xA0 STORES ===
+VA=0x206 base=rax type=STORE_IMMEDIATE value=1 | movl   $0x1,0xa0(%rax)
+VA=0x278 base=r8 type=STORE_IMMEDIATE value=0 | movl   $0x0,0xa0(%r8)
+
+=== INITIALIZATION ===
+VA=0x206
+instruction = movl   $0x1,0xa0(%rax)
+base_register = rax
+global_context_base_proven = True
+initial_value = 1
+global_context_lea = {'va': 356, 'instruction': 'lea    0x1a79d(%rip),%rax        # 0x1a908', 'register': 'rax', 'distance_instructions': 32}
+
+=== INITIALIZER WINDOW ===
+0x19F movabs $0x1000e00000078,%rcx
+0x1A6
+0x1A9 vxorps %xmm0,%xmm0,%xmm0
+0x1AD vmovups %ymm0,0x80(%rax)
+0x1B4
+0x1B5 vmovups %ymm0,0x30(%rax)
+0x1BA vmovups %ymm0,0x50(%rax)
+0x1BF vmovups %ymm0,0x70(%rax)
+0x1C4 lea    0x3af5(%rip),%rsi        # 0x3cc0
+0x1CB vxorps %xmm0,%xmm0,%xmm0
+0x1CF mov    %rcx,0x28(%rax)
+0x1D3 movb   $0xff,0x35(%rax)
+0x1D7 mov    %rdx,0x50(%rax)
+0x1DB lea    0x184e(%rip),%rdx        # 0x1a30
+0x1E2 mov    %rsi,0x58(%rax)
+0x1E6 lea    0x65f3(%rip),%rsi        # 0x67e0
+0x1ED mov    %rdx,0x68(%rax)
+0x1F1 lea    0x6618(%rip),%rdx        # 0x6810
+0x1F8 mov    %rsi,0x80(%rax)
+0x1FF mov    %rdx,0x88(%rax)
+0x206 movl   $0x1,0xa0(%rax)
+0x20D
+0x210 vmovups %xmm0,0xa4(%rax)
+0x217
+0x218 xor    %eax,%eax
+0x21A pop    %rbp
+0x21B ret
+0x21C int3
+0x21D int3
+0x21E int3
+0x21F int3
+0x220 push   %rbp
+0x221 mov    %rsp,%rbp
+0x224 lea    0x1a6dd(%rip),%r8        # 0x1a908
+0x22B mov    0xa0(%r8),%esi
+0x232 mov    %esi,%eax
+0x234 dec    %eax
+0x236 je     0x254
+0x238 lea    0x35(%r8),%rdi
+0x23C mov    %eax,%eax
+0x23E xor    %edx,%edx
+0x240 mov    -0x5(%rdi),%ecx
+0x243 cmp    $0xffffffff,%ecx
+0x246 jne    0x287
+0x248 inc    %rdx
+0x24B add    $0x78,%rdi
+0x24F cmp    %rdx,%rax
+0x252 jne    0x240
+0x254 imul   $0x78,%rsi,%rax
+
+=== POST-INITIALIZATION GLOBAL +0xA0 STORES ===
+VA=0x278 | movl   $0x0,0xa0(%r8) | base=r8 | proven=True
+
+=== STAGE 69 CORRELATION ===
+COUNT_SEMANTICS_PROVEN=True
+SUBMIT_A4_DISPATCH_CONFIRMED=True
+MULTI_A4_DISPATCH_CONFIRMED=True
+
+=== CONCLUSIONS ===
+A0_GLOBAL_ACCESS_SCAN_COMPLETED=True
+A0_GLOBAL_CONTEXT_STORE_FOUND=True
+A0_INITIALIZATION_STORE_FOUND=True
+A0_INITIALIZATION_BASE_PROVEN=True
+A0_INITIAL_VALUE_PROVEN=True
+A0_INITIAL_VALUE_IS_1=True
+A0_POST_INITIALIZATION_STORES_FOUND=True
+A0_POST_INITIALIZATION_STORE_FREE=False
+A0_STATIC_VALUE_AFTER_INITIALIZATION=False
+A0_COUNT_SEMANTICS_STRENGTHENED=True
+STAGE69_COUNT_SEMANTICS_CARRIED_FORWARD=True
+INDEX_SEMANTICS_PROVEN=True
+EXACT_FIELD_NAME_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== LIMIT ===
+La procedencia del valor de +0xA0 se restringe a las escrituras que pueden seguirse est├íticamente hasta global_context. La ausencia de escrituras posteriores se limita al c├│digo ejecutable analizado.
+--- output files ---
+/mnt/d/agc_work/stage70_results/STAGE70_REPORT.json
+/mnt/d/agc_work/stage70_results/a0_provenance.json
+/mnt/d/agc_work/stage70_results/a0_provenance_disassembly.txt
+/mnt/d/agc_work/stage70_results/a0_provenance_summary.txt
+/mnt/d/agc_work/stage70_results/analyze_a0_provenance.py
+/mnt/d/agc_work/stage70_results/stage70_static.json
+
+==> Hash artefactos
+[INFO] stage70_static.json SHA256=2f6ee9e561616071736b9cee1f65da9cba62427b0b4f826ce1c827fb375e69f8
+[INFO] a0_provenance_summary.txt SHA256=a7788d37329c6a95b9f61e4210c680a271266c849534e8c44a9285913ebcd837
+[INFO] a0_provenance_disassembly.txt SHA256=f3f9527553a54cea69eb6ddd2626d0a2c1aaf29010fcbf3ddbfb19be9f7c922c
+[INFO] a0_provenance.json SHA256=55f8b797bdaa0eead4e1dd863d92ab88b42b6c175e0f23fa4adc035cc177ac75
+[INFO] STAGE70_REPORT.json SHA256=576e9c5e2fd3ce50c15c9480f49fc014fd0049cf6d1328bbc458d0ec237f42a7
+
+==> Limpiar temporales Stage 70
+
+[WSL] set -e
+
+rm -rf '/tmp/agc_stage70'
+
+============================================
+Stage 70 completado
+============================================
+A0_GLOBAL_ACCESS_SCAN_COMPLETED = True
+A0_GLOBAL_CONTEXT_STORE_FOUND = True
+A0_INITIALIZATION_STORE_FOUND = True
+A0_INITIALIZATION_BASE_PROVEN = True
+A0_INITIAL_VALUE_PROVEN = True
+A0_INITIAL_VALUE_IS_1 = True
+A0_POST_INITIALIZATION_STORES_FOUND = True
+A0_POST_INITIALIZATION_STORE_FREE = False
+A0_STATIC_VALUE_AFTER_INITIALIZATION = False
+A0_COUNT_SEMANTICS_STRENGTHENED = True
+STAGE69_COUNT_SEMANTICS_CARRIED_FORWARD = True
+INDEX_SEMANTICS_PROVEN = True
+EXACT_FIELD_NAME_PROVEN = False
+BACKEND_CONSUMER_IDENTIFIED = False
+SEMANTIC_PROTOTYPE_INFERRED = False
+EXECUTED_AGC = False
+
+Resultados:
+  D:\agc_work\stage70_results
+
+Reporte:
+  D:\agc_work\stage70_results\STAGE70_REPORT.json
+PS D:\agc_ps5_stage70>

@@ -1,0 +1,79 @@
+AGC PS5 Stage 61 - Dispatch Index (+0xA4) Value Provenance Audit
+
+=== TARGET FIELD ===
+global_context = 0x1A908
+field_offset = 0xA4
+field_va = 0x1A9AC
+
+=== STAGE 60 CARRY-FORWARD ===
+dispatch_base_offset = 0x50
+dispatch_stride = 0x78
+dispatch_expression = global_context + 0x50 + index * 0x78
+
+=== +0xA4 WRITES ===
+VA=0x210 base=rax vmovups %xmm0,0xa4(%rax)
+
+=== +0xA4 READS ===
+VA=0x210 base=rax vmovups %xmm0,0xa4(%rax)
+VA=0x4630 base=rcx mov 0xa4(%rcx),%eax
+VA=0x47D2 base=rcx mov 0xa4(%rcx),%eax
+VA=0x187D base=r15 mov 0xa4(%r15),%eax
+VA=0x19C1 base=rbx mov 0xa4(%rbx),%eax
+VA=0x2AB3 base=r12 mov 0xa4(%r12),%eax
+
+=== SPECIAL vmovups STORE ===
+VA=0x210
+instruction = vmovups %xmm0,0xa4(%rax)
+range = 0xA4..0xB3
+value_origin_class = UNRESOLVED_XMM0_SOURCE
+function_start = 0x160
+rax_origin_evidence_count = 7
+xmm0_origin_evidence_count = 0
+
+=== SURROUNDING FIELD ACCESSES ===
+VA=0x16B offset=0xA0 class=WRITE cmpl $0x0,0xa0(%rax)
+VA=0x206 offset=0xA0 class=WRITE movl $0x1,0xa0(%rax)
+VA=0x210 offset=0xA4 class=WRITE vmovups %xmm0,0xa4(%rax)
+VA=0x22B offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%r8),%esi
+VA=0x278 offset=0xA0 class=WRITE movl $0x0,0xa0(%r8)
+VA=0x45CE offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%rax),%eax
+VA=0x4618 offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%rax),%eax
+VA=0x4630 offset=0xA4 class=READ_OR_MEMORY mov 0xa4(%rcx),%eax
+VA=0x4759 offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%rax),%eax
+VA=0x47AA offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%rax),%eax
+VA=0x47D2 offset=0xA4 class=READ_OR_MEMORY mov 0xa4(%rcx),%eax
+VA=0x6873 offset=0xAC class=READ_OR_MEMORY mov 0xac(%rdx),%ecx
+VA=0x6907 offset=0xB0 class=READ_OR_MEMORY mov 0xb0(%rax),%ecx
+VA=0x138A offset=0xA0 class=WRITE vmovups %ymm0,0xa0(%rsp)
+VA=0x142E offset=0xA0 class=READ_OR_MEMORY lea 0xa0(%rsp),%rdi
+VA=0x183B offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%r15),%eax
+VA=0x1874 offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%r15),%eax
+VA=0x187D offset=0xA4 class=READ_OR_MEMORY mov 0xa4(%r15),%eax
+VA=0x1958 offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%rbx),%eax
+VA=0x1994 offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%rbx),%eax
+VA=0x19C1 offset=0xA4 class=READ_OR_MEMORY mov 0xa4(%rbx),%eax
+VA=0x1B8A offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%r12),%eax
+VA=0x1BBE offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%r12),%eax
+VA=0x1BC8 offset=0xA8 class=READ_OR_MEMORY mov 0xa8(%r12),%eax
+VA=0x2A3A offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%r12),%eax
+VA=0x2A84 offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%r12),%eax
+VA=0x2AB3 offset=0xA4 class=READ_OR_MEMORY mov 0xa4(%r12),%eax
+VA=0x1CBB offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%r13),%eax
+VA=0x1D0E offset=0xA0 class=READ_OR_MEMORY mov 0xa0(%r13),%eax
+VA=0x1E87 offset=0xA8 class=READ_OR_MEMORY mov 0xa8(%r13),%eax
+VA=0x15DA offset=0xA0 class=READ_OR_MEMORY lea 0xa0(%rsp),%rdx
+VA=0x16B7 offset=0x98 class=READ_OR_MEMORY and 0x98(%rsp),%eax
+VA=0x16C3 offset=0x98 class=WRITE mov %eax,0x98(%rsp)
+
+=== CONCLUSIONS ===
+DISPATCH_INDEX_WRITE_PROVEN=True
+DISPATCH_INDEX_READ_PROVEN=True
+SPECIAL_16_BYTE_INDEX_STORE_FOUND=True
+XMM0_ORIGIN_PARTIALLY_RESOLVED=False
+ZERO_INITIALIZATION_CANDIDATE=False
+INDEX_SEMANTICS_PROVEN=False
+COUNT_SEMANTICS_PROVEN=False
+EXACT_FIELD_NAME_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False

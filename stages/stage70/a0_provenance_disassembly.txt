@@ -1,0 +1,90 @@
+============================================
+GLOBAL +0xA0 ACCESS INVENTORY
+============================================
+VA=0x16B owner=<unknown> type=OTHER base=rax proven=True | cmpl   $0x0,0xa0(%rax)
+VA=0x206 owner=<unknown> type=STORE_IMMEDIATE base=rax proven=True | movl   $0x1,0xa0(%rax)
+VA=0x22B owner=<unknown> type=READ base=r8 proven=True | mov    0xa0(%r8),%esi
+VA=0x278 owner=<unknown> type=STORE_IMMEDIATE base=r8 proven=True | movl   $0x0,0xa0(%r8)
+VA=0x138A owner=<unknown> type=STORE base=rsp proven=False | vmovups %ymm0,0xa0(%rsp)
+VA=0x142E owner=<unknown> type=OTHER base=rsp proven=False | lea    0xa0(%rsp),%rdi
+VA=0x15DA owner=<unknown> type=OTHER base=rsp proven=False | lea    0xa0(%rsp),%rdx
+VA=0x183B owner=<unknown> type=READ base=r15 proven=True | mov    0xa0(%r15),%eax
+VA=0x1874 owner=<unknown> type=READ base=r15 proven=True | mov    0xa0(%r15),%eax
+VA=0x1958 owner=<unknown> type=READ base=rbx proven=True | mov    0xa0(%rbx),%eax
+VA=0x1994 owner=<unknown> type=READ base=rbx proven=True | mov    0xa0(%rbx),%eax
+VA=0x1B8A owner=<unknown> type=READ base=r12 proven=True | mov    0xa0(%r12),%eax
+VA=0x1BBE owner=<unknown> type=READ base=r12 proven=True | mov    0xa0(%r12),%eax
+VA=0x1CBB owner=<unknown> type=READ base=r13 proven=True | mov    0xa0(%r13),%eax
+VA=0x1D0E owner=<unknown> type=READ base=r13 proven=True | mov    0xa0(%r13),%eax
+VA=0x1E0A owner=<unknown> type=READ base=r13 proven=False | mov    0xa0(%r13),%eax
+VA=0x1E5F owner=<unknown> type=READ base=r13 proven=False | mov    0xa0(%r13),%eax
+VA=0x2A3A owner=<unknown> type=READ base=r12 proven=True | mov    0xa0(%r12),%eax
+VA=0x2A84 owner=<unknown> type=READ base=r12 proven=True | mov    0xa0(%r12),%eax
+VA=0x3287 owner=<unknown> type=STORE_IMMEDIATE base=rbp proven=False | movq   $0x0,-0xa0(%rbp)
+VA=0x45CE owner=<unknown> type=READ base=rax proven=True | mov    0xa0(%rax),%eax
+VA=0x4618 owner=<unknown> type=READ base=rax proven=True | mov    0xa0(%rax),%eax
+VA=0x4759 owner=<unknown> type=READ base=rax proven=True | mov    0xa0(%rax),%eax
+VA=0x47AA owner=<unknown> type=READ base=rax proven=True | mov    0xa0(%rax),%eax
+VA=0x644F owner=<unknown> type=STORE base=rdi proven=False | vmovups %xmm1,0xa0(%rdi)
+VA=0xAA91 owner=<unknown> type=STORE base=rbp proven=False | mov    %rdi,-0xa0(%rbp)
+
+============================================
+INITIALIZER WINDOW
+============================================
+00000191: mov    $0x8a6d0006,%eax
+00000196: pop    %rbp
+00000197: ret
+00000198: lea    0xe61(%rip),%rdx        # 0x1000
+0000019f: movabs $0x1000e00000078,%rcx
+000001a6: 
+000001a9: vxorps %xmm0,%xmm0,%xmm0
+000001ad: vmovups %ymm0,0x80(%rax)
+000001b4: 
+000001b5: vmovups %ymm0,0x30(%rax)
+000001ba: vmovups %ymm0,0x50(%rax)
+000001bf: vmovups %ymm0,0x70(%rax)
+000001c4: lea    0x3af5(%rip),%rsi        # 0x3cc0
+000001cb: vxorps %xmm0,%xmm0,%xmm0
+000001cf: mov    %rcx,0x28(%rax)
+000001d3: movb   $0xff,0x35(%rax)
+000001d7: mov    %rdx,0x50(%rax)
+000001db: lea    0x184e(%rip),%rdx        # 0x1a30
+000001e2: mov    %rsi,0x58(%rax)
+000001e6: lea    0x65f3(%rip),%rsi        # 0x67e0
+000001ed: mov    %rdx,0x68(%rax)
+000001f1: lea    0x6618(%rip),%rdx        # 0x6810
+000001f8: mov    %rsi,0x80(%rax)
+000001ff: mov    %rdx,0x88(%rax)
+00000206: movl   $0x1,0xa0(%rax)
+0000020d: 
+00000210: vmovups %xmm0,0xa4(%rax)
+00000217: 
+00000218: xor    %eax,%eax
+0000021a: pop    %rbp
+0000021b: ret
+0000021c: int3
+0000021d: int3
+0000021e: int3
+0000021f: int3
+00000220: push   %rbp
+00000221: mov    %rsp,%rbp
+00000224: lea    0x1a6dd(%rip),%r8        # 0x1a908
+0000022b: mov    0xa0(%r8),%esi
+00000232: mov    %esi,%eax
+00000234: dec    %eax
+00000236: je     0x254
+00000238: lea    0x35(%r8),%rdi
+0000023c: mov    %eax,%eax
+0000023e: xor    %edx,%edx
+00000240: mov    -0x5(%rdi),%ecx
+00000243: cmp    $0xffffffff,%ecx
+00000246: jne    0x287
+00000248: inc    %rdx
+0000024b: add    $0x78,%rdi
+0000024f: cmp    %rdx,%rax
+00000252: jne    0x240
+00000254: imul   $0x78,%rsi,%rax
+00000258: vxorps %xmm0,%xmm0,%xmm0
+0000025c: vmovups %ymm0,0x8(%r8,%rax,1)
+00000263: vmovups %ymm0,-0x10(%r8,%rax,1)
+0000026a: vmovups %ymm0,-0x30(%r8,%rax,1)

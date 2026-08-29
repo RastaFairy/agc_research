@@ -1,0 +1,31 @@
+{
+  "stage": 65,
+  "target": {
+    "global_context": "0x1A908",
+    "field": "0xA4",
+    "dispatch_stride": "0x78"
+  },
+  "conclusions": {
+    "SUBMIT_DISPATCH_TABLE_BASE_IDENTIFIED": true,
+    "MULTI_DISPATCH_TABLE_BASE_IDENTIFIED": true,
+    "SUBMIT_TABLE_ENTRY_SCAN_COMPLETED": true,
+    "MULTI_TABLE_ENTRY_SCAN_COMPLETED": true,
+    "SUBMIT_TABLE_ENTRY_BYTES_STATICALLY_AVAILABLE": true,
+    "MULTI_TABLE_ENTRY_BYTES_STATICALLY_AVAILABLE": true,
+    "DISPATCH_TARGET_SYMBOLS_RESOLVED": false,
+    "CROSS_FAMILY_SHARED_DISPATCH_TARGETS_FOUND": false,
+    "SEMANTIC_FAMILY_CORROBORATION_FOUND": false,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "hashes": {
+    "stage65_static.json": "41792905b69141627d16ec8a2aa236a527e5c37777759770ea29b85950d8519c",
+    "dispatch_entries_summary.txt": "76c93fb6791330b8a61aabfa80f880a39569e8f10108fbfcf84ae29cdac9b0ef",
+    "dispatch_entries_disassembly.txt": "2bd2219c020e6623132d3deaa531bf8b65604e479d2297a82a41b3d3295d12ca",
+    "dispatch_entries.json": "e23bfbf918ea8974cab8b7461f60b241840dfe32b614836ccea997da7d349cb4"
+  }
+}

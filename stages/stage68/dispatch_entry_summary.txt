@@ -1,0 +1,36 @@
+AGC PS5 Stage 68 - Dispatch Entry / Count Semantics Audit
+
+=== TARGET ===
+global_context = 0x1A908
+submit table offset = 0x50
+multi table offset = 0x58
+
+=== PROVEN GLOBAL-CONTEXT TABLE STORES ===
+NONE
+
+=== SUBMIT DISPATCH ===
+NONE
+
+=== MULTI DISPATCH ===
+NONE
+
+=== COUNT-LIKE CONTROL FLOW ===
+VA=0x4711 | 4711: cmovael %eax, %r12d
+
+=== CONCLUSIONS ===
+STORE_SCAN_COMPLETED=True
+STORE_CANDIDATES_FOUND=False
+SUBMIT_TABLE_RUNTIME_INITIALIZATION_PROVEN=False
+MULTI_TABLE_RUNTIME_INITIALIZATION_PROVEN=False
+SUBMIT_DISPATCH_PATTERN_FOUND=False
+MULTI_DISPATCH_PATTERN_FOUND=False
+COUNT_LIKE_CONTROL_FLOW_OBSERVED=True
+COUNT_SEMANTICS_PROVEN=False
+EXACT_FIELD_NAME_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== LIMIT ===
+This stage correlates runtime table initialization with the known dispatch sites.
+It does not prove public semantic field names or exact API documentation.

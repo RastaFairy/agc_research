@@ -1,0 +1,33 @@
+{
+  "stage": 67,
+  "target": {
+    "global_context": "0x1A908",
+    "submit_table_offset": "0x50",
+    "multi_table_offset": "0x58",
+    "known_submit_va": "0x18B0",
+    "known_multi_va": "0x4650"
+  },
+  "conclusions": {
+    "STORE_SCAN_COMPLETED": true,
+    "STORE_CANDIDATES_FOUND": true,
+    "FUNCTION_OWNER_RESOLUTION_COMPLETED": true,
+    "GLOBAL_CONTEXT_BASE_PROVEN_FOR_ANY_STORE": true,
+    "GLOBAL_CONTEXT_SUBMIT_TABLE_STORE_PROVEN": true,
+    "GLOBAL_CONTEXT_MULTI_TABLE_STORE_PROVEN": true,
+    "DISPATCH_TABLE_RUNTIME_INITIALIZATION_PROVEN": true,
+    "SUBMIT_DISPATCH_GLOBAL_BASE_PROVEN": true,
+    "MULTI_DISPATCH_GLOBAL_BASE_PROVEN": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "hashes": {
+    "stage67_static.json": "68a36bb62da9b8a0915f6da010ad8a4d79186b5937dda8d53ebb8cf6e6d563c9",
+    "dispatch_store_provenance_summary.txt": "32ae2372067aa78c7ca273b36ea5c96a5c57cf94edec348001b80cb3f8ad9e48",
+    "dispatch_store_provenance_disassembly.txt": "534bf6c2581f8f4d94b2e2fc262f8022c3fae53992a7d9db1e77a364789761b4",
+    "dispatch_store_provenance.json": "ce8e1112d3c21c1c131a6acf076c5b901ec08c4f6fe62acf03274612b20220be"
+  }
+}

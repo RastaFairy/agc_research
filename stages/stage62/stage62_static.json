@@ -1,0 +1,93 @@
+{
+  "stage": 62,
+  "target": {
+    "name": "global_context initialization",
+    "start_va": 352,
+    "size": 192
+  },
+  "field": {
+    "global_context_va": 108808,
+    "offset": 164,
+    "field_va": 108972,
+    "initial_store_width": 16,
+    "covered_range": "0xA4..0xB3"
+  },
+  "xmm0_flow": {
+    "zero_events": [
+      {
+        "instruction_va": 425,
+        "instruction": "vxorps %xmm0,%xmm0,%xmm0",
+        "classification": "XMM0_ZERO"
+      },
+      {
+        "instruction_va": 459,
+        "instruction": "vxorps %xmm0,%xmm0,%xmm0",
+        "classification": "XMM0_ZERO"
+      }
+    ],
+    "events_before_store": [
+      {
+        "instruction_va": 425,
+        "instruction": "vxorps %xmm0,%xmm0,%xmm0"
+      },
+      {
+        "instruction_va": 459,
+        "instruction": "vxorps %xmm0,%xmm0,%xmm0"
+      }
+    ],
+    "last_zero_before_store": {
+      "instruction_va": 459,
+      "instruction": "vxorps %xmm0,%xmm0,%xmm0"
+    },
+    "later_xmm0_write": null
+  },
+  "store": {
+    "instruction_va": 528,
+    "instruction": "vmovups %xmm0,0xa4(%rax)",
+    "field_offset": 164,
+    "field_va": 108972,
+    "source_register": "xmm0",
+    "width_bytes": 16
+  },
+  "neighboring_accesses": [
+    {
+      "instruction_va": 363,
+      "instruction": "cmpl $0x0,0xa0(%rax)",
+      "offset": 160
+    },
+    {
+      "instruction_va": 518,
+      "instruction": "movl $0x1,0xa0(%rax)",
+      "offset": 160
+    },
+    {
+      "instruction_va": 528,
+      "instruction": "vmovups %xmm0,0xa4(%rax)",
+      "offset": 164
+    }
+  ],
+  "previous_stage": {
+    "stage": 61,
+    "available": true
+  },
+  "conclusions": {
+    "XMM0_ZEROING_INSTRUCTION_FOUND": true,
+    "A4_16_BYTE_STORE_FOUND": true,
+    "A4_ZERO_INITIALIZATION_PROVEN": true,
+    "A4_ZERO_INIT_RANGE_PROVEN": true,
+    "DISPATCH_USE_CONFIRMED": true,
+    "INDEX_SEMANTICS_PROVEN": false,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "notes": [
+    "Stage 62 explicitly recognizes VEX-encoded VXORPS.",
+    "The initialization function clears XMM0 immediately before the A4 store.",
+    "The A4 store is 16 bytes wide and therefore covers 0xA4..0xB3.",
+    "The 16-byte store proves initialization of that range only.",
+    "A4 being later consumed as the scaled dispatch index remains a separate semantic claim."
+  ]
+}

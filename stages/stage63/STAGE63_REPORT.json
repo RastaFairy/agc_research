@@ -1,0 +1,28 @@
+{
+  "stage": 63,
+  "target": {
+    "global_context": "0x1A908",
+    "field_offset": "0xA4",
+    "field_va": "0x1A9AC"
+  },
+  "conclusions": {
+    "A4_WRITE_SCAN_COMPLETED": true,
+    "A4_INITIALIZATION_WRITE_FOUND": true,
+    "A4_POST_INITIALIZATION_WRITES_FOUND": true,
+    "A4_STATIC_ZERO_INVARIANT": false,
+    "A4_WRITES_EXACTLY_IDENTIFIED": true,
+    "A4_READS_FOUND": true,
+    "INDEX_SEMANTICS_PROVEN": false,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "hashes": {
+    "stage63_static.json": "d3aaffde525da1e93190ff88e40e70bf14e5754eb800bb8ade7e96872269ce08",
+    "a4_write_summary.txt": "8808e45875d2c1bb49a093abf24c3190ff3e5cddaf2fe8dcb28ee1924338bbfa",
+    "a4_write_disassembly.txt": "dcc04801cbd98ca3487acd68630609456c50f8e22d525c9f1651022c50c3bd9c",
+    "a4_write_candidates.json": "cfc55c5c2a2d22b657d3883b32135d39b5710683d65515b6162bc3b027f9a73b"
+  }
+}

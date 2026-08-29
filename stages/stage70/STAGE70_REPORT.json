@@ -1,0 +1,27 @@
+{
+  "stage": 70,
+  "result": {
+    "A0_GLOBAL_ACCESS_SCAN_COMPLETED": true,
+    "A0_GLOBAL_CONTEXT_STORE_FOUND": true,
+    "A0_INITIALIZATION_STORE_FOUND": true,
+    "A0_INITIALIZATION_BASE_PROVEN": true,
+    "A0_INITIAL_VALUE_PROVEN": true,
+    "A0_INITIAL_VALUE_IS_1": true,
+    "A0_POST_INITIALIZATION_STORES_FOUND": true,
+    "A0_POST_INITIALIZATION_STORE_FREE": false,
+    "A0_STATIC_VALUE_AFTER_INITIALIZATION": false,
+    "A0_COUNT_SEMANTICS_STRENGTHENED": true,
+    "STAGE69_COUNT_SEMANTICS_CARRIED_FORWARD": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "artifacts": {
+    "stage70_static.json": "stage70_static.json",
+    "a0_provenance_summary.txt": "a0_provenance_summary.txt",
+    "a0_provenance_disassembly.txt": "a0_provenance_disassembly.txt",
+    "a0_provenance.json": "a0_provenance.json"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "stage": 61,
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "va": "0x18b0",
+    "size": 380
+  },
+  "field": {
+    "global_context": "0x1a908",
+    "offset": "0xa4",
+    "va": "0x1a9ac"
+  },
+  "dispatch_model": {
+    "base_offset": "0x50",
+    "stride": "0x78",
+    "formula": "global_context + 0x50 + index * 0x78"
+  },
+  "conclusions": {
+    "DISPATCH_INDEX_WRITE_PROVEN": true,
+    "DISPATCH_INDEX_READ_PROVEN": true,
+    "SPECIAL_16_BYTE_INDEX_STORE_FOUND": true,
+    "XMM0_ORIGIN_PARTIALLY_RESOLVED": false,
+    "ZERO_INITIALIZATION_CANDIDATE": false,
+    "INDEX_SEMANTICS_PROVEN": false,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "hashes": {
+    "stage61_static.json": "69cf84c377aef86f4066c58c843057f82715715b3e819dd44a93cb57f9db1b30",
+    "index_provenance_summary.txt": "fd2233b41fd5ca2f6fb7c5566b6c02acf8e26b78154a5ff22d581c52f0c26e85",
+    "index_provenance_disassembly.txt": "edba8c70e36d417b9e19464626a03d005f383e21fcc9d5f16294a2512da342a7",
+    "index_write_candidates.txt": "466f1d56df02191b88f528fa920f47a60e967cdcb5e5bfd95ae6329eea7e64ad"
+  }
+}

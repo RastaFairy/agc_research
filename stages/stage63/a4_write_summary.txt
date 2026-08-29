@@ -1,0 +1,49 @@
+AGC PS5 Stage 63 - Global +0xA4 Write / Value Provenance Audit
+
+=== TARGET ===
+global_context = 0x1A908
+field_offset = 0xA4
+field_va = 0x1A9AC
+
+=== WRITE COUNT ===
+total_a4_writes = 6
+post_initialization_writes = 5
+
+=== A4 WRITES ===
+VA=0x210 width=16 source=XMM0_SOURCE owner=<unknown> | vmovups %xmm0,0xa4(%rax)
+VA=0x187D width=unknown source=GENERAL_REGISTER owner=<unknown> | mov 0xa4(%r15),%eax
+VA=0x19C1 width=unknown source=GENERAL_REGISTER owner=<unknown> | mov 0xa4(%rbx),%eax
+VA=0x2AB3 width=unknown source=GENERAL_REGISTER owner=<unknown> | mov 0xa4(%r12),%eax
+VA=0x4630 width=unknown source=GENERAL_REGISTER owner=<unknown> | mov 0xa4(%rcx),%eax
+VA=0x47D2 width=unknown source=GENERAL_REGISTER owner=<unknown> | mov 0xa4(%rcx),%eax
+
+=== POST INITIALIZATION ===
+VA=0x187D mov 0xa4(%r15),%eax
+VA=0x19C1 mov 0xa4(%rbx),%eax
+VA=0x2AB3 mov 0xa4(%r12),%eax
+VA=0x4630 mov 0xa4(%rcx),%eax
+VA=0x47D2 mov 0xa4(%rcx),%eax
+
+=== READS ===
+VA=0x187D owner=<unknown> | mov 0xa4(%r15),%eax
+VA=0x19C1 owner=<unknown> | mov 0xa4(%rbx),%eax
+VA=0x2AB3 owner=<unknown> | mov 0xa4(%r12),%eax
+VA=0x4630 owner=<unknown> | mov 0xa4(%rcx),%eax
+VA=0x47D2 owner=<unknown> | mov 0xa4(%rcx),%eax
+
+=== STATUS ===
+zero_status = POST_INITIALIZATION_WRITES_FOUND
+
+=== CONCLUSIONS ===
+A4_WRITE_SCAN_COMPLETED=True
+A4_INITIALIZATION_WRITE_FOUND=True
+A4_POST_INITIALIZATION_WRITES_FOUND=True
+A4_STATIC_ZERO_INVARIANT=False
+A4_WRITES_EXACTLY_IDENTIFIED=True
+A4_READS_FOUND=True
+INDEX_SEMANTICS_PROVEN=False
+COUNT_SEMANTICS_PROVEN=False
+EXACT_FIELD_NAME_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False

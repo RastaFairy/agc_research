@@ -1,0 +1,294 @@
+=== INITIALIZER 0xC0..0x180 ===
+      c0:      	popq	%r13
+      c2:      	popq	%r14
+      c4:      	popq	%r15
+      c6:      	popq	%rbp
+      c7:      	retq
+      d0:      	movslq	%edi, %rax
+      d3:      	leaq	0x1a82e(%rip), %rcx     # 0x1a908 <PT_LOAD#0+0x1a908>
+      da:      	leaq	0xf1f(%rip), %rsi       # 0x1000 <PT_LOAD#0+0x1000>
+      e1:      	movabsq	$0x1000e00000078, %rdx  # imm = 0x1000E00000078
+      eb:      	vxorps	%xmm0, %xmm0, %xmm0
+      ef:      	leaq	0x3bca(%rip), %rdi      # 0x3cc0 <PT_LOAD#0+0x3cc0>
+      f6:      	imulq	$0x78, %rax, %rax
+      fa:      	vmovups	%ymm0, 0x80(%rcx,%rax)
+     103:      	vmovups	%ymm0, 0x30(%rcx,%rax)
+     109:      	vmovups	%ymm0, 0x50(%rcx,%rax)
+     10f:      	vmovups	%ymm0, 0x70(%rcx,%rax)
+     115:      	movq	%rdx, 0x28(%rcx,%rax)
+     11a:      	movb	$-0x1, 0x35(%rcx,%rax)
+     11f:      	movq	%rsi, 0x50(%rcx,%rax)
+     124:      	leaq	0x1905(%rip), %rsi      # 0x1a30 <PT_LOAD#0+0x1a30>
+     12b:      	movq	%rdi, 0x58(%rcx,%rax)
+     130:      	leaq	0x66a9(%rip), %rdi      # 0x67e0 <PT_LOAD#0+0x67e0>
+     137:      	movq	%rsi, 0x68(%rcx,%rax)
+     13c:      	leaq	0x66cd(%rip), %rsi      # 0x6810 <PT_LOAD#0+0x6810>
+     143:      	movq	%rdi, 0x80(%rcx,%rax)
+     14b:      	movq	%rsi, 0x88(%rcx,%rax)
+     153:      	retq
+     154:      	int3
+     155:      	int3
+     156:      	int3
+     157:      	int3
+     158:      	int3
+     159:      	int3
+     15a:      	int3
+     15b:      	int3
+     15c:      	int3
+     15d:      	int3
+     15e:      	int3
+     15f:      	int3
+     160:      	pushq	%rbp
+     161:      	movq	%rsp, %rbp
+     164:      	leaq	0x1a79d(%rip), %rax     # 0x1a908 <PT_LOAD#0+0x1a908>
+     16b:      	cmpl	$0x0, 0xa0(%rax)
+     172:      	je	0x198 <PT_LOAD#0+0x198>
+     174:      	movq	0x13f65(%rip), %rcx     # 0x140e0 <PT_LOAD#0+0x140e0>
+     17b:      	leaq	0xf5bf(%rip), %rdi      # 0xf741 <PT_LOAD#0+0xf741>
+
+=== SUBMIT ===
+    18b0:      	pushq	%rbp
+    18b1:      	movq	%rsp, %rbp
+    18b4:      	pushq	%r15
+    18b6:      	pushq	%r14
+    18b8:      	pushq	%r13
+    18ba:      	pushq	%r12
+    18bc:      	pushq	%rbx
+    18bd:      	subq	$0x38, %rsp
+    18c1:      	movq	0x12820(%rip), %rbx     # 0x140e8 <PT_LOAD#0+0x140e8>
+    18c8:      	leaq	0x38(%rdi), %r13
+    18cc:      	movq	%rdi, %r12
+    18cf:      	movq	%rsi, %r14
+    18d2:      	movq	%r13, %rdi
+    18d5:      	movq	(%rbx), %rax
+    18d8:      	movq	%rax, -0x30(%rbp)
+    18dc:      	callq	0xac10 <PT_LOAD#0+0xac10>
+    18e1:      	testl	%eax, %eax
+    18e3:      	js	0x199c <PT_LOAD#0+0x199c>
+    18e9:      	movl	$0x8a6d0000, %r15d      # imm = 0x8A6D0000
+    18ef:      	jne	0x1a0a <PT_LOAD#0+0x1a0a>
+    18f5:      	movq	$0x0, -0x50(%rbp)
+    18fd:      	movl	$0x0, -0x48(%rbp)
+    1904:      	movb	$0x0, -0x44(%rbp)
+    1908:      	leaq	0x18ff9(%rip), %rbx     # 0x1a908 <PT_LOAD#0+0x1a908>
+    190f:      	movq	%r13, -0x58(%rbp)
+    1913:      	movq	(%r14), %rax
+    1916:      	movq	%rax, -0x40(%rbp)
+    191a:      	movl	0x8(%r14), %eax
+    191e:      	movl	%eax, -0x38(%rbp)
+    1921:      	movb	0xc(%r14), %al
+    1925:      	movb	%al, -0x34(%rbp)
+    1928:      	movl	$0x1, %eax
+    192d:      	lock
+    192e:      	xaddq	%rax, 0x140(%rbx)
+    1936:      	movq	%rax, 0x20(%r12)
+    193b:      	incq	0x28(%r12)
+    1940:      	movq	$0x0, 0x14(%r12)
+    1949:      	andb	$-0x2, 0x8(%r12)
+    194f:      	movq	$0x0, 0x30(%r12)
+    1958:      	movl	0xa0(%rbx), %eax
+    195e:      	testl	%eax, %eax
+    1960:      	je	0x19c1 <PT_LOAD#0+0x19c1>
+    1962:      	leaq	0x48(%rbx), %r13
+    1966:      	leaq	-0x50(%rbp), %r15
+    196a:      	xorl	%r14d, %r14d
+    196d:      	jmp	0x197e <PT_LOAD#0+0x197e>
+    196f:      	nop
+    1970:      	incq	%r14
+    1973:      	movl	%eax, %ecx
+    1975:      	addq	$0x78, %r13
+    1979:      	cmpq	%rcx, %r14
+    197c:      	jae	0x19c1 <PT_LOAD#0+0x19c1>
+    197e:      	movq	(%r13), %rcx
+    1982:      	testq	%rcx, %rcx
+    1985:      	je	0x1970 <PT_LOAD#0+0x1970>
+    1987:      	movq	%r12, %rdi
+    198a:      	movq	%r15, %rsi
+    198d:      	movl	$0x1, %edx
+    1992:      	callq	*%rcx
+    1994:      	movl	0xa0(%rbx), %eax
+    199a:      	jmp	0x1970 <PT_LOAD#0+0x1970>
+    199c:      	movq	0x1273d(%rip), %rcx     # 0x140e0 <PT_LOAD#0+0x140e0>
+    19a3:      	leaq	0xda7a(%rip), %rdi      # 0xf424 <PT_LOAD#0+0xf424>
+    19aa:      	movl	$0x34, %esi
+    19af:      	movl	$0x1, %edx
+    19b4:      	callq	0xab70 <PT_LOAD#0+0xab70>
+    19b9:      	movl	$0x8a6d0000, %r15d      # imm = 0x8A6D0000
+    19bf:      	jmp	0x1a0a <PT_LOAD#0+0x1a0a>
+    19c1:      	movl	0xa4(%rbx), %eax
+    19c7:      	leaq	-0x50(%rbp), %rsi
+    19cb:      	movq	%r12, %rdi
+    19ce:      	imulq	$0x78, %rax, %rax
+    19d2:      	callq	*0x50(%rbx,%rax)
+    19d6:      	movq	-0x58(%rbp), %rdi
+    19da:      	movl	%eax, %r15d
+    19dd:      	callq	0xac20 <PT_LOAD#0+0xac20>
+    19e2:      	testl	%eax, %eax
+    19e4:      	jns	0x1a03 <PT_LOAD#0+0x1a03>
+    19e6:      	movq	0x126f3(%rip), %rcx     # 0x140e0 <PT_LOAD#0+0x140e0>
+    19ed:      	leaq	0xdf7c(%rip), %rdi      # 0xf970 <PT_LOAD#0+0xf970>
+    19f4:      	movl	$0x32, %esi
+    19f9:      	movl	$0x1, %edx
+    19fe:      	callq	0xab70 <PT_LOAD#0+0xab70>
+    1a03:      	movq	0x126de(%rip), %rbx     # 0x140e8 <PT_LOAD#0+0x140e8>
+    1a0a:      	movq	(%rbx), %rax
+    1a0d:      	cmpq	-0x30(%rbp), %rax
+    1a11:      	jne	0x1a25 <PT_LOAD#0+0x1a25>
+    1a13:      	movl	%r15d, %eax
+    1a16:      	addq	$0x38, %rsp
+    1a1a:      	popq	%rbx
+    1a1b:      	popq	%r12
+    1a1d:      	popq	%r13
+    1a1f:      	popq	%r14
+    1a21:      	popq	%r15
+    1a23:      	popq	%rbp
+    1a24:      	retq
+    1a25:      	callq	0xac30 <PT_LOAD#0+0xac30>
+    1a2a:      	ud2
+
+=== MULTI ===
+    4650:      	pushq	%rbp
+    4651:      	movq	%rsp, %rbp
+    4654:      	pushq	%r15
+    4656:      	pushq	%r14
+    4658:      	pushq	%r13
+    465a:      	pushq	%r12
+    465c:      	pushq	%rbx
+    465d:      	subq	$0x28, %rsp
+    4661:      	movq	0xfa80(%rip), %r14      # 0x140e8 <PT_LOAD#0+0x140e8>
+    4668:      	leaq	0x38(%rdi), %rbx
+    466c:      	movl	%ecx, %r12d
+    466f:      	movq	%rdx, %r15
+    4672:      	movq	%rsi, %r13
+    4675:      	movq	(%r14), %rax
+    4678:      	movq	%rax, -0x30(%rbp)
+    467c:      	movq	%rdi, -0x38(%rbp)
+    4680:      	movq	%rbx, %rdi
+    4683:      	callq	0xac10 <PT_LOAD#0+0xac10>
+    4688:      	testl	%eax, %eax
+    468a:      	js	0x480e <PT_LOAD#0+0x480e>
+    4690:      	movl	$0x8a6d0000, %eax       # imm = 0x8A6D0000
+    4695:      	jne	0x4874 <PT_LOAD#0+0x4874>
+    469b:      	leaq	0x16266(%rip), %rcx     # 0x1a908 <PT_LOAD#0+0x1a908>
+    46a2:      	movl	$0x1, %eax
+    46a7:      	movq	%rsp, %rdi
+    46aa:      	addq	$-0x1000, %rdi          # imm = 0xF000
+    46b1:      	lock
+    46b2:      	xaddq	%rax, 0x140(%rcx)
+    46ba:      	movq	-0x38(%rbp), %rcx
+    46be:      	movq	%rax, 0x20(%rcx)
+    46c2:      	incq	0x28(%rcx)
+    46c6:      	movl	$0x0, 0x14(%rcx)
+    46cd:      	movl	%r12d, 0x18(%rcx)
+    46d1:      	andb	$-0x2, 0x8(%rcx)
+    46d5:      	movq	$0x0, 0x30(%rcx)
+    46dd:      	movq	%rdi, %rsp
+    46e0:      	testl	%r12d, %r12d
+    46e3:      	je	0x4832 <PT_LOAD#0+0x4832>
+    46e9:      	leaq	0x1c(%rdi), %rax
+    46ed:      	xorl	%r14d, %r14d
+    46f0:      	movq	%rbx, -0x48(%rbp)
+    46f4:      	movq	%rdi, -0x40(%rbp)
+    46f8:      	movq	%rax, -0x50(%rbp)
+    46fc:      	nopl	(%rax)
+    4700:      	cmpl	$0x80, %r12d
+    4707:      	movl	$0x80, %eax
+    470c:      	movl	$0x1000, %edx           # imm = 0x1000
+    4711:      	cmovael	%eax, %r12d
+    4715:      	xorl	%esi, %esi
+    4717:      	callq	0xabc0 <PT_LOAD#0+0xabc0>
+    471c:      	movq	-0x50(%rbp), %rcx
+    4720:      	movq	%r12, %rdx
+    4723:      	movq	%r12, %rax
+    4726:      	nopw	%cs:(%rax,%rax)
+    4730:      	movl	%r14d, %edi
+    4733:      	incl	%r14d
+    4736:      	movq	(%r13,%rdi,8), %rsi
+    473b:      	movq	%rsi, -0xc(%rcx)
+    473f:      	movl	(%r15,%rdi,4), %esi
+    4743:      	movl	%esi, -0x4(%rcx)
+    4746:      	movb	$0x0, (%rcx)
+    4749:      	addq	$0x20, %rcx
+    474d:      	decq	%rax
+    4750:      	jne	0x4730 <PT_LOAD#0+0x4730>
+    4752:      	leaq	0x161af(%rip), %rax     # 0x1a908 <PT_LOAD#0+0x1a908>
+    4759:      	movl	0xa0(%rax), %eax
+    475f:      	testl	%eax, %eax
+    4761:      	je	0x47c0 <PT_LOAD#0+0x47c0>
+    4763:      	leaq	0x1619e(%rip), %rcx     # 0x1a908 <PT_LOAD#0+0x1a908>
+    476a:      	xorl	%ebx, %ebx
+    476c:      	leaq	0x48(%rcx), %r14
+    4770:      	jmp	0x478e <PT_LOAD#0+0x478e>
+    4772:      	nopw	%cs:(%rax,%rax)
+    4780:      	incq	%rbx
+    4783:      	movl	%eax, %ecx
+    4785:      	addq	$0x78, %r14
+    4789:      	cmpq	%rcx, %rbx
+    478c:      	jae	0x47c0 <PT_LOAD#0+0x47c0>
+    478e:      	movq	(%r14), %rcx
+    4791:      	testq	%rcx, %rcx
+    4794:      	je	0x4780 <PT_LOAD#0+0x4780>
+    4796:      	movq	-0x38(%rbp), %rdi
+    479a:      	movq	-0x40(%rbp), %rsi
+    479e:      	callq	*%rcx
+    47a0:      	leaq	0x16161(%rip), %rax     # 0x1a908 <PT_LOAD#0+0x1a908>
+    47a7:      	movq	%r12, %rdx
+    47aa:      	movl	0xa0(%rax), %eax
+    47b0:      	jmp	0x4780 <PT_LOAD#0+0x4780>
+    47b2:      	nopw	%cs:(%rax,%rax)
+    47c0:      	leaq	0x16141(%rip), %rcx     # 0x1a908 <PT_LOAD#0+0x1a908>
+    47c7:      	movq	-0x38(%rbp), %rbx
+    47cb:      	movq	-0x40(%rbp), %rsi
+    47cf:      	movq	%rdx, %r12
+    47d2:      	movl	0xa4(%rcx), %eax
+    47d8:      	movq	%rbx, %rdi
+    47db:      	imulq	$0x78, %rax, %rax
+    47df:      	callq	*0x58(%rcx,%rax)
+    47e3:      	testl	%eax, %eax
+    47e5:      	jne	0x483a <PT_LOAD#0+0x483a>
+    47e7:      	movl	0x14(%rbx), %r14d
+    47eb:      	movl	0x18(%rbx), %eax
+    47ee:      	movq	-0x40(%rbp), %rdi
+    47f2:      	subl	$-0x80, %r14d
+    47f6:      	subl	%r12d, %eax
+    47f9:      	movl	%eax, %r12d
+    47fc:      	movl	%r14d, 0x14(%rbx)
+    4800:      	movl	%eax, 0x18(%rbx)
+    4803:      	jne	0x4700 <PT_LOAD#0+0x4700>
+    4809:      	xorl	%r15d, %r15d
+    480c:      	jmp	0x483d <PT_LOAD#0+0x483d>
+    480e:      	movq	0xf8cb(%rip), %rcx      # 0x140e0 <PT_LOAD#0+0x140e0>
+    4815:      	leaq	0xac08(%rip), %rdi      # 0xf424 <PT_LOAD#0+0xf424>
+    481c:      	movl	$0x34, %esi
+    4821:      	movl	$0x1, %edx
+    4826:      	callq	0xab70 <PT_LOAD#0+0xab70>
+    482b:      	movl	$0x8a6d0000, %eax       # imm = 0x8A6D0000
+    4830:      	jmp	0x4874 <PT_LOAD#0+0x4874>
+    4832:      	movl	$0x8a6d0000, %r15d      # imm = 0x8A6D0000
+    4838:      	jmp	0x4848 <PT_LOAD#0+0x4848>
+    483a:      	movl	%eax, %r15d
+    483d:      	movq	0xf8a4(%rip), %r14      # 0x140e8 <PT_LOAD#0+0x140e8>
+    4844:      	movq	-0x48(%rbp), %rbx
+    4848:      	movq	%rbx, %rdi
+    484b:      	callq	0xac20 <PT_LOAD#0+0xac20>
+    4850:      	testl	%eax, %eax
+    4852:      	jns	0x4871 <PT_LOAD#0+0x4871>
+    4854:      	movq	0xf885(%rip), %rcx      # 0x140e0 <PT_LOAD#0+0x140e0>
+    485b:      	leaq	0xb10e(%rip), %rdi      # 0xf970 <PT_LOAD#0+0xf970>
+    4862:      	movl	$0x32, %esi
+    4867:      	movl	$0x1, %edx
+    486c:      	callq	0xab70 <PT_LOAD#0+0xab70>
+    4871:      	movl	%r15d, %eax
+    4874:      	movq	(%r14), %rcx
+    4877:      	cmpq	-0x30(%rbp), %rcx
+    487b:      	jne	0x488c <PT_LOAD#0+0x488c>
+    487d:      	leaq	-0x28(%rbp), %rsp
+    4881:      	popq	%rbx
+    4882:      	popq	%r12
+    4884:      	popq	%r13
+    4886:      	popq	%r14
+    4888:      	popq	%r15
+    488a:      	popq	%rbp
+    488b:      	retq
+    488c:      	callq	0xac30 <PT_LOAD#0+0xac30>
+    4891:      	ud2

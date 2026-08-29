@@ -1,0 +1,63 @@
+AGC PS5 Stage 67 - Dispatch Store Base Provenance Audit
+
+=== TARGET ===
+global_context = 0x1A908
+submit table offset = 0x50
+multi table offset = 0x58
+
+=== GLOBAL EXECUTABLE STORE SCAN ===
+store_candidate_count = 19
+VA=0x109 owner=LOCAL_UNKNOWN base=rcx offset=0x50 source=0xD3 status=GLOBAL_CONTEXT_BASE_PROVEN | vmovups %ymm0,0x50(%rcx,%rax,1)
+VA=0x11F owner=LOCAL_UNKNOWN base=rcx offset=0x50 source=0xD3 status=GLOBAL_CONTEXT_BASE_PROVEN | mov %rsi,0x50(%rcx,%rax,1)
+VA=0x12B owner=LOCAL_UNKNOWN base=rcx offset=0x58 source=0xD3 status=GLOBAL_CONTEXT_BASE_PROVEN | mov %rdi,0x58(%rcx,%rax,1)
+VA=0x1BA owner=LOCAL_UNKNOWN base=rax offset=0x50 source=UNKNOWN status=BASE_NOT_PROVEN | vmovups %ymm0,0x50(%rax)
+VA=0x1D7 owner=LOCAL_UNKNOWN base=rax offset=0x50 source=UNKNOWN status=BASE_NOT_PROVEN | mov %rdx,0x50(%rax)
+VA=0x1E2 owner=LOCAL_UNKNOWN base=rax offset=0x58 source=UNKNOWN status=BASE_NOT_PROVEN | mov %rsi,0x58(%rax)
+VA=0x1758 owner=LOCAL_UNKNOWN base=rsp offset=0x50 source=UNKNOWN status=BASE_NOT_PROVEN | mov %ecx,0x50(%rsp)
+VA=0x177F owner=LOCAL_UNKNOWN base=rsp offset=0x58 source=UNKNOWN status=BASE_NOT_PROVEN | mov %edx,0x58(%rsp)
+VA=0x1795 owner=LOCAL_UNKNOWN base=rsp offset=0x50 source=UNKNOWN status=BASE_NOT_PROVEN | movl $0x0,0x50(%rsp)
+VA=0x17A9 owner=LOCAL_UNKNOWN base=rsp offset=0x58 source=UNKNOWN status=BASE_NOT_PROVEN | andl $0xfff00000,0x58(%rsp)
+VA=0x2375 owner=LOCAL_UNKNOWN base=rax offset=0x50 source=UNKNOWN status=BASE_NOT_PROVEN | cmpb $0x0,0x50(%rax,%r15,1)
+VA=0x41ED owner=LOCAL_UNKNOWN base=rbx offset=0x50 source=UNKNOWN status=BASE_NOT_PROVEN | mov %eax,0x50(%rbx)
+VA=0x4217 owner=LOCAL_UNKNOWN base=rbx offset=0x58 source=UNKNOWN status=BASE_NOT_PROVEN | mov %eax,0x58(%rbx)
+VA=0x5F3E owner=LOCAL_UNKNOWN base=rax offset=0x50 source=UNKNOWN status=BASE_NOT_PROVEN | movl $0xc0036100,0x50(%rax)
+VA=0x5F70 owner=LOCAL_UNKNOWN base=rax offset=0x58 source=UNKNOWN status=BASE_NOT_PROVEN | mov %esi,0x58(%rax)
+VA=0x627E owner=LOCAL_UNKNOWN base=rax offset=0x50 source=UNKNOWN status=BASE_NOT_PROVEN | movl $0xc0036100,0x50(%rax)
+VA=0x6289 owner=LOCAL_UNKNOWN base=rax offset=0x58 source=UNKNOWN status=BASE_NOT_PROVEN | mov %r14d,0x58(%rax)
+VA=0x63F3 owner=LOCAL_UNKNOWN base=rdi offset=0x50 source=UNKNOWN status=BASE_NOT_PROVEN | mov %rcx,0x50(%rdi)
+VA=0x6401 owner=LOCAL_UNKNOWN base=rdi offset=0x58 source=UNKNOWN status=BASE_NOT_PROVEN | mov %r8d,0x58(%rdi)
+
+=== PROVEN GLOBAL-CONTEXT STORE CANDIDATES ===
+VA=0x109 owner=LOCAL_UNKNOWN global_source=0xD3 base=rcx offset=0x50 | vmovups %ymm0,0x50(%rcx,%rax,1)
+VA=0x11F owner=LOCAL_UNKNOWN global_source=0xD3 base=rcx offset=0x50 | mov %rsi,0x50(%rcx,%rax,1)
+VA=0x12B owner=LOCAL_UNKNOWN global_source=0xD3 base=rcx offset=0x58 | mov %rdi,0x58(%rcx,%rax,1)
+
+=== KNOWN SUBMIT DISPATCH ===
+VA=0x19D2 global_source=0x1908 base=rbx offset=0x50 | call *0x50(%rbx,%rax,1)
+
+=== KNOWN MULTI DISPATCH ===
+VA=0x47DF global_source=0x47C0 base=rcx offset=0x58 | call *0x58(%rcx,%rax,1)
+
+=== IMPORTANT LIMIT ===
+Los candidatos de escritura se redescubren directamente desde los segmentos ejecutables del SPRX.
+El análisis no depende de STT_FUNC, porque este SPRX no expone símbolos de función utilizables.
+Cuando existe una función conocida de stages anteriores se usa su rango; en otros candidatos se usa una ventana local conservadora.
+La proveniencia solo se considera demostrada cuando el registro base puede rastrearse hasta una LEA directa de 0x1A908.
+La presencia de +0x50/+0x58 por sí sola no demuestra que la base sea global_context.
+
+=== CONCLUSIONS ===
+STORE_SCAN_COMPLETED=True
+STORE_CANDIDATES_FOUND=True
+FUNCTION_OWNER_RESOLUTION_COMPLETED=True
+GLOBAL_CONTEXT_BASE_PROVEN_FOR_ANY_STORE=True
+GLOBAL_CONTEXT_SUBMIT_TABLE_STORE_PROVEN=True
+GLOBAL_CONTEXT_MULTI_TABLE_STORE_PROVEN=True
+DISPATCH_TABLE_RUNTIME_INITIALIZATION_PROVEN=True
+SUBMIT_DISPATCH_GLOBAL_BASE_PROVEN=True
+MULTI_DISPATCH_GLOBAL_BASE_PROVEN=True
+INDEX_SEMANTICS_PROVEN=True
+COUNT_SEMANTICS_PROVEN=False
+EXACT_FIELD_NAME_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False

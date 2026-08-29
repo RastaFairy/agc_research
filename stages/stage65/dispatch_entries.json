@@ -1,0 +1,679 @@
+{
+  "dispatch_stride": 120,
+  "a4_va": 108972,
+  "submit": {
+    "table_base": 108808,
+    "table_offset": 80,
+    "entries": [
+      {
+        "index": 0,
+        "slot_va": 108888,
+        "entry_va": 108888,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 1,
+        "slot_va": 109008,
+        "entry_va": 109008,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 2,
+        "slot_va": 109128,
+        "entry_va": 109128,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 3,
+        "slot_va": 109248,
+        "entry_va": 109248,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 4,
+        "slot_va": 109368,
+        "entry_va": 109368,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 5,
+        "slot_va": 109488,
+        "entry_va": 109488,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 6,
+        "slot_va": 109608,
+        "entry_va": 109608,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 7,
+        "slot_va": 109728,
+        "entry_va": 109728,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 8,
+        "slot_va": 109848,
+        "entry_va": 109848,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 9,
+        "slot_va": 109968,
+        "entry_va": 109968,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 10,
+        "slot_va": 110088,
+        "entry_va": 110088,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 11,
+        "slot_va": 110208,
+        "entry_va": 110208,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 12,
+        "slot_va": 110328,
+        "entry_va": 110328,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 13,
+        "slot_va": 110448,
+        "entry_va": 110448,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 14,
+        "slot_va": 110568,
+        "entry_va": 110568,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 15,
+        "slot_va": 110688,
+        "entry_va": 110688,
+        "raw_hex": "00 62 34 66 70 67 48 35",
+        "static_bytes_available": true,
+        "resolved_target": 3839432414782054912,
+        "resolved_target_hex": "0x3548677066346200",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 16,
+        "slot_va": 110808,
+        "entry_va": 110808,
+        "raw_hex": "37 2b 51 77 23 46 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693672354789796663,
+        "resolved_target_hex": "0x4123462377512b37",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 17,
+        "slot_va": 110928,
+        "entry_va": 110928,
+        "raw_hex": "00 43 32 79 6a 6b 4e 64",
+        "static_bytes_available": true,
+        "resolved_target": 7227832557020267264,
+        "resolved_target_hex": "0x644e6b6a79324300",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 18,
+        "slot_va": 111048,
+        "entry_va": 111048,
+        "raw_hex": "59 79 74 51 23 46 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693672354154576217,
+        "resolved_target_hex": "0x4123462351747959",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 19,
+        "slot_va": 111168,
+        "entry_va": 111168,
+        "raw_hex": "00 66 74 66 2d 78 6c 66",
+        "static_bytes_available": true,
+        "resolved_target": 7380406025741166080,
+        "resolved_target_hex": "0x666c782d66746600",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 20,
+        "slot_va": 111288,
+        "entry_va": 111288,
+        "raw_hex": "45 6a 39 34 23 46 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693672353664166469,
+        "resolved_target_hex": "0x4123462334396a45",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 21,
+        "slot_va": 111408,
+        "entry_va": 111408,
+        "raw_hex": "00 63 77 62 78 6a 50 53",
+        "static_bytes_available": true,
+        "resolved_target": 6003415368565482240,
+        "resolved_target_hex": "0x53506a7862776300",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 22,
+        "slot_va": 111528,
+        "entry_va": 111528,
+        "raw_hex": "4a 4f 66 63 23 46 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693672354455637834,
+        "resolved_target_hex": "0x4123462363664f4a",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 23,
+        "slot_va": 111648,
+        "entry_va": 111648,
+        "raw_hex": "00 70 57 4c 47 37 57 4f",
+        "static_bytes_available": true,
+        "resolved_target": 5717099031333138432,
+        "resolved_target_hex": "0x4f5737474c577000",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 24,
+        "slot_va": 111768,
+        "entry_va": 111768,
+        "raw_hex": "50 4d 49 77 23 46 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693672354789281104,
+        "resolved_target_hex": "0x4123462377494d50",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 25,
+        "slot_va": 111888,
+        "entry_va": 111888,
+        "raw_hex": "00 53 4f 41 4d 6d 64 6c",
+        "static_bytes_available": true,
+        "resolved_target": 7810487832342909696,
+        "resolved_target_hex": "0x6c646d4d414f5300",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 26,
+        "slot_va": 112008,
+        "entry_va": 112008,
+        "raw_hex": "71 2d 68 45 23 46 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693672353952443761,
+        "resolved_target_hex": "0x4123462345682d71",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 27,
+        "slot_va": 112128,
+        "entry_va": 112128,
+        "raw_hex": "00 34 58 4a 6b 6a 71 56",
+        "static_bytes_available": true,
+        "resolved_target": 6228876768671446016,
+        "resolved_target_hex": "0x56716a6b4a583400",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 28,
+        "slot_va": 112248,
+        "entry_va": 112248,
+        "raw_hex": "58 4c 69 49 23 46 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693672354019626072,
+        "resolved_target_hex": "0x4123462349694c58",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 29,
+        "slot_va": 112368,
+        "entry_va": 112368,
+        "raw_hex": "00 50 71 78 67 6c 71 31",
+        "static_bytes_available": true,
+        "resolved_target": 3562747971884896256,
+        "resolved_target_hex": "0x31716c6778715000",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 30,
+        "slot_va": 112488,
+        "entry_va": 112488,
+        "raw_hex": "31 42 52 30 23 49 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693675652133569073,
+        "resolved_target_hex": "0x4123492330524231",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 31,
+        "slot_va": 112608,
+        "entry_va": 112608,
+        "raw_hex": "00 4d 65 74 4d 4f 51 56",
+        "static_bytes_available": true,
+        "resolved_target": 6219839754459237632,
+        "resolved_target_hex": "0x56514f4d74654d00",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      }
+    ]
+  },
+  "multi": {
+    "table_base": 108808,
+    "table_offset": 88,
+    "entries": [
+      {
+        "index": 0,
+        "slot_va": 108896,
+        "entry_va": 108896,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 1,
+        "slot_va": 109016,
+        "entry_va": 109016,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 2,
+        "slot_va": 109136,
+        "entry_va": 109136,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 3,
+        "slot_va": 109256,
+        "entry_va": 109256,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 4,
+        "slot_va": 109376,
+        "entry_va": 109376,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 5,
+        "slot_va": 109496,
+        "entry_va": 109496,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 6,
+        "slot_va": 109616,
+        "entry_va": 109616,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 7,
+        "slot_va": 109736,
+        "entry_va": 109736,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 8,
+        "slot_va": 109856,
+        "entry_va": 109856,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 9,
+        "slot_va": 109976,
+        "entry_va": 109976,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 10,
+        "slot_va": 110096,
+        "entry_va": 110096,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 11,
+        "slot_va": 110216,
+        "entry_va": 110216,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 12,
+        "slot_va": 110336,
+        "entry_va": 110336,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 13,
+        "slot_va": 110456,
+        "entry_va": 110456,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 14,
+        "slot_va": 110576,
+        "entry_va": 110576,
+        "raw_hex": "",
+        "static_bytes_available": false,
+        "resolved_target": null,
+        "symbols": []
+      },
+      {
+        "index": 15,
+        "slot_va": 110696,
+        "entry_va": 110696,
+        "raw_hex": "5a 58 78 51 23 46 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693672354154829914,
+        "resolved_target_hex": "0x412346235178585a",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 16,
+        "slot_va": 110816,
+        "entry_va": 110816,
+        "raw_hex": "00 48 6a 34 65 57 6e 44",
+        "static_bytes_available": true,
+        "resolved_target": 4930974734199965696,
+        "resolved_target_hex": "0x446e5765346a4800",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 17,
+        "slot_va": 110936,
+        "entry_va": 110936,
+        "raw_hex": "7a 62 57 34 23 46 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693672353666130554,
+        "resolved_target_hex": "0x412346233457627a",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 18,
+        "slot_va": 111056,
+        "entry_va": 111056,
+        "raw_hex": "00 72 32 38 68 45 68 36",
+        "static_bytes_available": true,
+        "resolved_target": 3920459789547762176,
+        "resolved_target_hex": "0x3668456838327200",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 19,
+        "slot_va": 111176,
+        "entry_va": 111176,
+        "raw_hex": "42 51 70 6f 23 46 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693672354657620290,
+        "resolved_target_hex": "0x412346236f705142",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 20,
+        "slot_va": 111296,
+        "entry_va": 111296,
+        "raw_hex": "00 2b 62 33 34 2d 43 4c",
+        "static_bytes_available": true,
+        "resolved_target": 5495285672545757952,
+        "resolved_target_hex": "0x4c432d3433622b00",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 21,
+        "slot_va": 111416,
+        "entry_va": 111416,
+        "raw_hex": "4a 37 57 51 23 46 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693672354152658762,
+        "resolved_target_hex": "0x412346235157374a",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 22,
+        "slot_va": 111536,
+        "entry_va": 111536,
+        "raw_hex": "00 61 43 66 62 50 7a 79",
+        "static_bytes_available": true,
+        "resolved_target": 8753397209300689152,
+        "resolved_target_hex": "0x797a506266436100",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 23,
+        "slot_va": 111656,
+        "entry_va": 111656,
+        "raw_hex": "70 56 63 77 23 46 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693672354790987376,
+        "resolved_target_hex": "0x4123462377635670",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 24,
+        "slot_va": 111776,
+        "entry_va": 111776,
+        "raw_hex": "00 4e 67 68 57 45 55 58",
+        "static_bytes_available": true,
+        "resolved_target": 6365069890074136064,
+        "resolved_target_hex": "0x5855455768674e00",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 25,
+        "slot_va": 111896,
+        "entry_va": 111896,
+        "raw_hex": "79 61 49 63 23 46 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693672354453741945,
+        "resolved_target_hex": "0x4123462363496179",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 26,
+        "slot_va": 112016,
+        "entry_va": 112016,
+        "raw_hex": "00 55 4d 39 62 39 4e 75",
+        "static_bytes_available": true,
+        "resolved_target": 8452756644651947264,
+        "resolved_target_hex": "0x754e3962394d5500",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 27,
+        "slot_va": 112136,
+        "entry_va": 112136,
+        "raw_hex": "72 4a 72 73 23 46 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693672354724858482,
+        "resolved_target_hex": "0x4123462373724a72",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 28,
+        "slot_va": 112256,
+        "entry_va": 112256,
+        "raw_hex": "00 6c 4f 59 48 74 6f 55",
+        "static_bytes_available": true,
+        "resolved_target": 6156267069723601920,
+        "resolved_target_hex": "0x556f7448594f6c00",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 29,
+        "slot_va": 112376,
+        "entry_va": 112376,
+        "raw_hex": "6f 4b 65 63 23 49 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693675652990454639,
+        "resolved_target_hex": "0x4123492363654b6f",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 30,
+        "slot_va": 112496,
+        "entry_va": 112496,
+        "raw_hex": "00 5a 56 30 34 70 52 6c",
+        "static_bytes_available": true,
+        "resolved_target": 7805424473638066688,
+        "resolved_target_hex": "0x6c52703430565a00",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      },
+      {
+        "index": 31,
+        "slot_va": 112616,
+        "entry_va": 112616,
+        "raw_hex": "64 38 48 59 23 49 23 41",
+        "static_bytes_available": true,
+        "resolved_target": 4693675652820777060,
+        "resolved_target_hex": "0x4123492359483864",
+        "target_in_loaded_memory": false,
+        "symbols": []
+      }
+    ]
+  },
+  "shared_targets": [],
+  "resolved_symbol_entries": [],
+  "conclusions": {
+    "SUBMIT_DISPATCH_TABLE_BASE_IDENTIFIED": true,
+    "MULTI_DISPATCH_TABLE_BASE_IDENTIFIED": true,
+    "SUBMIT_TABLE_ENTRY_SCAN_COMPLETED": true,
+    "MULTI_TABLE_ENTRY_SCAN_COMPLETED": true,
+    "SUBMIT_TABLE_ENTRY_BYTES_STATICALLY_AVAILABLE": true,
+    "MULTI_TABLE_ENTRY_BYTES_STATICALLY_AVAILABLE": true,
+    "DISPATCH_TARGET_SYMBOLS_RESOLVED": false,
+    "CROSS_FAMILY_SHARED_DISPATCH_TARGETS_FOUND": false,
+    "SEMANTIC_FAMILY_CORROBORATION_FOUND": false,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}

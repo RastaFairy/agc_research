@@ -1,0 +1,20 @@
+AGC PS5 Stage 61 - +0xA4 write candidates
+
+==================================================
+WRITE VA = 0x210
+INSTRUCTION = vmovups %xmm0,0xa4(%rax)
+BASE REGISTER = rax
+FIELD VA = 0x1A9AC
+FUNCTION START = 0x160
+
+RAX ORIGIN:
+  0x164: lea 0x1a79d(%rip),%rax # 0x1a908 [GLOBAL_CONTEXT_LEA]
+  0x1CF: mov %rcx,0x28(%rax) [RAX_ASSIGNMENT]
+  0x1D7: mov %rdx,0x50(%rax) [RAX_ASSIGNMENT]
+  0x1E2: mov %rsi,0x58(%rax) [RAX_ASSIGNMENT]
+  0x1ED: mov %rdx,0x68(%rax) [RAX_ASSIGNMENT]
+  0x1F8: mov %rsi,0x80(%rax) [RAX_ASSIGNMENT]
+  0x1FF: mov %rdx,0x88(%rax) [RAX_ASSIGNMENT]
+
+XMM0 ORIGIN:
+

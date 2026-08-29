@@ -1,0 +1,76 @@
+{
+  "submit": {
+    "a0_reads": [
+      {
+        "va": 6488,
+        "instruction": "mov    0xa0(%rbx),%eax",
+        "classification": "A0_READ"
+      },
+      {
+        "va": 6548,
+        "instruction": "mov    0xa0(%rbx),%eax",
+        "classification": "A0_READ"
+      }
+    ],
+    "bound_evidence": [
+      {
+        "a0_read_va": 6488,
+        "a0_read_instruction": "mov    0xa0(%rbx),%eax",
+        "has_test": true,
+        "has_compare": true,
+        "has_conditional_exit": true,
+        "has_table_stride": true,
+        "relationship": "A0_USED_AS_TABLE_TRAVERSAL_BOUND_EVIDENCE"
+      },
+      {
+        "a0_read_va": 6548,
+        "a0_read_instruction": "mov    0xa0(%rbx),%eax",
+        "has_test": true,
+        "has_compare": true,
+        "has_conditional_exit": true,
+        "has_table_stride": true,
+        "relationship": "A0_USED_AS_TABLE_TRAVERSAL_BOUND_EVIDENCE"
+      }
+    ],
+    "a4_dispatch_confirmed": true
+  },
+  "multi": {
+    "a0_reads": [
+      {
+        "va": 18265,
+        "instruction": "mov    0xa0(%rax),%eax",
+        "classification": "A0_READ"
+      },
+      {
+        "va": 18346,
+        "instruction": "mov    0xa0(%rax),%eax",
+        "classification": "A0_READ"
+      }
+    ],
+    "bound_evidence": [
+      {
+        "a0_read_va": 18265,
+        "a0_read_instruction": "mov    0xa0(%rax),%eax",
+        "has_test": true,
+        "has_compare": true,
+        "has_conditional_exit": true,
+        "has_table_stride": true,
+        "relationship": "A0_USED_AS_TABLE_TRAVERSAL_BOUND_EVIDENCE"
+      },
+      {
+        "a0_read_va": 18346,
+        "a0_read_instruction": "mov    0xa0(%rax),%eax",
+        "has_test": true,
+        "has_compare": true,
+        "has_conditional_exit": true,
+        "has_table_stride": true,
+        "relationship": "A0_USED_AS_TABLE_TRAVERSAL_BOUND_EVIDENCE"
+      }
+    ],
+    "a4_dispatch_confirmed": true
+  },
+  "conclusions": {
+    "a0_table_entry_count_semantics_proven": true,
+    "external_multi_count_separated": true
+  }
+}

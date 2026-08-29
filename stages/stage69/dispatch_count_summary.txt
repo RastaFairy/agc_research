@@ -1,0 +1,53 @@
+AGC PS5 Stage 69 - Dispatch Table Count / +0xA0 Semantic Audit
+
+=== TARGET ===
+global_context = 0x1A908
+A0 offset = 0xA0
+A4 offset = 0xA4
+submit table offset = 0x50
+multi table offset = 0x58
+table stride = 0x78
+
+=== SUBMIT +0xA0 READS ===
+VA=0x1958 | mov    0xa0(%rbx),%eax
+VA=0x1994 | mov    0xa0(%rbx),%eax
+
+=== MULTI +0xA0 READS ===
+VA=0x4759 | mov    0xa0(%rax),%eax
+VA=0x47AA | mov    0xa0(%rax),%eax
+
+=== SUBMIT TABLE-BOUND EVIDENCE ===
+A0_READ=0x1958 test=True compare=True stride=True conditional_exit=True
+A0_READ=0x1994 test=True compare=True stride=True conditional_exit=True
+
+=== MULTI TABLE-BOUND EVIDENCE ===
+A0_READ=0x4759 test=True compare=True stride=True conditional_exit=True
+A0_READ=0x47AA test=True compare=True stride=True conditional_exit=True
+
+=== A4 DISPATCH CORRELATION ===
+SUBMIT_A4_DISPATCH_CONFIRMED=True
+MULTI_A4_DISPATCH_CONFIRMED=True
+
+=== SEMANTIC SEPARATION ===
+global_context+0xA0 = candidato a count/límite de entradas de dispatch
+SubmitMultiCommandBuffers external count = argumento separado
+Los dos valores no se consideran equivalentes.
+
+=== CONCLUSIONS ===
+A0_READS_FOUND_IN_SUBMIT=True
+A0_READS_FOUND_IN_MULTI=True
+SUBMIT_A0_TABLE_BOUND_EVIDENCE=True
+MULTI_A0_TABLE_BOUND_EVIDENCE=True
+SUBMIT_A4_DISPATCH_CONFIRMED=True
+MULTI_A4_DISPATCH_CONFIRMED=True
+A0_TABLE_ENTRY_COUNT_SEMANTICS_PROVEN=True
+GLOBAL_A0_IS_COUNT_LIKE_TABLE_BOUND=True
+EXTERNAL_MULTI_COUNT_SEPARATED_FROM_GLOBAL_A0=True
+COUNT_SEMANTICS_PROVEN=True
+EXACT_FIELD_NAME_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== LIMIT ===
+Esta etapa demuestra el uso de +0xA0 como límite asociado al recorrido de la tabla cuando aparecen conjuntamente lectura, control de bucle y stride 0x78. No asigna un nombre semántico público al campo.

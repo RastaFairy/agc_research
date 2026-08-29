@@ -1,0 +1,26 @@
+{
+  "stage": 62,
+  "field": {
+    "global_context": "0x1A908",
+    "offset": "0xA4",
+    "va": "0x1A9AC"
+  },
+  "conclusions": {
+    "XMM0_ZEROING_INSTRUCTION_FOUND": true,
+    "A4_16_BYTE_STORE_FOUND": true,
+    "A4_ZERO_INITIALIZATION_PROVEN": true,
+    "A4_ZERO_INIT_RANGE_PROVEN": true,
+    "DISPATCH_USE_CONFIRMED": true,
+    "INDEX_SEMANTICS_PROVEN": false,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "hashes": {
+    "stage62_static.json": "b733687e2b19b4ce2acd3f86d4a4f86a029a209b8a124fe75e59611ff624fd6c",
+    "index_value_flow_summary.txt": "0e318c33f91e61da350bd472d41bec4a81d4358c1f6e0b8c387c4450d2420c2f",
+    "index_value_flow_disassembly.txt": "351dc1a50c3da4db9f2dba3489616269d7a94f25d85de82bcff47c23b4345122"
+  }
+}

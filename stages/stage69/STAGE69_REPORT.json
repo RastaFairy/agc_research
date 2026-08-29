@@ -1,0 +1,25 @@
+{
+  "stage": 69,
+  "result": {
+    "A0_READS_FOUND_IN_SUBMIT": true,
+    "A0_READS_FOUND_IN_MULTI": true,
+    "SUBMIT_A0_TABLE_BOUND_EVIDENCE": true,
+    "MULTI_A0_TABLE_BOUND_EVIDENCE": true,
+    "SUBMIT_A4_DISPATCH_CONFIRMED": true,
+    "MULTI_A4_DISPATCH_CONFIRMED": true,
+    "A0_TABLE_ENTRY_COUNT_SEMANTICS_PROVEN": true,
+    "GLOBAL_A0_IS_COUNT_LIKE_TABLE_BOUND": true,
+    "EXTERNAL_MULTI_COUNT_SEPARATED_FROM_GLOBAL_A0": true,
+    "COUNT_SEMANTICS_PROVEN": true,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "artifacts": {
+    "stage69_static.json": "/mnt/d/agc_work/stage69_results/stage69_static.json",
+    "dispatch_count_summary.txt": "/mnt/d/agc_work/stage69_results/dispatch_count_summary.txt",
+    "dispatch_count_disassembly.txt": "/mnt/d/agc_work/stage69_results/dispatch_count_disassembly.txt",
+    "dispatch_count_correlation.json": "/mnt/d/agc_work/stage69_results/dispatch_count_correlation.json"
+  }
+}

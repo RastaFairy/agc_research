@@ -1,0 +1,130 @@
+AGC PS5 Stage 66 - Dispatch Bounds / Dynamic Initialization Audit
+
+=== GLOBAL RW SEGMENT ===
+start = 0x18000
+end = 0x1b028
+files_end = 0x18011
+filesz = 0x11
+memsz = 0x3028
+
+=== SUBMIT TABLE ===
+base = 0x1a908
+pointer offset = 0x50
+first pointer slot = 0x1a958
+valid static pointer slots = 15
+index=00 slot=0x1A958 raw=<unavailable> interpretation=UNAVAILABLE
+index=01 slot=0x1A9D0 raw=<unavailable> interpretation=UNAVAILABLE
+index=02 slot=0x1AA48 raw=<unavailable> interpretation=UNAVAILABLE
+index=03 slot=0x1AAC0 raw=<unavailable> interpretation=UNAVAILABLE
+index=04 slot=0x1AB38 raw=<unavailable> interpretation=UNAVAILABLE
+index=05 slot=0x1ABB0 raw=<unavailable> interpretation=UNAVAILABLE
+index=06 slot=0x1AC28 raw=<unavailable> interpretation=UNAVAILABLE
+index=07 slot=0x1ACA0 raw=<unavailable> interpretation=UNAVAILABLE
+index=08 slot=0x1AD18 raw=<unavailable> interpretation=UNAVAILABLE
+index=09 slot=0x1AD90 raw=<unavailable> interpretation=UNAVAILABLE
+index=10 slot=0x1AE08 raw=<unavailable> interpretation=UNAVAILABLE
+index=11 slot=0x1AE80 raw=<unavailable> interpretation=UNAVAILABLE
+index=12 slot=0x1AEF8 raw=<unavailable> interpretation=UNAVAILABLE
+index=13 slot=0x1AF70 raw=<unavailable> interpretation=UNAVAILABLE
+index=14 slot=0x1AFE8 raw=<unavailable> interpretation=UNAVAILABLE
+
+=== MULTI TABLE ===
+base = 0x1a908
+pointer offset = 0x58
+first pointer slot = 0x1a960
+valid static pointer slots = 15
+index=00 slot=0x1A960 raw=<unavailable> interpretation=UNAVAILABLE
+index=01 slot=0x1A9D8 raw=<unavailable> interpretation=UNAVAILABLE
+index=02 slot=0x1AA50 raw=<unavailable> interpretation=UNAVAILABLE
+index=03 slot=0x1AAC8 raw=<unavailable> interpretation=UNAVAILABLE
+index=04 slot=0x1AB40 raw=<unavailable> interpretation=UNAVAILABLE
+index=05 slot=0x1ABB8 raw=<unavailable> interpretation=UNAVAILABLE
+index=06 slot=0x1AC30 raw=<unavailable> interpretation=UNAVAILABLE
+index=07 slot=0x1ACA8 raw=<unavailable> interpretation=UNAVAILABLE
+index=08 slot=0x1AD20 raw=<unavailable> interpretation=UNAVAILABLE
+index=09 slot=0x1AD98 raw=<unavailable> interpretation=UNAVAILABLE
+index=10 slot=0x1AE10 raw=<unavailable> interpretation=UNAVAILABLE
+index=11 slot=0x1AE88 raw=<unavailable> interpretation=UNAVAILABLE
+index=12 slot=0x1AF00 raw=<unavailable> interpretation=UNAVAILABLE
+index=13 slot=0x1AF78 raw=<unavailable> interpretation=UNAVAILABLE
+index=14 slot=0x1AFF0 raw=<unavailable> interpretation=UNAVAILABLE
+
+=== STAGE 65 CORRECTION ===
+submit_entries index=15 slot=0x0x1b060 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=16 slot=0x0x1b0d8 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=17 slot=0x0x1b150 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=18 slot=0x0x1b1c8 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=19 slot=0x0x1b240 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=20 slot=0x0x1b2b8 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=21 slot=0x0x1b330 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=22 slot=0x0x1b3a8 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=23 slot=0x0x1b420 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=24 slot=0x0x1b498 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=25 slot=0x0x1b510 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=26 slot=0x0x1b588 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=27 slot=0x0x1b600 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=28 slot=0x0x1b678 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=29 slot=0x0x1b6f0 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=30 slot=0x0x1b768 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=31 slot=0x0x1b7e0 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=15 slot=0x0x1b068 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=16 slot=0x0x1b0e0 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=17 slot=0x0x1b158 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=18 slot=0x0x1b1d0 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=19 slot=0x0x1b248 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=20 slot=0x0x1b2c0 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=21 slot=0x0x1b338 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=22 slot=0x0x1b3b0 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=23 slot=0x0x1b428 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=24 slot=0x0x1b4a0 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=25 slot=0x0x1b518 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=26 slot=0x0x1b590 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=27 slot=0x0x1b608 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=28 slot=0x0x1b680 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=29 slot=0x0x1b6f8 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=30 slot=0x0x1b770 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=31 slot=0x0x1b7e8 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+
+=== DYNAMIC STORE CANDIDATES ===
+VA=0x1BA offset=0x50 base=rax index=NONE scale=1 | vmovups %ymm0,0x50(%rax)
+VA=0x1D7 offset=0x50 base=rax index=NONE scale=1 | mov %rdx,0x50(%rax)
+VA=0x1E2 offset=0x58 base=rax index=NONE scale=1 | mov %rsi,0x58(%rax)
+VA=0x41ED offset=0x50 base=rbx index=NONE scale=1 | mov %eax,0x50(%rbx)
+VA=0x4217 offset=0x58 base=rbx index=NONE scale=1 | mov %eax,0x58(%rbx)
+VA=0x5F3E offset=0x50 base=rax index=NONE scale=1 | movl $0xc0036100,0x50(%rax)
+VA=0x5F70 offset=0x58 base=rax index=NONE scale=1 | mov %esi,0x58(%rax)
+VA=0x627E offset=0x50 base=rax index=NONE scale=1 | movl $0xc0036100,0x50(%rax)
+VA=0x6289 offset=0x58 base=rax index=NONE scale=1 | mov %r14d,0x58(%rax)
+VA=0x63F3 offset=0x50 base=rdi index=NONE scale=1 | mov %rcx,0x50(%rdi)
+VA=0x6401 offset=0x58 base=rdi index=NONE scale=1 | mov %r8d,0x58(%rdi)
+
+=== FOCUSED SUBMIT ACCESSES ===
+VA=0x19D2 offset=0x50 base=rbx index=rax scale=1 | call *0x50(%rbx,%rax,1)
+
+=== FOCUSED MULTI ACCESSES ===
+VA=0x47DF offset=0x58 base=rcx index=rax scale=1 | call *0x58(%rcx,%rax,1)
+
+=== CONCLUSIONS ===
+GLOBAL_RW_SEGMENT_IDENTIFIED=True
+SUBMIT_TABLE_FIRST_SLOT_IN_RW_SEGMENT=True
+MULTI_TABLE_FIRST_SLOT_IN_RW_SEGMENT=True
+SUBMIT_STATIC_SLOT_BOUNDARY_PROVEN=True
+MULTI_STATIC_SLOT_BOUNDARY_PROVEN=True
+STAGE65_EXTERNAL_REGION_READS_IDENTIFIED=True
+SUBMIT_DYNAMIC_TABLE_STORE_CANDIDATE_FOUND=True
+MULTI_DYNAMIC_TABLE_STORE_CANDIDATE_FOUND=True
+DISPATCH_TABLE_RUNTIME_INITIALIZATION_CANDIDATE_FOUND=True
+INDEX_SEMANTICS_PROVEN=True
+COUNT_SEMANTICS_PROVEN=False
+EXACT_FIELD_NAME_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== INTERPRETATION LIMIT ===
+Stage 64 ya demuestra que +0xA4 se usa como índice de dispatch.
+Stage 66 limita el análisis al PT_LOAD RW que realmente contiene global_context.
+Los bytes posteriores al final de ese segmento no se consideran entradas de la tabla.
+Los slots estánticos del BSS no contienen targets válidos en el fichero porque el BSS no está respaldado por bytes de archivo.
+La resolución de los punteros reales depende de inicialización runtime salvo que exista una escritura estática identificable.
+No se asigna un nombre semántico a +0xA4 sin evidencia adicional.

@@ -1,0 +1,134 @@
+{
+  "stage": 64,
+  "target": {
+    "global_context_va": 108808,
+    "field_offset": 164,
+    "field_va": 108972
+  },
+  "previous_stage": {
+    "stage": 63,
+    "available": true,
+    "previous_stage_post_init_write_claim": true,
+    "correction": "Stage 63 classified A4 reads as writes; Stage 64 separates memory source loads from memory destination stores."
+  },
+  "initialization": {
+    "instruction_va": 528,
+    "instruction": "vmovups %xmm0,0xa4(%rax)",
+    "width_bytes": 16,
+    "source": "XMM0",
+    "known_zero_source": true,
+    "range": "0xA4..0xB3"
+  },
+  "a4_accesses": {
+    "reads": [
+      {
+        "function": "sceAgcDriverSubmitCommandBuffer",
+        "instruction_va": 6593,
+        "instruction": "mov 0xa4(%rbx),%eax",
+        "field_offset": 164,
+        "classification": "READ"
+      },
+      {
+        "function": "sceAgcDriverSubmitMultiCommandBuffers",
+        "instruction_va": 18386,
+        "instruction": "mov 0xa4(%rcx),%eax",
+        "field_offset": 164,
+        "classification": "READ"
+      }
+    ],
+    "stores": [],
+    "post_initialization_stores": []
+  },
+  "submit_value_flow": {
+    "a4_read_va": 6593,
+    "read_instruction": {
+      "va": 6593,
+      "instruction": "mov 0xa4(%rbx),%eax"
+    },
+    "events": [
+      {
+        "instruction_va": 6599,
+        "instruction": "lea -0x50(%rbp),%rsi"
+      },
+      {
+        "instruction_va": 6603,
+        "instruction": "mov %r12,%rdi"
+      },
+      {
+        "instruction_va": 6606,
+        "instruction": "imul $0x78,%rax,%rax"
+      },
+      {
+        "instruction_va": 6610,
+        "instruction": "call *0x50(%rbx,%rax,1)"
+      }
+    ],
+    "dispatch_patterns": [
+      {
+        "scale_instruction": {
+          "va": 6606,
+          "instruction": "imul $0x78,%rax,%rax"
+        },
+        "nearby_instructions": [
+          {
+            "va": 6610,
+            "instruction": "call *0x50(%rbx,%rax,1)"
+          }
+        ]
+      }
+    ]
+  },
+  "multi_value_flow": {
+    "a4_read_va": 18386,
+    "read_instruction": {
+      "va": 18386,
+      "instruction": "mov 0xa4(%rcx),%eax"
+    },
+    "events": [
+      {
+        "instruction_va": 18392,
+        "instruction": "mov %rbx,%rdi"
+      },
+      {
+        "instruction_va": 18395,
+        "instruction": "imul $0x78,%rax,%rax"
+      },
+      {
+        "instruction_va": 18399,
+        "instruction": "call *0x58(%rcx,%rax,1)"
+      }
+    ],
+    "dispatch_patterns": [
+      {
+        "scale_instruction": {
+          "va": 18395,
+          "instruction": "imul $0x78,%rax,%rax"
+        },
+        "nearby_instructions": [
+          {
+            "va": 18399,
+            "instruction": "call *0x58(%rcx,%rax,1)"
+          }
+        ]
+      }
+    ]
+  },
+  "conclusions": {
+    "A4_READ_WRITE_CLASSIFICATION_CORRECTED": true,
+    "A4_INITIALIZATION_WRITE_CONFIRMED": true,
+    "A4_POST_INITIALIZATION_WRITES_FOUND": false,
+    "A4_STATIC_ZERO_AFTER_INITIALIZATION": true,
+    "SUBMIT_A4_READ_FOUND": true,
+    "MULTI_A4_READ_FOUND": true,
+    "SUBMIT_A4_SCALED_BY_0x78": true,
+    "MULTI_A4_SCALED_BY_0x78": true,
+    "SUBMIT_A4_USED_IN_TABLE_DISPATCH": true,
+    "MULTI_A4_USED_IN_TABLE_DISPATCH": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "stage69": {
+    "count_semantics_proven": true,
+    "submit_a4_dispatch_confirmed": true,
+    "multi_a4_dispatch_confirmed": true
+  },
+  "stage70": {
+    "initializer": {
+      "instruction_va": 518,
+      "instruction": "movl   $0x1,0xa0(%rax)",
+      "base_register": "rax",
+      "owner": null,
+      "access_type": "STORE_IMMEDIATE",
+      "immediate_value": 1,
+      "global_context_proven": true,
+      "global_context_lea": {
+        "va": 356,
+        "instruction": "lea    0x1a79d(%rip),%rax        # 0x1a908",
+        "register": "rax",
+        "distance_instructions": 32
+      }
+    },
+    "initial_value": 1,
+    "post_initialization_stores": [
+      {
+        "instruction_va": 632,
+        "instruction": "movl   $0x0,0xa0(%r8)",
+        "base_register": "r8",
+        "owner": null,
+        "access_type": "STORE_IMMEDIATE",
+        "immediate_value": 0,
+        "global_context_proven": true,
+        "global_context_lea": {
+          "va": 548,
+          "instruction": "lea    0x1a6dd(%rip),%r8        # 0x1a908",
+          "register": "r8",
+          "distance_instructions": 21
+        }
+      }
+    ],
+    "static_after_initialization": false
+  },
+  "interpretation": {
+    "a0_role": "dispatch-table bound/count-like field",
+    "public_field_name": null,
+    "semantic_name_proven": false
+  }
+}

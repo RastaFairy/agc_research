@@ -1,0 +1,32 @@
+AGC PS5 Stage 62 - Dispatch Index Value-Flow / Zero Initialization Audit
+
+=== FIELD ===
+global_context = 0x1A908
+field_offset = 0xA4
+field_va = 0x1A9AC
+
+=== XMM0 ZEROING ===
+VA=0x1A9 vxorps %xmm0,%xmm0,%xmm0
+VA=0x1CB vxorps %xmm0,%xmm0,%xmm0
+
+=== STORE ===
+VA=0x210 vmovups %xmm0,0xa4(%rax)
+width = 16 bytes
+range = 0xA4..0xB3
+
+=== VALUE FLOW ===
+last_zero_before_store = 0x1CB vxorps %xmm0,%xmm0,%xmm0
+later_xmm0_write = NONE
+
+=== CONCLUSIONS ===
+XMM0_ZEROING_INSTRUCTION_FOUND=True
+A4_16_BYTE_STORE_FOUND=True
+A4_ZERO_INITIALIZATION_PROVEN=True
+A4_ZERO_INIT_RANGE_PROVEN=True
+DISPATCH_USE_CONFIRMED=True
+INDEX_SEMANTICS_PROVEN=False
+COUNT_SEMANTICS_PROVEN=False
+EXACT_FIELD_NAME_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False

@@ -1,0 +1,30 @@
+{
+  "stage": 66,
+  "target": {
+    "global_context": "0x1A908",
+    "a4": "0xA4",
+    "a4_va": "0x1A9AC",
+    "dispatch_stride": "0x78"
+  },
+  "conclusions": {
+    "GLOBAL_RW_SEGMENT_IDENTIFIED": true,
+    "SUBMIT_STATIC_SLOT_BOUNDARY_PROVEN": true,
+    "MULTI_STATIC_SLOT_BOUNDARY_PROVEN": true,
+    "STAGE65_EXTERNAL_REGION_READS_IDENTIFIED": true,
+    "SUBMIT_DYNAMIC_TABLE_STORE_CANDIDATE_FOUND": true,
+    "MULTI_DYNAMIC_TABLE_STORE_CANDIDATE_FOUND": true,
+    "DISPATCH_TABLE_RUNTIME_INITIALIZATION_CANDIDATE_FOUND": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "hashes": {
+    "stage66_static.json": "3eb03173d9c11dfdcd7616c4360483d86ba89eb8d5c4d688161c1c577ec10e65",
+    "dispatch_bounds_summary.txt": "5399864aa1c19232aca1d9041df6a59b24848ade2764689e98e5e144af956dcf",
+    "dispatch_bounds_disassembly.txt": "a54d700c0897921cd1be51261bcf0074b8d32fea36cfa831e827da58172b2dc4",
+    "dispatch_bounds.json": "40cf6bf2b9baaeb439e0150a5f8d5bae5b258287b476f6e4b4b1f966f5f5cde7"
+  }
+}

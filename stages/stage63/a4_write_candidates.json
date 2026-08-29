@@ -1,0 +1,144 @@
+{
+  "field_va": 108972,
+  "writes": [
+    {
+      "instruction_va": 528,
+      "instruction": "vmovups %xmm0,0xa4(%rax)",
+      "width_bytes": 16,
+      "value_source": {
+        "class": "XMM0_SOURCE",
+        "immediates": []
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 6269,
+      "instruction": "mov 0xa4(%r15),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 6593,
+      "instruction": "mov 0xa4(%rbx),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 10931,
+      "instruction": "mov 0xa4(%r12),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 17968,
+      "instruction": "mov 0xa4(%rcx),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 18386,
+      "instruction": "mov 0xa4(%rcx),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    }
+  ],
+  "reads": [
+    {
+      "instruction_va": 6269,
+      "instruction": "mov 0xa4(%r15),%eax",
+      "owner": null
+    },
+    {
+      "instruction_va": 6593,
+      "instruction": "mov 0xa4(%rbx),%eax",
+      "owner": null
+    },
+    {
+      "instruction_va": 10931,
+      "instruction": "mov 0xa4(%r12),%eax",
+      "owner": null
+    },
+    {
+      "instruction_va": 17968,
+      "instruction": "mov 0xa4(%rcx),%eax",
+      "owner": null
+    },
+    {
+      "instruction_va": 18386,
+      "instruction": "mov 0xa4(%rcx),%eax",
+      "owner": null
+    }
+  ],
+  "post_initialization_writes": [
+    {
+      "instruction_va": 6269,
+      "instruction": "mov 0xa4(%r15),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 6593,
+      "instruction": "mov 0xa4(%rbx),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 10931,
+      "instruction": "mov 0xa4(%r12),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 17968,
+      "instruction": "mov 0xa4(%rcx),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 18386,
+      "instruction": "mov 0xa4(%rcx),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    }
+  ]
+}

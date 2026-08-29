@@ -1,0 +1,46 @@
+{
+  "stage": 68,
+  "target": {
+    "global_context_va": 108808,
+    "submit_table_offset": 80,
+    "multi_table_offset": 88,
+    "submit_va": 6320,
+    "submit_size": 380,
+    "multi_va": 18000,
+    "multi_size": 579
+  },
+  "stage67_available": true,
+  "initializer": {
+    "window": "0xC0..0x180",
+    "events": [],
+    "proven_global_context_stores": []
+  },
+  "submit_dispatch": [],
+  "multi_dispatch": [],
+  "multi_count_evidence": [
+    {
+      "va": 18193,
+      "instruction": "4711: cmovael %eax, %r12d"
+    }
+  ],
+  "conclusions": {
+    "STORE_SCAN_COMPLETED": true,
+    "STORE_CANDIDATES_FOUND": false,
+    "SUBMIT_TABLE_RUNTIME_INITIALIZATION_PROVEN": false,
+    "MULTI_TABLE_RUNTIME_INITIALIZATION_PROVEN": false,
+    "SUBMIT_DISPATCH_PATTERN_FOUND": false,
+    "MULTI_DISPATCH_PATTERN_FOUND": false,
+    "COUNT_LIKE_CONTROL_FLOW_OBSERVED": true,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "notes": [
+    "Table writes are treated as proven only when base-register flow reaches LEA global_context 0x1A908.",
+    "Dispatch index use is established independently by the existing Submit/Multi call sites.",
+    "Count-like control flow is reported as evidence only; it is not promoted to a public semantic name.",
+    "Exact dispatch-entry size/semantic names remain unproven unless directly established by machine-code data-flow."
+  ]
+}

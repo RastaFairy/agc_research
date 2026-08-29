@@ -1,0 +1,265 @@
+{
+  "stage": 63,
+  "target": {
+    "name": "global_context + 0xA4",
+    "global_context_va": 108808,
+    "field_offset": 164,
+    "field_va": 108972
+  },
+  "scan": {
+    "executable_ranges": [
+      {
+        "start": 0,
+        "end": 44754
+      }
+    ],
+    "window_count": 696,
+    "window_size": 288,
+    "window_step": 64
+  },
+  "previous_stage": {
+    "stage": 62,
+    "available": true,
+    "a4_zero_initialization_proven": true
+  },
+  "a4_writes": [
+    {
+      "instruction_va": 528,
+      "instruction": "vmovups %xmm0,0xa4(%rax)",
+      "width_bytes": 16,
+      "value_source": {
+        "class": "XMM0_SOURCE",
+        "immediates": []
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 6269,
+      "instruction": "mov 0xa4(%r15),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 6593,
+      "instruction": "mov 0xa4(%rbx),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 10931,
+      "instruction": "mov 0xa4(%r12),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 17968,
+      "instruction": "mov 0xa4(%rcx),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    },
+    {
+      "instruction_va": 18386,
+      "instruction": "mov 0xa4(%rcx),%eax",
+      "width_bytes": null,
+      "value_source": {
+        "class": "GENERAL_REGISTER",
+        "immediates": []
+      },
+      "owner": null
+    }
+  ],
+  "a4_reads": [
+    {
+      "instruction_va": 6269,
+      "instruction": "mov 0xa4(%r15),%eax",
+      "owner": null
+    },
+    {
+      "instruction_va": 6593,
+      "instruction": "mov 0xa4(%rbx),%eax",
+      "owner": null
+    },
+    {
+      "instruction_va": 10931,
+      "instruction": "mov 0xa4(%r12),%eax",
+      "owner": null
+    },
+    {
+      "instruction_va": 17968,
+      "instruction": "mov 0xa4(%rcx),%eax",
+      "owner": null
+    },
+    {
+      "instruction_va": 18386,
+      "instruction": "mov 0xa4(%rcx),%eax",
+      "owner": null
+    }
+  ],
+  "classification": {
+    "initialization_write": {
+      "instruction_va": 528,
+      "instruction": "vmovups %xmm0,0xa4(%rax)",
+      "width_bytes": 16,
+      "value_source": {
+        "class": "XMM0_SOURCE",
+        "immediates": []
+      },
+      "owner": null
+    },
+    "post_initialization_writes": [
+      {
+        "instruction_va": 6269,
+        "instruction": "mov 0xa4(%r15),%eax",
+        "width_bytes": null,
+        "value_source": {
+          "class": "GENERAL_REGISTER",
+          "immediates": []
+        },
+        "owner": null
+      },
+      {
+        "instruction_va": 6593,
+        "instruction": "mov 0xa4(%rbx),%eax",
+        "width_bytes": null,
+        "value_source": {
+          "class": "GENERAL_REGISTER",
+          "immediates": []
+        },
+        "owner": null
+      },
+      {
+        "instruction_va": 10931,
+        "instruction": "mov 0xa4(%r12),%eax",
+        "width_bytes": null,
+        "value_source": {
+          "class": "GENERAL_REGISTER",
+          "immediates": []
+        },
+        "owner": null
+      },
+      {
+        "instruction_va": 17968,
+        "instruction": "mov 0xa4(%rcx),%eax",
+        "width_bytes": null,
+        "value_source": {
+          "class": "GENERAL_REGISTER",
+          "immediates": []
+        },
+        "owner": null
+      },
+      {
+        "instruction_va": 18386,
+        "instruction": "mov 0xa4(%rcx),%eax",
+        "width_bytes": null,
+        "value_source": {
+          "class": "GENERAL_REGISTER",
+          "immediates": []
+        },
+        "owner": null
+      }
+    ],
+    "immediate_writes": [],
+    "xmm_writes": [
+      {
+        "instruction_va": 528,
+        "instruction": "vmovups %xmm0,0xa4(%rax)",
+        "width_bytes": 16,
+        "value_source": {
+          "class": "XMM0_SOURCE",
+          "immediates": []
+        },
+        "owner": null
+      }
+    ],
+    "register_writes": [
+      {
+        "instruction_va": 6269,
+        "instruction": "mov 0xa4(%r15),%eax",
+        "width_bytes": null,
+        "value_source": {
+          "class": "GENERAL_REGISTER",
+          "immediates": []
+        },
+        "owner": null
+      },
+      {
+        "instruction_va": 6593,
+        "instruction": "mov 0xa4(%rbx),%eax",
+        "width_bytes": null,
+        "value_source": {
+          "class": "GENERAL_REGISTER",
+          "immediates": []
+        },
+        "owner": null
+      },
+      {
+        "instruction_va": 10931,
+        "instruction": "mov 0xa4(%r12),%eax",
+        "width_bytes": null,
+        "value_source": {
+          "class": "GENERAL_REGISTER",
+          "immediates": []
+        },
+        "owner": null
+      },
+      {
+        "instruction_va": 17968,
+        "instruction": "mov 0xa4(%rcx),%eax",
+        "width_bytes": null,
+        "value_source": {
+          "class": "GENERAL_REGISTER",
+          "immediates": []
+        },
+        "owner": null
+      },
+      {
+        "instruction_va": 18386,
+        "instruction": "mov 0xa4(%rcx),%eax",
+        "width_bytes": null,
+        "value_source": {
+          "class": "GENERAL_REGISTER",
+          "immediates": []
+        },
+        "owner": null
+      }
+    ],
+    "zero_status": "POST_INITIALIZATION_WRITES_FOUND"
+  },
+  "conclusions": {
+    "A4_WRITE_SCAN_COMPLETED": true,
+    "A4_INITIALIZATION_WRITE_FOUND": true,
+    "A4_POST_INITIALIZATION_WRITES_FOUND": true,
+    "A4_STATIC_ZERO_INVARIANT": false,
+    "A4_WRITES_EXACTLY_IDENTIFIED": true,
+    "A4_READS_FOUND": true,
+    "INDEX_SEMANTICS_PROVEN": false,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "notes": [
+    "Stage 62 proved zero initialization through VXORPS -> XMM0 -> VMOVUPS.",
+    "Stage 63 scans executable segments globally for writes and reads touching global_context + 0xA4.",
+    "A later write prevents treating the field as statically invariant.",
+    "Absence of later writes in the scanned executable image supports a static zero-invariant conclusion.",
+    "Neither zero initialization nor dispatch use alone proves the semantic field name."
+  ]
+}

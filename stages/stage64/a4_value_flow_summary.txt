@@ -1,0 +1,62 @@
+AGC PS5 Stage 64 - +0xA4 Value-Flow / Dispatch Index Audit
+
+=== TARGET ===
+global_context = 0x1A908
+field_offset = 0xA4
+field_va = 0x1A9AC
+
+=== CORRECTED READ/WRITE CLASSIFICATION ===
+A4 total reads = 2
+A4 total stores = 0
+A4 post-initialization stores = 0
+
+=== INITIALIZATION ===
+VA=0x210 vmovups %xmm0,0xa4(%rax)
+width = 16 bytes
+range = 0xA4..0xB3
+source = XMM0
+source_zero_proven = True
+
+=== A4 READS ===
+[sceAgcDriverSubmitCommandBuffer] VA=0x19C1 mov 0xa4(%rbx),%eax
+[sceAgcDriverSubmitMultiCommandBuffers] VA=0x47D2 mov 0xa4(%rcx),%eax
+
+=== A4 STORES ===
+NONE
+
+=== SUBMITCOMMANDBUFFER VALUE FLOW ===
+A4 read = 0x19C1
+0x19C1: mov 0xa4(%rbx),%eax
+scale = 0x19CE: imul $0x78,%rax,%rax
+  0x19D2: call *0x50(%rbx,%rax,1)
+
+=== MULTI VALUE FLOW ===
+A4 read = 0x47D2
+0x47D2: mov 0xa4(%rcx),%eax
+scale = 0x47DB: imul $0x78,%rax,%rax
+  0x47DF: call *0x58(%rcx,%rax,1)
+
+=== CONCLUSIONS ===
+A4_READ_WRITE_CLASSIFICATION_CORRECTED=True
+A4_INITIALIZATION_WRITE_CONFIRMED=True
+A4_POST_INITIALIZATION_WRITES_FOUND=False
+A4_STATIC_ZERO_AFTER_INITIALIZATION=True
+SUBMIT_A4_READ_FOUND=True
+MULTI_A4_READ_FOUND=True
+SUBMIT_A4_SCALED_BY_0x78=True
+MULTI_A4_SCALED_BY_0x78=True
+SUBMIT_A4_USED_IN_TABLE_DISPATCH=True
+MULTI_A4_USED_IN_TABLE_DISPATCH=True
+INDEX_SEMANTICS_PROVEN=True
+COUNT_SEMANTICS_PROVEN=False
+EXACT_FIELD_NAME_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== INTERPRETATION LIMIT ===
+The A4 field is statically observed as a loaded 32-bit value.
+SubmitCommandBuffer scales that value by 0x78 before indexed function-table dispatch.
+This proves dispatch-index usage in the SubmitCommandBuffer path.
+It does not by itself prove an externally documented semantic field name.
+It also does not prove the exact struct sizeof beyond the accessed bytes.

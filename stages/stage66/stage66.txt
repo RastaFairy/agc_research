@@ -1,0 +1,1141 @@
+PowerShell 7.6.5
+PS D:\agc_ps5_stage66> .\stage66_dispatch_bounds.ps1
+
+============================================
+AGC PS5 Stage 66 - Dispatch Bounds / Dynamic Initialization Audit
+============================================
+[INFO] StageDir        = D:\agc_ps5_stage66
+[INFO] SPRX            = D:\agc_work\sce_stubs\libSceAgcDriver.sprx
+[INFO] NID DB          = D:\sdk-master\sce_stubs\aerolib.csv
+[INFO] Previous stage  = D:\agc_work\stage65_results
+[INFO] Output          = D:\agc_work\stage66_results
+[INFO] SPRX WSL        = /mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx
+[INFO] Previous WSL    = /mnt/d/agc_work/stage65_results
+[INFO] Output WSL      = /mnt/d/agc_work/stage66_results
+[INFO] SDK             = /opt/ps5-payload-sdk
+
+==> Preparar workspace Linux
+
+[WSL] set -e
+
+rm -rf '/tmp/agc_stage66'
+
+mkdir -p '/tmp/agc_stage66'
+mkdir -p '/mnt/d/agc_work/stage66_results'
+
+cp '/mnt/d/agc_work/stage66_results/analyze_dispatch_bounds.py' \
+   '/tmp/agc_stage66/analyze_dispatch_bounds.py'
+
+sed -i 's/\r$//' \
+   '/tmp/agc_stage66/analyze_dispatch_bounds.py'
+
+python3 -m py_compile \
+   '/tmp/agc_stage66/analyze_dispatch_bounds.py'
+
+ls -lh \
+   '/tmp/agc_stage66/analyze_dispatch_bounds.py'
+-rwxr-xr-x 1 user user 36K Aug 25 02:41 /tmp/agc_stage66/analyze_dispatch_bounds.py
+
+==> Verificar Python + pyelftools + toolchain
+
+[WSL] set -e
+
+test -x '/opt/ps5-payload-sdk/bin/prospero-clang'
+test -x '/opt/ps5-payload-sdk/bin/prospero-nm'
+test -x '/opt/ps5-payload-sdk/bin/prospero-lld'
+
+python3 -c "from elftools.elf.elffile import ELFFile; print('pyelftools=OK')"
+
+command -v objdump
+command -v llvm-objdump
+pyelftools=OK
+/usr/bin/objdump
+/usr/bin/llvm-objdump
+
+==> Corregir límites de tabla y rastrear inicialización dinámica
+
+[WSL] set -e
+
+python3 '/tmp/agc_stage66/analyze_dispatch_bounds.py' \
+    '/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx' \
+    '/mnt/d/sdk-master/sce_stubs/aerolib.csv' \
+    '/mnt/d/agc_work/stage65_results' \
+    '/mnt/d/agc_work/stage66_results'
+{
+  "stage": 66,
+  "target": {
+    "global_context_va": 108808,
+    "a4_va": 108972,
+    "a4_offset": 164,
+    "dispatch_stride": 120
+  },
+  "global_rw_segment": {
+    "start": 98304,
+    "start_hex": "0x18000",
+    "end": 110632,
+    "end_hex": "0x1b028",
+    "files_end": 98321,
+    "files_end_hex": "0x18011",
+    "filesz": 17,
+    "memsz": 12328,
+    "flags": 6
+  },
+  "dispatch_regions": {
+    "submit": {
+      "table_base": 108808,
+      "pointer_offset": 80,
+      "first_slot_va": 108888,
+      "first_slot_va_hex": "0x1a958",
+      "valid_slot_count": 15,
+      "slots": [
+        {
+          "index": 0,
+          "slot_va": 108888,
+          "slot_end_va": 108896,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 1,
+          "slot_va": 109008,
+          "slot_end_va": 109016,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 2,
+          "slot_va": 109128,
+          "slot_end_va": 109136,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 3,
+          "slot_va": 109248,
+          "slot_end_va": 109256,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 4,
+          "slot_va": 109368,
+          "slot_end_va": 109376,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 5,
+          "slot_va": 109488,
+          "slot_end_va": 109496,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 6,
+          "slot_va": 109608,
+          "slot_end_va": 109616,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 7,
+          "slot_va": 109728,
+          "slot_end_va": 109736,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 8,
+          "slot_va": 109848,
+          "slot_end_va": 109856,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 9,
+          "slot_va": 109968,
+          "slot_end_va": 109976,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 10,
+          "slot_va": 110088,
+          "slot_end_va": 110096,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 11,
+          "slot_va": 110208,
+          "slot_end_va": 110216,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 12,
+          "slot_va": 110328,
+          "slot_end_va": 110336,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 13,
+          "slot_va": 110448,
+          "slot_end_va": 110456,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 14,
+          "slot_va": 110568,
+          "slot_end_va": 110576,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        }
+      ]
+    },
+    "multi": {
+      "table_base": 108808,
+      "pointer_offset": 88,
+      "first_slot_va": 108896,
+      "first_slot_va_hex": "0x1a960",
+      "valid_slot_count": 15,
+      "slots": [
+        {
+          "index": 0,
+          "slot_va": 108896,
+          "slot_end_va": 108904,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 1,
+          "slot_va": 109016,
+          "slot_end_va": 109024,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 2,
+          "slot_va": 109136,
+          "slot_end_va": 109144,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 3,
+          "slot_va": 109256,
+          "slot_end_va": 109264,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 4,
+          "slot_va": 109376,
+          "slot_end_va": 109384,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 5,
+          "slot_va": 109496,
+          "slot_end_va": 109504,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 6,
+          "slot_va": 109616,
+          "slot_end_va": 109624,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 7,
+          "slot_va": 109736,
+          "slot_end_va": 109744,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 8,
+          "slot_va": 109856,
+          "slot_end_va": 109864,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 9,
+          "slot_va": 109976,
+          "slot_end_va": 109984,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 10,
+          "slot_va": 110096,
+          "slot_end_va": 110104,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 11,
+          "slot_va": 110216,
+          "slot_end_va": 110224,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 12,
+          "slot_va": 110336,
+          "slot_end_va": 110344,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 13,
+          "slot_va": 110456,
+          "slot_end_va": 110464,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        },
+        {
+          "index": 14,
+          "slot_va": 110576,
+          "slot_end_va": 110584,
+          "within_rw_segment": true,
+          "within_file_backed_bytes": false,
+          "raw_hex": "",
+          "static_bytes_available": false,
+          "raw_u64": null,
+          "raw_u64_hex": null,
+          "interpretation": "UNAVAILABLE"
+        }
+      ]
+    }
+  },
+  "dynamic_store_candidates": [
+    {
+      "instruction_va": 442,
+      "instruction": "vmovups %ymm0,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 471,
+      "instruction": "mov %rdx,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 482,
+      "instruction": "mov %rsi,0x58(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 16877,
+      "instruction": "mov %eax,0x50(%rbx)",
+      "base_register": "rbx",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 16919,
+      "instruction": "mov %eax,0x58(%rbx)",
+      "base_register": "rbx",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 24382,
+      "instruction": "movl $0xc0036100,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 24432,
+      "instruction": "mov %esi,0x58(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 25214,
+      "instruction": "movl $0xc0036100,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 25225,
+      "instruction": "mov %r14d,0x58(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 25587,
+      "instruction": "mov %rcx,0x50(%rdi)",
+      "base_register": "rdi",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 25601,
+      "instruction": "mov %r8d,0x58(%rdi)",
+      "base_register": "rdi",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "classification": "STORE_CANDIDATE"
+    }
+  ],
+  "submit_dynamic_writes": [
+    {
+      "instruction_va": 442,
+      "instruction": "vmovups %ymm0,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 471,
+      "instruction": "mov %rdx,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 16877,
+      "instruction": "mov %eax,0x50(%rbx)",
+      "base_register": "rbx",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 24382,
+      "instruction": "movl $0xc0036100,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 25214,
+      "instruction": "movl $0xc0036100,0x50(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 25587,
+      "instruction": "mov %rcx,0x50(%rdi)",
+      "base_register": "rdi",
+      "index_register": null,
+      "scale": 1,
+      "offset": 80,
+      "classification": "STORE_CANDIDATE"
+    }
+  ],
+  "multi_dynamic_writes": [
+    {
+      "instruction_va": 482,
+      "instruction": "mov %rsi,0x58(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 16919,
+      "instruction": "mov %eax,0x58(%rbx)",
+      "base_register": "rbx",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 24432,
+      "instruction": "mov %esi,0x58(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 25225,
+      "instruction": "mov %r14d,0x58(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "classification": "STORE_CANDIDATE"
+    },
+    {
+      "instruction_va": 25601,
+      "instruction": "mov %r8d,0x58(%rdi)",
+      "base_register": "rdi",
+      "index_register": null,
+      "scale": 1,
+      "offset": 88,
+      "classification": "STORE_CANDIDATE"
+    }
+  ],
+  "submit_focused_accesses": [
+    {
+      "instruction_va": 6610,
+      "instruction": "call *0x50(%rbx,%rax,1)",
+      "base_register": "rbx",
+      "offset": 80,
+      "index_register": "rax",
+      "scale": 1
+    }
+  ],
+  "multi_focused_accesses": [
+    {
+      "instruction_va": 18399,
+      "instruction": "call *0x58(%rcx,%rax,1)",
+      "base_register": "rcx",
+      "offset": 88,
+      "index_register": "rax",
+      "scale": 1
+    }
+  ],
+  "stage65_external_region_reads": [
+    {
+      "family": "submit_entries",
+      "index": 15,
+      "slot_va": 110688,
+      "slot_va_hex": "0x1b060",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 16,
+      "slot_va": 110808,
+      "slot_va_hex": "0x1b0d8",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 17,
+      "slot_va": 110928,
+      "slot_va_hex": "0x1b150",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 18,
+      "slot_va": 111048,
+      "slot_va_hex": "0x1b1c8",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 19,
+      "slot_va": 111168,
+      "slot_va_hex": "0x1b240",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 20,
+      "slot_va": 111288,
+      "slot_va_hex": "0x1b2b8",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 21,
+      "slot_va": 111408,
+      "slot_va_hex": "0x1b330",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 22,
+      "slot_va": 111528,
+      "slot_va_hex": "0x1b3a8",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 23,
+      "slot_va": 111648,
+      "slot_va_hex": "0x1b420",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 24,
+      "slot_va": 111768,
+      "slot_va_hex": "0x1b498",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 25,
+      "slot_va": 111888,
+      "slot_va_hex": "0x1b510",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 26,
+      "slot_va": 112008,
+      "slot_va_hex": "0x1b588",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 27,
+      "slot_va": 112128,
+      "slot_va_hex": "0x1b600",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 28,
+      "slot_va": 112248,
+      "slot_va_hex": "0x1b678",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 29,
+      "slot_va": 112368,
+      "slot_va_hex": "0x1b6f0",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 30,
+      "slot_va": 112488,
+      "slot_va_hex": "0x1b768",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "submit_entries",
+      "index": 31,
+      "slot_va": 112608,
+      "slot_va_hex": "0x1b7e0",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 15,
+      "slot_va": 110696,
+      "slot_va_hex": "0x1b068",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 16,
+      "slot_va": 110816,
+      "slot_va_hex": "0x1b0e0",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 17,
+      "slot_va": 110936,
+      "slot_va_hex": "0x1b158",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 18,
+      "slot_va": 111056,
+      "slot_va_hex": "0x1b1d0",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 19,
+      "slot_va": 111176,
+      "slot_va_hex": "0x1b248",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 20,
+      "slot_va": 111296,
+      "slot_va_hex": "0x1b2c0",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 21,
+      "slot_va": 111416,
+      "slot_va_hex": "0x1b338",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 22,
+      "slot_va": 111536,
+      "slot_va_hex": "0x1b3b0",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 23,
+      "slot_va": 111656,
+      "slot_va_hex": "0x1b428",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 24,
+      "slot_va": 111776,
+      "slot_va_hex": "0x1b4a0",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 25,
+      "slot_va": 111896,
+      "slot_va_hex": "0x1b518",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 26,
+      "slot_va": 112016,
+      "slot_va_hex": "0x1b590",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 27,
+      "slot_va": 112136,
+      "slot_va_hex": "0x1b608",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 28,
+      "slot_va": 112256,
+      "slot_va_hex": "0x1b680",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 29,
+      "slot_va": 112376,
+      "slot_va_hex": "0x1b6f8",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 30,
+      "slot_va": 112496,
+      "slot_va_hex": "0x1b770",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    },
+    {
+      "family": "multi_entries",
+      "index": 31,
+      "slot_va": 112616,
+      "slot_va_hex": "0x1b7e8",
+      "reason": "OUTSIDE_GLOBAL_RW_SEGMENT"
+    }
+  ],
+  "executable_segments": [
+    {
+      "vaddr": 0,
+      "vaddr_hex": "0x0",
+      "filesz": 44754,
+      "memsz": 44754,
+      "flags": 1
+    }
+  ],
+  "conclusions": {
+    "GLOBAL_RW_SEGMENT_IDENTIFIED": true,
+    "SUBMIT_TABLE_FIRST_SLOT_IN_RW_SEGMENT": true,
+    "MULTI_TABLE_FIRST_SLOT_IN_RW_SEGMENT": true,
+    "SUBMIT_STATIC_SLOT_BOUNDARY_PROVEN": true,
+    "MULTI_STATIC_SLOT_BOUNDARY_PROVEN": true,
+    "STAGE65_EXTERNAL_REGION_READS_IDENTIFIED": true,
+    "SUBMIT_DYNAMIC_TABLE_STORE_CANDIDATE_FOUND": true,
+    "MULTI_DYNAMIC_TABLE_STORE_CANDIDATE_FOUND": true,
+    "DISPATCH_TABLE_RUNTIME_INITIALIZATION_CANDIDATE_FOUND": true,
+    "INDEX_SEMANTICS_PROVEN": true,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}
+
+==> Verificar artefactos Stage 66
+
+[WSL] set -e
+
+test -f '/mnt/d/agc_work/stage66_results/stage66_static.json'
+test -f '/mnt/d/agc_work/stage66_results/dispatch_bounds_summary.txt'
+test -f '/mnt/d/agc_work/stage66_results/dispatch_bounds_disassembly.txt'
+test -f '/mnt/d/agc_work/stage66_results/dispatch_bounds.json'
+
+echo '--- dispatch_bounds_summary.txt ---'
+
+cat '/mnt/d/agc_work/stage66_results/dispatch_bounds_summary.txt'
+
+echo '--- output files ---'
+
+find '/mnt/d/agc_work/stage66_results' \
+    -maxdepth 2 \
+    -type f |
+    sort
+--- dispatch_bounds_summary.txt ---
+AGC PS5 Stage 66 - Dispatch Bounds / Dynamic Initialization Audit
+
+=== GLOBAL RW SEGMENT ===
+start = 0x18000
+end = 0x1b028
+files_end = 0x18011
+filesz = 0x11
+memsz = 0x3028
+
+=== SUBMIT TABLE ===
+base = 0x1a908
+pointer offset = 0x50
+first pointer slot = 0x1a958
+valid static pointer slots = 15
+index=00 slot=0x1A958 raw=<unavailable> interpretation=UNAVAILABLE
+index=01 slot=0x1A9D0 raw=<unavailable> interpretation=UNAVAILABLE
+index=02 slot=0x1AA48 raw=<unavailable> interpretation=UNAVAILABLE
+index=03 slot=0x1AAC0 raw=<unavailable> interpretation=UNAVAILABLE
+index=04 slot=0x1AB38 raw=<unavailable> interpretation=UNAVAILABLE
+index=05 slot=0x1ABB0 raw=<unavailable> interpretation=UNAVAILABLE
+index=06 slot=0x1AC28 raw=<unavailable> interpretation=UNAVAILABLE
+index=07 slot=0x1ACA0 raw=<unavailable> interpretation=UNAVAILABLE
+index=08 slot=0x1AD18 raw=<unavailable> interpretation=UNAVAILABLE
+index=09 slot=0x1AD90 raw=<unavailable> interpretation=UNAVAILABLE
+index=10 slot=0x1AE08 raw=<unavailable> interpretation=UNAVAILABLE
+index=11 slot=0x1AE80 raw=<unavailable> interpretation=UNAVAILABLE
+index=12 slot=0x1AEF8 raw=<unavailable> interpretation=UNAVAILABLE
+index=13 slot=0x1AF70 raw=<unavailable> interpretation=UNAVAILABLE
+index=14 slot=0x1AFE8 raw=<unavailable> interpretation=UNAVAILABLE
+
+=== MULTI TABLE ===
+base = 0x1a908
+pointer offset = 0x58
+first pointer slot = 0x1a960
+valid static pointer slots = 15
+index=00 slot=0x1A960 raw=<unavailable> interpretation=UNAVAILABLE
+index=01 slot=0x1A9D8 raw=<unavailable> interpretation=UNAVAILABLE
+index=02 slot=0x1AA50 raw=<unavailable> interpretation=UNAVAILABLE
+index=03 slot=0x1AAC8 raw=<unavailable> interpretation=UNAVAILABLE
+index=04 slot=0x1AB40 raw=<unavailable> interpretation=UNAVAILABLE
+index=05 slot=0x1ABB8 raw=<unavailable> interpretation=UNAVAILABLE
+index=06 slot=0x1AC30 raw=<unavailable> interpretation=UNAVAILABLE
+index=07 slot=0x1ACA8 raw=<unavailable> interpretation=UNAVAILABLE
+index=08 slot=0x1AD20 raw=<unavailable> interpretation=UNAVAILABLE
+index=09 slot=0x1AD98 raw=<unavailable> interpretation=UNAVAILABLE
+index=10 slot=0x1AE10 raw=<unavailable> interpretation=UNAVAILABLE
+index=11 slot=0x1AE88 raw=<unavailable> interpretation=UNAVAILABLE
+index=12 slot=0x1AF00 raw=<unavailable> interpretation=UNAVAILABLE
+index=13 slot=0x1AF78 raw=<unavailable> interpretation=UNAVAILABLE
+index=14 slot=0x1AFF0 raw=<unavailable> interpretation=UNAVAILABLE
+
+=== STAGE 65 CORRECTION ===
+submit_entries index=15 slot=0x0x1b060 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=16 slot=0x0x1b0d8 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=17 slot=0x0x1b150 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=18 slot=0x0x1b1c8 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=19 slot=0x0x1b240 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=20 slot=0x0x1b2b8 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=21 slot=0x0x1b330 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=22 slot=0x0x1b3a8 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=23 slot=0x0x1b420 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=24 slot=0x0x1b498 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=25 slot=0x0x1b510 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=26 slot=0x0x1b588 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=27 slot=0x0x1b600 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=28 slot=0x0x1b678 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=29 slot=0x0x1b6f0 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=30 slot=0x0x1b768 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+submit_entries index=31 slot=0x0x1b7e0 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=15 slot=0x0x1b068 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=16 slot=0x0x1b0e0 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=17 slot=0x0x1b158 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=18 slot=0x0x1b1d0 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=19 slot=0x0x1b248 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=20 slot=0x0x1b2c0 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=21 slot=0x0x1b338 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=22 slot=0x0x1b3b0 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=23 slot=0x0x1b428 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=24 slot=0x0x1b4a0 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=25 slot=0x0x1b518 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=26 slot=0x0x1b590 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=27 slot=0x0x1b608 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=28 slot=0x0x1b680 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=29 slot=0x0x1b6f8 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=30 slot=0x0x1b770 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+multi_entries index=31 slot=0x0x1b7e8 reason=OUTSIDE_GLOBAL_RW_SEGMENT
+
+=== DYNAMIC STORE CANDIDATES ===
+VA=0x1BA offset=0x50 base=rax index=NONE scale=1 | vmovups %ymm0,0x50(%rax)
+VA=0x1D7 offset=0x50 base=rax index=NONE scale=1 | mov %rdx,0x50(%rax)
+VA=0x1E2 offset=0x58 base=rax index=NONE scale=1 | mov %rsi,0x58(%rax)
+VA=0x41ED offset=0x50 base=rbx index=NONE scale=1 | mov %eax,0x50(%rbx)
+VA=0x4217 offset=0x58 base=rbx index=NONE scale=1 | mov %eax,0x58(%rbx)
+VA=0x5F3E offset=0x50 base=rax index=NONE scale=1 | movl $0xc0036100,0x50(%rax)
+VA=0x5F70 offset=0x58 base=rax index=NONE scale=1 | mov %esi,0x58(%rax)
+VA=0x627E offset=0x50 base=rax index=NONE scale=1 | movl $0xc0036100,0x50(%rax)
+VA=0x6289 offset=0x58 base=rax index=NONE scale=1 | mov %r14d,0x58(%rax)
+VA=0x63F3 offset=0x50 base=rdi index=NONE scale=1 | mov %rcx,0x50(%rdi)
+VA=0x6401 offset=0x58 base=rdi index=NONE scale=1 | mov %r8d,0x58(%rdi)
+
+=== FOCUSED SUBMIT ACCESSES ===
+VA=0x19D2 offset=0x50 base=rbx index=rax scale=1 | call *0x50(%rbx,%rax,1)
+
+=== FOCUSED MULTI ACCESSES ===
+VA=0x47DF offset=0x58 base=rcx index=rax scale=1 | call *0x58(%rcx,%rax,1)
+
+=== CONCLUSIONS ===
+GLOBAL_RW_SEGMENT_IDENTIFIED=True
+SUBMIT_TABLE_FIRST_SLOT_IN_RW_SEGMENT=True
+MULTI_TABLE_FIRST_SLOT_IN_RW_SEGMENT=True
+SUBMIT_STATIC_SLOT_BOUNDARY_PROVEN=True
+MULTI_STATIC_SLOT_BOUNDARY_PROVEN=True
+STAGE65_EXTERNAL_REGION_READS_IDENTIFIED=True
+SUBMIT_DYNAMIC_TABLE_STORE_CANDIDATE_FOUND=True
+MULTI_DYNAMIC_TABLE_STORE_CANDIDATE_FOUND=True
+DISPATCH_TABLE_RUNTIME_INITIALIZATION_CANDIDATE_FOUND=True
+INDEX_SEMANTICS_PROVEN=True
+COUNT_SEMANTICS_PROVEN=False
+EXACT_FIELD_NAME_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== INTERPRETATION LIMIT ===
+Stage 64 ya demuestra que +0xA4 se usa como índice de dispatch.
+Stage 66 limita el análisis al PT_LOAD RW que realmente contiene global_context.
+Los bytes posteriores al final de ese segmento no se consideran entradas de la tabla.
+Los slots estánticos del BSS no contienen targets válidos en el fichero porque el BSS no está respaldado por bytes de archivo.
+La resolución de los punteros reales depende de inicialización runtime salvo que exista una escrituraestática identificable.
+No se asigna un nombre semántico a +0xA4 sin evidencia adicional.
+--- output files ---
+/mnt/d/agc_work/stage66_results/analyze_dispatch_bounds.py
+/mnt/d/agc_work/stage66_results/dispatch_bounds.json
+/mnt/d/agc_work/stage66_results/dispatch_bounds_disassembly.txt
+/mnt/d/agc_work/stage66_results/dispatch_bounds_summary.txt
+/mnt/d/agc_work/stage66_results/stage66_static.json
+
+==> Hash artefactos
+[INFO] stage66_static.json SHA256=3eb03173d9c11dfdcd7616c4360483d86ba89eb8d5c4d688161c1c577ec10e65
+[INFO] dispatch_bounds_summary.txt SHA256=5399864aa1c19232aca1d9041df6a59b24848ade2764689e98e5e144af956dcf
+[INFO] dispatch_bounds_disassembly.txt SHA256=a54d700c0897921cd1be51261bcf0074b8d32fea36cfa831e827da58172b2dc4
+[INFO] dispatch_bounds.json SHA256=40cf6bf2b9baaeb439e0150a5f8d5bae5b258287b476f6e4b4b1f966f5f5cde7
+
+============================================
+Stage 66 completado
+============================================
+
+GLOBAL_RW_SEGMENT_IDENTIFIED = True
+SUBMIT_STATIC_SLOT_BOUNDARY_PROVEN = True
+MULTI_STATIC_SLOT_BOUNDARY_PROVEN = True
+STAGE65_EXTERNAL_REGION_READS_IDENTIFIED = True
+SUBMIT_DYNAMIC_TABLE_STORE_CANDIDATE_FOUND = True
+MULTI_DYNAMIC_TABLE_STORE_CANDIDATE_FOUND = True
+DISPATCH_TABLE_RUNTIME_INITIALIZATION_CANDIDATE_FOUND = True
+INDEX_SEMANTICS_PROVEN = True
+COUNT_SEMANTICS_PROVEN = False
+EXACT_FIELD_NAME_PROVEN = False
+BACKEND_CONSUMER_IDENTIFIED = False
+SEMANTIC_PROTOTYPE_INFERRED = False
+EXECUTED_AGC = False
+
+Resultados:
+  D:\agc_work\stage66_results
+
+Reporte:
+  D:\agc_work\stage66_results\STAGE66_REPORT.json
+PS D:\agc_ps5_stage66>

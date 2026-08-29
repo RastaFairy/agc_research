@@ -1,0 +1,884 @@
+{
+  "stage": 61,
+  "target": {
+    "name": "sceAgcDriverSubmitCommandBuffer",
+    "va": 6320,
+    "size": 380
+  },
+  "global_context": {
+    "va": 108808
+  },
+  "dispatch_index": {
+    "offset": 164,
+    "va": 108972,
+    "dispatch_base_offset": 80,
+    "dispatch_stride": 120,
+    "formula": "global_context + 0x50 + index * 0x78"
+  },
+  "previous_stage": {
+    "stage": 60,
+    "results_path": "/mnt/d/agc_work/stage60_results",
+    "available": true
+  },
+  "global_leas": [
+    {
+      "instruction_va": 356,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 16740
+    },
+    {
+      "instruction_va": 849,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 17233
+    },
+    {
+      "instruction_va": 1168,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 17552
+    },
+    {
+      "instruction_va": 1200,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 17584
+    },
+    {
+      "instruction_va": 8374,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 24758
+    },
+    {
+      "instruction_va": 8502,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 24886
+    },
+    {
+      "instruction_va": 10436,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 26820
+    },
+    {
+      "instruction_va": 11828,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 28212
+    },
+    {
+      "instruction_va": 12292,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 28676
+    },
+    {
+      "instruction_va": 12340,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 28724
+    },
+    {
+      "instruction_va": 15227,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 31611
+    },
+    {
+      "instruction_va": 15600,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 31984
+    },
+    {
+      "instruction_va": 16285,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 32669
+    },
+    {
+      "instruction_va": 17597,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 33981
+    },
+    {
+      "instruction_va": 17702,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 34086
+    },
+    {
+      "instruction_va": 17854,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 34238
+    },
+    {
+      "instruction_va": 17937,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 34321
+    },
+    {
+      "instruction_va": 18258,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 34642
+    },
+    {
+      "instruction_va": 18336,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 34720
+    },
+    {
+      "instruction_va": 18628,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 35012
+    },
+    {
+      "instruction_va": 26149,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 42533
+    },
+    {
+      "instruction_va": 26596,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 42980
+    },
+    {
+      "instruction_va": 26644,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 43028
+    },
+    {
+      "instruction_va": 26803,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 43187
+    },
+    {
+      "instruction_va": 26880,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 43264
+    },
+    {
+      "instruction_va": 26916,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 43300
+    },
+    {
+      "instruction_va": 29739,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 46123
+    },
+    {
+      "instruction_va": 29851,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 46235
+    },
+    {
+      "instruction_va": 29908,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 46292
+    },
+    {
+      "instruction_va": 29988,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 46372
+    },
+    {
+      "instruction_va": 30036,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 46420
+    },
+    {
+      "instruction_va": 30240,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 46624
+    },
+    {
+      "instruction_va": 30256,
+      "register": "rax",
+      "target_va": 108808,
+      "file_offset": 46640
+    },
+    {
+      "instruction_va": 211,
+      "register": "rcx",
+      "target_va": 108808,
+      "file_offset": 16595
+    },
+    {
+      "instruction_va": 1240,
+      "register": "rcx",
+      "target_va": 108808,
+      "file_offset": 17624
+    },
+    {
+      "instruction_va": 2186,
+      "register": "rcx",
+      "target_va": 108808,
+      "file_offset": 18570
+    },
+    {
+      "instruction_va": 2315,
+      "register": "rcx",
+      "target_va": 108808,
+      "file_offset": 18699
+    },
+    {
+      "instruction_va": 12693,
+      "register": "rcx",
+      "target_va": 108808,
+      "file_offset": 29077
+    },
+    {
+      "instruction_va": 12757,
+      "register": "rcx",
+      "target_va": 108808,
+      "file_offset": 29141
+    },
+    {
+      "instruction_va": 17880,
+      "register": "rcx",
+      "target_va": 108808,
+      "file_offset": 34264
+    },
+    {
+      "instruction_va": 17952,
+      "register": "rcx",
+      "target_va": 108808,
+      "file_offset": 34336
+    },
+    {
+      "instruction_va": 18075,
+      "register": "rcx",
+      "target_va": 108808,
+      "file_offset": 34459
+    },
+    {
+      "instruction_va": 18275,
+      "register": "rcx",
+      "target_va": 108808,
+      "file_offset": 34659
+    },
+    {
+      "instruction_va": 18368,
+      "register": "rcx",
+      "target_va": 108808,
+      "file_offset": 34752
+    },
+    {
+      "instruction_va": 4963,
+      "register": "rbx",
+      "target_va": 108808,
+      "file_offset": 21347
+    },
+    {
+      "instruction_va": 6408,
+      "register": "rbx",
+      "target_va": 108808,
+      "file_offset": 22792
+    },
+    {
+      "instruction_va": 6725,
+      "register": "rbx",
+      "target_va": 108808,
+      "file_offset": 23109
+    },
+    {
+      "instruction_va": 6789,
+      "register": "rbx",
+      "target_va": 108808,
+      "file_offset": 23173
+    },
+    {
+      "instruction_va": 11319,
+      "register": "rbx",
+      "target_va": 108808,
+      "file_offset": 27703
+    },
+    {
+      "instruction_va": 30166,
+      "register": "rbx",
+      "target_va": 108808,
+      "file_offset": 46550
+    },
+    {
+      "instruction_va": 6990,
+      "register": "r12",
+      "target_va": 108808,
+      "file_offset": 23374
+    },
+    {
+      "instruction_va": 10760,
+      "register": "r12",
+      "target_va": 108808,
+      "file_offset": 27144
+    },
+    {
+      "instruction_va": 15051,
+      "register": "r12",
+      "target_va": 108808,
+      "file_offset": 31435
+    },
+    {
+      "instruction_va": 3960,
+      "register": "r13",
+      "target_va": 108808,
+      "file_offset": 20344
+    },
+    {
+      "instruction_va": 7192,
+      "register": "r13",
+      "target_va": 108808,
+      "file_offset": 23576
+    },
+    {
+      "instruction_va": 12411,
+      "register": "r13",
+      "target_va": 108808,
+      "file_offset": 28795
+    },
+    {
+      "instruction_va": 907,
+      "register": "r14",
+      "target_va": 108808,
+      "file_offset": 17291
+    },
+    {
+      "instruction_va": 4170,
+      "register": "r14",
+      "target_va": 108808,
+      "file_offset": 20554
+    },
+    {
+      "instruction_va": 8036,
+      "register": "r14",
+      "target_va": 108808,
+      "file_offset": 24420
+    },
+    {
+      "instruction_va": 16734,
+      "register": "r14",
+      "target_va": 108808,
+      "file_offset": 33118
+    },
+    {
+      "instruction_va": 5587,
+      "register": "r15",
+      "target_va": 108808,
+      "file_offset": 21971
+    },
+    {
+      "instruction_va": 6190,
+      "register": "r15",
+      "target_va": 108808,
+      "file_offset": 22574
+    },
+    {
+      "instruction_va": 9903,
+      "register": "r15",
+      "target_va": 108808,
+      "file_offset": 26287
+    },
+    {
+      "instruction_va": 12120,
+      "register": "r15",
+      "target_va": 108808,
+      "file_offset": 28504
+    },
+    {
+      "instruction_va": 13566,
+      "register": "r15",
+      "target_va": 108808,
+      "file_offset": 29950
+    },
+    {
+      "instruction_va": 14656,
+      "register": "r15",
+      "target_va": 108808,
+      "file_offset": 31040
+    }
+  ],
+  "index_writes": [
+    {
+      "instruction_va": 528,
+      "instruction": "vmovups %xmm0,0xa4(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "field_offset": 164,
+      "field_va": 108972,
+      "reference_va": 356
+    }
+  ],
+  "index_reads": [
+    {
+      "instruction_va": 528,
+      "instruction": "vmovups %xmm0,0xa4(%rax)",
+      "base_register": "rax",
+      "index_register": null,
+      "scale": 1,
+      "field_offset": 164,
+      "field_va": 108972,
+      "reference_va": 356
+    },
+    {
+      "instruction_va": 17968,
+      "instruction": "mov 0xa4(%rcx),%eax",
+      "base_register": "rcx",
+      "index_register": null,
+      "scale": 1,
+      "field_offset": 164,
+      "field_va": 108972,
+      "reference_va": 18075
+    },
+    {
+      "instruction_va": 18386,
+      "instruction": "mov 0xa4(%rcx),%eax",
+      "base_register": "rcx",
+      "index_register": null,
+      "scale": 1,
+      "field_offset": 164,
+      "field_va": 108972,
+      "reference_va": 18368
+    },
+    {
+      "instruction_va": 6269,
+      "instruction": "mov 0xa4(%r15),%eax",
+      "base_register": "r15",
+      "index_register": null,
+      "scale": 1,
+      "field_offset": 164,
+      "field_va": 108972,
+      "reference_va": 6190
+    },
+    {
+      "instruction_va": 6593,
+      "instruction": "mov 0xa4(%rbx),%eax",
+      "base_register": "rbx",
+      "index_register": null,
+      "scale": 1,
+      "field_offset": 164,
+      "field_va": 108972,
+      "reference_va": 6789
+    },
+    {
+      "instruction_va": 10931,
+      "instruction": "mov 0xa4(%r12),%eax",
+      "base_register": "r12",
+      "index_register": null,
+      "scale": 1,
+      "field_offset": 164,
+      "field_va": 108972,
+      "reference_va": 10760
+    }
+  ],
+  "write_origins": [
+    {
+      "candidate": {
+        "instruction_va": 528,
+        "instruction": "vmovups %xmm0,0xa4(%rax)",
+        "base_register": "rax",
+        "index_register": null,
+        "scale": 1,
+        "field_offset": 164,
+        "field_va": 108972,
+        "reference_va": 356
+      },
+      "function_start": 352,
+      "rax_origin": [
+        {
+          "instruction_va": 356,
+          "instruction": "lea 0x1a79d(%rip),%rax # 0x1a908",
+          "kind": "GLOBAL_CONTEXT_LEA"
+        },
+        {
+          "instruction_va": 463,
+          "instruction": "mov %rcx,0x28(%rax)",
+          "kind": "RAX_ASSIGNMENT"
+        },
+        {
+          "instruction_va": 471,
+          "instruction": "mov %rdx,0x50(%rax)",
+          "kind": "RAX_ASSIGNMENT"
+        },
+        {
+          "instruction_va": 482,
+          "instruction": "mov %rsi,0x58(%rax)",
+          "kind": "RAX_ASSIGNMENT"
+        },
+        {
+          "instruction_va": 493,
+          "instruction": "mov %rdx,0x68(%rax)",
+          "kind": "RAX_ASSIGNMENT"
+        },
+        {
+          "instruction_va": 504,
+          "instruction": "mov %rsi,0x80(%rax)",
+          "kind": "RAX_ASSIGNMENT"
+        },
+        {
+          "instruction_va": 511,
+          "instruction": "mov %rdx,0x88(%rax)",
+          "kind": "RAX_ASSIGNMENT"
+        }
+      ],
+      "xmm0_origin": [],
+      "window_disassembly": "\n/mnt/d/agc_work/stage61_results/agc_stage61_8rtlmrm8.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0000000000000160 <.data>:\n 160:\t55                   \tpush   %rbp\n 161:\t48 89 e5             \tmov    %rsp,%rbp\n 164:\t48 8d 05 9d a7 01 00 \tlea    0x1a79d(%rip),%rax        # 0x1a908\n 16b:\t83 b8 a0 00 00 00 00 \tcmpl   $0x0,0xa0(%rax)\n 172:\t74 24                \tje     0x198\n 174:\t48 8b 0d 65 3f 01 00 \tmov    0x13f65(%rip),%rcx        # 0x140e0\n 17b:\t48 8d 3d bf f5 00 00 \tlea    0xf5bf(%rip),%rdi        # 0xf741\n 182:\tbe 30 00 00 00       \tmov    $0x30,%esi\n 187:\tba 01 00 00 00       \tmov    $0x1,%edx\n 18c:\te8 df a9 00 00       \tcall   0xab70\n 191:\tb8 06 00 6d 8a       \tmov    $0x8a6d0006,%eax\n 196:\t5d                   \tpop    %rbp\n 197:\tc3                   \tret\n 198:\t48 8d 15 61 0e 00 00 \tlea    0xe61(%rip),%rdx        # 0x1000\n 19f:\t48 b9 78 00 00 00 0e \tmovabs $0x1000e00000078,%rcx\n 1a6:\t00 01 00 \n 1a9:\tc5 f8 57 c0          \tvxorps %xmm0,%xmm0,%xmm0\n 1ad:\tc5 fc 11 80 80 00 00 \tvmovups %ymm0,0x80(%rax)\n 1b4:\t00 \n 1b5:\tc5 fc 11 40 30       \tvmovups %ymm0,0x30(%rax)\n 1ba:\tc5 fc 11 40 50       \tvmovups %ymm0,0x50(%rax)\n 1bf:\tc5 fc 11 40 70       \tvmovups %ymm0,0x70(%rax)\n 1c4:\t48 8d 35 f5 3a 00 00 \tlea    0x3af5(%rip),%rsi        # 0x3cc0\n 1cb:\tc5 f8 57 c0          \tvxorps %xmm0,%xmm0,%xmm0\n 1cf:\t48 89 48 28          \tmov    %rcx,0x28(%rax)\n 1d3:\tc6 40 35 ff          \tmovb   $0xff,0x35(%rax)\n 1d7:\t48 89 50 50          \tmov    %rdx,0x50(%rax)\n 1db:\t48 8d 15 4e 18 00 00 \tlea    0x184e(%rip),%rdx        # 0x1a30\n 1e2:\t48 89 70 58          \tmov    %rsi,0x58(%rax)\n 1e6:\t48 8d 35 f3 65 00 00 \tlea    0x65f3(%rip),%rsi        # 0x67e0\n 1ed:\t48 89 50 68          \tmov    %rdx,0x68(%rax)\n 1f1:\t48 8d 15 18 66 00 00 \tlea    0x6618(%rip),%rdx        # 0x6810\n 1f8:\t48 89 b0 80 00 00 00 \tmov    %rsi,0x80(%rax)\n 1ff:\t48 89 90 88 00 00 00 \tmov    %rdx,0x88(%rax)\n 206:\tc7 80 a0 00 00 00 01 \tmovl   $0x1,0xa0(%rax)\n 20d:\t00 00 00 \n 210:\tc5 f8 11 80 a4 00 00 \tvmovups %xmm0,0xa4(%rax)\n 217:\t00 \n 218:\t31 c0                \txor    %eax,%eax\n 21a:\t5d                   \tpop    %rbp\n 21b:\tc3                   \tret\n 21c:\tcc                   \tint3\n 21d:\tcc                   \tint3\n 21e:\tcc                   \tint3\n 21f:\tcc                   \tint3\n 220:\t55                   \tpush   %rbp\n 221:\t48 89 e5             \tmov    %rsp,%rbp\n 224:\t4c 8d 05 dd a6 01 00 \tlea    0x1a6dd(%rip),%r8        # 0x1a908\n 22b:\t41 8b b0 a0 00 00 00 \tmov    0xa0(%r8),%esi\n 232:\t89 f0                \tmov    %esi,%eax\n 234:\tff c8                \tdec    %eax\n 236:\t74 1c                \tje     0x254\n 238:\t49 8d 78 35          \tlea    0x35(%r8),%rdi\n 23c:\t89 c0                \tmov    %eax,%eax\n 23e:\t31 d2                \txor    %edx,%edx\n 240:\t8b 4f fb             \tmov    -0x5(%rdi),%ecx\n 243:\t83 f9 ff             \tcmp    $0xffffffff,%ecx\n 246:\t75 3f                \tjne    0x287\n 248:\t48 ff c2             \tinc    %rdx\n 24b:\t48 83 c7 78          \tadd    $0x78,%rdi\n 24f:\t48                   \trex.W\n"
+    }
+  ],
+  "special_vmovups": [
+    {
+      "candidate": {
+        "instruction_va": 528,
+        "instruction": "vmovups %xmm0,0xa4(%rax)",
+        "base_register": "rax",
+        "index_register": null,
+        "scale": 1,
+        "field_offset": 164,
+        "field_va": 108972,
+        "reference_va": 356
+      },
+      "function_start": 352,
+      "rax_origin": [
+        {
+          "instruction_va": 356,
+          "instruction": "lea 0x1a79d(%rip),%rax # 0x1a908",
+          "kind": "GLOBAL_CONTEXT_LEA"
+        },
+        {
+          "instruction_va": 463,
+          "instruction": "mov %rcx,0x28(%rax)",
+          "kind": "RAX_ASSIGNMENT"
+        },
+        {
+          "instruction_va": 471,
+          "instruction": "mov %rdx,0x50(%rax)",
+          "kind": "RAX_ASSIGNMENT"
+        },
+        {
+          "instruction_va": 482,
+          "instruction": "mov %rsi,0x58(%rax)",
+          "kind": "RAX_ASSIGNMENT"
+        },
+        {
+          "instruction_va": 493,
+          "instruction": "mov %rdx,0x68(%rax)",
+          "kind": "RAX_ASSIGNMENT"
+        },
+        {
+          "instruction_va": 504,
+          "instruction": "mov %rsi,0x80(%rax)",
+          "kind": "RAX_ASSIGNMENT"
+        },
+        {
+          "instruction_va": 511,
+          "instruction": "mov %rdx,0x88(%rax)",
+          "kind": "RAX_ASSIGNMENT"
+        }
+      ],
+      "xmm0_origin": [],
+      "window_disassembly": "\n/mnt/d/agc_work/stage61_results/agc_stage61_8rtlmrm8.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0000000000000160 <.data>:\n 160:\t55                   \tpush   %rbp\n 161:\t48 89 e5             \tmov    %rsp,%rbp\n 164:\t48 8d 05 9d a7 01 00 \tlea    0x1a79d(%rip),%rax        # 0x1a908\n 16b:\t83 b8 a0 00 00 00 00 \tcmpl   $0x0,0xa0(%rax)\n 172:\t74 24                \tje     0x198\n 174:\t48 8b 0d 65 3f 01 00 \tmov    0x13f65(%rip),%rcx        # 0x140e0\n 17b:\t48 8d 3d bf f5 00 00 \tlea    0xf5bf(%rip),%rdi        # 0xf741\n 182:\tbe 30 00 00 00       \tmov    $0x30,%esi\n 187:\tba 01 00 00 00       \tmov    $0x1,%edx\n 18c:\te8 df a9 00 00       \tcall   0xab70\n 191:\tb8 06 00 6d 8a       \tmov    $0x8a6d0006,%eax\n 196:\t5d                   \tpop    %rbp\n 197:\tc3                   \tret\n 198:\t48 8d 15 61 0e 00 00 \tlea    0xe61(%rip),%rdx        # 0x1000\n 19f:\t48 b9 78 00 00 00 0e \tmovabs $0x1000e00000078,%rcx\n 1a6:\t00 01 00 \n 1a9:\tc5 f8 57 c0          \tvxorps %xmm0,%xmm0,%xmm0\n 1ad:\tc5 fc 11 80 80 00 00 \tvmovups %ymm0,0x80(%rax)\n 1b4:\t00 \n 1b5:\tc5 fc 11 40 30       \tvmovups %ymm0,0x30(%rax)\n 1ba:\tc5 fc 11 40 50       \tvmovups %ymm0,0x50(%rax)\n 1bf:\tc5 fc 11 40 70       \tvmovups %ymm0,0x70(%rax)\n 1c4:\t48 8d 35 f5 3a 00 00 \tlea    0x3af5(%rip),%rsi        # 0x3cc0\n 1cb:\tc5 f8 57 c0          \tvxorps %xmm0,%xmm0,%xmm0\n 1cf:\t48 89 48 28          \tmov    %rcx,0x28(%rax)\n 1d3:\tc6 40 35 ff          \tmovb   $0xff,0x35(%rax)\n 1d7:\t48 89 50 50          \tmov    %rdx,0x50(%rax)\n 1db:\t48 8d 15 4e 18 00 00 \tlea    0x184e(%rip),%rdx        # 0x1a30\n 1e2:\t48 89 70 58          \tmov    %rsi,0x58(%rax)\n 1e6:\t48 8d 35 f3 65 00 00 \tlea    0x65f3(%rip),%rsi        # 0x67e0\n 1ed:\t48 89 50 68          \tmov    %rdx,0x68(%rax)\n 1f1:\t48 8d 15 18 66 00 00 \tlea    0x6618(%rip),%rdx        # 0x6810\n 1f8:\t48 89 b0 80 00 00 00 \tmov    %rsi,0x80(%rax)\n 1ff:\t48 89 90 88 00 00 00 \tmov    %rdx,0x88(%rax)\n 206:\tc7 80 a0 00 00 00 01 \tmovl   $0x1,0xa0(%rax)\n 20d:\t00 00 00 \n 210:\tc5 f8 11 80 a4 00 00 \tvmovups %xmm0,0xa4(%rax)\n 217:\t00 \n 218:\t31 c0                \txor    %eax,%eax\n 21a:\t5d                   \tpop    %rbp\n 21b:\tc3                   \tret\n 21c:\tcc                   \tint3\n 21d:\tcc                   \tint3\n 21e:\tcc                   \tint3\n 21f:\tcc                   \tint3\n 220:\t55                   \tpush   %rbp\n 221:\t48 89 e5             \tmov    %rsp,%rbp\n 224:\t4c 8d 05 dd a6 01 00 \tlea    0x1a6dd(%rip),%r8        # 0x1a908\n 22b:\t41 8b b0 a0 00 00 00 \tmov    0xa0(%r8),%esi\n 232:\t89 f0                \tmov    %esi,%eax\n 234:\tff c8                \tdec    %eax\n 236:\t74 1c                \tje     0x254\n 238:\t49 8d 78 35          \tlea    0x35(%r8),%rdi\n 23c:\t89 c0                \tmov    %eax,%eax\n 23e:\t31 d2                \txor    %edx,%edx\n 240:\t8b 4f fb             \tmov    -0x5(%rdi),%ecx\n 243:\t83 f9 ff             \tcmp    $0xffffffff,%ecx\n 246:\t75 3f                \tjne    0x287\n 248:\t48 ff c2             \tinc    %rdx\n 24b:\t48 83 c7 78          \tadd    $0x78,%rdi\n 24f:\t48                   \trex.W\n",
+      "classification": {
+        "width_bytes": 16,
+        "store_instruction": "vmovups %xmm0,0xa4(%rax)",
+        "writes_range": "0xA4..0xB3",
+        "target_field_start": 108972,
+        "target_field_end": 108987
+      },
+      "value_origin_class": "UNRESOLVED_XMM0_SOURCE"
+    }
+  ],
+  "range_analysis": [
+    {
+      "candidate": {
+        "instruction_va": 528,
+        "instruction": "vmovups %xmm0,0xa4(%rax)",
+        "base_register": "rax",
+        "index_register": null,
+        "scale": 1,
+        "field_offset": 164,
+        "field_va": 108972,
+        "reference_va": 356
+      },
+      "range": {
+        "start": 164,
+        "width": 16,
+        "end_exclusive": 180
+      }
+    }
+  ],
+  "surrounding_accesses": [
+    {
+      "instruction_va": 363,
+      "instruction": "cmpl $0x0,0xa0(%rax)",
+      "offset": 160,
+      "context_register": "rax",
+      "access_class": "WRITE"
+    },
+    {
+      "instruction_va": 518,
+      "instruction": "movl $0x1,0xa0(%rax)",
+      "offset": 160,
+      "context_register": "rax",
+      "access_class": "WRITE"
+    },
+    {
+      "instruction_va": 528,
+      "instruction": "vmovups %xmm0,0xa4(%rax)",
+      "offset": 164,
+      "context_register": "rax",
+      "access_class": "WRITE"
+    },
+    {
+      "instruction_va": 555,
+      "instruction": "mov 0xa0(%r8),%esi",
+      "offset": 160,
+      "context_register": "r8",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 632,
+      "instruction": "movl $0x0,0xa0(%r8)",
+      "offset": 160,
+      "context_register": "r8",
+      "access_class": "WRITE"
+    },
+    {
+      "instruction_va": 17870,
+      "instruction": "mov 0xa0(%rax),%eax",
+      "offset": 160,
+      "context_register": "rax",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 17944,
+      "instruction": "mov 0xa0(%rax),%eax",
+      "offset": 160,
+      "context_register": "rax",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 17968,
+      "instruction": "mov 0xa4(%rcx),%eax",
+      "offset": 164,
+      "context_register": "rcx",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 18265,
+      "instruction": "mov 0xa0(%rax),%eax",
+      "offset": 160,
+      "context_register": "rax",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 18346,
+      "instruction": "mov 0xa0(%rax),%eax",
+      "offset": 160,
+      "context_register": "rax",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 18386,
+      "instruction": "mov 0xa4(%rcx),%eax",
+      "offset": 164,
+      "context_register": "rcx",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 26739,
+      "instruction": "mov 0xac(%rdx),%ecx",
+      "offset": 172,
+      "context_register": "rdx",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 26887,
+      "instruction": "mov 0xb0(%rax),%ecx",
+      "offset": 176,
+      "context_register": "rax",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 5002,
+      "instruction": "vmovups %ymm0,0xa0(%rsp)",
+      "offset": 160,
+      "context_register": "rsp",
+      "access_class": "WRITE"
+    },
+    {
+      "instruction_va": 5166,
+      "instruction": "lea 0xa0(%rsp),%rdi",
+      "offset": 160,
+      "context_register": "rsp",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 6203,
+      "instruction": "mov 0xa0(%r15),%eax",
+      "offset": 160,
+      "context_register": "r15",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 6260,
+      "instruction": "mov 0xa0(%r15),%eax",
+      "offset": 160,
+      "context_register": "r15",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 6269,
+      "instruction": "mov 0xa4(%r15),%eax",
+      "offset": 164,
+      "context_register": "r15",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 6488,
+      "instruction": "mov 0xa0(%rbx),%eax",
+      "offset": 160,
+      "context_register": "rbx",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 6548,
+      "instruction": "mov 0xa0(%rbx),%eax",
+      "offset": 160,
+      "context_register": "rbx",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 6593,
+      "instruction": "mov 0xa4(%rbx),%eax",
+      "offset": 164,
+      "context_register": "rbx",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 7050,
+      "instruction": "mov 0xa0(%r12),%eax",
+      "offset": 160,
+      "context_register": "r12",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 7102,
+      "instruction": "mov 0xa0(%r12),%eax",
+      "offset": 160,
+      "context_register": "r12",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 7112,
+      "instruction": "mov 0xa8(%r12),%eax",
+      "offset": 168,
+      "context_register": "r12",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 10810,
+      "instruction": "mov 0xa0(%r12),%eax",
+      "offset": 160,
+      "context_register": "r12",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 10884,
+      "instruction": "mov 0xa0(%r12),%eax",
+      "offset": 160,
+      "context_register": "r12",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 10931,
+      "instruction": "mov 0xa4(%r12),%eax",
+      "offset": 164,
+      "context_register": "r12",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 7355,
+      "instruction": "mov 0xa0(%r13),%eax",
+      "offset": 160,
+      "context_register": "r13",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 7438,
+      "instruction": "mov 0xa0(%r13),%eax",
+      "offset": 160,
+      "context_register": "r13",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 7815,
+      "instruction": "mov 0xa8(%r13),%eax",
+      "offset": 168,
+      "context_register": "r13",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 5594,
+      "instruction": "lea 0xa0(%rsp),%rdx",
+      "offset": 160,
+      "context_register": "rsp",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 5815,
+      "instruction": "and 0x98(%rsp),%eax",
+      "offset": 152,
+      "context_register": "rsp",
+      "access_class": "READ_OR_MEMORY"
+    },
+    {
+      "instruction_va": 5827,
+      "instruction": "mov %eax,0x98(%rsp)",
+      "offset": 152,
+      "context_register": "rsp",
+      "access_class": "WRITE"
+    }
+  ],
+  "conclusions": {
+    "DISPATCH_INDEX_WRITE_PROVEN": true,
+    "DISPATCH_INDEX_READ_PROVEN": true,
+    "SPECIAL_16_BYTE_INDEX_STORE_FOUND": true,
+    "XMM0_ORIGIN_PARTIALLY_RESOLVED": false,
+    "ZERO_INITIALIZATION_CANDIDATE": false,
+    "INDEX_SEMANTICS_PROVEN": false,
+    "COUNT_SEMANTICS_PROVEN": false,
+    "EXACT_FIELD_NAME_PROVEN": false,
+    "BACKEND_CONSUMER_IDENTIFIED": false,
+    "SEMANTIC_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "notes": [
+    "Stage 60 established the indirect dispatch expression.",
+    "Stage 61 traces the producer of global_context + 0xA4.",
+    "The 0xA4 write is analyzed together with its base-register origin.",
+    "A 16-byte vmovups store is treated as a range write covering 0xA4..0xB3.",
+    "No semantic name is inferred solely from dispatch usage.",
+    "Index/count semantics remain unproven unless the producer establishes them independently."
+  ]
+}

@@ -1,0 +1,62 @@
+AGC PS5 Stage 63 - +0xA4 Global Write Scan
+
+=== WRITES ===
+
+VA=0x210
+vmovups %xmm0,0xa4(%rax)
+width_bytes=16
+value_source=XMM0_SOURCE
+owner=None
+
+VA=0x187D
+mov 0xa4(%r15),%eax
+width_bytes=None
+value_source=GENERAL_REGISTER
+owner=None
+
+VA=0x19C1
+mov 0xa4(%rbx),%eax
+width_bytes=None
+value_source=GENERAL_REGISTER
+owner=None
+
+VA=0x2AB3
+mov 0xa4(%r12),%eax
+width_bytes=None
+value_source=GENERAL_REGISTER
+owner=None
+
+VA=0x4630
+mov 0xa4(%rcx),%eax
+width_bytes=None
+value_source=GENERAL_REGISTER
+owner=None
+
+VA=0x47D2
+mov 0xa4(%rcx),%eax
+width_bytes=None
+value_source=GENERAL_REGISTER
+owner=None
+
+=== READS ===
+
+VA=0x187D
+mov 0xa4(%r15),%eax
+owner=None
+
+VA=0x19C1
+mov 0xa4(%rbx),%eax
+owner=None
+
+VA=0x2AB3
+mov 0xa4(%r12),%eax
+owner=None
+
+VA=0x4630
+mov 0xa4(%rcx),%eax
+owner=None
+
+VA=0x47D2
+mov 0xa4(%rcx),%eax
+owner=None
+

@@ -1,0 +1,120 @@
+AGC PS5 Stage 70 - Global +0xA0 Value Provenance / Initialization Audit
+
+=== TARGET ===
+global_context = 0x1A908
+field_offset = 0xA0
+field_va = 0x1A9A8
+table_stride = 0x78
+
+=== GLOBAL +0xA0 ACCESS COUNT ===
+reads = 15
+stores = 2
+
+=== GLOBAL +0xA0 READS ===
+VA=0x22B owner=<unknown> base=r8 | mov    0xa0(%r8),%esi
+VA=0x183B owner=<unknown> base=r15 | mov    0xa0(%r15),%eax
+VA=0x1874 owner=<unknown> base=r15 | mov    0xa0(%r15),%eax
+VA=0x1958 owner=<unknown> base=rbx | mov    0xa0(%rbx),%eax
+VA=0x1994 owner=<unknown> base=rbx | mov    0xa0(%rbx),%eax
+VA=0x1B8A owner=<unknown> base=r12 | mov    0xa0(%r12),%eax
+VA=0x1BBE owner=<unknown> base=r12 | mov    0xa0(%r12),%eax
+VA=0x1CBB owner=<unknown> base=r13 | mov    0xa0(%r13),%eax
+VA=0x1D0E owner=<unknown> base=r13 | mov    0xa0(%r13),%eax
+VA=0x2A3A owner=<unknown> base=r12 | mov    0xa0(%r12),%eax
+VA=0x2A84 owner=<unknown> base=r12 | mov    0xa0(%r12),%eax
+VA=0x45CE owner=<unknown> base=rax | mov    0xa0(%rax),%eax
+VA=0x4618 owner=<unknown> base=rax | mov    0xa0(%rax),%eax
+VA=0x4759 owner=<unknown> base=rax | mov    0xa0(%rax),%eax
+VA=0x47AA owner=<unknown> base=rax | mov    0xa0(%rax),%eax
+
+=== GLOBAL +0xA0 STORES ===
+VA=0x206 base=rax type=STORE_IMMEDIATE value=1 | movl   $0x1,0xa0(%rax)
+VA=0x278 base=r8 type=STORE_IMMEDIATE value=0 | movl   $0x0,0xa0(%r8)
+
+=== INITIALIZATION ===
+VA=0x206
+instruction = movl   $0x1,0xa0(%rax)
+base_register = rax
+global_context_base_proven = True
+initial_value = 1
+global_context_lea = {'va': 356, 'instruction': 'lea    0x1a79d(%rip),%rax        # 0x1a908', 'register': 'rax', 'distance_instructions': 32}
+
+=== INITIALIZER WINDOW ===
+0x19F movabs $0x1000e00000078,%rcx
+0x1A6 
+0x1A9 vxorps %xmm0,%xmm0,%xmm0
+0x1AD vmovups %ymm0,0x80(%rax)
+0x1B4 
+0x1B5 vmovups %ymm0,0x30(%rax)
+0x1BA vmovups %ymm0,0x50(%rax)
+0x1BF vmovups %ymm0,0x70(%rax)
+0x1C4 lea    0x3af5(%rip),%rsi        # 0x3cc0
+0x1CB vxorps %xmm0,%xmm0,%xmm0
+0x1CF mov    %rcx,0x28(%rax)
+0x1D3 movb   $0xff,0x35(%rax)
+0x1D7 mov    %rdx,0x50(%rax)
+0x1DB lea    0x184e(%rip),%rdx        # 0x1a30
+0x1E2 mov    %rsi,0x58(%rax)
+0x1E6 lea    0x65f3(%rip),%rsi        # 0x67e0
+0x1ED mov    %rdx,0x68(%rax)
+0x1F1 lea    0x6618(%rip),%rdx        # 0x6810
+0x1F8 mov    %rsi,0x80(%rax)
+0x1FF mov    %rdx,0x88(%rax)
+0x206 movl   $0x1,0xa0(%rax)
+0x20D 
+0x210 vmovups %xmm0,0xa4(%rax)
+0x217 
+0x218 xor    %eax,%eax
+0x21A pop    %rbp
+0x21B ret
+0x21C int3
+0x21D int3
+0x21E int3
+0x21F int3
+0x220 push   %rbp
+0x221 mov    %rsp,%rbp
+0x224 lea    0x1a6dd(%rip),%r8        # 0x1a908
+0x22B mov    0xa0(%r8),%esi
+0x232 mov    %esi,%eax
+0x234 dec    %eax
+0x236 je     0x254
+0x238 lea    0x35(%r8),%rdi
+0x23C mov    %eax,%eax
+0x23E xor    %edx,%edx
+0x240 mov    -0x5(%rdi),%ecx
+0x243 cmp    $0xffffffff,%ecx
+0x246 jne    0x287
+0x248 inc    %rdx
+0x24B add    $0x78,%rdi
+0x24F cmp    %rdx,%rax
+0x252 jne    0x240
+0x254 imul   $0x78,%rsi,%rax
+
+=== POST-INITIALIZATION GLOBAL +0xA0 STORES ===
+VA=0x278 | movl   $0x0,0xa0(%r8) | base=r8 | proven=True
+
+=== STAGE 69 CORRELATION ===
+COUNT_SEMANTICS_PROVEN=True
+SUBMIT_A4_DISPATCH_CONFIRMED=True
+MULTI_A4_DISPATCH_CONFIRMED=True
+
+=== CONCLUSIONS ===
+A0_GLOBAL_ACCESS_SCAN_COMPLETED=True
+A0_GLOBAL_CONTEXT_STORE_FOUND=True
+A0_INITIALIZATION_STORE_FOUND=True
+A0_INITIALIZATION_BASE_PROVEN=True
+A0_INITIAL_VALUE_PROVEN=True
+A0_INITIAL_VALUE_IS_1=True
+A0_POST_INITIALIZATION_STORES_FOUND=True
+A0_POST_INITIALIZATION_STORE_FREE=False
+A0_STATIC_VALUE_AFTER_INITIALIZATION=False
+A0_COUNT_SEMANTICS_STRENGTHENED=True
+STAGE69_COUNT_SEMANTICS_CARRIED_FORWARD=True
+INDEX_SEMANTICS_PROVEN=True
+EXACT_FIELD_NAME_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== LIMIT ===
+La procedencia del valor de +0xA0 se restringe a las escrituras que pueden seguirse estáticamente hasta global_context. La ausencia de escrituras posteriores se limita al código ejecutable analizado.

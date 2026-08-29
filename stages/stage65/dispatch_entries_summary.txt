@@ -1,0 +1,111 @@
+AGC PS5 Stage 65 - Dispatch Table Entry / Consumer Audit
+
+=== TARGET ===
+global_context = 0x1A908
+field +0xA4 = 0x1A9AC
+dispatch stride = 0x78
+
+=== SUBMIT DISPATCH ===
+table_base = 0x1a908
+table offset = 0x50
+call = base=rbx offset=0x50
+
+=== SUBMIT TABLE ENTRIES ===
+index=00 slot=0x1A958 target=UNRESOLVED symbols=<no symbol>
+index=01 slot=0x1A9D0 target=UNRESOLVED symbols=<no symbol>
+index=02 slot=0x1AA48 target=UNRESOLVED symbols=<no symbol>
+index=03 slot=0x1AAC0 target=UNRESOLVED symbols=<no symbol>
+index=04 slot=0x1AB38 target=UNRESOLVED symbols=<no symbol>
+index=05 slot=0x1ABB0 target=UNRESOLVED symbols=<no symbol>
+index=06 slot=0x1AC28 target=UNRESOLVED symbols=<no symbol>
+index=07 slot=0x1ACA0 target=UNRESOLVED symbols=<no symbol>
+index=08 slot=0x1AD18 target=UNRESOLVED symbols=<no symbol>
+index=09 slot=0x1AD90 target=UNRESOLVED symbols=<no symbol>
+index=10 slot=0x1AE08 target=UNRESOLVED symbols=<no symbol>
+index=11 slot=0x1AE80 target=UNRESOLVED symbols=<no symbol>
+index=12 slot=0x1AEF8 target=UNRESOLVED symbols=<no symbol>
+index=13 slot=0x1AF70 target=UNRESOLVED symbols=<no symbol>
+index=14 slot=0x1AFE8 target=UNRESOLVED symbols=<no symbol>
+index=15 slot=0x1B060 target=0x3548677066346200 symbols=<no symbol>
+index=16 slot=0x1B0D8 target=0x4123462377512b37 symbols=<no symbol>
+index=17 slot=0x1B150 target=0x644e6b6a79324300 symbols=<no symbol>
+index=18 slot=0x1B1C8 target=0x4123462351747959 symbols=<no symbol>
+index=19 slot=0x1B240 target=0x666c782d66746600 symbols=<no symbol>
+index=20 slot=0x1B2B8 target=0x4123462334396a45 symbols=<no symbol>
+index=21 slot=0x1B330 target=0x53506a7862776300 symbols=<no symbol>
+index=22 slot=0x1B3A8 target=0x4123462363664f4a symbols=<no symbol>
+index=23 slot=0x1B420 target=0x4f5737474c577000 symbols=<no symbol>
+index=24 slot=0x1B498 target=0x4123462377494d50 symbols=<no symbol>
+index=25 slot=0x1B510 target=0x6c646d4d414f5300 symbols=<no symbol>
+index=26 slot=0x1B588 target=0x4123462345682d71 symbols=<no symbol>
+index=27 slot=0x1B600 target=0x56716a6b4a583400 symbols=<no symbol>
+index=28 slot=0x1B678 target=0x4123462349694c58 symbols=<no symbol>
+index=29 slot=0x1B6F0 target=0x31716c6778715000 symbols=<no symbol>
+index=30 slot=0x1B768 target=0x4123492330524231 symbols=<no symbol>
+index=31 slot=0x1B7E0 target=0x56514f4d74654d00 symbols=<no symbol>
+
+=== MULTI DISPATCH ===
+table_base = 0x1a908
+table offset = 0x58
+call = base=rcx offset=0x58
+
+=== MULTI TABLE ENTRIES ===
+index=00 slot=0x1A960 target=UNRESOLVED symbols=<no symbol>
+index=01 slot=0x1A9D8 target=UNRESOLVED symbols=<no symbol>
+index=02 slot=0x1AA50 target=UNRESOLVED symbols=<no symbol>
+index=03 slot=0x1AAC8 target=UNRESOLVED symbols=<no symbol>
+index=04 slot=0x1AB40 target=UNRESOLVED symbols=<no symbol>
+index=05 slot=0x1ABB8 target=UNRESOLVED symbols=<no symbol>
+index=06 slot=0x1AC30 target=UNRESOLVED symbols=<no symbol>
+index=07 slot=0x1ACA8 target=UNRESOLVED symbols=<no symbol>
+index=08 slot=0x1AD20 target=UNRESOLVED symbols=<no symbol>
+index=09 slot=0x1AD98 target=UNRESOLVED symbols=<no symbol>
+index=10 slot=0x1AE10 target=UNRESOLVED symbols=<no symbol>
+index=11 slot=0x1AE88 target=UNRESOLVED symbols=<no symbol>
+index=12 slot=0x1AF00 target=UNRESOLVED symbols=<no symbol>
+index=13 slot=0x1AF78 target=UNRESOLVED symbols=<no symbol>
+index=14 slot=0x1AFF0 target=UNRESOLVED symbols=<no symbol>
+index=15 slot=0x1B068 target=0x412346235178585a symbols=<no symbol>
+index=16 slot=0x1B0E0 target=0x446e5765346a4800 symbols=<no symbol>
+index=17 slot=0x1B158 target=0x412346233457627a symbols=<no symbol>
+index=18 slot=0x1B1D0 target=0x3668456838327200 symbols=<no symbol>
+index=19 slot=0x1B248 target=0x412346236f705142 symbols=<no symbol>
+index=20 slot=0x1B2C0 target=0x4c432d3433622b00 symbols=<no symbol>
+index=21 slot=0x1B338 target=0x412346235157374a symbols=<no symbol>
+index=22 slot=0x1B3B0 target=0x797a506266436100 symbols=<no symbol>
+index=23 slot=0x1B428 target=0x4123462377635670 symbols=<no symbol>
+index=24 slot=0x1B4A0 target=0x5855455768674e00 symbols=<no symbol>
+index=25 slot=0x1B518 target=0x4123462363496179 symbols=<no symbol>
+index=26 slot=0x1B590 target=0x754e3962394d5500 symbols=<no symbol>
+index=27 slot=0x1B608 target=0x4123462373724a72 symbols=<no symbol>
+index=28 slot=0x1B680 target=0x556f7448594f6c00 symbols=<no symbol>
+index=29 slot=0x1B6F8 target=0x4123492363654b6f symbols=<no symbol>
+index=30 slot=0x1B770 target=0x6c52703430565a00 symbols=<no symbol>
+index=31 slot=0x1B7E8 target=0x4123492359483864 symbols=<no symbol>
+
+=== SHARED TARGETS ===
+NONE
+
+=== CONCLUSIONS ===
+SUBMIT_DISPATCH_TABLE_BASE_IDENTIFIED=True
+MULTI_DISPATCH_TABLE_BASE_IDENTIFIED=True
+SUBMIT_TABLE_ENTRY_SCAN_COMPLETED=True
+MULTI_TABLE_ENTRY_SCAN_COMPLETED=True
+SUBMIT_TABLE_ENTRY_BYTES_STATICALLY_AVAILABLE=True
+MULTI_TABLE_ENTRY_BYTES_STATICALLY_AVAILABLE=True
+DISPATCH_TARGET_SYMBOLS_RESOLVED=False
+CROSS_FAMILY_SHARED_DISPATCH_TARGETS_FOUND=False
+SEMANTIC_FAMILY_CORROBORATION_FOUND=False
+INDEX_SEMANTICS_PROVEN=True
+COUNT_SEMANTICS_PROVEN=False
+EXACT_FIELD_NAME_PROVEN=False
+BACKEND_CONSUMER_IDENTIFIED=False
+SEMANTIC_PROTOTYPE_INFERRED=False
+EXECUTED_AGC=False
+
+=== INTERPRETATION LIMIT ===
+The +0xA4 value is already proven as a dispatch index.
+Stage 65 attempts to resolve the indexed table entries themselves.
+A resolved function symbol may provide semantic family evidence.
+Absence of symbols does not invalidate the dispatch-index conclusion.
+No exact source-level field name is assigned unless static evidence supports it.
