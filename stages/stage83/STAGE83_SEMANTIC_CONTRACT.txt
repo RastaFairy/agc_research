@@ -1,0 +1,46 @@
+AGC PS5 STAGE 83 - SEMANTIC FIELD PROOF
+=======================================
+
+ENTRADAS CONTRASTADAS
+---------------------
+- Stage79 ABI_V1_CONTRACT.txt
+- Stage82 submit_18b0_disassembly.txt
+- Stage82 consumer_1000_disassembly.txt
+- Stage82 STAGE82_REPORT.json
+- KytyPlus/src/libs/agc.cpp (checkout o ZIP real)
+
+CERRADO
+-------
+public +0x00 = dcb_gpu_addr
+public +0x08 = dcb_num_dwords
+
+DERIVACION
+----------
+public +0x00 -> submit local -0x40 -> backend +0x10
+public +0x08 -> submit local -0x38 -> backend +0x18
+public +0x0C -> submit local -0x34 -> backend +0x1C
+
+KytyPlus real contiene Packet.addr, Packet.dw_num y Packet.pad[4].
+GraphicsDriverSubmitDcb pasa packet->addr y packet->dw_num a submit_dcb().
+
+NO CERRADO
+----------
+public +0x0C sigue sin semantica publica Sony definitiva.
+La correspondencia con Packet.pad[0] es compatible, pero Stage 83 no la eleva
+a una afirmacion definitiva sobre el ABI publico Sony.
+
+NO DEMUESTRA
+------------
+- firma publica Sony definitiva;
+- NID nuevo definitivo;
+- ejecucion real en PS5;
+- runtime GPU;
+- procedencia de la llamada al initializer 0xD0.
+
+STATUS
+------
+FIELD_00_IS_DCB_GPU_ADDR = true
+FIELD_08_IS_DCB_NUM_DWORDS = true
+FIELD_0C_PADDING_CONFIRMED = false
+PUBLIC_SEMANTIC_FIELD_NAMES_FINAL = false
+REAL_PS5_EXECUTION = false

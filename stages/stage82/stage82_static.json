@@ -1,0 +1,48 @@
+{
+  "stage": 82,
+  "previous_stage": 81,
+  "toolchain_mode": "PowerShell orchestrator -> Ubuntu/WSL -> Prospero/objdump/python3",
+  "paths": {
+    "sprx": "/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx",
+    "output": "/mnt/d/agc_work/stage82_results"
+  },
+  "recovered_layout": {
+    "global_context": "0x1a908",
+    "submit_table_offset": "0x50",
+    "multi_table_offset": "0x58",
+    "entry_stride": "0x78",
+    "initializer_va": "0xd0",
+    "submit_dispatch_va": "0x18b0",
+    "multi_dispatch_va": "0x4650",
+    "submit_backend_target": "0x1000",
+    "multi_backend_target": "0x3cc0"
+  },
+  "proof": {
+    "initializer_has_stride_0x78": true,
+    "initializer_writes_submit_slot_0x50": true,
+    "initializer_writes_multi_slot_0x58": true,
+    "initializer_targets_0x1000": true,
+    "initializer_targets_0x3cc0": true,
+    "submit_indirect_dispatch_via_0x50": true,
+    "multi_indirect_dispatch_via_0x58": true,
+    "submit_consumer_uses_field00": true,
+    "submit_consumer_uses_field08": true,
+    "multi_consumer_uses_offsets": true
+  },
+  "conclusions": {
+    "FUNCTION_POINTER_VALUE_ORIGIN_PROVEN": true,
+    "SUBMIT_BACKEND_CONSUMER_IDENTIFIED": true,
+    "MULTI_BACKEND_CONSUMER_IDENTIFIED": true,
+    "PUBLIC_SEMANTIC_FIELD_NAMES_FINAL": false,
+    "RUNTIME_AGC_EXECUTION": false,
+    "INITIALIZER_CALLSITE_ORIGIN_PROVEN": false
+  },
+  "notes": [
+    "El initializer 0xD0 es quien carga los targets internos de dispatch.",
+    "Submit usa la tabla global +0x50 con stride 0x78.",
+    "Multi usa la tabla global +0x58 con stride 0x78.",
+    "Los targets recuperados son 0x1000 y 0x3CC0.",
+    "Los nombres sem\u00e1nticos p\u00fablicos de field_00/field_08/field_0c siguen sin cerrarse.",
+    "La procedencia de la llamada que alcanza el initializer 0xD0 sigue abierta."
+  ]
+}

@@ -1,0 +1,38 @@
+AGC PS5 Stage 82 - Dispatch Function Pointer Origin / Backend Consumer Audit
+
+MODELO DE EJECUCIÓN
+===================
+PowerShell 7 -> Ubuntu/WSL -> objdump/python3
+SDK: /opt/ps5-payload-sdk
+
+OBJETIVO
+========
+Demostrar el origen de los function pointers contenidos en las entradas de
+dispatch y enlazar cada target con su consumidor interno.
+
+RESULTADO
+=========
+FUNCTION_POINTER_VALUE_ORIGIN_PROVEN =
+    True
+
+SUBMIT_BACKEND_CONSUMER_IDENTIFIED =
+    True
+
+MULTI_BACKEND_CONSUMER_IDENTIFIED =
+    True
+
+PUBLIC_SEMANTIC_FIELD_NAMES_FINAL =
+    False
+
+INITIALIZER_CALLSITE_ORIGIN_PROVEN =
+    False
+
+TARGETS
+=======
+Submit: 0x1000
+Multi:  0x3cc0
+
+TABLAS
+======
+Submit: global_context + 0x50 + index * 0x78
+Multi:  global_context + 0x58 + index * 0x78

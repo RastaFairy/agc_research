@@ -1,0 +1,266 @@
+PowerShell 7.6.5
+PS D:\chatgpt_2\agc_ps5_stage82> .\stage82_dispatch_pointer_origin_FIXED4.ps1
+
+==============================================================================
+AGC PS5 Stage 82 - Dispatch Function Pointer Origin / Backend Consumer Audit
+==============================================================================
+StageDir : D:\chatgpt_2\agc_ps5_stage82
+Stage 80 : D:\agc_work\stage80_results
+Stage 81 : D:\agc_work\stage81_results
+Stage 79 : D:\agc_work\stage79_results
+SPRX     : D:\agc_work\sce_stubs\libSceAgcDriver.sprx
+NID DB   : D:\sdk-master\sce_stubs\aerolib.csv
+Output   : D:\agc_work\stage82_results
+SDK WSL  : /opt/ps5-payload-sdk
+
+==============================================================================
+1. Validación de entradas Windows / layout canónico
+==============================================================================
+OK: Stage 81 encontrado en D:\agc_work\stage81_results
+OK: Stage 79 encontrado en D:\agc_work\stage79_results
+OK: SPRX encontrado en D:\agc_work\sce_stubs\libSceAgcDriver.sprx
+OK: salida preparada en D:\agc_work\stage82_results
+
+Artefactos esperados de Stage 81:
+  OK: D:\agc_work\stage81_results\stage81_end_to_end_probe.c
+  OK: D:\agc_work\stage81_results\stage81_end_to_end_probe.o
+  OK: D:\agc_work\stage81_results\stage81_linked.o
+  OK: D:\agc_work\stage81_results\stage81_static.json
+  OK: D:\agc_work\stage81_results\STAGE81_REPORT.json
+  OK: D:\agc_work\stage81_results\END_TO_END_LINK_CONTRACT.txt
+
+==============================================================================
+2. Validación de Ubuntu/WSL y toolchain
+==============================================================================
+[WSL] set -euo pipefail
+command -v python3 >/dev/null
+command -v objdump >/dev/null
+test -x '/opt/ps5-payload-sdk/bin/prospero-clang'
+test -x '/opt/ps5-payload-sdk/bin/prospero-nm'
+test -x '/opt/ps5-payload-sdk/bin/prospero-lld'
+test -f '/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx'
+test -f '/mnt/d/agc_work/stage79_results/libSceAgcDriver_abi_v1.a'
+test -d '/mnt/d/agc_work/stage81_results'
+mkdir -p '/mnt/d/agc_work/stage82_results'
+
+echo '--- python3 ---'
+python3 --version
+echo '--- objdump ---'
+objdump --version | head -n 1
+echo '--- prospero-clang ---'
+'/opt/ps5-payload-sdk/bin/prospero-clang' --version | head -n 1
+echo '--- prospero-lld ---'
+'/opt/ps5-payload-sdk/bin/prospero-lld' --version | head -n 1
+echo '--- prospero-nm ---'
+'/opt/ps5-payload-sdk/bin/prospero-nm' --version | head -n 1
+--- python3 ---
+Python 3.12.3
+--- objdump ---
+GNU objdump (GNU Binutils for Ubuntu) 2.42
+--- prospero-clang ---
+Ubuntu clang version 18.1.3 (1ubuntu1)
+--- prospero-lld ---
+Ubuntu LLD 18.1.3 (compatible with GNU linkers)
+--- prospero-nm ---
+llvm-nm, compatible with GNU nm
+
+==============================================================================
+3. Confirmar LOS OUTPUTS REALES de Stage 81
+==============================================================================
+[WSL] set -euo pipefail
+set -e
+
+required=(
+    "/mnt/d/agc_work/stage81_results/stage81_end_to_end_probe.c"
+    "/mnt/d/agc_work/stage81_results/stage81_end_to_end_probe.o"
+    "/mnt/d/agc_work/stage81_results/stage81_linked.o"
+    "/mnt/d/agc_work/stage81_results/stage81_static.json"
+    "/mnt/d/agc_work/stage81_results/STAGE81_REPORT.json"
+    "/mnt/d/agc_work/stage81_results/END_TO_END_LINK_CONTRACT.txt"
+    "/mnt/d/agc_work/stage79_results/libSceAgcDriver_abi_v1.a"
+    "/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx"
+)
+
+missing=0
+
+for f in "${required[@]}"; do
+    if [ ! -f "$f" ]; then
+        printf 'MISSING: %s\n' "$f"
+        missing=1
+    else
+        printf 'OK: %s\n' "$f"
+    fi
+done
+
+if [ "$missing" -ne 0 ]; then
+    echo 'WSL canonical artifact validation failed.'
+    exit 1
+fi
+
+echo 'Stage81/Stage79 canonical outputs: OK'
+MISSING:
+bash: line 25: [: : integer expression expected
+Stage81/Stage79 canonical outputs: OK
+Analyzer generado: D:\agc_work\stage82_results\analyze_dispatch_pointer_origin.py
+
+==============================================================================
+5. Ejecutar el análisis binario REAL dentro de WSL
+==============================================================================
+[WSL] set -euo pipefail
+set -e
+
+test -f '/mnt/d/agc_work/stage82_results/analyze_dispatch_pointer_origin.py'
+test -f '/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx'
+
+python3 '/mnt/d/agc_work/stage82_results/analyze_dispatch_pointer_origin.py' \
+    '/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx' \
+    '/mnt/d/agc_work/stage82_results'
+{
+  "stage": 82,
+  "previous_stage": 81,
+  "toolchain_mode": "PowerShell orchestrator -> Ubuntu/WSL -> Prospero/objdump/python3",
+  "paths": {
+    "sprx": "/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx",
+    "output": "/mnt/d/agc_work/stage82_results"
+  },
+  "recovered_layout": {
+    "global_context": "0x1a908",
+    "submit_table_offset": "0x50",
+    "multi_table_offset": "0x58",
+    "entry_stride": "0x78",
+    "initializer_va": "0xd0",
+    "submit_dispatch_va": "0x18b0",
+    "multi_dispatch_va": "0x4650",
+    "submit_backend_target": "0x1000",
+    "multi_backend_target": "0x3cc0"
+  },
+  "proof": {
+    "initializer_has_stride_0x78": true,
+    "initializer_writes_submit_slot_0x50": true,
+    "initializer_writes_multi_slot_0x58": true,
+    "initializer_targets_0x1000": true,
+    "initializer_targets_0x3cc0": true,
+    "submit_indirect_dispatch_via_0x50": true,
+    "multi_indirect_dispatch_via_0x58": true,
+    "submit_consumer_uses_field00": true,
+    "submit_consumer_uses_field08": true,
+    "multi_consumer_uses_offsets": true
+  },
+  "conclusions": {
+    "FUNCTION_POINTER_VALUE_ORIGIN_PROVEN": true,
+    "SUBMIT_BACKEND_CONSUMER_IDENTIFIED": true,
+    "MULTI_BACKEND_CONSUMER_IDENTIFIED": true,
+    "PUBLIC_SEMANTIC_FIELD_NAMES_FINAL": false,
+    "RUNTIME_AGC_EXECUTION": false,
+    "INITIALIZER_CALLSITE_ORIGIN_PROVEN": false
+  },
+  "notes": [
+    "El initializer 0xD0 es quien carga los targets internos de dispatch.",
+    "Submit usa la tabla global +0x50 con stride 0x78.",
+    "Multi usa la tabla global +0x58 con stride 0x78.",
+    "Los targets recuperados son 0x1000 y 0x3CC0.",
+    "Los nombres sem\u00e1nticos p\u00fablicos de field_00/field_08/field_0c siguen sin cerrarse.",
+    "La procedencia de la llamada que alcanza el initializer 0xD0 sigue abierta."
+  ]
+}
+
+==============================================================================
+6. Validar contrato Stage 82 dentro de WSL
+==============================================================================
+[WSL] set -euo pipefail
+python3 - '/mnt/d/agc_work/stage82_results/STAGE82_REPORT.json' <<'PY'
+import json
+import sys
+from pathlib import Path
+
+report_path = Path(sys.argv[1])
+report = json.loads(report_path.read_text(encoding='utf-8'))
+conclusions = report['conclusions']
+
+required = (
+    'FUNCTION_POINTER_VALUE_ORIGIN_PROVEN',
+    'SUBMIT_BACKEND_CONSUMER_IDENTIFIED',
+    'MULTI_BACKEND_CONSUMER_IDENTIFIED',
+)
+
+for key in required:
+    if conclusions.get(key) is not True:
+        print(f'CONTRACT_FAIL: {key}={conclusions.get(key)!r}')
+        raise SystemExit(1)
+
+print('STAGE82_CONTRACT=PASS')
+print(
+    'FUNCTION_POINTER_VALUE_ORIGIN_PROVEN='
+    + str(conclusions['FUNCTION_POINTER_VALUE_ORIGIN_PROVEN']).lower()
+)
+print(
+    'SUBMIT_BACKEND_CONSUMER_IDENTIFIED='
+    + str(conclusions['SUBMIT_BACKEND_CONSUMER_IDENTIFIED']).lower()
+)
+print(
+    'MULTI_BACKEND_CONSUMER_IDENTIFIED='
+    + str(conclusions['MULTI_BACKEND_CONSUMER_IDENTIFIED']).lower()
+)
+print(
+    'INITIALIZER_CALLSITE_ORIGIN_PROVEN='
+    + str(conclusions['INITIALIZER_CALLSITE_ORIGIN_PROVEN']).lower()
+)
+print(
+    'PUBLIC_SEMANTIC_FIELD_NAMES_FINAL='
+    + str(conclusions['PUBLIC_SEMANTIC_FIELD_NAMES_FINAL']).lower()
+)
+PY
+STAGE82_CONTRACT=PASS
+FUNCTION_POINTER_VALUE_ORIGIN_PROVEN=true
+SUBMIT_BACKEND_CONSUMER_IDENTIFIED=true
+MULTI_BACKEND_CONSUMER_IDENTIFIED=true
+INITIALIZER_CALLSITE_ORIGIN_PROVEN=false
+PUBLIC_SEMANTIC_FIELD_NAMES_FINAL=false
+
+==============================================================================
+7. Inventario final y hashes
+==============================================================================
+[WSL] set -euo pipefail
+set -e
+
+echo '--- output files ---'
+find '/mnt/d/agc_work/stage82_results' -maxdepth 1 -type f -printf '%f\n' | sort
+
+echo '--- hashes ---'
+sha256sum \
+    '/mnt/d/agc_work/stage82_results/STAGE82_REPORT.json' \
+    '/mnt/d/agc_work/stage82_results/stage82_static.json' \
+    '/mnt/d/agc_work/stage82_results/dispatch_pointer_origin_summary.txt' \
+    '/mnt/d/agc_work/stage82_results/analyze_dispatch_pointer_origin.py'
+--- output files ---
+STAGE82_REPORT.json
+_stage82_consumer_1000_disassembly.bin
+_stage82_consumer_3cc0_disassembly.bin
+_stage82_initializer_0d0_disassembly.bin
+_stage82_multi_4650_disassembly.bin
+_stage82_submit_18b0_disassembly.bin
+analyze_dispatch_pointer_origin.py
+consumer_1000_disassembly.txt
+consumer_3cc0_disassembly.txt
+dispatch_pointer_origin_summary.txt
+initializer_0d0_disassembly.txt
+multi_4650_disassembly.txt
+stage82_static.json
+submit_18b0_disassembly.txt
+--- hashes ---
+9d3f73e521870ad71b27fc6614d6db1acb1ea34614d5fa903d9fd40743bb5a88  /mnt/d/agc_work/stage82_results/STAGE82_REPORT.json
+9d3f73e521870ad71b27fc6614d6db1acb1ea34614d5fa903d9fd40743bb5a88  /mnt/d/agc_work/stage82_results/stage82_static.json
+152921fc5bb11f9d1813d4961e1a280365d4bff9b74f0b220d91b0cad1b57143  /mnt/d/agc_work/stage82_results/dispatch_pointer_origin_summary.txt
+12387f750da1e391b3ee1bfc9f55d309645a88331664e54adeb377ad586bc5a1  /mnt/d/agc_work/stage82_results/analyze_dispatch_pointer_origin.py
+Resultados : D:\agc_work\stage82_results
+SPRX       : D:\agc_work\sce_stubs\libSceAgcDriver.sprx
+Modo       : PowerShell 7 -> Ubuntu/WSL
+
+FUNCTION_POINTER_VALUE_ORIGIN_PROVEN = true
+SUBMIT_BACKEND_CONSUMER_IDENTIFIED = true
+MULTI_BACKEND_CONSUMER_IDENTIFIED = true
+INITIALIZER_CALLSITE_ORIGIN_PROVEN = false
+PUBLIC_SEMANTIC_FIELD_NAMES_FINAL = false
+
+Siguiente objetivo: procedencia del callsite del initializer 0xD0 y semántica de field_00/field_08/field_0c.
+PS D:\chatgpt_2\agc_ps5_stage82>

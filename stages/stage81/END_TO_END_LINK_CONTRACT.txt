@@ -1,0 +1,39 @@
+AGC PS5 Stage 81 FINAL - End-to-End Project Link / ABI Resolution Audit
+
+INPUTS
+======
+Stage 79
+--------
+libSceAgcDriver_abi_v1.a
+
+Stage 80
+--------
+libagc_project_v1.a
+agc_project_v1.h
+
+PROOF OBJECTIVE
+===============
+Este Stage fuerza desde un cliente de integraci?n referencias a las ocho
+entradas agcProject*V1 y verifica que la cadena completa pueda compilarse
+y enlazarse como objeto relocatable.
+
+REQUIREMENTS FOR PASS
+=====================
+R1. stage81_end_to_end_probe.c compila con prospero-clang.
+R2. stage81_end_to_end_probe.o existe y no est? vac?o.
+R3. stage81_linked.o se genera con prospero-lld -r.
+R4. No quedan referencias undefined a sceAgcDriver* ni agcProject*.
+R5. Est?n presentes individualmente las ocho funciones agcProject*V1.
+R6. Est?n presentes individualmente las ocho funciones sceAgcDriver*
+    recuperadas por Stage 79, independientemente de que el binding del
+    stub sea T/W/w.
+R7. Los contadores auditados son derivados del objeto enlazado real.
+R8. STAGE81_REPORT.json y stage81_static.json contienen conclusiones
+    derivadas de los resultados reales, nunca hardcodeadas.
+
+THIS STAGE DOES NOT PROVE
+=========================
+- ejecuci?n AGC real;
+- estado GPU correcto;
+- nombres sem?nticos p?blicos definitivos de field_00/field_08/field_0c;
+- correcci?n runtime de function pointers en el proceso PS5.

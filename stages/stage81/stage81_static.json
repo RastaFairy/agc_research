@@ -1,0 +1,68 @@
+{
+  "stage": 81,
+  "version": "final",
+  "generated_at": "2026-08-26T20:07:18.7690842+02:00",
+  "previous_stage": 80,
+  "execution_model": {
+    "orchestrator": "PowerShell 7",
+    "build_environment": "Ubuntu WSL",
+    "sdk": "/opt/ps5-payload-sdk"
+  },
+  "inputs": {
+    "stage79_abi_archive": "D:\\agc_work\\stage79_results\\libSceAgcDriver_abi_v1.a",
+    "stage80_project_archive": "D:\\agc_work\\stage80_results\\libagc_project_v1.a",
+    "stage80_project_header": "D:\\agc_work\\stage80_results\\agc_project_v1.h"
+  },
+  "outputs": {
+    "probe_source": "stage81_end_to_end_probe.c",
+    "probe_object": "stage81_end_to_end_probe.o",
+    "linked_object": "stage81_linked.o",
+    "contract": "END_TO_END_LINK_CONTRACT.txt",
+    "symbol_dump": "stage81_nm_C.txt",
+    "undefined_dump": "stage81_nm_undefined.txt",
+    "audit_counts": "stage81_audit_counts.txt"
+  },
+  "audit_counts": {
+    "undefined_agc_project": 0,
+    "agcProject_exact": 8,
+    "sceAgcDriver_exact": 8
+  },
+  "expected": {
+    "agcProject_exact": 8,
+    "sceAgcDriver_exact": 8,
+    "undefined_agc_project": 0
+  },
+  "symbol_presence": {
+    "agcProject": {
+      "agcProjectSubmitCommandBufferV1": true,
+      "agcProjectSubmitAcbV1": true,
+      "agcProjectAgrSubmitDcbV1": true,
+      "agcProjectSubmitMultiDcbsV1": true,
+      "agcProjectSubmitMultiCommandBuffersV1": true,
+      "agcProjectSubmitMultiAcbsV1": true,
+      "agcProjectAgrSubmitMultiDcbsV1": true,
+      "agcProjectSubmitDcbV1": true
+    },
+    "sceAgcDriver": {
+      "sceAgcDriverSubmitMultiCommandBuffers": true,
+      "sceAgcDriverSubmitCommandBuffer": true,
+      "sceAgcDriverSubmitAcb": true,
+      "sceAgcDriverAgrSubmitMultiDcbs": true,
+      "sceAgcDriverAgrSubmitDcb": true,
+      "sceAgcDriverSubmitMultiDcbs": true,
+      "sceAgcDriverSubmitDcb": true,
+      "sceAgcDriverSubmitMultiAcbs": true
+    }
+  },
+  "conclusions": {
+    "PROJECT_CLIENT_COMPILED": true,
+    "PROJECT_AND_ABI_ARCHIVES_LINKED": true,
+    "END_TO_END_RELOCATABLE_BUILT": true,
+    "RECOVERED_SYMBOLS_RESOLVED": true,
+    "PROJECT_WRAPPER_SYMBOLS_PRESENT": true,
+    "SCE_DRIVER_SYMBOLS_PRESENT": true,
+    "EXACT_REQUIRED_SYMBOL_SET_PRESENT": true,
+    "PUBLIC_SEMANTIC_FIELD_NAMES_FINAL": false,
+    "REAL_AGC_EXECUTION": false
+  }
+}

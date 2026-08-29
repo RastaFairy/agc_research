@@ -1,0 +1,70 @@
+
+/mnt/d/agc_work/stage82_results/_stage82_initializer_0d0_disassembly.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000000000d0 <.data>:
+  d0:	48 63 c7             	movslq %edi,%rax
+  d3:	48 8d 0d 2e a8 01 00 	lea    0x1a82e(%rip),%rcx        # 0x1a908
+  da:	48 8d 35 1f 0f 00 00 	lea    0xf1f(%rip),%rsi        # 0x1000
+  e1:	48 ba 78 00 00 00 0e 	movabs $0x1000e00000078,%rdx
+  e8:	00 01 00 
+  eb:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+  ef:	48 8d 3d ca 3b 00 00 	lea    0x3bca(%rip),%rdi        # 0x3cc0
+  f6:	48 6b c0 78          	imul   $0x78,%rax,%rax
+  fa:	c5 fc 11 84 01 80 00 	vmovups %ymm0,0x80(%rcx,%rax,1)
+ 101:	00 00 
+ 103:	c5 fc 11 44 01 30    	vmovups %ymm0,0x30(%rcx,%rax,1)
+ 109:	c5 fc 11 44 01 50    	vmovups %ymm0,0x50(%rcx,%rax,1)
+ 10f:	c5 fc 11 44 01 70    	vmovups %ymm0,0x70(%rcx,%rax,1)
+ 115:	48 89 54 01 28       	mov    %rdx,0x28(%rcx,%rax,1)
+ 11a:	c6 44 01 35 ff       	movb   $0xff,0x35(%rcx,%rax,1)
+ 11f:	48 89 74 01 50       	mov    %rsi,0x50(%rcx,%rax,1)
+ 124:	48 8d 35 05 19 00 00 	lea    0x1905(%rip),%rsi        # 0x1a30
+ 12b:	48 89 7c 01 58       	mov    %rdi,0x58(%rcx,%rax,1)
+ 130:	48 8d 3d a9 66 00 00 	lea    0x66a9(%rip),%rdi        # 0x67e0
+ 137:	48 89 74 01 68       	mov    %rsi,0x68(%rcx,%rax,1)
+ 13c:	48 8d 35 cd 66 00 00 	lea    0x66cd(%rip),%rsi        # 0x6810
+ 143:	48 89 bc 01 80 00 00 	mov    %rdi,0x80(%rcx,%rax,1)
+ 14a:	00 
+ 14b:	48 89 b4 01 88 00 00 	mov    %rsi,0x88(%rcx,%rax,1)
+ 152:	00 
+ 153:	c3                   	ret
+ 154:	cc                   	int3
+ 155:	cc                   	int3
+ 156:	cc                   	int3
+ 157:	cc                   	int3
+ 158:	cc                   	int3
+ 159:	cc                   	int3
+ 15a:	cc                   	int3
+ 15b:	cc                   	int3
+ 15c:	cc                   	int3
+ 15d:	cc                   	int3
+ 15e:	cc                   	int3
+ 15f:	cc                   	int3
+ 160:	55                   	push   %rbp
+ 161:	48 89 e5             	mov    %rsp,%rbp
+ 164:	48 8d 05 9d a7 01 00 	lea    0x1a79d(%rip),%rax        # 0x1a908
+ 16b:	83 b8 a0 00 00 00 00 	cmpl   $0x0,0xa0(%rax)
+ 172:	74 24                	je     0x198
+ 174:	48 8b 0d 65 3f 01 00 	mov    0x13f65(%rip),%rcx        # 0x140e0
+ 17b:	48 8d 3d bf f5 00 00 	lea    0xf5bf(%rip),%rdi        # 0xf741
+ 182:	be 30 00 00 00       	mov    $0x30,%esi
+ 187:	ba 01 00 00 00       	mov    $0x1,%edx
+ 18c:	e8 df a9 00 00       	call   0xab70
+ 191:	b8 06 00 6d 8a       	mov    $0x8a6d0006,%eax
+ 196:	5d                   	pop    %rbp
+ 197:	c3                   	ret
+ 198:	48 8d 15 61 0e 00 00 	lea    0xe61(%rip),%rdx        # 0x1000
+ 19f:	48 b9 78 00 00 00 0e 	movabs $0x1000e00000078,%rcx
+ 1a6:	00 01 00 
+ 1a9:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+ 1ad:	c5 fc 11 80 80 00 00 	vmovups %ymm0,0x80(%rax)
+ 1b4:	00 
+ 1b5:	c5 fc 11 40 30       	vmovups %ymm0,0x30(%rax)
+ 1ba:	c5 fc 11 40 50       	vmovups %ymm0,0x50(%rax)
+ 1bf:	c5 fc 11 40 70       	vmovups %ymm0,0x70(%rax)
+ 1c4:	48 8d 35 f5 3a 00 00 	lea    0x3af5(%rip),%rsi        # 0x3cc0
+ 1cb:	c5 f8 57 c0          	vxorps %xmm0,%xmm0,%xmm0
+ 1cf:	48                   	rex.W

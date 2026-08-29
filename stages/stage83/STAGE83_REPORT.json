@@ -1,0 +1,85 @@
+{
+  "stage": 83,
+  "variant": "SEMANTIC_FIELD_PROOF",
+  "proofs": {
+    "STAGE79_ABI_LAYOUT_PROVEN": {
+      "status": "PROVEN",
+      "detail": "Stage79 fija los accesos publicos +0x00/+0x08/+0x0C."
+    },
+    "SUBMIT_READS_PUBLIC_FIELD_00": {
+      "status": "PROVEN",
+      "detail": "0x1913 lee arg+0x00 como 64 bits."
+    },
+    "SUBMIT_COPIES_FIELD_00_TO_LOCAL": {
+      "status": "PROVEN",
+      "detail": "arg+0x00 -> local -0x40."
+    },
+    "SUBMIT_READS_PUBLIC_FIELD_08": {
+      "status": "PROVEN",
+      "detail": "0x191A lee arg+0x08 como 32 bits."
+    },
+    "SUBMIT_COPIES_FIELD_08_TO_LOCAL": {
+      "status": "PROVEN",
+      "detail": "arg+0x08 -> local -0x38."
+    },
+    "SUBMIT_READS_PUBLIC_FIELD_0C": {
+      "status": "PROVEN",
+      "detail": "0x1921 lee arg+0x0C como 1 byte."
+    },
+    "SUBMIT_COPIES_FIELD_0C_TO_LOCAL": {
+      "status": "PROVEN",
+      "detail": "arg+0x0C -> local -0x34."
+    },
+    "SUBMIT_PASSES_LOCAL_BASE_TO_BACKEND": {
+      "status": "PROVEN",
+      "detail": "0x19C7 pasa base local -0x50 como segundo argumento."
+    },
+    "SUBMIT_DISPATCH_CALL_USES_TABLE_PLUS_0x50": {
+      "status": "PROVEN",
+      "detail": "0x19D2 usa tabla de submit +0x50."
+    },
+    "BACKEND_USES_LOCAL_PLUS_0x10_AS_64BIT_VALUE": {
+      "status": "PROVEN",
+      "detail": "0x1299 carga qword desde +0x10 del registro recibido."
+    },
+    "BACKEND_USES_LOCAL_PLUS_0x18_AS_32BIT_VALUE": {
+      "status": "PROVEN",
+      "detail": "0x12B8 carga dword desde +0x18 del registro recibido."
+    },
+    "BACKEND_BUILDS_PM4_IB_HEADER": {
+      "status": "PROVEN",
+      "detail": "El consumidor contiene el valor 0xC0023F00."
+    },
+    "STAGE82_BACKEND_TARGET_CONFIRMED": {
+      "status": "PROVEN",
+      "detail": "Stage82 report confirma target 0x1000 y uso de field_00/field_08."
+    },
+    "KYTYPPLUS_PACKET_LAYOUT": {
+      "status": "PROVEN",
+      "detail": "KytyPlus contiene Packet.addr, Packet.dw_num y Packet.pad[4]."
+    },
+    "KYTYPPLUS_GRAPHICS_DRIVER_SUBMIT_DCB_SEMANTICS": {
+      "status": "PROVEN",
+      "detail": "GraphicsDriverSubmitDcb pasa Packet.addr y Packet.dw_num a submit_dcb."
+    }
+  },
+  "field_mapping": {
+    "public_0x00": "dcb_gpu_addr",
+    "public_0x08": "dcb_num_dwords",
+    "public_0x0c": "unknown_byte_not_closed"
+  },
+  "derived_offsets": {
+    "public_0x00_to_backend_0x10": true,
+    "public_0x08_to_backend_0x18": true,
+    "public_0x0c_to_backend_0x1c": true
+  },
+  "conclusions": {
+    "FIELD_00_IS_DCB_GPU_ADDR": true,
+    "FIELD_08_IS_DCB_NUM_DWORDS": true,
+    "FIELD_0C_PADDING_CONFIRMED": false,
+    "PUBLIC_SEMANTIC_FIELD_NAMES_FINAL": false,
+    "REAL_PS5_EXECUTION": false
+  },
+  "overall": true,
+  "source_mode": "zip"
+}

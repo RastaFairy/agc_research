@@ -1,0 +1,192 @@
+
+/mnt/d/agc_work/stage82_results/_stage82_multi_4650_disassembly.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0000000000004650 <.data>:
+    4650:	55                   	push   %rbp
+    4651:	48 89 e5             	mov    %rsp,%rbp
+    4654:	41 57                	push   %r15
+    4656:	41 56                	push   %r14
+    4658:	41 55                	push   %r13
+    465a:	41 54                	push   %r12
+    465c:	53                   	push   %rbx
+    465d:	48 83 ec 28          	sub    $0x28,%rsp
+    4661:	4c 8b 35 80 fa 00 00 	mov    0xfa80(%rip),%r14        # 0x140e8
+    4668:	48 8d 5f 38          	lea    0x38(%rdi),%rbx
+    466c:	41 89 cc             	mov    %ecx,%r12d
+    466f:	49 89 d7             	mov    %rdx,%r15
+    4672:	49 89 f5             	mov    %rsi,%r13
+    4675:	49 8b 06             	mov    (%r14),%rax
+    4678:	48 89 45 d0          	mov    %rax,-0x30(%rbp)
+    467c:	48 89 7d c8          	mov    %rdi,-0x38(%rbp)
+    4680:	48 89 df             	mov    %rbx,%rdi
+    4683:	e8 88 65 00 00       	call   0xac10
+    4688:	85 c0                	test   %eax,%eax
+    468a:	0f 88 7e 01 00 00    	js     0x480e
+    4690:	b8 00 00 6d 8a       	mov    $0x8a6d0000,%eax
+    4695:	0f 85 d9 01 00 00    	jne    0x4874
+    469b:	48 8d 0d 66 62 01 00 	lea    0x16266(%rip),%rcx        # 0x1a908
+    46a2:	b8 01 00 00 00       	mov    $0x1,%eax
+    46a7:	48 89 e7             	mov    %rsp,%rdi
+    46aa:	48 81 c7 00 f0 ff ff 	add    $0xfffffffffffff000,%rdi
+    46b1:	f0 48 0f c1 81 40 01 	lock xadd %rax,0x140(%rcx)
+    46b8:	00 00 
+    46ba:	48 8b 4d c8          	mov    -0x38(%rbp),%rcx
+    46be:	48 89 41 20          	mov    %rax,0x20(%rcx)
+    46c2:	48 ff 41 28          	incq   0x28(%rcx)
+    46c6:	c7 41 14 00 00 00 00 	movl   $0x0,0x14(%rcx)
+    46cd:	44 89 61 18          	mov    %r12d,0x18(%rcx)
+    46d1:	80 61 08 fe          	andb   $0xfe,0x8(%rcx)
+    46d5:	48 c7 41 30 00 00 00 	movq   $0x0,0x30(%rcx)
+    46dc:	00 
+    46dd:	48 89 fc             	mov    %rdi,%rsp
+    46e0:	45 85 e4             	test   %r12d,%r12d
+    46e3:	0f 84 49 01 00 00    	je     0x4832
+    46e9:	48 8d 47 1c          	lea    0x1c(%rdi),%rax
+    46ed:	45 31 f6             	xor    %r14d,%r14d
+    46f0:	48 89 5d b8          	mov    %rbx,-0x48(%rbp)
+    46f4:	48 89 7d c0          	mov    %rdi,-0x40(%rbp)
+    46f8:	48 89 45 b0          	mov    %rax,-0x50(%rbp)
+    46fc:	0f 1f 40 00          	nopl   0x0(%rax)
+    4700:	41 81 fc 80 00 00 00 	cmp    $0x80,%r12d
+    4707:	b8 80 00 00 00       	mov    $0x80,%eax
+    470c:	ba 00 10 00 00       	mov    $0x1000,%edx
+    4711:	44 0f 43 e0          	cmovae %eax,%r12d
+    4715:	31 f6                	xor    %esi,%esi
+    4717:	e8 a4 64 00 00       	call   0xabc0
+    471c:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+    4720:	4c 89 e2             	mov    %r12,%rdx
+    4723:	4c 89 e0             	mov    %r12,%rax
+    4726:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    472d:	00 00 00 
+    4730:	44 89 f7             	mov    %r14d,%edi
+    4733:	41 ff c6             	inc    %r14d
+    4736:	49 8b 74 fd 00       	mov    0x0(%r13,%rdi,8),%rsi
+    473b:	48 89 71 f4          	mov    %rsi,-0xc(%rcx)
+    473f:	41 8b 34 bf          	mov    (%r15,%rdi,4),%esi
+    4743:	89 71 fc             	mov    %esi,-0x4(%rcx)
+    4746:	c6 01 00             	movb   $0x0,(%rcx)
+    4749:	48 83 c1 20          	add    $0x20,%rcx
+    474d:	48 ff c8             	dec    %rax
+    4750:	75 de                	jne    0x4730
+    4752:	48 8d 05 af 61 01 00 	lea    0x161af(%rip),%rax        # 0x1a908
+    4759:	8b 80 a0 00 00 00    	mov    0xa0(%rax),%eax
+    475f:	85 c0                	test   %eax,%eax
+    4761:	74 5d                	je     0x47c0
+    4763:	48 8d 0d 9e 61 01 00 	lea    0x1619e(%rip),%rcx        # 0x1a908
+    476a:	31 db                	xor    %ebx,%ebx
+    476c:	4c 8d 71 48          	lea    0x48(%rcx),%r14
+    4770:	eb 1c                	jmp    0x478e
+    4772:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+    4779:	1f 84 00 00 00 00 00 
+    4780:	48 ff c3             	inc    %rbx
+    4783:	89 c1                	mov    %eax,%ecx
+    4785:	49 83 c6 78          	add    $0x78,%r14
+    4789:	48 39 cb             	cmp    %rcx,%rbx
+    478c:	73 32                	jae    0x47c0
+    478e:	49 8b 0e             	mov    (%r14),%rcx
+    4791:	48 85 c9             	test   %rcx,%rcx
+    4794:	74 ea                	je     0x4780
+    4796:	48 8b 7d c8          	mov    -0x38(%rbp),%rdi
+    479a:	48 8b 75 c0          	mov    -0x40(%rbp),%rsi
+    479e:	ff d1                	call   *%rcx
+    47a0:	48 8d 05 61 61 01 00 	lea    0x16161(%rip),%rax        # 0x1a908
+    47a7:	4c 89 e2             	mov    %r12,%rdx
+    47aa:	8b 80 a0 00 00 00    	mov    0xa0(%rax),%eax
+    47b0:	eb ce                	jmp    0x4780
+    47b2:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+    47b9:	1f 84 00 00 00 00 00 
+    47c0:	48 8d 0d 41 61 01 00 	lea    0x16141(%rip),%rcx        # 0x1a908
+    47c7:	48 8b 5d c8          	mov    -0x38(%rbp),%rbx
+    47cb:	48 8b 75 c0          	mov    -0x40(%rbp),%rsi
+    47cf:	49 89 d4             	mov    %rdx,%r12
+    47d2:	8b 81 a4 00 00 00    	mov    0xa4(%rcx),%eax
+    47d8:	48 89 df             	mov    %rbx,%rdi
+    47db:	48 6b c0 78          	imul   $0x78,%rax,%rax
+    47df:	ff 54 01 58          	call   *0x58(%rcx,%rax,1)
+    47e3:	85 c0                	test   %eax,%eax
+    47e5:	75 53                	jne    0x483a
+    47e7:	44 8b 73 14          	mov    0x14(%rbx),%r14d
+    47eb:	8b 43 18             	mov    0x18(%rbx),%eax
+    47ee:	48 8b 7d c0          	mov    -0x40(%rbp),%rdi
+    47f2:	41 83 ee 80          	sub    $0xffffff80,%r14d
+    47f6:	44 29 e0             	sub    %r12d,%eax
+    47f9:	41 89 c4             	mov    %eax,%r12d
+    47fc:	44 89 73 14          	mov    %r14d,0x14(%rbx)
+    4800:	89 43 18             	mov    %eax,0x18(%rbx)
+    4803:	0f 85 f7 fe ff ff    	jne    0x4700
+    4809:	45 31 ff             	xor    %r15d,%r15d
+    480c:	eb 2f                	jmp    0x483d
+    480e:	48 8b 0d cb f8 00 00 	mov    0xf8cb(%rip),%rcx        # 0x140e0
+    4815:	48 8d 3d 08 ac 00 00 	lea    0xac08(%rip),%rdi        # 0xf424
+    481c:	be 34 00 00 00       	mov    $0x34,%esi
+    4821:	ba 01 00 00 00       	mov    $0x1,%edx
+    4826:	e8 45 63 00 00       	call   0xab70
+    482b:	b8 00 00 6d 8a       	mov    $0x8a6d0000,%eax
+    4830:	eb 42                	jmp    0x4874
+    4832:	41 bf 00 00 6d 8a    	mov    $0x8a6d0000,%r15d
+    4838:	eb 0e                	jmp    0x4848
+    483a:	41 89 c7             	mov    %eax,%r15d
+    483d:	4c 8b 35 a4 f8 00 00 	mov    0xf8a4(%rip),%r14        # 0x140e8
+    4844:	48 8b 5d b8          	mov    -0x48(%rbp),%rbx
+    4848:	48 89 df             	mov    %rbx,%rdi
+    484b:	e8 d0 63 00 00       	call   0xac20
+    4850:	85 c0                	test   %eax,%eax
+    4852:	79 1d                	jns    0x4871
+    4854:	48 8b 0d 85 f8 00 00 	mov    0xf885(%rip),%rcx        # 0x140e0
+    485b:	48 8d 3d 0e b1 00 00 	lea    0xb10e(%rip),%rdi        # 0xf970
+    4862:	be 32 00 00 00       	mov    $0x32,%esi
+    4867:	ba 01 00 00 00       	mov    $0x1,%edx
+    486c:	e8 ff 62 00 00       	call   0xab70
+    4871:	44 89 f8             	mov    %r15d,%eax
+    4874:	49 8b 0e             	mov    (%r14),%rcx
+    4877:	48 3b 4d d0          	cmp    -0x30(%rbp),%rcx
+    487b:	75 0f                	jne    0x488c
+    487d:	48 8d 65 d8          	lea    -0x28(%rbp),%rsp
+    4881:	5b                   	pop    %rbx
+    4882:	41 5c                	pop    %r12
+    4884:	41 5d                	pop    %r13
+    4886:	41 5e                	pop    %r14
+    4888:	41 5f                	pop    %r15
+    488a:	5d                   	pop    %rbp
+    488b:	c3                   	ret
+    488c:	e8 9f 63 00 00       	call   0xac30
+    4891:	0f 0b                	ud2
+    4893:	cc                   	int3
+    4894:	cc                   	int3
+    4895:	cc                   	int3
+    4896:	cc                   	int3
+    4897:	cc                   	int3
+    4898:	cc                   	int3
+    4899:	cc                   	int3
+    489a:	cc                   	int3
+    489b:	cc                   	int3
+    489c:	cc                   	int3
+    489d:	cc                   	int3
+    489e:	cc                   	int3
+    489f:	cc                   	int3
+    48a0:	89 d1                	mov    %edx,%ecx
+    48a2:	48 89 f2             	mov    %rsi,%rdx
+    48a5:	48 89 fe             	mov    %rdi,%rsi
+    48a8:	48 8d 3d 09 60 01 00 	lea    0x16009(%rip),%rdi        # 0x1a8b8
+    48af:	e9 9c fd ff ff       	jmp    0x4650
+    48b4:	cc                   	int3
+    48b5:	cc                   	int3
+    48b6:	cc                   	int3
+    48b7:	cc                   	int3
+    48b8:	cc                   	int3
+    48b9:	cc                   	int3
+    48ba:	cc                   	int3
+    48bb:	cc                   	int3
+    48bc:	cc                   	int3
+    48bd:	cc                   	int3
+    48be:	cc                   	int3
+    48bf:	cc                   	int3
+    48c0:	55                   	push   %rbp
+    48c1:	48 89 e5             	mov    %rsp,%rbp
+    48c4:	48 8d 05 3d 60 01 00 	lea    0x1603d(%rip),%rax        # 0x1a908
+    48cb:	83                   	.byte 0x83
+    48cc:	b8                   	.byte 0xb8
+    48cd:	48 01 00             	add    %rax,(%rax)
