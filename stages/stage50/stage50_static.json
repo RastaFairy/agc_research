@@ -1,0 +1,628 @@
+{
+  "stage": 50,
+  "contexts": {
+    "global_context": 108808,
+    "agr_context": 108648,
+    "dcb_context": 108728,
+    "acb_table": 99424
+  },
+  "context_reference_count": 14,
+  "context_memory_access_count": 13,
+  "functions": {
+    "sceAgcDriverSubmitDcb": {
+      "name": "sceAgcDriverSubmitDcb",
+      "nid": "UglJIZjGssM",
+      "va": 10416,
+      "size": 15,
+      "file_offset": 26800,
+      "context_references": [
+        {
+          "instruction_va": 10419,
+          "instruction": "lea    0x17ffe(%rip),%rdi        # 0x1a8b8",
+          "register": "rdi",
+          "context": "dcb_context",
+          "target_va": 108728,
+          "displacement": 98302
+        }
+      ],
+      "context_accesses": [],
+      "raw_bytes": "48 89 fe 48 8d 3d fe 7f 01 00 e9 f1 ef ff ff"
+    },
+    "sceAgcDriverAgrSubmitDcb": {
+      "name": "sceAgcDriverAgrSubmitDcb",
+      "nid": "AhGvpITrf4M",
+      "va": 10432,
+      "size": 72,
+      "file_offset": 26816,
+      "context_references": [
+        {
+          "instruction_va": 10436,
+          "instruction": "lea    0x1803d(%rip),%rax        # 0x1a908",
+          "register": "rax",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 98365
+        },
+        {
+          "instruction_va": 10455,
+          "instruction": "lea    0x17f8a(%rip),%rdi        # 0x1a868",
+          "register": "rdi",
+          "context": "agr_context",
+          "target_va": 108648,
+          "displacement": 98186
+        }
+      ],
+      "context_accesses": [
+        {
+          "instruction_va": 10443,
+          "instruction": "cmpl   $0x0,0x148(%rax)",
+          "base_register": "rax",
+          "context": "global_context",
+          "context_va": 108808,
+          "field_offset": 328,
+          "field_offset_hex": "0x148",
+          "access_type": "MEMORY_ACCESS",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        }
+      ],
+      "raw_bytes": "55 48 89 e5 48 8d 05 3d 80 01 00 83 b8 48 01 00 00 00 74 10 48 89 fe 48 8d 3d 8a 7f 01 00 5d e9 cc ef ff ff 48 8b 0d f5 17 01 00 48 8d 3d 6c d4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6f 82 00 00 b8 03 00 6d 8a 5d c3"
+    },
+    "sceAgcDriverSubmitAcb": {
+      "name": "sceAgcDriverSubmitAcb",
+      "nid": "gSRnr79F8tQ",
+      "va": 10512,
+      "size": 67,
+      "file_offset": 26896,
+      "context_references": [
+        {
+          "instruction_va": 10545,
+          "instruction": "lea    0x15b28(%rip),%rdi        # 0x18460",
+          "register": "rdi",
+          "context": "acb_table",
+          "target_va": 99424,
+          "displacement": 88872
+        }
+      ],
+      "context_accesses": [],
+      "raw_bytes": "83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 7a 01 00 eb 13 83 ff 20 72 1e 83 c7 e0 48 8d 04 ff 48 8d 3d 28 5b 01 00 48 c1 e0 04 48 01 c7 48 83 c7 08 e9 68 ef ff ff 31 ff 48 83 c7 08 e9 5d ef ff ff"
+    },
+    "sceAgcDriverSubmitCommandBuffer": {
+      "name": "sceAgcDriverSubmitCommandBuffer",
+      "nid": "b4fpgH5ZXxQ",
+      "va": 6320,
+      "size": 380,
+      "file_offset": 22704,
+      "context_references": [
+        {
+          "instruction_va": 6408,
+          "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+          "register": "rbx",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 102393
+        }
+      ],
+      "context_accesses": [
+        {
+          "instruction_va": 6445,
+          "instruction": "lock xadd %rax,0x140(%rbx)",
+          "base_register": "rbx",
+          "context": "global_context",
+          "context_va": 108808,
+          "field_offset": 320,
+          "field_offset_hex": "0x140",
+          "access_type": "RMW",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 6488,
+          "instruction": "mov    0xa0(%rbx),%eax",
+          "base_register": "rbx",
+          "context": "global_context",
+          "context_va": 108808,
+          "field_offset": 160,
+          "field_offset_hex": "0xa0",
+          "access_type": "MEMORY_ACCESS",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 6498,
+          "instruction": "lea    0x48(%rbx),%r13",
+          "base_register": "rbx",
+          "context": "global_context",
+          "context_va": 108808,
+          "field_offset": 72,
+          "field_offset_hex": "0x48",
+          "access_type": "MEMORY_ACCESS",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 6548,
+          "instruction": "mov    0xa0(%rbx),%eax",
+          "base_register": "rbx",
+          "context": "global_context",
+          "context_va": 108808,
+          "field_offset": 160,
+          "field_offset_hex": "0xa0",
+          "access_type": "MEMORY_ACCESS",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 6593,
+          "instruction": "mov    0xa4(%rbx),%eax",
+          "base_register": "rbx",
+          "context": "global_context",
+          "context_va": 108808,
+          "field_offset": 164,
+          "field_offset_hex": "0xa4",
+          "access_type": "MEMORY_ACCESS",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 6666,
+          "instruction": "mov    (%rbx),%rax",
+          "base_register": "rbx",
+          "context": "global_context",
+          "context_va": 108808,
+          "field_offset": 0,
+          "field_offset_hex": "0x0",
+          "access_type": "MEMORY_ACCESS",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        }
+      ],
+      "raw_bytes": "55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 38 48 8b 1d 20 28 01 00 4c 8d 6f 38 49 89 fc 49 89 f6 4c 89 ef 48 8b 03 48 89 45 d0 e8 2f 93 00 00 85 c0 0f 88 b3 00 00 00 41 bf 00 00 6d 8a 0f 85 15 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 48 8d 1d f9 8f 01 00 4c 89 6d a8 49 8b 06 48 89 45 c0 41 8b 46 08 89 45 c8 41 8a 46 0c 88 45 cc b8 01 00 00 00 f0 48 0f c1 83 40 01 00 00 49 89 44 24 20 49 ff 44 24 28 49 c7 44 24 14 00 00 00 00 41 80 64 24 08 fe 49 c7 44 24 30 00 00 00 00 8b 83 a0 00 00 00 85 c0 74 5f 4c 8d 6b 48 4c 8d 7d b0 45 31 f6 eb 0f 90 49 ff c6 89 c1 49 83 c5 78 49 39 ce 73 43 49 8b 4d 00 48 85 c9 74 e9 4c 89 e7 4c 89 fe ba 01 00 00 00 ff d1 8b 83 a0 00 00 00 eb d4 48 8b 0d 3d 27 01 00 48 8d 3d 7a da 00 00 be 34 00 00 00 ba 01 00 00 00 e8 b7 91 00 00 41 bf 00 00 6d 8a eb 49 8b 83 a4 00 00 00 48 8d 75 b0 4c 89 e7 48 6b c0 78 ff 54 03 50 48 8b 7d a8 41 89 c7 e8 3e 92 00 00 85 c0 79 1d 48 8b 0d f3 26 01 00 48 8d 3d 7c df 00 00 be 32 00 00 00 ba 01 00 00 00 e8 6d 91 00 00 48 8b 1d de 26 01 00 48 8b 03 48 3b 45 d0 75 12 44 89 f8 48 83 c4 38 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 06 92 00 00 0f 0b"
+    },
+    "sceAgcDriverSubmitMultiCommandBuffers": {
+      "name": "sceAgcDriverSubmitMultiCommandBuffers",
+      "nid": "Fj7r9EHzF38",
+      "va": 18000,
+      "size": 579,
+      "file_offset": 34384,
+      "context_references": [
+        {
+          "instruction_va": 18075,
+          "instruction": "lea    0x16266(%rip),%rcx        # 0x1a908",
+          "register": "rcx",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 90726
+        },
+        {
+          "instruction_va": 18258,
+          "instruction": "lea    0x161af(%rip),%rax        # 0x1a908",
+          "register": "rax",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 90543
+        },
+        {
+          "instruction_va": 18275,
+          "instruction": "lea    0x1619e(%rip),%rcx        # 0x1a908",
+          "register": "rcx",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 90526
+        },
+        {
+          "instruction_va": 18336,
+          "instruction": "lea    0x16161(%rip),%rax        # 0x1a908",
+          "register": "rax",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 90465
+        },
+        {
+          "instruction_va": 18368,
+          "instruction": "lea    0x16141(%rip),%rcx        # 0x1a908",
+          "register": "rcx",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 90433
+        }
+      ],
+      "context_accesses": [
+        {
+          "instruction_va": 18097,
+          "instruction": "lock xadd %rax,0x140(%rcx)",
+          "base_register": "rcx",
+          "context": "global_context",
+          "context_va": 108808,
+          "field_offset": 320,
+          "field_offset_hex": "0x140",
+          "access_type": "RMW",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 18265,
+          "instruction": "mov    0xa0(%rax),%eax",
+          "base_register": "rax",
+          "context": "global_context",
+          "context_va": 108808,
+          "field_offset": 160,
+          "field_offset_hex": "0xa0",
+          "access_type": "MEMORY_ACCESS",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 18284,
+          "instruction": "lea    0x48(%rcx),%r14",
+          "base_register": "rcx",
+          "context": "global_context",
+          "context_va": 108808,
+          "field_offset": 72,
+          "field_offset_hex": "0x48",
+          "access_type": "MEMORY_ACCESS",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 18346,
+          "instruction": "mov    0xa0(%rax),%eax",
+          "base_register": "rax",
+          "context": "global_context",
+          "context_va": 108808,
+          "field_offset": 160,
+          "field_offset_hex": "0xa0",
+          "access_type": "MEMORY_ACCESS",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        },
+        {
+          "instruction_va": 18386,
+          "instruction": "mov    0xa4(%rcx),%eax",
+          "base_register": "rcx",
+          "context": "global_context",
+          "context_va": 108808,
+          "field_offset": 164,
+          "field_offset_hex": "0xa4",
+          "access_type": "MEMORY_ACCESS",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        }
+      ],
+      "raw_bytes": "55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 28 4c 8b 35 80 fa 00 00 48 8d 5f 38 41 89 cc 49 89 d7 49 89 f5 49 8b 06 48 89 45 d0 48 89 7d c8 48 89 df e8 88 65 00 00 85 c0 0f 88 7e 01 00 00 b8 00 00 6d 8a 0f 85 d9 01 00 00 48 8d 0d 66 62 01 00 b8 01 00 00 00 48 89 e7 48 81 c7 00 f0 ff ff f0 48 0f c1 81 40 01 00 00 48 8b 4d c8 48 89 41 20 48 ff 41 28 c7 41 14 00 00 00 00 44 89 61 18 80 61 08 fe 48 c7 41 30 00 00 00 00 48 89 fc 45 85 e4 0f 84 49 01 00 00 48 8d 47 1c 45 31 f6 48 89 5d b8 48 89 7d c0 48 89 45 b0 0f 1f 40 00 41 81 fc 80 00 00 00 b8 80 00 00 00 ba 00 10 00 00 44 0f 43 e0 31 f6 e8 a4 64 00 00 48 8b 4d b0 4c 89 e2 4c 89 e0 66 2e 0f 1f 84 00 00 00 00 00 44 89 f7 41 ff c6 49 8b 74 fd 00 48 89 71 f4 41 8b 34 bf 89 71 fc c6 01 00 48 83 c1 20 48 ff c8 75 de 48 8d 05 af 61 01 00 8b 80 a0 00 00 00 85 c0 74 5d 48 8d 0d 9e 61 01 00 31 db 4c 8d 71 48 eb 1c 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c6 78 48 39 cb 73 32 49 8b 0e 48 85 c9 74 ea 48 8b 7d c8 48 8b 75 c0 ff d1 48 8d 05 61 61 01 00 4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 8d 0d 41 61 01 00 48 8b 5d c8 48 8b 75 c0 49 89 d4 8b 81 a4 00 00 00 48 89 df 48 6b c0 78 ff 54 01 58 85 c0 75 53 44 8b 73 14 8b 43 18 48 8b 7d c0 41 83 ee 80 44 29 e0 41 89 c4 44 89 73 14 89 43 18 0f 85 f7 fe ff ff 45 31 ff eb 2f 48 8b 0d cb f8 00 00 48 8d 3d 08 ac 00 00 be 34 00 00 00 ba 01 00 00 00 e8 45 63 00 00 b8 00 00 6d 8a eb 42 41 bf 00 00 6d 8a eb 0e 41 89 c7 4c 8b 35 a4 f8 00 00 48 8b 5d b8 48 89 df e8 d0 63 00 00 85 c0 79 1d 48 8b 0d 85 f8 00 00 48 8d 3d 0e b1 00 00 be 32 00 00 00 ba 01 00 00 00 e8 ff 62 00 00 44 89 f8 49 8b 0e 48 3b 4d d0 75 0f 48 8d 65 d8 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 9f 63 00 00 0f 0b"
+    },
+    "sceAgcDriverSubmitMultiDcbs": {
+      "name": "sceAgcDriverSubmitMultiDcbs",
+      "nid": "6UzEidRZwkg",
+      "va": 18592,
+      "size": 20,
+      "file_offset": 34976,
+      "context_references": [
+        {
+          "instruction_va": 18600,
+          "instruction": "lea    0x16009(%rip),%rdi        # 0x1a8b8",
+          "register": "rdi",
+          "context": "dcb_context",
+          "target_va": 108728,
+          "displacement": 90121
+        }
+      ],
+      "context_accesses": [],
+      "raw_bytes": "89 d1 48 89 f2 48 89 fe 48 8d 3d 09 60 01 00 e9 9c fd ff ff"
+    },
+    "sceAgcDriverAgrSubmitMultiDcbs": {
+      "name": "sceAgcDriverAgrSubmitMultiDcbs",
+      "nid": "+T8Xo6LtFJI",
+      "va": 18624,
+      "size": 77,
+      "file_offset": 35008,
+      "context_references": [
+        {
+          "instruction_va": 18628,
+          "instruction": "lea    0x1603d(%rip),%rax        # 0x1a908",
+          "register": "rax",
+          "context": "global_context",
+          "target_va": 108808,
+          "displacement": 90173
+        },
+        {
+          "instruction_va": 18652,
+          "instruction": "lea    0x15f85(%rip),%rdi        # 0x1a868",
+          "register": "rdi",
+          "context": "agr_context",
+          "target_va": 108648,
+          "displacement": 89989
+        }
+      ],
+      "context_accesses": [
+        {
+          "instruction_va": 18635,
+          "instruction": "cmpl   $0x0,0x148(%rax)",
+          "base_register": "rax",
+          "context": "global_context",
+          "context_va": 108808,
+          "field_offset": 328,
+          "field_offset_hex": "0x148",
+          "access_type": "MEMORY_ACCESS",
+          "confidence": "TRACKED_CONTEXT_BASE"
+        }
+      ],
+      "raw_bytes": "55 48 89 e5 48 8d 05 3d 60 01 00 83 b8 48 01 00 00 00 74 15 89 d1 48 89 f2 48 89 fe 48 8d 3d 85 5f 01 00 5d e9 67 fd ff ff 48 8b 0d f0 f7 00 00 48 8d 3d 67 b4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6a 62 00 00 b8 03 00 6d 8a 5d c3"
+    },
+    "sceAgcDriverSubmitMultiAcbs": {
+      "name": "sceAgcDriverSubmitMultiAcbs",
+      "nid": "HF3YllT3mXU",
+      "va": 18704,
+      "size": 67,
+      "file_offset": 35088,
+      "context_references": [
+        {
+          "instruction_va": 18737,
+          "instruction": "lea    0x13b28(%rip),%rdi        # 0x18460",
+          "register": "rdi",
+          "context": "acb_table",
+          "target_va": 99424,
+          "displacement": 80680
+        }
+      ],
+      "context_accesses": [],
+      "raw_bytes": "83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 5a 01 00 eb 13 83 ff 20 72 1e 83 c7 e0 48 8d 04 ff 48 8d 3d 28 3b 01 00 48 c1 e0 04 48 01 c7 48 83 c7 08 e9 08 fd ff ff 31 ff 48 83 c7 08 e9 fd fc ff ff"
+    }
+  },
+  "field_map": {
+    "global_context": [
+      {
+        "offset": 0,
+        "offset_hex": "0x0",
+        "functions": [
+          "sceAgcDriverSubmitCommandBuffer"
+        ],
+        "reads": 0,
+        "writes": 0,
+        "rmw": 0,
+        "access_count": 1,
+        "accesses": [
+          {
+            "function": "sceAgcDriverSubmitCommandBuffer",
+            "instruction_va": 6666,
+            "instruction": "mov    (%rbx),%rax",
+            "access_type": "MEMORY_ACCESS",
+            "base_register": "rbx"
+          }
+        ]
+      },
+      {
+        "offset": 72,
+        "offset_hex": "0x48",
+        "functions": [
+          "sceAgcDriverSubmitCommandBuffer",
+          "sceAgcDriverSubmitMultiCommandBuffers"
+        ],
+        "reads": 0,
+        "writes": 0,
+        "rmw": 0,
+        "access_count": 2,
+        "accesses": [
+          {
+            "function": "sceAgcDriverSubmitCommandBuffer",
+            "instruction_va": 6498,
+            "instruction": "lea    0x48(%rbx),%r13",
+            "access_type": "MEMORY_ACCESS",
+            "base_register": "rbx"
+          },
+          {
+            "function": "sceAgcDriverSubmitMultiCommandBuffers",
+            "instruction_va": 18284,
+            "instruction": "lea    0x48(%rcx),%r14",
+            "access_type": "MEMORY_ACCESS",
+            "base_register": "rcx"
+          }
+        ]
+      },
+      {
+        "offset": 160,
+        "offset_hex": "0xa0",
+        "functions": [
+          "sceAgcDriverSubmitCommandBuffer",
+          "sceAgcDriverSubmitMultiCommandBuffers"
+        ],
+        "reads": 0,
+        "writes": 0,
+        "rmw": 0,
+        "access_count": 4,
+        "accesses": [
+          {
+            "function": "sceAgcDriverSubmitCommandBuffer",
+            "instruction_va": 6488,
+            "instruction": "mov    0xa0(%rbx),%eax",
+            "access_type": "MEMORY_ACCESS",
+            "base_register": "rbx"
+          },
+          {
+            "function": "sceAgcDriverSubmitCommandBuffer",
+            "instruction_va": 6548,
+            "instruction": "mov    0xa0(%rbx),%eax",
+            "access_type": "MEMORY_ACCESS",
+            "base_register": "rbx"
+          },
+          {
+            "function": "sceAgcDriverSubmitMultiCommandBuffers",
+            "instruction_va": 18265,
+            "instruction": "mov    0xa0(%rax),%eax",
+            "access_type": "MEMORY_ACCESS",
+            "base_register": "rax"
+          },
+          {
+            "function": "sceAgcDriverSubmitMultiCommandBuffers",
+            "instruction_va": 18346,
+            "instruction": "mov    0xa0(%rax),%eax",
+            "access_type": "MEMORY_ACCESS",
+            "base_register": "rax"
+          }
+        ]
+      },
+      {
+        "offset": 164,
+        "offset_hex": "0xa4",
+        "functions": [
+          "sceAgcDriverSubmitCommandBuffer",
+          "sceAgcDriverSubmitMultiCommandBuffers"
+        ],
+        "reads": 0,
+        "writes": 0,
+        "rmw": 0,
+        "access_count": 2,
+        "accesses": [
+          {
+            "function": "sceAgcDriverSubmitCommandBuffer",
+            "instruction_va": 6593,
+            "instruction": "mov    0xa4(%rbx),%eax",
+            "access_type": "MEMORY_ACCESS",
+            "base_register": "rbx"
+          },
+          {
+            "function": "sceAgcDriverSubmitMultiCommandBuffers",
+            "instruction_va": 18386,
+            "instruction": "mov    0xa4(%rcx),%eax",
+            "access_type": "MEMORY_ACCESS",
+            "base_register": "rcx"
+          }
+        ]
+      },
+      {
+        "offset": 320,
+        "offset_hex": "0x140",
+        "functions": [
+          "sceAgcDriverSubmitCommandBuffer",
+          "sceAgcDriverSubmitMultiCommandBuffers"
+        ],
+        "reads": 0,
+        "writes": 0,
+        "rmw": 2,
+        "access_count": 2,
+        "accesses": [
+          {
+            "function": "sceAgcDriverSubmitCommandBuffer",
+            "instruction_va": 6445,
+            "instruction": "lock xadd %rax,0x140(%rbx)",
+            "access_type": "RMW",
+            "base_register": "rbx"
+          },
+          {
+            "function": "sceAgcDriverSubmitMultiCommandBuffers",
+            "instruction_va": 18097,
+            "instruction": "lock xadd %rax,0x140(%rcx)",
+            "access_type": "RMW",
+            "base_register": "rcx"
+          }
+        ]
+      },
+      {
+        "offset": 328,
+        "offset_hex": "0x148",
+        "functions": [
+          "sceAgcDriverAgrSubmitDcb",
+          "sceAgcDriverAgrSubmitMultiDcbs"
+        ],
+        "reads": 0,
+        "writes": 0,
+        "rmw": 0,
+        "access_count": 2,
+        "accesses": [
+          {
+            "function": "sceAgcDriverAgrSubmitDcb",
+            "instruction_va": 10443,
+            "instruction": "cmpl   $0x0,0x148(%rax)",
+            "access_type": "MEMORY_ACCESS",
+            "base_register": "rax"
+          },
+          {
+            "function": "sceAgcDriverAgrSubmitMultiDcbs",
+            "instruction_va": 18635,
+            "instruction": "cmpl   $0x0,0x148(%rax)",
+            "access_type": "MEMORY_ACCESS",
+            "base_register": "rax"
+          }
+        ]
+      }
+    ]
+  },
+  "submit_command_buffer": {
+    "va": 6320,
+    "size": 380,
+    "context_references": [
+      {
+        "instruction_va": 6408,
+        "instruction": "lea    0x18ff9(%rip),%rbx        # 0x1a908",
+        "register": "rbx",
+        "context": "global_context",
+        "target_va": 108808,
+        "displacement": 102393
+      }
+    ],
+    "context_accesses": [
+      {
+        "instruction_va": 6445,
+        "instruction": "lock xadd %rax,0x140(%rbx)",
+        "base_register": "rbx",
+        "context": "global_context",
+        "context_va": 108808,
+        "field_offset": 320,
+        "field_offset_hex": "0x140",
+        "access_type": "RMW",
+        "confidence": "TRACKED_CONTEXT_BASE"
+      },
+      {
+        "instruction_va": 6488,
+        "instruction": "mov    0xa0(%rbx),%eax",
+        "base_register": "rbx",
+        "context": "global_context",
+        "context_va": 108808,
+        "field_offset": 160,
+        "field_offset_hex": "0xa0",
+        "access_type": "MEMORY_ACCESS",
+        "confidence": "TRACKED_CONTEXT_BASE"
+      },
+      {
+        "instruction_va": 6498,
+        "instruction": "lea    0x48(%rbx),%r13",
+        "base_register": "rbx",
+        "context": "global_context",
+        "context_va": 108808,
+        "field_offset": 72,
+        "field_offset_hex": "0x48",
+        "access_type": "MEMORY_ACCESS",
+        "confidence": "TRACKED_CONTEXT_BASE"
+      },
+      {
+        "instruction_va": 6548,
+        "instruction": "mov    0xa0(%rbx),%eax",
+        "base_register": "rbx",
+        "context": "global_context",
+        "context_va": 108808,
+        "field_offset": 160,
+        "field_offset_hex": "0xa0",
+        "access_type": "MEMORY_ACCESS",
+        "confidence": "TRACKED_CONTEXT_BASE"
+      },
+      {
+        "instruction_va": 6593,
+        "instruction": "mov    0xa4(%rbx),%eax",
+        "base_register": "rbx",
+        "context": "global_context",
+        "context_va": 108808,
+        "field_offset": 164,
+        "field_offset_hex": "0xa4",
+        "access_type": "MEMORY_ACCESS",
+        "confidence": "TRACKED_CONTEXT_BASE"
+      },
+      {
+        "instruction_va": 6666,
+        "instruction": "mov    (%rbx),%rax",
+        "base_register": "rbx",
+        "context": "global_context",
+        "context_va": 108808,
+        "field_offset": 0,
+        "field_offset_hex": "0x0",
+        "access_type": "MEMORY_ACCESS",
+        "confidence": "TRACKED_CONTEXT_BASE"
+      }
+    ]
+  },
+  "conclusions": {
+    "CONTEXT_REGISTER_TRACKING": true,
+    "CONTEXT_MEMORY_ACCESS_FOUND": true,
+    "SUBMIT_CONTEXT_ACCESS_FOUND": true,
+    "WRITE_SITES_PROVEN": true,
+    "ABI_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  }
+}

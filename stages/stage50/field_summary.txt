@@ -1,0 +1,68 @@
+AGC PS5 Stage 50 - Register / Context Field Audit
+
+=== CONTEXT LEA REFERENCES ===
+
+[sceAgcDriverSubmitDcb] VA=0x28b0
+  0x28b3: lea    0x17ffe(%rip),%rdi        # 0x1a8b8 register=rdi dcb_context=0x1a8b8
+
+[sceAgcDriverAgrSubmitDcb] VA=0x28c0
+  0x28c4: lea    0x1803d(%rip),%rax        # 0x1a908 register=rax global_context=0x1a908
+  0x28d7: lea    0x17f8a(%rip),%rdi        # 0x1a868 register=rdi agr_context=0x1a868
+
+[sceAgcDriverSubmitAcb] VA=0x2910
+  0x2931: lea    0x15b28(%rip),%rdi        # 0x18460 register=rdi acb_table=0x18460
+
+[sceAgcDriverSubmitCommandBuffer] VA=0x18b0
+  0x1908: lea    0x18ff9(%rip),%rbx        # 0x1a908 register=rbx global_context=0x1a908
+
+[sceAgcDriverSubmitMultiCommandBuffers] VA=0x4650
+  0x469b: lea    0x16266(%rip),%rcx        # 0x1a908 register=rcx global_context=0x1a908
+  0x4752: lea    0x161af(%rip),%rax        # 0x1a908 register=rax global_context=0x1a908
+  0x4763: lea    0x1619e(%rip),%rcx        # 0x1a908 register=rcx global_context=0x1a908
+  0x47a0: lea    0x16161(%rip),%rax        # 0x1a908 register=rax global_context=0x1a908
+  0x47c0: lea    0x16141(%rip),%rcx        # 0x1a908 register=rcx global_context=0x1a908
+
+[sceAgcDriverSubmitMultiDcbs] VA=0x48a0
+  0x48a8: lea    0x16009(%rip),%rdi        # 0x1a8b8 register=rdi dcb_context=0x1a8b8
+
+[sceAgcDriverAgrSubmitMultiDcbs] VA=0x48c0
+  0x48c4: lea    0x1603d(%rip),%rax        # 0x1a908 register=rax global_context=0x1a908
+  0x48dc: lea    0x15f85(%rip),%rdi        # 0x1a868 register=rdi agr_context=0x1a868
+
+[sceAgcDriverSubmitMultiAcbs] VA=0x4910
+  0x4931: lea    0x13b28(%rip),%rdi        # 0x18460 register=rdi acb_table=0x18460
+
+=== CONTEXT MEMORY ACCESSES ===
+
+[sceAgcDriverAgrSubmitDcb]
+  0x28cb: cmpl   $0x0,0x148(%rax) | global_context + 0x148 | base=rax | type=MEMORY_ACCESS | confidence=TRACKED_CONTEXT_BASE
+
+[sceAgcDriverSubmitCommandBuffer]
+  0x192d: lock xadd %rax,0x140(%rbx) | global_context + 0x140 | base=rbx | type=RMW | confidence=TRACKED_CONTEXT_BASE
+  0x1958: mov    0xa0(%rbx),%eax | global_context + 0xa0 | base=rbx | type=MEMORY_ACCESS | confidence=TRACKED_CONTEXT_BASE
+  0x1962: lea    0x48(%rbx),%r13 | global_context + 0x48 | base=rbx | type=MEMORY_ACCESS | confidence=TRACKED_CONTEXT_BASE
+  0x1994: mov    0xa0(%rbx),%eax | global_context + 0xa0 | base=rbx | type=MEMORY_ACCESS | confidence=TRACKED_CONTEXT_BASE
+  0x19c1: mov    0xa4(%rbx),%eax | global_context + 0xa4 | base=rbx | type=MEMORY_ACCESS | confidence=TRACKED_CONTEXT_BASE
+  0x1a0a: mov    (%rbx),%rax | global_context + 0x0 | base=rbx | type=MEMORY_ACCESS | confidence=TRACKED_CONTEXT_BASE
+
+[sceAgcDriverSubmitMultiCommandBuffers]
+  0x46b1: lock xadd %rax,0x140(%rcx) | global_context + 0x140 | base=rcx | type=RMW | confidence=TRACKED_CONTEXT_BASE
+  0x4759: mov    0xa0(%rax),%eax | global_context + 0xa0 | base=rax | type=MEMORY_ACCESS | confidence=TRACKED_CONTEXT_BASE
+  0x476c: lea    0x48(%rcx),%r14 | global_context + 0x48 | base=rcx | type=MEMORY_ACCESS | confidence=TRACKED_CONTEXT_BASE
+  0x47aa: mov    0xa0(%rax),%eax | global_context + 0xa0 | base=rax | type=MEMORY_ACCESS | confidence=TRACKED_CONTEXT_BASE
+  0x47d2: mov    0xa4(%rcx),%eax | global_context + 0xa4 | base=rcx | type=MEMORY_ACCESS | confidence=TRACKED_CONTEXT_BASE
+
+[sceAgcDriverAgrSubmitMultiDcbs]
+  0x48cb: cmpl   $0x0,0x148(%rax) | global_context + 0x148 | base=rax | type=MEMORY_ACCESS | confidence=TRACKED_CONTEXT_BASE
+
+TOTAL_CONTEXT_MEMORY_ACCESSES = 13
+
+=== FIELD MAP ===
+
+global_context
+  0x0 reads=0 writes=0 rmw=0 accesses=1 functions=sceAgcDriverSubmitCommandBuffer
+  0x48 reads=0 writes=0 rmw=0 accesses=2 functions=sceAgcDriverSubmitCommandBuffer, sceAgcDriverSubmitMultiCommandBuffers
+  0xa0 reads=0 writes=0 rmw=0 accesses=4 functions=sceAgcDriverSubmitCommandBuffer, sceAgcDriverSubmitMultiCommandBuffers
+  0xa4 reads=0 writes=0 rmw=0 accesses=2 functions=sceAgcDriverSubmitCommandBuffer, sceAgcDriverSubmitMultiCommandBuffers
+  0x140 reads=0 writes=0 rmw=2 accesses=2 functions=sceAgcDriverSubmitCommandBuffer, sceAgcDriverSubmitMultiCommandBuffers
+  0x148 reads=0 writes=0 rmw=0 accesses=2 functions=sceAgcDriverAgrSubmitDcb, sceAgcDriverAgrSubmitMultiDcbs

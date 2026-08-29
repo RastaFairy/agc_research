@@ -1,0 +1,26 @@
+{
+  "stage": 50,
+  "generated": "2026-08-25T02:03:02.3164890+02:00",
+  "paths": {
+    "sprx": "D:\\agc_work\\sce_stubs\\libSceAgcDriver.sprx",
+    "nid_db": "D:\\sdk-master\\sce_stubs\\aerolib.csv",
+    "output": "D:\\agc_work\\stage50_results"
+  },
+  "counts": {
+    "context_references": 14,
+    "context_memory_accesses": 13
+  },
+  "conclusions": {
+    "CONTEXT_REGISTER_TRACKING": true,
+    "CONTEXT_MEMORY_ACCESS_FOUND": true,
+    "SUBMIT_CONTEXT_ACCESS_FOUND": true,
+    "WRITE_SITES_PROVEN": true,
+    "ABI_PROTOTYPE_INFERRED": false,
+    "EXECUTED_AGC": false
+  },
+  "hashes": {
+    "stage50_static.json": "174aa574f784a1d60deb8287ad1f5042cdc09f98134ed0a743cfde4e6bdf2773",
+    "field_summary.txt": "8bb96ac1fd4e3bde88dbffb23eb32e2f0e4152f0bcc8159f76a8b54abcc05538",
+    "submit_family_disassembly.txt": "4d86455160ca91a41823650420c9a0f6b61c9ceea28a9aff071faed581f6bbf3"
+  }
+}

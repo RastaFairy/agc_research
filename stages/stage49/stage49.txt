@@ -1,0 +1,5351 @@
+PS D:\agc_ps5_stage49> .\stage49.ps1
+
+============================================
+AGC PS5 Stage 49 - Context Write Audit
+============================================
+
+[INFO] SPRX       = D:\agc_work\sce_stubs\libSceAgcDriver.sprx
+[INFO] NID DB     = D:\sdk-master\sce_stubs\aerolib.csv
+[INFO] Output     = D:\agc_work\stage49_results
+[INFO] Submit     = 0x18b0
+[INFO] AGR ctx    = 0x1a868
+[INFO] DCB ctx    = 0x1a8b8
+[INFO] Global     = 0x1a908
+[INFO] ACB table  = 0x18460
+
+==> Prepare Linux workspace
+
+[WSL] rm -rf '/tmp/agc_stage49'
+mkdir -p '/tmp/agc_stage49'
+mkdir -p '/mnt/d/agc_work/stage49_results'
+cp '/mnt/d/agc_work/stage49_results/analyze_context_writes.py' '/tmp/agc_stage49/analyze_context_writes.py'
+python3 -m py_compile '/tmp/agc_stage49/analyze_context_writes.py'
+
+==> Analyze context accesses and candidate stores
+
+[WSL] python3 '/tmp/agc_stage49/analyze_context_writes.py' \
+    '/mnt/d/agc_work/sce_stubs/libSceAgcDriver.sprx' \
+    '/mnt/d/sdk-master/sce_stubs/aerolib.csv' \
+    '/tmp/agc_stage49'
+{
+  "targets": {
+    "submit_command_buffer": 6320,
+    "agr_context": 108648,
+    "dcb_context": 108728,
+    "global_context": 108808,
+    "acb_table": 99424
+  },
+  "rip_references": [
+    {
+      "instruction_va": 211,
+      "file_offset": 16595,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 108590,
+      "owner": null
+    },
+    {
+      "instruction_va": 356,
+      "file_offset": 16740,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 108445,
+      "owner": null
+    },
+    {
+      "instruction_va": 849,
+      "file_offset": 17233,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 107952,
+      "owner": null
+    },
+    {
+      "instruction_va": 1168,
+      "file_offset": 17552,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 107633,
+      "owner": null
+    },
+    {
+      "instruction_va": 1200,
+      "file_offset": 17584,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 107601,
+      "owner": null
+    },
+    {
+      "instruction_va": 1240,
+      "file_offset": 17624,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 107561,
+      "owner": null
+    },
+    {
+      "instruction_va": 1315,
+      "file_offset": 17699,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 107486,
+      "owner": null
+    },
+    {
+      "instruction_va": 1395,
+      "file_offset": 17779,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 107406,
+      "owner": null
+    },
+    {
+      "instruction_va": 2186,
+      "file_offset": 18570,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 106615,
+      "owner": null
+    },
+    {
+      "instruction_va": 2315,
+      "file_offset": 18699,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 106486,
+      "owner": {
+        "raw_name": "Um-jkyDy9rI#F#A",
+        "value": 2288,
+        "size": 73,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Um-jkyDy9rI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetReservedDmemForAgc"
+      }
+    },
+    {
+      "instruction_va": 3883,
+      "file_offset": 20267,
+      "opcode": "LEA",
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "displacement": 95534,
+      "owner": null
+    },
+    {
+      "instruction_va": 4963,
+      "file_offset": 21347,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 103838,
+      "owner": null
+    },
+    {
+      "instruction_va": 6408,
+      "file_offset": 22792,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 102393,
+      "owner": {
+        "raw_name": "b4fpgH5ZXxQ#F#A",
+        "value": 6320,
+        "size": 380,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "b4fpgH5ZXxQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitCommandBuffer"
+      }
+    },
+    {
+      "instruction_va": 6725,
+      "file_offset": 23109,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 102076,
+      "owner": null
+    },
+    {
+      "instruction_va": 6789,
+      "file_offset": 23173,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 102012,
+      "owner": null
+    },
+    {
+      "instruction_va": 7489,
+      "file_offset": 23873,
+      "opcode": "LEA",
+      "target_va": 108648,
+      "target_name": "agr_context",
+      "displacement": 101152,
+      "owner": {
+        "raw_name": "QcmHLO2n7mk#F#A",
+        "value": 7168,
+        "size": 767,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "QcmHLO2n7mk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSuspendPointSubmit"
+      }
+    },
+    {
+      "instruction_va": 7826,
+      "file_offset": 24210,
+      "opcode": "LEA",
+      "target_va": 108728,
+      "target_name": "dcb_context",
+      "displacement": 100895,
+      "owner": {
+        "raw_name": "QcmHLO2n7mk#F#A",
+        "value": 7168,
+        "size": 767,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "QcmHLO2n7mk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSuspendPointSubmit"
+      }
+    },
+    {
+      "instruction_va": 8131,
+      "file_offset": 24515,
+      "opcode": "LEA",
+      "target_va": 108648,
+      "target_name": "agr_context",
+      "displacement": 100510,
+      "owner": null
+    },
+    {
+      "instruction_va": 8209,
+      "file_offset": 24593,
+      "opcode": "LEA",
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "displacement": 91208,
+      "owner": null
+    },
+    {
+      "instruction_va": 8355,
+      "file_offset": 24739,
+      "opcode": "LEA",
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "displacement": 91062,
+      "owner": null
+    },
+    {
+      "instruction_va": 8374,
+      "file_offset": 24758,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 100427,
+      "owner": null
+    },
+    {
+      "instruction_va": 8502,
+      "file_offset": 24886,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 100299,
+      "owner": null
+    },
+    {
+      "instruction_va": 8887,
+      "file_offset": 25271,
+      "opcode": "LEA",
+      "target_va": 108648,
+      "target_name": "agr_context",
+      "displacement": 99754,
+      "owner": null
+    },
+    {
+      "instruction_va": 10289,
+      "file_offset": 26673,
+      "opcode": "LEA",
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "displacement": 89128,
+      "owner": null
+    },
+    {
+      "instruction_va": 10419,
+      "file_offset": 26803,
+      "opcode": "LEA",
+      "target_va": 108728,
+      "target_name": "dcb_context",
+      "displacement": 98302,
+      "owner": {
+        "raw_name": "UglJIZjGssM#F#A",
+        "value": 10416,
+        "size": 15,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "UglJIZjGssM",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitDcb"
+      }
+    },
+    {
+      "instruction_va": 10436,
+      "file_offset": 26820,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 98365,
+      "owner": {
+        "raw_name": "AhGvpITrf4M#F#A",
+        "value": 10432,
+        "size": 72,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "AhGvpITrf4M",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitDcb"
+      }
+    },
+    {
+      "instruction_va": 10455,
+      "file_offset": 26839,
+      "opcode": "LEA",
+      "target_va": 108648,
+      "target_name": "agr_context",
+      "displacement": 98186,
+      "owner": {
+        "raw_name": "AhGvpITrf4M#F#A",
+        "value": 10432,
+        "size": 72,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "AhGvpITrf4M",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitDcb"
+      }
+    },
+    {
+      "instruction_va": 10545,
+      "file_offset": 26929,
+      "opcode": "LEA",
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "displacement": 88872,
+      "owner": {
+        "raw_name": "gSRnr79F8tQ#F#A",
+        "value": 10512,
+        "size": 67,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "gSRnr79F8tQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitAcb"
+      }
+    },
+    {
+      "instruction_va": 11319,
+      "file_offset": 27703,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 97482,
+      "owner": {
+        "raw_name": "dwoD-LJDQy8#F#A",
+        "value": 11296,
+        "size": 518,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "dwoD-LJDQy8",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAcquireHDRScopesACQ"
+      }
+    },
+    {
+      "instruction_va": 11828,
+      "file_offset": 28212,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 96973,
+      "owner": {
+        "raw_name": "NRO47jBXLiI#F#A",
+        "value": 11824,
+        "size": 113,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "NRO47jBXLiI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverReleaseHDRScopesACQ"
+      }
+    },
+    {
+      "instruction_va": 12292,
+      "file_offset": 28676,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 96509,
+      "owner": {
+        "raw_name": "SOAMmdlyaIc#F#A",
+        "value": 12288,
+        "size": 37,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "SOAMmdlyaIc",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverCwsrSuspendAcq"
+      }
+    },
+    {
+      "instruction_va": 12340,
+      "file_offset": 28724,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 96461,
+      "owner": {
+        "raw_name": "1DXIHxWHZAQ#F#A",
+        "value": 12336,
+        "size": 34,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "1DXIHxWHZAQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverCwsrResumeAcq"
+      }
+    },
+    {
+      "instruction_va": 12693,
+      "file_offset": 29077,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 96108,
+      "owner": {
+        "raw_name": "CP-kVAMmWVw#F#A",
+        "value": 12688,
+        "size": 56,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "CP-kVAMmWVw",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetRegShadowInfo"
+      }
+    },
+    {
+      "instruction_va": 12757,
+      "file_offset": 29141,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 96044,
+      "owner": {
+        "raw_name": "ME1eUot7+Qw#F#A",
+        "value": 12752,
+        "size": 56,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "ME1eUot7+Qw",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetRegShadowInfoAgr"
+      }
+    },
+    {
+      "instruction_va": 15227,
+      "file_offset": 31611,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 93574,
+      "owner": {
+        "raw_name": "oFb2hMcoJa4#F#A",
+        "value": 15216,
+        "size": 335,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "oFb2hMcoJa4",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": null
+      }
+    },
+    {
+      "instruction_va": 15600,
+      "file_offset": 31984,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 93201,
+      "owner": null
+    },
+    {
+      "instruction_va": 16285,
+      "file_offset": 32669,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 92516,
+      "owner": null
+    },
+    {
+      "instruction_va": 16518,
+      "file_offset": 32902,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 92283,
+      "owner": null
+    },
+    {
+      "instruction_va": 17597,
+      "file_offset": 33981,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 91204,
+      "owner": null
+    },
+    {
+      "instruction_va": 17702,
+      "file_offset": 34086,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 91099,
+      "owner": null
+    },
+    {
+      "instruction_va": 17854,
+      "file_offset": 34238,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90947,
+      "owner": null
+    },
+    {
+      "instruction_va": 17880,
+      "file_offset": 34264,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90921,
+      "owner": null
+    },
+    {
+      "instruction_va": 17937,
+      "file_offset": 34321,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90864,
+      "owner": null
+    },
+    {
+      "instruction_va": 17952,
+      "file_offset": 34336,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90849,
+      "owner": null
+    },
+    {
+      "instruction_va": 18075,
+      "file_offset": 34459,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90726,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18258,
+      "file_offset": 34642,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90543,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18275,
+      "file_offset": 34659,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90526,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18336,
+      "file_offset": 34720,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90465,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18368,
+      "file_offset": 34752,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90433,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18600,
+      "file_offset": 34984,
+      "opcode": "LEA",
+      "target_va": 108728,
+      "target_name": "dcb_context",
+      "displacement": 90121,
+      "owner": {
+        "raw_name": "6UzEidRZwkg#F#A",
+        "value": 18592,
+        "size": 20,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "6UzEidRZwkg",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiDcbs"
+      }
+    },
+    {
+      "instruction_va": 18628,
+      "file_offset": 35012,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90173,
+      "owner": {
+        "raw_name": "+T8Xo6LtFJI#F#A",
+        "value": 18624,
+        "size": 77,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "+T8Xo6LtFJI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitMultiDcbs"
+      }
+    },
+    {
+      "instruction_va": 18652,
+      "file_offset": 35036,
+      "opcode": "LEA",
+      "target_va": 108648,
+      "target_name": "agr_context",
+      "displacement": 89989,
+      "owner": {
+        "raw_name": "+T8Xo6LtFJI#F#A",
+        "value": 18624,
+        "size": 77,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "+T8Xo6LtFJI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitMultiDcbs"
+      }
+    },
+    {
+      "instruction_va": 18737,
+      "file_offset": 35121,
+      "opcode": "LEA",
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "displacement": 80680,
+      "owner": {
+        "raw_name": "HF3YllT3mXU#F#A",
+        "value": 18704,
+        "size": 67,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "HF3YllT3mXU",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiAcbs"
+      }
+    },
+    {
+      "instruction_va": 26149,
+      "file_offset": 42533,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 82652,
+      "owner": {
+        "raw_name": "1BUTwixUG5Y#F#A",
+        "value": 26144,
+        "size": 24,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "1BUTwixUG5Y",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverDebugHardwareStatus"
+      }
+    },
+    {
+      "instruction_va": 26596,
+      "file_offset": 42980,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 82205,
+      "owner": null
+    },
+    {
+      "instruction_va": 26644,
+      "file_offset": 43028,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 82157,
+      "owner": null
+    },
+    {
+      "instruction_va": 26705,
+      "file_offset": 43089,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 82096,
+      "owner": {
+        "raw_name": "XlNp7jzGiPo#F#A",
+        "value": 26688,
+        "size": 75,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "XlNp7jzGiPo",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSetTFRing"
+      }
+    },
+    {
+      "instruction_va": 26803,
+      "file_offset": 43187,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 81998,
+      "owner": {
+        "raw_name": "e-YMQ+2tj9M#F#A",
+        "value": 26768,
+        "size": 104,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "e-YMQ+2tj9M",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetTFRing"
+      }
+    },
+    {
+      "instruction_va": 26880,
+      "file_offset": 43264,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 81921,
+      "owner": {
+        "raw_name": "MM4IZSEYytQ#F#A",
+        "value": 26880,
+        "size": 27,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "MM4IZSEYytQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSetHsOffchipParam"
+      }
+    },
+    {
+      "instruction_va": 26916,
+      "file_offset": 43300,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 81885,
+      "owner": {
+        "raw_name": "r28hEh6cNH0#F#A",
+        "value": 26912,
+        "size": 40,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "r28hEh6cNH0",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetHsOffchipParam"
+      }
+    },
+    {
+      "instruction_va": 29739,
+      "file_offset": 46123,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 79062,
+      "owner": {
+        "raw_name": "kuE1uTiWfuk#F#A",
+        "value": 29712,
+        "size": 103,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "kuE1uTiWfuk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSysGetClientNumber"
+      }
+    },
+    {
+      "instruction_va": 29851,
+      "file_offset": 46235,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78950,
+      "owner": {
+        "raw_name": "ftf-xlfBQpo#F#A",
+        "value": 29824,
+        "size": 68,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "ftf-xlfBQpo",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSysIsGameClosed"
+      }
+    },
+    {
+      "instruction_va": 29908,
+      "file_offset": 46292,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78893,
+      "owner": {
+        "raw_name": "x3K61sY5m8Q#F#A",
+        "value": 29904,
+        "size": 64,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "x3K61sY5m8Q",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSysEnableSubmitDone45Exception"
+      }
+    },
+    {
+      "instruction_va": 29988,
+      "file_offset": 46372,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78813,
+      "owner": {
+        "raw_name": "SOo3Lwyglfo#F#A",
+        "value": 29984,
+        "size": 34,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "SOo3Lwyglfo",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverHp3dLockStart"
+      }
+    },
+    {
+      "instruction_va": 30036,
+      "file_offset": 46420,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78765,
+      "owner": {
+        "raw_name": "u2g5VER9UnM#F#A",
+        "value": 30032,
+        "size": 34,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "u2g5VER9UnM",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverHp3dLockEnd"
+      }
+    },
+    {
+      "instruction_va": 30166,
+      "file_offset": 46550,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78635,
+      "owner": {
+        "raw_name": "4JOwdjYqMpU#H#A",
+        "value": 30160,
+        "size": 73,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "4JOwdjYqMpU",
+        "lid": "H",
+        "mid": "A",
+        "mapped_name": "sceAgdSetApplicationGpuDebug"
+      }
+    },
+    {
+      "instruction_va": 30240,
+      "file_offset": 46624,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78561,
+      "owner": {
+        "raw_name": "KKrEe-LWNG8#H#A",
+        "value": 30240,
+        "size": 14,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "KKrEe-LWNG8",
+        "lid": "H",
+        "mid": "A",
+        "mapped_name": "sceAgdGetApplicationGpuDebug"
+      }
+    },
+    {
+      "instruction_va": 30256,
+      "file_offset": 46640,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78545,
+      "owner": {
+        "raw_name": "qDjJ+CgiMzs#H#A",
+        "value": 30256,
+        "size": 14,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "qDjJ+CgiMzs",
+        "lid": "H",
+        "mid": "A",
+        "mapped_name": "sceAgdGetSystemGpuDebug"
+      }
+    },
+    {
+      "instruction_va": 30794,
+      "file_offset": 47178,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78007,
+      "owner": null
+    },
+    {
+      "instruction_va": 31466,
+      "file_offset": 47850,
+      "opcode": "LEA",
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "displacement": 67951,
+      "owner": null
+    }
+  ],
+  "candidate_store_accesses": [
+    {
+      "context_reference": {
+        "offset": 211,
+        "instruction_va": 211,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 278,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 40,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 211,
+        "instruction_va": 211,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 288,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 80,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 211,
+        "instruction_va": 211,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 300,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 88,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 849,
+        "instruction_va": 849,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 871,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 6,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 849,
+        "instruction_va": 849,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 891,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 2,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 849,
+        "instruction_va": 849,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 925,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 6,
+      "displacement": 16,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 2315,
+        "instruction_va": 2315,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 2330,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 7,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 2315,
+        "instruction_va": 2315,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 2356,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 6,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 2315,
+        "instruction_va": 2315,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 2388,
+      "opcode": "MOV_STORE8",
+      "mod": 2,
+      "rm": 2,
+      "displacement": -919535616,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 3883,
+        "instruction_va": 3883,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 3916,
+      "opcode": "MOV_STORE8",
+      "mod": 0,
+      "rm": 0,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 3883,
+        "instruction_va": 3883,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 3963,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 1,
+      "displacement": -1992228863,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 4963,
+        "instruction_va": 4963,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 4986,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 4,
+      "displacement": 224,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 6408,
+        "instruction_va": 6408,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 6416,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -88,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 6408,
+        "instruction_va": 6408,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 6423,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -64,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 6408,
+        "instruction_va": 6408,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 6430,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -56,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 6408,
+        "instruction_va": 6408,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 6437,
+      "opcode": "MOV_STORE8",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -52,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 6408,
+        "instruction_va": 6408,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 6455,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 32,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 6725,
+        "instruction_va": 6725,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 6736,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -48,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8131,
+        "instruction_va": 8131,
+        "target_name": "agr_context",
+        "target_va": 108648
+      },
+      "access_va": 8154,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 7,
+      "displacement": 4,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8131,
+        "instruction_va": 8131,
+        "target_name": "agr_context",
+        "target_va": 108648
+      },
+      "access_va": 8206,
+      "opcode": "MOV_STORE8",
+      "mod": 0,
+      "rm": 1,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8131,
+        "instruction_va": 8131,
+        "target_name": "agr_context",
+        "target_va": 108648
+      },
+      "access_va": 8217,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -328,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8209,
+        "instruction_va": 8209,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 8217,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -328,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8355,
+        "instruction_va": 8355,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 8378,
+      "opcode": "MOV_STORE8",
+      "mod": 0,
+      "rm": 1,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8355,
+        "instruction_va": 8355,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 8382,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -280,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8355,
+        "instruction_va": 8355,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 8435,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -312,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8355,
+        "instruction_va": 8355,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 8442,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 96,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8374,
+        "instruction_va": 8374,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8382,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -280,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8374,
+        "instruction_va": 8374,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8435,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -312,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8374,
+        "instruction_va": 8374,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8442,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 96,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8374,
+        "instruction_va": 8374,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8455,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -320,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8374,
+        "instruction_va": 8374,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8462,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 112,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8502,
+        "instruction_va": 8502,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8510,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -304,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8502,
+        "instruction_va": 8502,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8527,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -292,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8502,
+        "instruction_va": 8502,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8543,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -288,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8502,
+        "instruction_va": 8502,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8555,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -284,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8887,
+        "instruction_va": 8887,
+        "target_name": "agr_context",
+        "target_va": 108648
+      },
+      "access_va": 8916,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 0,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8887,
+        "instruction_va": 8887,
+        "target_name": "agr_context",
+        "target_va": 108648
+      },
+      "access_va": 8933,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 6,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8887,
+        "instruction_va": 8887,
+        "target_name": "agr_context",
+        "target_va": 108648
+      },
+      "access_va": 8966,
+      "opcode": "MOV_STORE8",
+      "mod": 0,
+      "rm": 0,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 10289,
+        "instruction_va": 10289,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 10367,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -16,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 10545,
+        "instruction_va": 10545,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 10626,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -48,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 11319,
+        "instruction_va": 11319,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 11330,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -32,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 12340,
+        "instruction_va": 12340,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 12422,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -48,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 12693,
+        "instruction_va": 12693,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 12726,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 7,
+      "displacement": 32,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 12757,
+        "instruction_va": 12757,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 12790,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 7,
+      "displacement": 32,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 12757,
+        "instruction_va": 12757,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 12847,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -48,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 17597,
+        "instruction_va": 17597,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 17634,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 3,
+      "displacement": 8,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 17597,
+        "instruction_va": 17597,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 17675,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 16,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 17597,
+        "instruction_va": 17597,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 17685,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 20,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 17702,
+        "instruction_va": 17702,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 17719,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 24,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 17952,
+        "instruction_va": 17952,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 18041,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -48,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 18075,
+        "instruction_va": 18075,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 18111,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 1,
+      "displacement": 32,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 18075,
+        "instruction_va": 18075,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 18126,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 1,
+      "displacement": 24,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 18075,
+        "instruction_va": 18075,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 18161,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -72,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 18075,
+        "instruction_va": 18075,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 18165,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -64,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 18368,
+        "instruction_va": 18368,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 18429,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 3,
+      "displacement": 20,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 18368,
+        "instruction_va": 18368,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 18432,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 3,
+      "displacement": 24,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 26596,
+        "instruction_va": 26596,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 26612,
+      "opcode": "MOV_STORE8",
+      "mod": 0,
+      "rm": 1,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 26803,
+        "instruction_va": 26803,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 26843,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 3,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 26803,
+        "instruction_va": 26803,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 26888,
+      "opcode": "MOV_STORE8",
+      "mod": 2,
+      "rm": 0,
+      "displacement": 1207959552,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 26880,
+        "instruction_va": 26880,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 26888,
+      "opcode": "MOV_STORE8",
+      "mod": 2,
+      "rm": 0,
+      "displacement": 1207959552,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 26880,
+        "instruction_va": 26880,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 26901,
+      "opcode": "MOV_STORE8",
+      "mod": 0,
+      "rm": 0,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 26916,
+        "instruction_va": 26916,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 26975,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 0,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 30166,
+        "instruction_va": 30166,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 30191,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 3,
+      "displacement": 436,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 30794,
+        "instruction_va": 30794,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 30807,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 5,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 30794,
+        "instruction_va": 30794,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 30813,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 5,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 31466,
+        "instruction_va": 31466,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 31488,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 0,
+      "displacement": 0,
+      "relative_to_context": true
+    }
+  ],
+  "important_functions": [
+    {
+      "name": "sceAgcDriverSubmitDcb",
+      "nid": "UglJIZjGssM",
+      "va": 10416,
+      "size": 15,
+      "raw": {
+        "va": 10416,
+        "file_offset": 26800,
+        "size": 15,
+        "bytes_hex": "48 89 fe 48 8d 3d fe 7f 01 00 e9 f1 ef ff ff"
+      }
+    },
+    {
+      "name": "sceAgcDriverAgrSubmitDcb",
+      "nid": "AhGvpITrf4M",
+      "va": 10432,
+      "size": 72,
+      "raw": {
+        "va": 10432,
+        "file_offset": 26816,
+        "size": 72,
+        "bytes_hex": "55 48 89 e5 48 8d 05 3d 80 01 00 83 b8 48 01 00 00 00 74 10 48 89 fe 48 8d 3d 8a 7f 01 00 5d e9 cc ef ff ff 48 8b 0d f5 17 01 00 48 8d 3d 6c d4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6f 82 00 00 b8 03 00 6d 8a 5d c3"
+      }
+    },
+    {
+      "name": "sceAgcDriverSubmitAcb",
+      "nid": "gSRnr79F8tQ",
+      "va": 10512,
+      "size": 67,
+      "raw": {
+        "va": 10512,
+        "file_offset": 26896,
+        "size": 67,
+        "bytes_hex": "83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 7a 01 00 eb 13 83 ff 20 72 1e 83 c7 e0 48 8d 04 ff 48 8d 3d 28 5b 01 00 48 c1 e0 04 48 01 c7 48 83 c7 08 e9 68 ef ff ff 31 ff 48 83 c7 08 e9 5d ef ff ff"
+      }
+    },
+    {
+      "name": "sceAgcDriverSubmitMultiCommandBuffers",
+      "nid": "Fj7r9EHzF38",
+      "va": 18000,
+      "size": 579,
+      "raw": {
+        "va": 18000,
+        "file_offset": 34384,
+        "size": 579,
+        "bytes_hex": "55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 28 4c 8b 35 80 fa 00 00 48 8d 5f 38 41 89 cc 49 89 d7 49 89 f5 49 8b 06 48 89 45 d0 48 89 7d c8 48 89 df e8 88 65 00 00 85 c0 0f 88 7e 01 00 00 b8 00 00 6d 8a 0f 85 d9 01 00 00 48 8d 0d 66 62 01 00 b8 01 00 00 00 48 89 e7 48 81 c7 00 f0 ff ff f0 48 0f c1 81 40 01 00 00 48 8b 4d c8 48 89 41 20 48 ff 41 28 c7 41 14 00 00 00 00 44 89 61 18 80 61 08 fe 48 c7 41 30 00 00 00 00 48 89 fc 45 85 e4 0f 84 49 01 00 00 48 8d 47 1c 45 31 f6 48 89 5d b8 48 89 7d c0 48 89 45 b0 0f 1f 40 00 41 81 fc 80 00 00 00 b8 80 00 00 00 ba 00 10 00 00 44 0f 43 e0 31 f6 e8 a4 64 00 00 48 8b 4d b0 4c 89 e2 4c 89 e0 66 2e 0f 1f 84 00 00 00 00 00 44 89 f7 41 ff c6 49 8b 74 fd 00 48 89 71 f4 41 8b 34 bf 89 71 fc c6 01 00 48 83 c1 20 48 ff c8 75 de 48 8d 05 af 61 01 00 8b 80 a0 00 00 00 85 c0 74 5d 48 8d 0d 9e 61 01 00 31 db 4c 8d 71 48 eb 1c 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c6 78 48 39 cb 73 32 49 8b 0e 48 85 c9 74 ea 48 8b 7d c8 48 8b 75 c0 ff d1 48 8d 05 61 61 01 00 4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 8d 0d 41 61 01 00 48 8b 5d c8 48 8b 75 c0 49 89 d4 8b 81 a4 00 00 00 48 89 df 48 6b c0 78 ff 54 01 58 85 c0 75 53 44 8b 73 14 8b 43 18 48 8b 7d c0 41 83 ee 80 44 29 e0 41 89 c4 44 89 73 14 89 43 18 0f 85 f7 fe ff ff 45 31 ff eb 2f 48 8b 0d cb f8 00 00 48 8d 3d 08 ac 00 00 be 34 00 00 00 ba 01 00 00 00 e8 45 63 00 00 b8 00 00 6d 8a eb 42 41 bf 00 00 6d 8a eb 0e 41 89 c7 4c 8b 35 a4 f8 00 00 48 8b 5d b8 48 89 df e8 d0 63 00 00 85 c0 79 1d 48 8b 0d 85 f8 00 00 48 8d 3d 0e b1 00 00 be 32 00 00 00 ba 01 00 00 00 e8 ff 62 00 00 44 89 f8 49 8b 0e 48 3b 4d d0 75 0f 48 8d 65 d8 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 9f 63 00 00 0f 0b"
+      }
+    },
+    {
+      "name": "sceAgcDriverSubmitMultiDcbs",
+      "nid": "6UzEidRZwkg",
+      "va": 18592,
+      "size": 20,
+      "raw": {
+        "va": 18592,
+        "file_offset": 34976,
+        "size": 20,
+        "bytes_hex": "89 d1 48 89 f2 48 89 fe 48 8d 3d 09 60 01 00 e9 9c fd ff ff"
+      }
+    },
+    {
+      "name": "sceAgcDriverAgrSubmitMultiDcbs",
+      "nid": "+T8Xo6LtFJI",
+      "va": 18624,
+      "size": 77,
+      "raw": {
+        "va": 18624,
+        "file_offset": 35008,
+        "size": 77,
+        "bytes_hex": "55 48 89 e5 48 8d 05 3d 60 01 00 83 b8 48 01 00 00 00 74 15 89 d1 48 89 f2 48 89 fe 48 8d 3d 85 5f 01 00 5d e9 67 fd ff ff 48 8b 0d f0 f7 00 00 48 8d 3d 67 b4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6a 62 00 00 b8 03 00 6d 8a 5d c3"
+      }
+    },
+    {
+      "name": "sceAgcDriverSubmitMultiAcbs",
+      "nid": "HF3YllT3mXU",
+      "va": 18704,
+      "size": 67,
+      "raw": {
+        "va": 18704,
+        "file_offset": 35088,
+        "size": 67,
+        "bytes_hex": "83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 5a 01 00 eb 13 83 ff 20 72 1e 83 c7 e0 48 8d 04 ff 48 8d 3d 28 3b 01 00 48 c1 e0 04 48 01 c7 48 83 c7 08 e9 08 fd ff ff 31 ff 48 83 c7 08 e9 fd fc ff ff"
+      }
+    },
+    {
+      "name": "sceAgcDriverSuspendPointSubmit",
+      "nid": "QcmHLO2n7mk",
+      "va": 7168,
+      "size": 767,
+      "raw": {
+        "va": 7168,
+        "file_offset": 23552,
+        "size": 767,
+        "bytes_hex": "55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 38 48 8b 1d d0 24 01 00 4c 8d 2d e9 8c 01 00 49 89 f7 49 89 fc 41 be 00 00 6d 8a 48 8b 03 48 89 45 d0 41 83 bd 48 01 00 00 00 0f 84 53 01 00 00 48 8d 3d 59 8c 01 00 e8 c4 8f 00 00 85 c0 0f 88 c3 00 00 00 0f 85 39 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 4c 89 7d a8 4c 89 65 a0 49 8b 04 24 48 89 45 c0 41 8b 44 24 08 89 45 c8 41 8a 44 24 0c 88 45 cc b8 01 00 00 00 f0 49 0f c1 85 40 01 00 00 48 89 05 e6 8b 01 00 48 ff 05 e7 8b 01 00 48 c7 05 c8 8b 01 00 00 00 00 00 80 25 b5 8b 01 00 fe 41 8b 85 a0 00 00 00 48 c7 05 cb 8b 01 00 00 00 00 00 85 c0 74 65 4d 8d 75 60 4c 8d 25 8c 8b 01 00 48 8d 5d b0 45 31 ff eb 19 66 66 2e 0f 1f 84 00 00 00 00 00 49 ff c7 89 c1 49 83 c6 78 49 39 cf 73 38 49 8b 0e 48 85 c9 74 ea 4c 89 e7 48 89 de ff d1 41 8b 85 a0 00 00 00 eb d9 48 8b 0d c2 23 01 00 48 8d 3d ff d6 00 00 be 34 00 00 00 ba 01 00 00 00 e8 3c 8e 00 00 eb 5d 41 8b 85 a8 00 00 00 4c 8b 7d a8 48 8d 3d 20 8b 01 00 48 8d 75 b0 48 6b c0 78 4c 89 fa 41 ff 54 05 68 48 8d 3d 41 8b 01 00 41 89 c6 e8 b9 8e 00 00 85 c0 79 1d 48 8b 0d 6e 23 01 00 48 8d 3d f7 db 00 00 be 32 00 00 00 ba 01 00 00 00 e8 e8 8d 00 00 48 8b 1d 59 23 01 00 4c 8b 65 a0 48 8d 3d 56 8b 01 00 e8 71 8e 00 00 85 c0 0f 88 c1 00 00 00 0f 85 30 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 4c 89 7d a8 49 8b 04 24 48 89 45 c0 41 8b 44 24 08 89 45 c8 41 8a 44 24 0c 88 45 cc b8 01 00 00 00 f0 49 0f c1 85 40 01 00 00 48 89 05 e7 8a 01 00 48 ff 05 e8 8a 01 00 48 c7 05 c9 8a 01 00 00 00 00 00 80 25 b6 8a 01 00 fe 41 8b 85 a0 00 00 00 48 c7 05 cc 8a 01 00 00 00 00 00 85 c0 74 67 4d 8d 65 60 4c 8d 3d 8d 8a 01 00 4c 8d 75 b0 31 db eb 1b 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c4 78 48 39 cb 73 39 49 8b 0c 24 48 85 c9 74 e9 4c 89 ff 4c 89 f6 ff d1 41 8b 85 a0 00 00 00 eb d8 48 8b 0d 71 22 01 00 48 8d 3d ae d5 00 00 be 34 00 00 00 ba 01 00 00 00 e8 eb 8c 00 00 eb 56 41 8b 85 a8 00 00 00 48 8b 55 a8 48 8d 3d 1f 8a 01 00 48 8d 75 b0 48 6b c0 78 41 ff 54 05 68 48 8d 3d 43 8a 01 00 41 89 c6 e8 6b 8d 00 00 85 c0 79 1d 48 8b 0d 20 22 01 00 48 8d 3d a9 da 00 00 be 32 00 00 00 ba 01 00 00 00 e8 9a 8c 00 00 48 8b 1d 0b 22 01 00 48 8b 03 48 3b 45 d0 75 12 44 89 f0 48 83 c4 38 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 33 8d 00 00 0f 0b"
+      }
+    },
+    {
+      "name": "sceAgcDriverSubmitReprojectionAcb",
+      "nid": "F5ZTyyVUHTs",
+      "va": 10592,
+      "size": 449,
+      "raw": {
+        "va": 10592,
+        "file_offset": 26976,
+        "size": 449,
+        "bytes_hex": "55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 38 4c 8b 35 70 17 01 00 49 89 d7 49 89 f4 49 8b 06 48 89 45 d0 83 ff 58 72 0c 83 c7 a8 4c 8d 2d 4c 7a 01 00 eb 0f 83 ff 20 72 17 83 c7 e0 4c 8d 2d bb 5a 01 00 48 8d 04 ff 48 c1 e0 04 49 01 c5 eb 03 45 31 ed 49 8d 5d 40 48 89 df e8 4f 82 00 00 85 c0 0f 88 c5 00 00 00 4c 89 f9 41 bf 00 00 6d 8a 48 89 5d a8 0f 85 23 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 4d 8d 7d 08 49 8b 04 24 48 89 45 c0 41 8b 44 24 08 89 45 c8 41 8a 44 24 0c 4c 8d 25 f9 7e 01 00 88 45 cc b8 01 00 00 00 f0 49 0f c1 84 24 40 01 00 00 49 89 45 28 49 ff 45 30 49 c7 45 1c 00 00 00 00 41 80 4d 10 01 49 89 4d 38 41 8b 84 24 a0 00 00 00 85 c0 74 6d 4d 8d 6c 24 48 4c 8d 75 b0 31 db eb 1b 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c5 78 48 39 cb 73 45 49 8b 4d 00 48 85 c9 74 e9 4c 89 ff 4c 89 f6 ba 01 00 00 00 ff d1 41 8b 84 24 a0 00 00 00 eb d2 48 8b 0d 4b 16 01 00 48 8d 3d 88 c9 00 00 be 34 00 00 00 ba 01 00 00 00 e8 c5 80 00 00 41 bf 00 00 6d 8a eb 4c 41 8b 84 24 a4 00 00 00 48 8d 75 b0 4c 89 ff 48 6b c0 78 41 ff 54 04 50 48 8b 7d a8 41 89 c7 e8 49 81 00 00 85 c0 79 1d 48 8b 0d fe 15 01 00 48 8d 3d 87 ce 00 00 be 32 00 00 00 ba 01 00 00 00 e8 78 80 00 00 4c 8b 35 e9 15 01 00 49 8b 06 48 3b 45 d0 75 12 44 89 f8 48 83 c4 38 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 11 81 00 00 0f 0b"
+      }
+    }
+  ],
+  "function_context_windows": [
+    {
+      "function": "sceAgcDriverSubmitDcb",
+      "function_va": 10416,
+      "lea_va": 10419,
+      "target_name": "dcb_context",
+      "target_va": 108728,
+      "following_bytes": "e9 f1 ef ff ff"
+    },
+    {
+      "function": "sceAgcDriverAgrSubmitDcb",
+      "function_va": 10432,
+      "lea_va": 10436,
+      "target_name": "global_context",
+      "target_va": 108808,
+      "following_bytes": "83 b8 48 01 00 00 00 74 10 48 89 fe 48 8d 3d 8a 7f 01 00 5d e9 cc ef ff ff 48 8b 0d f5 17 01 00 48 8d 3d 6c d4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6f 82 00 00 b8 03 00 6d 8a 5d c3"
+    },
+    {
+      "function": "sceAgcDriverAgrSubmitDcb",
+      "function_va": 10432,
+      "lea_va": 10455,
+      "target_name": "agr_context",
+      "target_va": 108648,
+      "following_bytes": "5d e9 cc ef ff ff 48 8b 0d f5 17 01 00 48 8d 3d 6c d4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6f 82 00 00 b8 03 00 6d 8a 5d c3"
+    },
+    {
+      "function": "sceAgcDriverSubmitAcb",
+      "function_va": 10512,
+      "lea_va": 10545,
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "following_bytes": "48 c1 e0 04 48 01 c7 48 83 c7 08 e9 68 ef ff ff 31 ff 48 83 c7 08 e9 5d ef ff ff"
+    },
+    {
+      "function": "sceAgcDriverSubmitMultiCommandBuffers",
+      "function_va": 18000,
+      "lea_va": 18075,
+      "target_name": "global_context",
+      "target_va": 108808,
+      "following_bytes": "b8 01 00 00 00 48 89 e7 48 81 c7 00 f0 ff ff f0 48 0f c1 81 40 01 00 00 48 8b 4d c8 48 89 41 20 48 ff 41 28 c7 41 14 00 00 00 00 44 89 61 18 80 61 08 fe 48 c7 41 30 00 00 00 00 48 89 fc 45 85 e4 0f 84 49 01 00 00 48 8d 47 1c 45 31 f6 48 89 5d b8 48 89 7d c0 48 89 45 b0 0f 1f 40 00 41 81"
+    },
+    {
+      "function": "sceAgcDriverSubmitMultiCommandBuffers",
+      "function_va": 18000,
+      "lea_va": 18258,
+      "target_name": "global_context",
+      "target_va": 108808,
+      "following_bytes": "8b 80 a0 00 00 00 85 c0 74 5d 48 8d 0d 9e 61 01 00 31 db 4c 8d 71 48 eb 1c 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c6 78 48 39 cb 73 32 49 8b 0e 48 85 c9 74 ea 48 8b 7d c8 48 8b 75 c0 ff d1 48 8d 05 61 61 01 00 4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f"
+    },
+    {
+      "function": "sceAgcDriverSubmitMultiCommandBuffers",
+      "function_va": 18000,
+      "lea_va": 18275,
+      "target_name": "global_context",
+      "target_va": 108808,
+      "following_bytes": "31 db 4c 8d 71 48 eb 1c 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c6 78 48 39 cb 73 32 49 8b 0e 48 85 c9 74 ea 48 8b 7d c8 48 8b 75 c0 ff d1 48 8d 05 61 61 01 00 4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 8d 0d 41 61 01 00 48 8b 5d"
+    },
+    {
+      "function": "sceAgcDriverSubmitMultiCommandBuffers",
+      "function_va": 18000,
+      "lea_va": 18336,
+      "target_name": "global_context",
+      "target_va": 108808,
+      "following_bytes": "4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 8d 0d 41 61 01 00 48 8b 5d c8 48 8b 75 c0 49 89 d4 8b 81 a4 00 00 00 48 89 df 48 6b c0 78 ff 54 01 58 85 c0 75 53 44 8b 73 14 8b 43 18 48 8b 7d c0 41 83 ee 80 44 29 e0 41 89 c4 44 89 73 14 89 43 18 0f 85 f7 fe"
+    },
+    {
+      "function": "sceAgcDriverSubmitMultiCommandBuffers",
+      "function_va": 18000,
+      "lea_va": 18368,
+      "target_name": "global_context",
+      "target_va": 108808,
+      "following_bytes": "48 8b 5d c8 48 8b 75 c0 49 89 d4 8b 81 a4 00 00 00 48 89 df 48 6b c0 78 ff 54 01 58 85 c0 75 53 44 8b 73 14 8b 43 18 48 8b 7d c0 41 83 ee 80 44 29 e0 41 89 c4 44 89 73 14 89 43 18 0f 85 f7 fe ff ff 45 31 ff eb 2f 48 8b 0d cb f8 00 00 48 8d 3d 08 ac 00 00 be 34 00 00 00 ba 01 00 00 00 e8"
+    },
+    {
+      "function": "sceAgcDriverSubmitMultiDcbs",
+      "function_va": 18592,
+      "lea_va": 18600,
+      "target_name": "dcb_context",
+      "target_va": 108728,
+      "following_bytes": "e9 9c fd ff ff"
+    },
+    {
+      "function": "sceAgcDriverAgrSubmitMultiDcbs",
+      "function_va": 18624,
+      "lea_va": 18628,
+      "target_name": "global_context",
+      "target_va": 108808,
+      "following_bytes": "83 b8 48 01 00 00 00 74 15 89 d1 48 89 f2 48 89 fe 48 8d 3d 85 5f 01 00 5d e9 67 fd ff ff 48 8b 0d f0 f7 00 00 48 8d 3d 67 b4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6a 62 00 00 b8 03 00 6d 8a 5d c3"
+    },
+    {
+      "function": "sceAgcDriverAgrSubmitMultiDcbs",
+      "function_va": 18624,
+      "lea_va": 18652,
+      "target_name": "agr_context",
+      "target_va": 108648,
+      "following_bytes": "5d e9 67 fd ff ff 48 8b 0d f0 f7 00 00 48 8d 3d 67 b4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6a 62 00 00 b8 03 00 6d 8a 5d c3"
+    },
+    {
+      "function": "sceAgcDriverSubmitMultiAcbs",
+      "function_va": 18704,
+      "lea_va": 18737,
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "following_bytes": "48 c1 e0 04 48 01 c7 48 83 c7 08 e9 08 fd ff ff 31 ff 48 83 c7 08 e9 fd fc ff ff"
+    },
+    {
+      "function": "sceAgcDriverSuspendPointSubmit",
+      "function_va": 7168,
+      "lea_va": 7489,
+      "target_name": "agr_context",
+      "target_va": 108648,
+      "following_bytes": "48 8d 75 b0 48 6b c0 78 4c 89 fa 41 ff 54 05 68 48 8d 3d 41 8b 01 00 41 89 c6 e8 b9 8e 00 00 85 c0 79 1d 48 8b 0d 6e 23 01 00 48 8d 3d f7 db 00 00 be 32 00 00 00 ba 01 00 00 00 e8 e8 8d 00 00 48 8b 1d 59 23 01 00 4c 8b 65 a0 48 8d 3d 56 8b 01 00 e8 71 8e 00 00 85 c0 0f 88 c1 00 00 00 0f"
+    },
+    {
+      "function": "sceAgcDriverSuspendPointSubmit",
+      "function_va": 7168,
+      "lea_va": 7826,
+      "target_name": "dcb_context",
+      "target_va": 108728,
+      "following_bytes": "48 8d 75 b0 48 6b c0 78 41 ff 54 05 68 48 8d 3d 43 8a 01 00 41 89 c6 e8 6b 8d 00 00 85 c0 79 1d 48 8b 0d 20 22 01 00 48 8d 3d a9 da 00 00 be 32 00 00 00 ba 01 00 00 00 e8 9a 8c 00 00 48 8b 1d 0b 22 01 00 48 8b 03 48 3b 45 d0 75 12 44 89 f0 48 83 c4 38 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8"
+    }
+  ],
+  "loads": [
+    {
+      "offset": 16384,
+      "vaddr": 0,
+      "filesz": 44754,
+      "memsz": 44754,
+      "flags": 1
+    },
+    {
+      "offset": 65536,
+      "vaddr": 49152,
+      "filesz": 26636,
+      "memsz": 26636,
+      "flags": 4
+    },
+    {
+      "offset": 98304,
+      "vaddr": 81920,
+      "filesz": 728,
+      "memsz": 728,
+      "flags": 6
+    },
+    {
+      "offset": 114688,
+      "vaddr": 98304,
+      "filesz": 17,
+      "memsz": 12328,
+      "flags": 6
+    },
+    {
+      "offset": 127024,
+      "vaddr": 110640,
+      "filesz": 12480,
+      "memsz": 12480,
+      "flags": 0
+    }
+  ]
+}
+
+==> Collect static analysis
+
+[WSL] cp '/tmp/agc_stage49/stage49_static.json' \
+   '/mnt/d/agc_work/stage49_results/stage49_static.json'
+
+cat '/tmp/agc_stage49/stage49_static.json'
+{
+  "targets": {
+    "submit_command_buffer": 6320,
+    "agr_context": 108648,
+    "dcb_context": 108728,
+    "global_context": 108808,
+    "acb_table": 99424
+  },
+  "rip_references": [
+    {
+      "instruction_va": 211,
+      "file_offset": 16595,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 108590,
+      "owner": null
+    },
+    {
+      "instruction_va": 356,
+      "file_offset": 16740,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 108445,
+      "owner": null
+    },
+    {
+      "instruction_va": 849,
+      "file_offset": 17233,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 107952,
+      "owner": null
+    },
+    {
+      "instruction_va": 1168,
+      "file_offset": 17552,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 107633,
+      "owner": null
+    },
+    {
+      "instruction_va": 1200,
+      "file_offset": 17584,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 107601,
+      "owner": null
+    },
+    {
+      "instruction_va": 1240,
+      "file_offset": 17624,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 107561,
+      "owner": null
+    },
+    {
+      "instruction_va": 1315,
+      "file_offset": 17699,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 107486,
+      "owner": null
+    },
+    {
+      "instruction_va": 1395,
+      "file_offset": 17779,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 107406,
+      "owner": null
+    },
+    {
+      "instruction_va": 2186,
+      "file_offset": 18570,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 106615,
+      "owner": null
+    },
+    {
+      "instruction_va": 2315,
+      "file_offset": 18699,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 106486,
+      "owner": {
+        "raw_name": "Um-jkyDy9rI#F#A",
+        "value": 2288,
+        "size": 73,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Um-jkyDy9rI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetReservedDmemForAgc"
+      }
+    },
+    {
+      "instruction_va": 3883,
+      "file_offset": 20267,
+      "opcode": "LEA",
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "displacement": 95534,
+      "owner": null
+    },
+    {
+      "instruction_va": 4963,
+      "file_offset": 21347,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 103838,
+      "owner": null
+    },
+    {
+      "instruction_va": 6408,
+      "file_offset": 22792,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 102393,
+      "owner": {
+        "raw_name": "b4fpgH5ZXxQ#F#A",
+        "value": 6320,
+        "size": 380,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "b4fpgH5ZXxQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitCommandBuffer"
+      }
+    },
+    {
+      "instruction_va": 6725,
+      "file_offset": 23109,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 102076,
+      "owner": null
+    },
+    {
+      "instruction_va": 6789,
+      "file_offset": 23173,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 102012,
+      "owner": null
+    },
+    {
+      "instruction_va": 7489,
+      "file_offset": 23873,
+      "opcode": "LEA",
+      "target_va": 108648,
+      "target_name": "agr_context",
+      "displacement": 101152,
+      "owner": {
+        "raw_name": "QcmHLO2n7mk#F#A",
+        "value": 7168,
+        "size": 767,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "QcmHLO2n7mk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSuspendPointSubmit"
+      }
+    },
+    {
+      "instruction_va": 7826,
+      "file_offset": 24210,
+      "opcode": "LEA",
+      "target_va": 108728,
+      "target_name": "dcb_context",
+      "displacement": 100895,
+      "owner": {
+        "raw_name": "QcmHLO2n7mk#F#A",
+        "value": 7168,
+        "size": 767,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "QcmHLO2n7mk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSuspendPointSubmit"
+      }
+    },
+    {
+      "instruction_va": 8131,
+      "file_offset": 24515,
+      "opcode": "LEA",
+      "target_va": 108648,
+      "target_name": "agr_context",
+      "displacement": 100510,
+      "owner": null
+    },
+    {
+      "instruction_va": 8209,
+      "file_offset": 24593,
+      "opcode": "LEA",
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "displacement": 91208,
+      "owner": null
+    },
+    {
+      "instruction_va": 8355,
+      "file_offset": 24739,
+      "opcode": "LEA",
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "displacement": 91062,
+      "owner": null
+    },
+    {
+      "instruction_va": 8374,
+      "file_offset": 24758,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 100427,
+      "owner": null
+    },
+    {
+      "instruction_va": 8502,
+      "file_offset": 24886,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 100299,
+      "owner": null
+    },
+    {
+      "instruction_va": 8887,
+      "file_offset": 25271,
+      "opcode": "LEA",
+      "target_va": 108648,
+      "target_name": "agr_context",
+      "displacement": 99754,
+      "owner": null
+    },
+    {
+      "instruction_va": 10289,
+      "file_offset": 26673,
+      "opcode": "LEA",
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "displacement": 89128,
+      "owner": null
+    },
+    {
+      "instruction_va": 10419,
+      "file_offset": 26803,
+      "opcode": "LEA",
+      "target_va": 108728,
+      "target_name": "dcb_context",
+      "displacement": 98302,
+      "owner": {
+        "raw_name": "UglJIZjGssM#F#A",
+        "value": 10416,
+        "size": 15,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "UglJIZjGssM",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitDcb"
+      }
+    },
+    {
+      "instruction_va": 10436,
+      "file_offset": 26820,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 98365,
+      "owner": {
+        "raw_name": "AhGvpITrf4M#F#A",
+        "value": 10432,
+        "size": 72,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "AhGvpITrf4M",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitDcb"
+      }
+    },
+    {
+      "instruction_va": 10455,
+      "file_offset": 26839,
+      "opcode": "LEA",
+      "target_va": 108648,
+      "target_name": "agr_context",
+      "displacement": 98186,
+      "owner": {
+        "raw_name": "AhGvpITrf4M#F#A",
+        "value": 10432,
+        "size": 72,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "AhGvpITrf4M",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitDcb"
+      }
+    },
+    {
+      "instruction_va": 10545,
+      "file_offset": 26929,
+      "opcode": "LEA",
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "displacement": 88872,
+      "owner": {
+        "raw_name": "gSRnr79F8tQ#F#A",
+        "value": 10512,
+        "size": 67,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "gSRnr79F8tQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitAcb"
+      }
+    },
+    {
+      "instruction_va": 11319,
+      "file_offset": 27703,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 97482,
+      "owner": {
+        "raw_name": "dwoD-LJDQy8#F#A",
+        "value": 11296,
+        "size": 518,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "dwoD-LJDQy8",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAcquireHDRScopesACQ"
+      }
+    },
+    {
+      "instruction_va": 11828,
+      "file_offset": 28212,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 96973,
+      "owner": {
+        "raw_name": "NRO47jBXLiI#F#A",
+        "value": 11824,
+        "size": 113,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "NRO47jBXLiI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverReleaseHDRScopesACQ"
+      }
+    },
+    {
+      "instruction_va": 12292,
+      "file_offset": 28676,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 96509,
+      "owner": {
+        "raw_name": "SOAMmdlyaIc#F#A",
+        "value": 12288,
+        "size": 37,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "SOAMmdlyaIc",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverCwsrSuspendAcq"
+      }
+    },
+    {
+      "instruction_va": 12340,
+      "file_offset": 28724,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 96461,
+      "owner": {
+        "raw_name": "1DXIHxWHZAQ#F#A",
+        "value": 12336,
+        "size": 34,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "1DXIHxWHZAQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverCwsrResumeAcq"
+      }
+    },
+    {
+      "instruction_va": 12693,
+      "file_offset": 29077,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 96108,
+      "owner": {
+        "raw_name": "CP-kVAMmWVw#F#A",
+        "value": 12688,
+        "size": 56,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "CP-kVAMmWVw",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetRegShadowInfo"
+      }
+    },
+    {
+      "instruction_va": 12757,
+      "file_offset": 29141,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 96044,
+      "owner": {
+        "raw_name": "ME1eUot7+Qw#F#A",
+        "value": 12752,
+        "size": 56,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "ME1eUot7+Qw",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetRegShadowInfoAgr"
+      }
+    },
+    {
+      "instruction_va": 15227,
+      "file_offset": 31611,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 93574,
+      "owner": {
+        "raw_name": "oFb2hMcoJa4#F#A",
+        "value": 15216,
+        "size": 335,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "oFb2hMcoJa4",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": null
+      }
+    },
+    {
+      "instruction_va": 15600,
+      "file_offset": 31984,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 93201,
+      "owner": null
+    },
+    {
+      "instruction_va": 16285,
+      "file_offset": 32669,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 92516,
+      "owner": null
+    },
+    {
+      "instruction_va": 16518,
+      "file_offset": 32902,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 92283,
+      "owner": null
+    },
+    {
+      "instruction_va": 17597,
+      "file_offset": 33981,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 91204,
+      "owner": null
+    },
+    {
+      "instruction_va": 17702,
+      "file_offset": 34086,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 91099,
+      "owner": null
+    },
+    {
+      "instruction_va": 17854,
+      "file_offset": 34238,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90947,
+      "owner": null
+    },
+    {
+      "instruction_va": 17880,
+      "file_offset": 34264,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90921,
+      "owner": null
+    },
+    {
+      "instruction_va": 17937,
+      "file_offset": 34321,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90864,
+      "owner": null
+    },
+    {
+      "instruction_va": 17952,
+      "file_offset": 34336,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90849,
+      "owner": null
+    },
+    {
+      "instruction_va": 18075,
+      "file_offset": 34459,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90726,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18258,
+      "file_offset": 34642,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90543,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18275,
+      "file_offset": 34659,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90526,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18336,
+      "file_offset": 34720,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90465,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18368,
+      "file_offset": 34752,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90433,
+      "owner": {
+        "raw_name": "Fj7r9EHzF38#F#A",
+        "value": 18000,
+        "size": 579,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "Fj7r9EHzF38",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+      }
+    },
+    {
+      "instruction_va": 18600,
+      "file_offset": 34984,
+      "opcode": "LEA",
+      "target_va": 108728,
+      "target_name": "dcb_context",
+      "displacement": 90121,
+      "owner": {
+        "raw_name": "6UzEidRZwkg#F#A",
+        "value": 18592,
+        "size": 20,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "6UzEidRZwkg",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiDcbs"
+      }
+    },
+    {
+      "instruction_va": 18628,
+      "file_offset": 35012,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 90173,
+      "owner": {
+        "raw_name": "+T8Xo6LtFJI#F#A",
+        "value": 18624,
+        "size": 77,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "+T8Xo6LtFJI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitMultiDcbs"
+      }
+    },
+    {
+      "instruction_va": 18652,
+      "file_offset": 35036,
+      "opcode": "LEA",
+      "target_va": 108648,
+      "target_name": "agr_context",
+      "displacement": 89989,
+      "owner": {
+        "raw_name": "+T8Xo6LtFJI#F#A",
+        "value": 18624,
+        "size": 77,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "+T8Xo6LtFJI",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverAgrSubmitMultiDcbs"
+      }
+    },
+    {
+      "instruction_va": 18737,
+      "file_offset": 35121,
+      "opcode": "LEA",
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "displacement": 80680,
+      "owner": {
+        "raw_name": "HF3YllT3mXU#F#A",
+        "value": 18704,
+        "size": 67,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "HF3YllT3mXU",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSubmitMultiAcbs"
+      }
+    },
+    {
+      "instruction_va": 26149,
+      "file_offset": 42533,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 82652,
+      "owner": {
+        "raw_name": "1BUTwixUG5Y#F#A",
+        "value": 26144,
+        "size": 24,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "1BUTwixUG5Y",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverDebugHardwareStatus"
+      }
+    },
+    {
+      "instruction_va": 26596,
+      "file_offset": 42980,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 82205,
+      "owner": null
+    },
+    {
+      "instruction_va": 26644,
+      "file_offset": 43028,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 82157,
+      "owner": null
+    },
+    {
+      "instruction_va": 26705,
+      "file_offset": 43089,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 82096,
+      "owner": {
+        "raw_name": "XlNp7jzGiPo#F#A",
+        "value": 26688,
+        "size": 75,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "XlNp7jzGiPo",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSetTFRing"
+      }
+    },
+    {
+      "instruction_va": 26803,
+      "file_offset": 43187,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 81998,
+      "owner": {
+        "raw_name": "e-YMQ+2tj9M#F#A",
+        "value": 26768,
+        "size": 104,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "e-YMQ+2tj9M",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetTFRing"
+      }
+    },
+    {
+      "instruction_va": 26880,
+      "file_offset": 43264,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 81921,
+      "owner": {
+        "raw_name": "MM4IZSEYytQ#F#A",
+        "value": 26880,
+        "size": 27,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "MM4IZSEYytQ",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSetHsOffchipParam"
+      }
+    },
+    {
+      "instruction_va": 26916,
+      "file_offset": 43300,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 81885,
+      "owner": {
+        "raw_name": "r28hEh6cNH0#F#A",
+        "value": 26912,
+        "size": 40,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "r28hEh6cNH0",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverGetHsOffchipParam"
+      }
+    },
+    {
+      "instruction_va": 29739,
+      "file_offset": 46123,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 79062,
+      "owner": {
+        "raw_name": "kuE1uTiWfuk#F#A",
+        "value": 29712,
+        "size": 103,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "kuE1uTiWfuk",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSysGetClientNumber"
+      }
+    },
+    {
+      "instruction_va": 29851,
+      "file_offset": 46235,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78950,
+      "owner": {
+        "raw_name": "ftf-xlfBQpo#F#A",
+        "value": 29824,
+        "size": 68,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "ftf-xlfBQpo",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSysIsGameClosed"
+      }
+    },
+    {
+      "instruction_va": 29908,
+      "file_offset": 46292,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78893,
+      "owner": {
+        "raw_name": "x3K61sY5m8Q#F#A",
+        "value": 29904,
+        "size": 64,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "x3K61sY5m8Q",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverSysEnableSubmitDone45Exception"
+      }
+    },
+    {
+      "instruction_va": 29988,
+      "file_offset": 46372,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78813,
+      "owner": {
+        "raw_name": "SOo3Lwyglfo#F#A",
+        "value": 29984,
+        "size": 34,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "SOo3Lwyglfo",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverHp3dLockStart"
+      }
+    },
+    {
+      "instruction_va": 30036,
+      "file_offset": 46420,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78765,
+      "owner": {
+        "raw_name": "u2g5VER9UnM#F#A",
+        "value": 30032,
+        "size": 34,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "u2g5VER9UnM",
+        "lid": "F",
+        "mid": "A",
+        "mapped_name": "sceAgcDriverHp3dLockEnd"
+      }
+    },
+    {
+      "instruction_va": 30166,
+      "file_offset": 46550,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78635,
+      "owner": {
+        "raw_name": "4JOwdjYqMpU#H#A",
+        "value": 30160,
+        "size": 73,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "4JOwdjYqMpU",
+        "lid": "H",
+        "mid": "A",
+        "mapped_name": "sceAgdSetApplicationGpuDebug"
+      }
+    },
+    {
+      "instruction_va": 30240,
+      "file_offset": 46624,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78561,
+      "owner": {
+        "raw_name": "KKrEe-LWNG8#H#A",
+        "value": 30240,
+        "size": 14,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "KKrEe-LWNG8",
+        "lid": "H",
+        "mid": "A",
+        "mapped_name": "sceAgdGetApplicationGpuDebug"
+      }
+    },
+    {
+      "instruction_va": 30256,
+      "file_offset": 46640,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78545,
+      "owner": {
+        "raw_name": "qDjJ+CgiMzs#H#A",
+        "value": 30256,
+        "size": 14,
+        "type": "STT_FUNC",
+        "bind": "STB_GLOBAL",
+        "nid": "qDjJ+CgiMzs",
+        "lid": "H",
+        "mid": "A",
+        "mapped_name": "sceAgdGetSystemGpuDebug"
+      }
+    },
+    {
+      "instruction_va": 30794,
+      "file_offset": 47178,
+      "opcode": "LEA",
+      "target_va": 108808,
+      "target_name": "global_context",
+      "displacement": 78007,
+      "owner": null
+    },
+    {
+      "instruction_va": 31466,
+      "file_offset": 47850,
+      "opcode": "LEA",
+      "target_va": 99424,
+      "target_name": "acb_table",
+      "displacement": 67951,
+      "owner": null
+    }
+  ],
+  "candidate_store_accesses": [
+    {
+      "context_reference": {
+        "offset": 211,
+        "instruction_va": 211,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 278,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 40,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 211,
+        "instruction_va": 211,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 288,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 80,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 211,
+        "instruction_va": 211,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 300,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 88,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 849,
+        "instruction_va": 849,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 871,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 6,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 849,
+        "instruction_va": 849,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 891,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 2,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 849,
+        "instruction_va": 849,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 925,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 6,
+      "displacement": 16,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 2315,
+        "instruction_va": 2315,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 2330,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 7,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 2315,
+        "instruction_va": 2315,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 2356,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 6,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 2315,
+        "instruction_va": 2315,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 2388,
+      "opcode": "MOV_STORE8",
+      "mod": 2,
+      "rm": 2,
+      "displacement": -919535616,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 3883,
+        "instruction_va": 3883,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 3916,
+      "opcode": "MOV_STORE8",
+      "mod": 0,
+      "rm": 0,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 3883,
+        "instruction_va": 3883,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 3963,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 1,
+      "displacement": -1992228863,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 4963,
+        "instruction_va": 4963,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 4986,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 4,
+      "displacement": 224,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 6408,
+        "instruction_va": 6408,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 6416,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -88,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 6408,
+        "instruction_va": 6408,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 6423,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -64,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 6408,
+        "instruction_va": 6408,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 6430,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -56,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 6408,
+        "instruction_va": 6408,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 6437,
+      "opcode": "MOV_STORE8",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -52,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 6408,
+        "instruction_va": 6408,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 6455,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 32,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 6725,
+        "instruction_va": 6725,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 6736,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -48,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8131,
+        "instruction_va": 8131,
+        "target_name": "agr_context",
+        "target_va": 108648
+      },
+      "access_va": 8154,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 7,
+      "displacement": 4,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8131,
+        "instruction_va": 8131,
+        "target_name": "agr_context",
+        "target_va": 108648
+      },
+      "access_va": 8206,
+      "opcode": "MOV_STORE8",
+      "mod": 0,
+      "rm": 1,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8131,
+        "instruction_va": 8131,
+        "target_name": "agr_context",
+        "target_va": 108648
+      },
+      "access_va": 8217,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -328,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8209,
+        "instruction_va": 8209,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 8217,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -328,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8355,
+        "instruction_va": 8355,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 8378,
+      "opcode": "MOV_STORE8",
+      "mod": 0,
+      "rm": 1,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8355,
+        "instruction_va": 8355,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 8382,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -280,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8355,
+        "instruction_va": 8355,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 8435,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -312,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8355,
+        "instruction_va": 8355,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 8442,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 96,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8374,
+        "instruction_va": 8374,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8382,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -280,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8374,
+        "instruction_va": 8374,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8435,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -312,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8374,
+        "instruction_va": 8374,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8442,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 96,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8374,
+        "instruction_va": 8374,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8455,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -320,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8374,
+        "instruction_va": 8374,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8462,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 112,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8502,
+        "instruction_va": 8502,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8510,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -304,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8502,
+        "instruction_va": 8502,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8527,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -292,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8502,
+        "instruction_va": 8502,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8543,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -288,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8502,
+        "instruction_va": 8502,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 8555,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 5,
+      "displacement": -284,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8887,
+        "instruction_va": 8887,
+        "target_name": "agr_context",
+        "target_va": 108648
+      },
+      "access_va": 8916,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 0,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8887,
+        "instruction_va": 8887,
+        "target_name": "agr_context",
+        "target_va": 108648
+      },
+      "access_va": 8933,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 6,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 8887,
+        "instruction_va": 8887,
+        "target_name": "agr_context",
+        "target_va": 108648
+      },
+      "access_va": 8966,
+      "opcode": "MOV_STORE8",
+      "mod": 0,
+      "rm": 0,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 10289,
+        "instruction_va": 10289,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 10367,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -16,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 10545,
+        "instruction_va": 10545,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 10626,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -48,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 11319,
+        "instruction_va": 11319,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 11330,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -32,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 12340,
+        "instruction_va": 12340,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 12422,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -48,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 12693,
+        "instruction_va": 12693,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 12726,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 7,
+      "displacement": 32,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 12757,
+        "instruction_va": 12757,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 12790,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 7,
+      "displacement": 32,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 12757,
+        "instruction_va": 12757,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 12847,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -48,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 17597,
+        "instruction_va": 17597,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 17634,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 3,
+      "displacement": 8,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 17597,
+        "instruction_va": 17597,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 17675,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 16,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 17597,
+        "instruction_va": 17597,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 17685,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 20,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 17702,
+        "instruction_va": 17702,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 17719,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 4,
+      "displacement": 24,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 17952,
+        "instruction_va": 17952,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 18041,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -48,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 18075,
+        "instruction_va": 18075,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 18111,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 1,
+      "displacement": 32,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 18075,
+        "instruction_va": 18075,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 18126,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 1,
+      "displacement": 24,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 18075,
+        "instruction_va": 18075,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 18161,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -72,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 18075,
+        "instruction_va": 18075,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 18165,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 5,
+      "displacement": -64,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 18368,
+        "instruction_va": 18368,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 18429,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 3,
+      "displacement": 20,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 18368,
+        "instruction_va": 18368,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 18432,
+      "opcode": "MOV_STORE",
+      "mod": 1,
+      "rm": 3,
+      "displacement": 24,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 26596,
+        "instruction_va": 26596,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 26612,
+      "opcode": "MOV_STORE8",
+      "mod": 0,
+      "rm": 1,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 26803,
+        "instruction_va": 26803,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 26843,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 3,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 26803,
+        "instruction_va": 26803,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 26888,
+      "opcode": "MOV_STORE8",
+      "mod": 2,
+      "rm": 0,
+      "displacement": 1207959552,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 26880,
+        "instruction_va": 26880,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 26888,
+      "opcode": "MOV_STORE8",
+      "mod": 2,
+      "rm": 0,
+      "displacement": 1207959552,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 26880,
+        "instruction_va": 26880,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 26901,
+      "opcode": "MOV_STORE8",
+      "mod": 0,
+      "rm": 0,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 26916,
+        "instruction_va": 26916,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 26975,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 0,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 30166,
+        "instruction_va": 30166,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 30191,
+      "opcode": "MOV_STORE",
+      "mod": 2,
+      "rm": 3,
+      "displacement": 436,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 30794,
+        "instruction_va": 30794,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 30807,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 5,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 30794,
+        "instruction_va": 30794,
+        "target_name": "global_context",
+        "target_va": 108808
+      },
+      "access_va": 30813,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 5,
+      "displacement": 0,
+      "relative_to_context": true
+    },
+    {
+      "context_reference": {
+        "offset": 31466,
+        "instruction_va": 31466,
+        "target_name": "acb_table",
+        "target_va": 99424
+      },
+      "access_va": 31488,
+      "opcode": "MOV_STORE",
+      "mod": 0,
+      "rm": 0,
+      "displacement": 0,
+      "relative_to_context": true
+    }
+  ],
+  "important_functions": [
+    {
+      "name": "sceAgcDriverSubmitDcb",
+      "nid": "UglJIZjGssM",
+      "va": 10416,
+      "size": 15,
+      "raw": {
+        "va": 10416,
+        "file_offset": 26800,
+        "size": 15,
+        "bytes_hex": "48 89 fe 48 8d 3d fe 7f 01 00 e9 f1 ef ff ff"
+      }
+    },
+    {
+      "name": "sceAgcDriverAgrSubmitDcb",
+      "nid": "AhGvpITrf4M",
+      "va": 10432,
+      "size": 72,
+      "raw": {
+        "va": 10432,
+        "file_offset": 26816,
+        "size": 72,
+        "bytes_hex": "55 48 89 e5 48 8d 05 3d 80 01 00 83 b8 48 01 00 00 00 74 10 48 89 fe 48 8d 3d 8a 7f 01 00 5d e9 cc ef ff ff 48 8b 0d f5 17 01 00 48 8d 3d 6c d4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6f 82 00 00 b8 03 00 6d 8a 5d c3"
+      }
+    },
+    {
+      "name": "sceAgcDriverSubmitAcb",
+      "nid": "gSRnr79F8tQ",
+      "va": 10512,
+      "size": 67,
+      "raw": {
+        "va": 10512,
+        "file_offset": 26896,
+        "size": 67,
+        "bytes_hex": "83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 7a 01 00 eb 13 83 ff 20 72 1e 83 c7 e0 48 8d 04 ff 48 8d 3d 28 5b 01 00 48 c1 e0 04 48 01 c7 48 83 c7 08 e9 68 ef ff ff 31 ff 48 83 c7 08 e9 5d ef ff ff"
+      }
+    },
+    {
+      "name": "sceAgcDriverSubmitMultiCommandBuffers",
+      "nid": "Fj7r9EHzF38",
+      "va": 18000,
+      "size": 579,
+      "raw": {
+        "va": 18000,
+        "file_offset": 34384,
+        "size": 579,
+        "bytes_hex": "55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 28 4c 8b 35 80 fa 00 00 48 8d 5f 38 41 89 cc 49 89 d7 49 89 f5 49 8b 06 48 89 45 d0 48 89 7d c8 48 89 df e8 88 65 00 00 85 c0 0f 88 7e 01 00 00 b8 00 00 6d 8a 0f 85 d9 01 00 00 48 8d 0d 66 62 01 00 b8 01 00 00 00 48 89 e7 48 81 c7 00 f0 ff ff f0 48 0f c1 81 40 01 00 00 48 8b 4d c8 48 89 41 20 48 ff 41 28 c7 41 14 00 00 00 00 44 89 61 18 80 61 08 fe 48 c7 41 30 00 00 00 00 48 89 fc 45 85 e4 0f 84 49 01 00 00 48 8d 47 1c 45 31 f6 48 89 5d b8 48 89 7d c0 48 89 45 b0 0f 1f 40 00 41 81 fc 80 00 00 00 b8 80 00 00 00 ba 00 10 00 00 44 0f 43 e0 31 f6 e8 a4 64 00 00 48 8b 4d b0 4c 89 e2 4c 89 e0 66 2e 0f 1f 84 00 00 00 00 00 44 89 f7 41 ff c6 49 8b 74 fd 00 48 89 71 f4 41 8b 34 bf 89 71 fc c6 01 00 48 83 c1 20 48 ff c8 75 de 48 8d 05 af 61 01 00 8b 80 a0 00 00 00 85 c0 74 5d 48 8d 0d 9e 61 01 00 31 db 4c 8d 71 48 eb 1c 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c6 78 48 39 cb 73 32 49 8b 0e 48 85 c9 74 ea 48 8b 7d c8 48 8b 75 c0 ff d1 48 8d 05 61 61 01 00 4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 8d 0d 41 61 01 00 48 8b 5d c8 48 8b 75 c0 49 89 d4 8b 81 a4 00 00 00 48 89 df 48 6b c0 78 ff 54 01 58 85 c0 75 53 44 8b 73 14 8b 43 18 48 8b 7d c0 41 83 ee 80 44 29 e0 41 89 c4 44 89 73 14 89 43 18 0f 85 f7 fe ff ff 45 31 ff eb 2f 48 8b 0d cb f8 00 00 48 8d 3d 08 ac 00 00 be 34 00 00 00 ba 01 00 00 00 e8 45 63 00 00 b8 00 00 6d 8a eb 42 41 bf 00 00 6d 8a eb 0e 41 89 c7 4c 8b 35 a4 f8 00 00 48 8b 5d b8 48 89 df e8 d0 63 00 00 85 c0 79 1d 48 8b 0d 85 f8 00 00 48 8d 3d 0e b1 00 00 be 32 00 00 00 ba 01 00 00 00 e8 ff 62 00 00 44 89 f8 49 8b 0e 48 3b 4d d0 75 0f 48 8d 65 d8 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 9f 63 00 00 0f 0b"
+      }
+    },
+    {
+      "name": "sceAgcDriverSubmitMultiDcbs",
+      "nid": "6UzEidRZwkg",
+      "va": 18592,
+      "size": 20,
+      "raw": {
+        "va": 18592,
+        "file_offset": 34976,
+        "size": 20,
+        "bytes_hex": "89 d1 48 89 f2 48 89 fe 48 8d 3d 09 60 01 00 e9 9c fd ff ff"
+      }
+    },
+    {
+      "name": "sceAgcDriverAgrSubmitMultiDcbs",
+      "nid": "+T8Xo6LtFJI",
+      "va": 18624,
+      "size": 77,
+      "raw": {
+        "va": 18624,
+        "file_offset": 35008,
+        "size": 77,
+        "bytes_hex": "55 48 89 e5 48 8d 05 3d 60 01 00 83 b8 48 01 00 00 00 74 15 89 d1 48 89 f2 48 89 fe 48 8d 3d 85 5f 01 00 5d e9 67 fd ff ff 48 8b 0d f0 f7 00 00 48 8d 3d 67 b4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6a 62 00 00 b8 03 00 6d 8a 5d c3"
+      }
+    },
+    {
+      "name": "sceAgcDriverSubmitMultiAcbs",
+      "nid": "HF3YllT3mXU",
+      "va": 18704,
+      "size": 67,
+      "raw": {
+        "va": 18704,
+        "file_offset": 35088,
+        "size": 67,
+        "bytes_hex": "83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 5a 01 00 eb 13 83 ff 20 72 1e 83 c7 e0 48 8d 04 ff 48 8d 3d 28 3b 01 00 48 c1 e0 04 48 01 c7 48 83 c7 08 e9 08 fd ff ff 31 ff 48 83 c7 08 e9 fd fc ff ff"
+      }
+    },
+    {
+      "name": "sceAgcDriverSuspendPointSubmit",
+      "nid": "QcmHLO2n7mk",
+      "va": 7168,
+      "size": 767,
+      "raw": {
+        "va": 7168,
+        "file_offset": 23552,
+        "size": 767,
+        "bytes_hex": "55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 38 48 8b 1d d0 24 01 00 4c 8d 2d e9 8c 01 00 49 89 f7 49 89 fc 41 be 00 00 6d 8a 48 8b 03 48 89 45 d0 41 83 bd 48 01 00 00 00 0f 84 53 01 00 00 48 8d 3d 59 8c 01 00 e8 c4 8f 00 00 85 c0 0f 88 c3 00 00 00 0f 85 39 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 4c 89 7d a8 4c 89 65 a0 49 8b 04 24 48 89 45 c0 41 8b 44 24 08 89 45 c8 41 8a 44 24 0c 88 45 cc b8 01 00 00 00 f0 49 0f c1 85 40 01 00 00 48 89 05 e6 8b 01 00 48 ff 05 e7 8b 01 00 48 c7 05 c8 8b 01 00 00 00 00 00 80 25 b5 8b 01 00 fe 41 8b 85 a0 00 00 00 48 c7 05 cb 8b 01 00 00 00 00 00 85 c0 74 65 4d 8d 75 60 4c 8d 25 8c 8b 01 00 48 8d 5d b0 45 31 ff eb 19 66 66 2e 0f 1f 84 00 00 00 00 00 49 ff c7 89 c1 49 83 c6 78 49 39 cf 73 38 49 8b 0e 48 85 c9 74 ea 4c 89 e7 48 89 de ff d1 41 8b 85 a0 00 00 00 eb d9 48 8b 0d c2 23 01 00 48 8d 3d ff d6 00 00 be 34 00 00 00 ba 01 00 00 00 e8 3c 8e 00 00 eb 5d 41 8b 85 a8 00 00 00 4c 8b 7d a8 48 8d 3d 20 8b 01 00 48 8d 75 b0 48 6b c0 78 4c 89 fa 41 ff 54 05 68 48 8d 3d 41 8b 01 00 41 89 c6 e8 b9 8e 00 00 85 c0 79 1d 48 8b 0d 6e 23 01 00 48 8d 3d f7 db 00 00 be 32 00 00 00 ba 01 00 00 00 e8 e8 8d 00 00 48 8b 1d 59 23 01 00 4c 8b 65 a0 48 8d 3d 56 8b 01 00 e8 71 8e 00 00 85 c0 0f 88 c1 00 00 00 0f 85 30 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 4c 89 7d a8 49 8b 04 24 48 89 45 c0 41 8b 44 24 08 89 45 c8 41 8a 44 24 0c 88 45 cc b8 01 00 00 00 f0 49 0f c1 85 40 01 00 00 48 89 05 e7 8a 01 00 48 ff 05 e8 8a 01 00 48 c7 05 c9 8a 01 00 00 00 00 00 80 25 b6 8a 01 00 fe 41 8b 85 a0 00 00 00 48 c7 05 cc 8a 01 00 00 00 00 00 85 c0 74 67 4d 8d 65 60 4c 8d 3d 8d 8a 01 00 4c 8d 75 b0 31 db eb 1b 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c4 78 48 39 cb 73 39 49 8b 0c 24 48 85 c9 74 e9 4c 89 ff 4c 89 f6 ff d1 41 8b 85 a0 00 00 00 eb d8 48 8b 0d 71 22 01 00 48 8d 3d ae d5 00 00 be 34 00 00 00 ba 01 00 00 00 e8 eb 8c 00 00 eb 56 41 8b 85 a8 00 00 00 48 8b 55 a8 48 8d 3d 1f 8a 01 00 48 8d 75 b0 48 6b c0 78 41 ff 54 05 68 48 8d 3d 43 8a 01 00 41 89 c6 e8 6b 8d 00 00 85 c0 79 1d 48 8b 0d 20 22 01 00 48 8d 3d a9 da 00 00 be 32 00 00 00 ba 01 00 00 00 e8 9a 8c 00 00 48 8b 1d 0b 22 01 00 48 8b 03 48 3b 45 d0 75 12 44 89 f0 48 83 c4 38 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 33 8d 00 00 0f 0b"
+      }
+    },
+    {
+      "name": "sceAgcDriverSubmitReprojectionAcb",
+      "nid": "F5ZTyyVUHTs",
+      "va": 10592,
+      "size": 449,
+      "raw": {
+        "va": 10592,
+        "file_offset": 26976,
+        "size": 449,
+        "bytes_hex": "55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 38 4c 8b 35 70 17 01 00 49 89 d7 49 89 f4 49 8b 06 48 89 45 d0 83 ff 58 72 0c 83 c7 a8 4c 8d 2d 4c 7a 01 00 eb 0f 83 ff 20 72 17 83 c7 e0 4c 8d 2d bb 5a 01 00 48 8d 04 ff 48 c1 e0 04 49 01 c5 eb 03 45 31 ed 49 8d 5d 40 48 89 df e8 4f 82 00 00 85 c0 0f 88 c5 00 00 00 4c 89 f9 41 bf 00 00 6d 8a 48 89 5d a8 0f 85 23 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 4d 8d 7d 08 49 8b 04 24 48 89 45 c0 41 8b 44 24 08 89 45 c8 41 8a 44 24 0c 4c 8d 25 f9 7e 01 00 88 45 cc b8 01 00 00 00 f0 49 0f c1 84 24 40 01 00 00 49 89 45 28 49 ff 45 30 49 c7 45 1c 00 00 00 00 41 80 4d 10 01 49 89 4d 38 41 8b 84 24 a0 00 00 00 85 c0 74 6d 4d 8d 6c 24 48 4c 8d 75 b0 31 db eb 1b 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c5 78 48 39 cb 73 45 49 8b 4d 00 48 85 c9 74 e9 4c 89 ff 4c 89 f6 ba 01 00 00 00 ff d1 41 8b 84 24 a0 00 00 00 eb d2 48 8b 0d 4b 16 01 00 48 8d 3d 88 c9 00 00 be 34 00 00 00 ba 01 00 00 00 e8 c5 80 00 00 41 bf 00 00 6d 8a eb 4c 41 8b 84 24 a4 00 00 00 48 8d 75 b0 4c 89 ff 48 6b c0 78 41 ff 54 04 50 48 8b 7d a8 41 89 c7 e8 49 81 00 00 85 c0 79 1d 48 8b 0d fe 15 01 00 48 8d 3d 87 ce 00 00 be 32 00 00 00 ba 01 00 00 00 e8 78 80 00 00 4c 8b 35 e9 15 01 00 49 8b 06 48 3b 45 d0 75 12 44 89 f8 48 83 c4 38 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 11 81 00 00 0f 0b"
+      }
+    }
+  ],
+  "function_context_windows": [
+    {
+      "function": "sceAgcDriverSubmitDcb",
+      "function_va": 10416,
+      "lea_va": 10419,
+      "target_name": "dcb_context",
+      "target_va": 108728,
+      "following_bytes": "e9 f1 ef ff ff"
+    },
+    {
+      "function": "sceAgcDriverAgrSubmitDcb",
+      "function_va": 10432,
+      "lea_va": 10436,
+      "target_name": "global_context",
+      "target_va": 108808,
+      "following_bytes": "83 b8 48 01 00 00 00 74 10 48 89 fe 48 8d 3d 8a 7f 01 00 5d e9 cc ef ff ff 48 8b 0d f5 17 01 00 48 8d 3d 6c d4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6f 82 00 00 b8 03 00 6d 8a 5d c3"
+    },
+    {
+      "function": "sceAgcDriverAgrSubmitDcb",
+      "function_va": 10432,
+      "lea_va": 10455,
+      "target_name": "agr_context",
+      "target_va": 108648,
+      "following_bytes": "5d e9 cc ef ff ff 48 8b 0d f5 17 01 00 48 8d 3d 6c d4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6f 82 00 00 b8 03 00 6d 8a 5d c3"
+    },
+    {
+      "function": "sceAgcDriverSubmitAcb",
+      "function_va": 10512,
+      "lea_va": 10545,
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "following_bytes": "48 c1 e0 04 48 01 c7 48 83 c7 08 e9 68 ef ff ff 31 ff 48 83 c7 08 e9 5d ef ff ff"
+    },
+    {
+      "function": "sceAgcDriverSubmitMultiCommandBuffers",
+      "function_va": 18000,
+      "lea_va": 18075,
+      "target_name": "global_context",
+      "target_va": 108808,
+      "following_bytes": "b8 01 00 00 00 48 89 e7 48 81 c7 00 f0 ff ff f0 48 0f c1 81 40 01 00 00 48 8b 4d c8 48 89 41 20 48 ff 41 28 c7 41 14 00 00 00 00 44 89 61 18 80 61 08 fe 48 c7 41 30 00 00 00 00 48 89 fc 45 85 e4 0f 84 49 01 00 00 48 8d 47 1c 45 31 f6 48 89 5d b8 48 89 7d c0 48 89 45 b0 0f 1f 40 00 41 81"
+    },
+    {
+      "function": "sceAgcDriverSubmitMultiCommandBuffers",
+      "function_va": 18000,
+      "lea_va": 18258,
+      "target_name": "global_context",
+      "target_va": 108808,
+      "following_bytes": "8b 80 a0 00 00 00 85 c0 74 5d 48 8d 0d 9e 61 01 00 31 db 4c 8d 71 48 eb 1c 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c6 78 48 39 cb 73 32 49 8b 0e 48 85 c9 74 ea 48 8b 7d c8 48 8b 75 c0 ff d1 48 8d 05 61 61 01 00 4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f"
+    },
+    {
+      "function": "sceAgcDriverSubmitMultiCommandBuffers",
+      "function_va": 18000,
+      "lea_va": 18275,
+      "target_name": "global_context",
+      "target_va": 108808,
+      "following_bytes": "31 db 4c 8d 71 48 eb 1c 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 ff c3 89 c1 49 83 c6 78 48 39 cb 73 32 49 8b 0e 48 85 c9 74 ea 48 8b 7d c8 48 8b 75 c0 ff d1 48 8d 05 61 61 01 00 4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 8d 0d 41 61 01 00 48 8b 5d"
+    },
+    {
+      "function": "sceAgcDriverSubmitMultiCommandBuffers",
+      "function_va": 18000,
+      "lea_va": 18336,
+      "target_name": "global_context",
+      "target_va": 108808,
+      "following_bytes": "4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 8d 0d 41 61 01 00 48 8b 5d c8 48 8b 75 c0 49 89 d4 8b 81 a4 00 00 00 48 89 df 48 6b c0 78 ff 54 01 58 85 c0 75 53 44 8b 73 14 8b 43 18 48 8b 7d c0 41 83 ee 80 44 29 e0 41 89 c4 44 89 73 14 89 43 18 0f 85 f7 fe"
+    },
+    {
+      "function": "sceAgcDriverSubmitMultiCommandBuffers",
+      "function_va": 18000,
+      "lea_va": 18368,
+      "target_name": "global_context",
+      "target_va": 108808,
+      "following_bytes": "48 8b 5d c8 48 8b 75 c0 49 89 d4 8b 81 a4 00 00 00 48 89 df 48 6b c0 78 ff 54 01 58 85 c0 75 53 44 8b 73 14 8b 43 18 48 8b 7d c0 41 83 ee 80 44 29 e0 41 89 c4 44 89 73 14 89 43 18 0f 85 f7 fe ff ff 45 31 ff eb 2f 48 8b 0d cb f8 00 00 48 8d 3d 08 ac 00 00 be 34 00 00 00 ba 01 00 00 00 e8"
+    },
+    {
+      "function": "sceAgcDriverSubmitMultiDcbs",
+      "function_va": 18592,
+      "lea_va": 18600,
+      "target_name": "dcb_context",
+      "target_va": 108728,
+      "following_bytes": "e9 9c fd ff ff"
+    },
+    {
+      "function": "sceAgcDriverAgrSubmitMultiDcbs",
+      "function_va": 18624,
+      "lea_va": 18628,
+      "target_name": "global_context",
+      "target_va": 108808,
+      "following_bytes": "83 b8 48 01 00 00 00 74 15 89 d1 48 89 f2 48 89 fe 48 8d 3d 85 5f 01 00 5d e9 67 fd ff ff 48 8b 0d f0 f7 00 00 48 8d 3d 67 b4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6a 62 00 00 b8 03 00 6d 8a 5d c3"
+    },
+    {
+      "function": "sceAgcDriverAgrSubmitMultiDcbs",
+      "function_va": 18624,
+      "lea_va": 18652,
+      "target_name": "agr_context",
+      "target_va": 108648,
+      "following_bytes": "5d e9 67 fd ff ff 48 8b 0d f0 f7 00 00 48 8d 3d 67 b4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6a 62 00 00 b8 03 00 6d 8a 5d c3"
+    },
+    {
+      "function": "sceAgcDriverSubmitMultiAcbs",
+      "function_va": 18704,
+      "lea_va": 18737,
+      "target_name": "acb_table",
+      "target_va": 99424,
+      "following_bytes": "48 c1 e0 04 48 01 c7 48 83 c7 08 e9 08 fd ff ff 31 ff 48 83 c7 08 e9 fd fc ff ff"
+    },
+    {
+      "function": "sceAgcDriverSuspendPointSubmit",
+      "function_va": 7168,
+      "lea_va": 7489,
+      "target_name": "agr_context",
+      "target_va": 108648,
+      "following_bytes": "48 8d 75 b0 48 6b c0 78 4c 89 fa 41 ff 54 05 68 48 8d 3d 41 8b 01 00 41 89 c6 e8 b9 8e 00 00 85 c0 79 1d 48 8b 0d 6e 23 01 00 48 8d 3d f7 db 00 00 be 32 00 00 00 ba 01 00 00 00 e8 e8 8d 00 00 48 8b 1d 59 23 01 00 4c 8b 65 a0 48 8d 3d 56 8b 01 00 e8 71 8e 00 00 85 c0 0f 88 c1 00 00 00 0f"
+    },
+    {
+      "function": "sceAgcDriverSuspendPointSubmit",
+      "function_va": 7168,
+      "lea_va": 7826,
+      "target_name": "dcb_context",
+      "target_va": 108728,
+      "following_bytes": "48 8d 75 b0 48 6b c0 78 41 ff 54 05 68 48 8d 3d 43 8a 01 00 41 89 c6 e8 6b 8d 00 00 85 c0 79 1d 48 8b 0d 20 22 01 00 48 8d 3d a9 da 00 00 be 32 00 00 00 ba 01 00 00 00 e8 9a 8c 00 00 48 8b 1d 0b 22 01 00 48 8b 03 48 3b 45 d0 75 12 44 89 f0 48 83 c4 38 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8"
+    }
+  ],
+  "loads": [
+    {
+      "offset": 16384,
+      "vaddr": 0,
+      "filesz": 44754,
+      "memsz": 44754,
+      "flags": 1
+    },
+    {
+      "offset": 65536,
+      "vaddr": 49152,
+      "filesz": 26636,
+      "memsz": 26636,
+      "flags": 4
+    },
+    {
+      "offset": 98304,
+      "vaddr": 81920,
+      "filesz": 728,
+      "memsz": 728,
+      "flags": 6
+    },
+    {
+      "offset": 114688,
+      "vaddr": 98304,
+      "filesz": 17,
+      "memsz": 12328,
+      "flags": 6
+    },
+    {
+      "offset": 127024,
+      "vaddr": 110640,
+      "filesz": 12480,
+      "memsz": 12480,
+      "flags": 0
+    }
+  ]
+}
+
+==> Create candidate write summary
+AGC PS5 Stage 49 - Context Write Audit
+
+The following are STATIC CANDIDATES only.
+No AGC code is executed.
+
+=== EXACT RIP REFERENCES ===
+count=70
+0xd3 LEA -> global_context  owner=<unknown>
+0x164 LEA -> global_context  owner=<unknown>
+0x351 LEA -> global_context  owner=<unknown>
+0x490 LEA -> global_context  owner=<unknown>
+0x4b0 LEA -> global_context  owner=<unknown>
+0x4d8 LEA -> global_context  owner=<unknown>
+0x523 LEA -> global_context  owner=<unknown>
+0x573 LEA -> global_context  owner=<unknown>
+0x88a LEA -> global_context  owner=<unknown>
+0x90b LEA -> global_context  owner=sceAgcDriverGetReservedDmemForAgc
+0xf2b LEA -> acb_table  owner=<unknown>
+0x1363 LEA -> global_context  owner=<unknown>
+0x1908 LEA -> global_context  owner=sceAgcDriverSubmitCommandBuffer
+0x1a45 LEA -> global_context  owner=<unknown>
+0x1a85 LEA -> global_context  owner=<unknown>
+0x1d41 LEA -> agr_context  owner=sceAgcDriverSuspendPointSubmit
+0x1e92 LEA -> dcb_context  owner=sceAgcDriverSuspendPointSubmit
+0x1fc3 LEA -> agr_context  owner=<unknown>
+0x2011 LEA -> acb_table  owner=<unknown>
+0x20a3 LEA -> acb_table  owner=<unknown>
+0x20b6 LEA -> global_context  owner=<unknown>
+0x2136 LEA -> global_context  owner=<unknown>
+0x22b7 LEA -> agr_context  owner=<unknown>
+0x2831 LEA -> acb_table  owner=<unknown>
+0x28b3 LEA -> dcb_context  owner=sceAgcDriverSubmitDcb
+0x28c4 LEA -> global_context  owner=sceAgcDriverAgrSubmitDcb
+0x28d7 LEA -> agr_context  owner=sceAgcDriverAgrSubmitDcb
+0x2931 LEA -> acb_table  owner=sceAgcDriverSubmitAcb
+0x2c37 LEA -> global_context  owner=sceAgcDriverAcquireHDRScopesACQ
+0x2e34 LEA -> global_context  owner=sceAgcDriverReleaseHDRScopesACQ
+0x3004 LEA -> global_context  owner=sceAgcDriverCwsrSuspendAcq
+0x3034 LEA -> global_context  owner=sceAgcDriverCwsrResumeAcq
+0x3195 LEA -> global_context  owner=sceAgcDriverGetRegShadowInfo
+0x31d5 LEA -> global_context  owner=sceAgcDriverGetRegShadowInfoAgr
+0x3b7b LEA -> global_context  owner=<unknown>
+0x3cf0 LEA -> global_context  owner=<unknown>
+0x3f9d LEA -> global_context  owner=<unknown>
+0x4086 LEA -> global_context  owner=<unknown>
+0x44bd LEA -> global_context  owner=<unknown>
+0x4526 LEA -> global_context  owner=<unknown>
+0x45be LEA -> global_context  owner=<unknown>
+0x45d8 LEA -> global_context  owner=<unknown>
+0x4611 LEA -> global_context  owner=<unknown>
+0x4620 LEA -> global_context  owner=<unknown>
+0x469b LEA -> global_context  owner=sceAgcDriverSubmitMultiCommandBuffers
+0x4752 LEA -> global_context  owner=sceAgcDriverSubmitMultiCommandBuffers
+0x4763 LEA -> global_context  owner=sceAgcDriverSubmitMultiCommandBuffers
+0x47a0 LEA -> global_context  owner=sceAgcDriverSubmitMultiCommandBuffers
+0x47c0 LEA -> global_context  owner=sceAgcDriverSubmitMultiCommandBuffers
+0x48a8 LEA -> dcb_context  owner=sceAgcDriverSubmitMultiDcbs
+0x48c4 LEA -> global_context  owner=sceAgcDriverAgrSubmitMultiDcbs
+0x48dc LEA -> agr_context  owner=sceAgcDriverAgrSubmitMultiDcbs
+0x4931 LEA -> acb_table  owner=sceAgcDriverSubmitMultiAcbs
+0x6625 LEA -> global_context  owner=sceAgcDriverDebugHardwareStatus
+0x67e4 LEA -> global_context  owner=<unknown>
+0x6814 LEA -> global_context  owner=<unknown>
+0x6851 LEA -> global_context  owner=sceAgcDriverSetTFRing
+0x68b3 LEA -> global_context  owner=sceAgcDriverGetTFRing
+0x6900 LEA -> global_context  owner=sceAgcDriverSetHsOffchipParam
+0x6924 LEA -> global_context  owner=sceAgcDriverGetHsOffchipParam
+0x742b LEA -> global_context  owner=sceAgcDriverSysGetClientNumber
+0x749b LEA -> global_context  owner=sceAgcDriverSysIsGameClosed
+0x74d4 LEA -> global_context  owner=sceAgcDriverSysEnableSubmitDone45Exception
+0x7524 LEA -> global_context  owner=sceAgcDriverHp3dLockStart
+0x7554 LEA -> global_context  owner=sceAgcDriverHp3dLockEnd
+0x75d6 LEA -> global_context  owner=sceAgdSetApplicationGpuDebug
+0x7620 LEA -> global_context  owner=sceAgdGetApplicationGpuDebug
+0x7630 LEA -> global_context  owner=sceAgdGetSystemGpuDebug
+0x784a LEA -> global_context  owner=<unknown>
+0x7aea LEA -> acb_table  owner=<unknown>
+
+=== IMPORTANT AGC FUNCTIONS ===
+sceAgcDriverSubmitDcb @ 0x28b3 -> dcb_context
+sceAgcDriverAgrSubmitDcb @ 0x28c4 -> global_context
+sceAgcDriverAgrSubmitDcb @ 0x28d7 -> agr_context
+sceAgcDriverSubmitAcb @ 0x2931 -> acb_table
+sceAgcDriverSubmitMultiCommandBuffers @ 0x469b -> global_context
+sceAgcDriverSubmitMultiCommandBuffers @ 0x4752 -> global_context
+sceAgcDriverSubmitMultiCommandBuffers @ 0x4763 -> global_context
+sceAgcDriverSubmitMultiCommandBuffers @ 0x47a0 -> global_context
+sceAgcDriverSubmitMultiCommandBuffers @ 0x47c0 -> global_context
+sceAgcDriverSubmitMultiDcbs @ 0x48a8 -> dcb_context
+sceAgcDriverAgrSubmitMultiDcbs @ 0x48c4 -> global_context
+sceAgcDriverAgrSubmitMultiDcbs @ 0x48dc -> agr_context
+sceAgcDriverSubmitMultiAcbs @ 0x4931 -> acb_table
+sceAgcDriverSuspendPointSubmit @ 0x1d41 -> agr_context
+sceAgcDriverSuspendPointSubmit @ 0x1e92 -> dcb_context
+
+=== CANDIDATE STORE ACCESSES ===
+count=66
+0x116 MOV_STORE + 0x28 target=global_context
+0x120 MOV_STORE + 0x50 target=global_context
+0x12c MOV_STORE + 0x58 target=global_context
+0x367 MOV_STORE + 0x0 target=global_context
+0x37b MOV_STORE + 0x0 target=global_context
+0x39d MOV_STORE + 0x10 target=global_context
+0x91a MOV_STORE + 0x0 target=global_context
+0x934 MOV_STORE + 0x0 target=global_context
+0x954 MOV_STORE8 + 0xffffffffc9310000 target=global_context
+0xf4c MOV_STORE8 + 0x0 target=acb_table
+0xf7b MOV_STORE + 0xffffffff89410001 target=acb_table
+0x137a MOV_STORE + 0xe0 target=global_context
+0x1910 MOV_STORE + 0xffffffffffffffa8 target=global_context
+0x1917 MOV_STORE + 0xffffffffffffffc0 target=global_context
+0x191e MOV_STORE + 0xffffffffffffffc8 target=global_context
+0x1925 MOV_STORE8 + 0xffffffffffffffcc target=global_context
+0x1937 MOV_STORE + 0x20 target=global_context
+0x1a50 MOV_STORE + 0xffffffffffffffd0 target=global_context
+0x1fda MOV_STORE + 0x4 target=agr_context
+0x200e MOV_STORE8 + 0x0 target=agr_context
+0x2019 MOV_STORE + 0xfffffffffffffeb8 target=agr_context
+0x2019 MOV_STORE + 0xfffffffffffffeb8 target=acb_table
+0x20ba MOV_STORE8 + 0x0 target=acb_table
+0x20be MOV_STORE + 0xfffffffffffffee8 target=acb_table
+0x20f3 MOV_STORE + 0xfffffffffffffec8 target=acb_table
+0x20fa MOV_STORE + 0x60 target=acb_table
+0x20be MOV_STORE + 0xfffffffffffffee8 target=global_context
+0x20f3 MOV_STORE + 0xfffffffffffffec8 target=global_context
+0x20fa MOV_STORE + 0x60 target=global_context
+0x2107 MOV_STORE + 0xfffffffffffffec0 target=global_context
+0x210e MOV_STORE + 0x70 target=global_context
+0x213e MOV_STORE + 0xfffffffffffffed0 target=global_context
+0x214f MOV_STORE + 0xfffffffffffffedc target=global_context
+0x215f MOV_STORE + 0xfffffffffffffee0 target=global_context
+0x216b MOV_STORE + 0xfffffffffffffee4 target=global_context
+0x22d4 MOV_STORE + 0x0 target=agr_context
+0x22e5 MOV_STORE + 0x0 target=agr_context
+0x2306 MOV_STORE8 + 0x0 target=agr_context
+0x287f MOV_STORE + 0xfffffffffffffff0 target=acb_table
+0x2982 MOV_STORE + 0xffffffffffffffd0 target=acb_table
+0x2c42 MOV_STORE + 0xffffffffffffffe0 target=global_context
+0x3086 MOV_STORE + 0xffffffffffffffd0 target=global_context
+0x31b6 MOV_STORE + 0x20 target=global_context
+0x31f6 MOV_STORE + 0x20 target=global_context
+0x322f MOV_STORE + 0xffffffffffffffd0 target=global_context
+0x44e2 MOV_STORE + 0x8 target=global_context
+0x450b MOV_STORE + 0x10 target=global_context
+0x4515 MOV_STORE + 0x14 target=global_context
+0x4537 MOV_STORE + 0x18 target=global_context
+0x4679 MOV_STORE + 0xffffffffffffffd0 target=global_context
+0x46bf MOV_STORE + 0x20 target=global_context
+0x46ce MOV_STORE + 0x18 target=global_context
+0x46f1 MOV_STORE + 0xffffffffffffffb8 target=global_context
+0x46f5 MOV_STORE + 0xffffffffffffffc0 target=global_context
+0x47fd MOV_STORE + 0x14 target=global_context
+0x4800 MOV_STORE + 0x18 target=global_context
+0x67f4 MOV_STORE8 + 0x0 target=global_context
+0x68db MOV_STORE + 0x0 target=global_context
+0x6908 MOV_STORE8 + 0x48000000 target=global_context
+0x6908 MOV_STORE8 + 0x48000000 target=global_context
+0x6915 MOV_STORE8 + 0x0 target=global_context
+0x695f MOV_STORE + 0x0 target=global_context
+0x75ef MOV_STORE + 0x1b4 target=global_context
+0x7857 MOV_STORE + 0x0 target=global_context
+0x785d MOV_STORE + 0x0 target=global_context
+0x7b00 MOV_STORE + 0x0 target=acb_table
+
+==> Export important Submit-family binaries
+
+[WSL] mkdir -p '/mnt/d/agc_work/stage49_results/functions'
+
+python3 - '/tmp/agc_stage49/stage49_static.json' '/mnt/d/agc_work/stage49_results/functions' <<'PY'
+import json
+import os
+import sys
+
+src = sys.argv[1]
+out_dir = sys.argv[2]
+
+with open(src, "r", encoding="utf-8") as fp:
+    data = json.load(fp)
+
+for item in data["important_functions"]:
+
+    raw = item["raw"]
+    blob = bytes.fromhex(raw["bytes_hex"])
+
+    safe = item["name"].replace("/", "_")
+
+    path = os.path.join(
+        out_dir,
+        safe + ".bin"
+    )
+
+    with open(path, "wb") as fp:
+        fp.write(blob)
+
+    print(
+        f"{item['name']} "
+        f"VA=0x{item['va']:x} "
+        f"size={len(blob)} "
+        f"out={path}"
+    )
+PY
+
+ls -lh '/mnt/d/agc_work/stage49_results/functions'
+sceAgcDriverSubmitDcb VA=0x28b0 size=15 out=/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitDcb.bin
+sceAgcDriverAgrSubmitDcb VA=0x28c0 size=72 out=/mnt/d/agc_work/stage49_results/functions/sceAgcDriverAgrSubmitDcb.bin
+sceAgcDriverSubmitAcb VA=0x2910 size=67 out=/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitAcb.bin
+sceAgcDriverSubmitMultiCommandBuffers VA=0x4650 size=579 out=/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitMultiCommandBuffers.bin
+sceAgcDriverSubmitMultiDcbs VA=0x48a0 size=20 out=/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitMultiDcbs.bin
+sceAgcDriverAgrSubmitMultiDcbs VA=0x48c0 size=77 out=/mnt/d/agc_work/stage49_results/functions/sceAgcDriverAgrSubmitMultiDcbs.bin
+sceAgcDriverSubmitMultiAcbs VA=0x4910 size=67 out=/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitMultiAcbs.bin
+sceAgcDriverSuspendPointSubmit VA=0x1c00 size=767 out=/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSuspendPointSubmit.bin
+sceAgcDriverSubmitReprojectionAcb VA=0x2960 size=449 out=/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitReprojectionAcb.bin
+total 1.2M
+-rwxrwxrwx 1 root root  72 Aug 25  2026 sceAgcDriverAgrSubmitDcb.bin
+-rwxrwxrwx 1 root root  77 Aug 25  2026 sceAgcDriverAgrSubmitMultiDcbs.bin
+-rwxrwxrwx 1 root root  67 Aug 25  2026 sceAgcDriverSubmitAcb.bin
+-rwxrwxrwx 1 root root  15 Aug 25  2026 sceAgcDriverSubmitDcb.bin
+-rwxrwxrwx 1 root root  67 Aug 25  2026 sceAgcDriverSubmitMultiAcbs.bin
+-rwxrwxrwx 1 root root 579 Aug 25  2026 sceAgcDriverSubmitMultiCommandBuffers.bin
+-rwxrwxrwx 1 root root  20 Aug 25  2026 sceAgcDriverSubmitMultiDcbs.bin
+-rwxrwxrwx 1 root root 449 Aug 25  2026 sceAgcDriverSubmitReprojectionAcb.bin
+-rwxrwxrwx 1 root root 767 Aug 25  2026 sceAgcDriverSuspendPointSubmit.bin
+
+==> Disassemble important Submit-family functions
+
+[WSL] objdump \
+    -D \
+    -b binary \
+    -m i386:x86-64 \
+    --adjust-vma=0x28c0 \
+    '/mnt/d/agc_work/stage49_results/functions/sceAgcDriverAgrSubmitDcb.bin'
+
+/mnt/d/agc_work/stage49_results/functions/sceAgcDriverAgrSubmitDcb.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000000028c0 <.data>:
+    28c0:       55                      push   %rbp
+    28c1:       48 89 e5                mov    %rsp,%rbp
+    28c4:       48 8d 05 3d 80 01 00    lea    0x1803d(%rip),%rax        # 0x1a908
+    28cb:       83 b8 48 01 00 00 00    cmpl   $0x0,0x148(%rax)
+    28d2:       74 10                   je     0x28e4
+    28d4:       48 89 fe                mov    %rdi,%rsi
+    28d7:       48 8d 3d 8a 7f 01 00    lea    0x17f8a(%rip),%rdi        # 0x1a868
+    28de:       5d                      pop    %rbp
+    28df:       e9 cc ef ff ff          jmp    0x18b0
+    28e4:       48 8b 0d f5 17 01 00    mov    0x117f5(%rip),%rcx        # 0x140e0
+    28eb:       48 8d 3d 6c d4 00 00    lea    0xd46c(%rip),%rdi        # 0xfd5e
+    28f2:       be 38 00 00 00          mov    $0x38,%esi
+    28f7:       ba 01 00 00 00          mov    $0x1,%edx
+    28fc:       e8 6f 82 00 00          call   0xab70
+    2901:       b8 03 00 6d 8a          mov    $0x8a6d0003,%eax
+    2906:       5d                      pop    %rbp
+    2907:       c3                      ret
+
+[WSL] objdump \
+    -D \
+    -b binary \
+    -m i386:x86-64 \
+    --adjust-vma=0x48c0 \
+    '/mnt/d/agc_work/stage49_results/functions/sceAgcDriverAgrSubmitMultiDcbs.bin'
+
+/mnt/d/agc_work/stage49_results/functions/sceAgcDriverAgrSubmitMultiDcbs.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000000048c0 <.data>:
+    48c0:       55                      push   %rbp
+    48c1:       48 89 e5                mov    %rsp,%rbp
+    48c4:       48 8d 05 3d 60 01 00    lea    0x1603d(%rip),%rax        # 0x1a908
+    48cb:       83 b8 48 01 00 00 00    cmpl   $0x0,0x148(%rax)
+    48d2:       74 15                   je     0x48e9
+    48d4:       89 d1                   mov    %edx,%ecx
+    48d6:       48 89 f2                mov    %rsi,%rdx
+    48d9:       48 89 fe                mov    %rdi,%rsi
+    48dc:       48 8d 3d 85 5f 01 00    lea    0x15f85(%rip),%rdi        # 0x1a868
+    48e3:       5d                      pop    %rbp
+    48e4:       e9 67 fd ff ff          jmp    0x4650
+    48e9:       48 8b 0d f0 f7 00 00    mov    0xf7f0(%rip),%rcx        # 0x140e0
+    48f0:       48 8d 3d 67 b4 00 00    lea    0xb467(%rip),%rdi        # 0xfd5e
+    48f7:       be 38 00 00 00          mov    $0x38,%esi
+    48fc:       ba 01 00 00 00          mov    $0x1,%edx
+    4901:       e8 6a 62 00 00          call   0xab70
+    4906:       b8 03 00 6d 8a          mov    $0x8a6d0003,%eax
+    490b:       5d                      pop    %rbp
+    490c:       c3                      ret
+
+[WSL] objdump \
+    -D \
+    -b binary \
+    -m i386:x86-64 \
+    --adjust-vma=0x2910 \
+    '/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitAcb.bin'
+
+/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitAcb.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0000000000002910 <.data>:
+    2910:       83 ff 58                cmp    $0x58,%edi
+    2913:       72 10                   jb     0x2925
+    2915:       83 c7 a8                add    $0xffffffa8,%edi
+    2918:       48 8d 04 ff             lea    (%rdi,%rdi,8),%rax
+    291c:       48 8d 3d bd 7a 01 00    lea    0x17abd(%rip),%rdi        # 0x1a3e0
+    2923:       eb 13                   jmp    0x2938
+    2925:       83 ff 20                cmp    $0x20,%edi
+    2928:       72 1e                   jb     0x2948
+    292a:       83 c7 e0                add    $0xffffffe0,%edi
+    292d:       48 8d 04 ff             lea    (%rdi,%rdi,8),%rax
+    2931:       48 8d 3d 28 5b 01 00    lea    0x15b28(%rip),%rdi        # 0x18460
+    2938:       48 c1 e0 04             shl    $0x4,%rax
+    293c:       48 01 c7                add    %rax,%rdi
+    293f:       48 83 c7 08             add    $0x8,%rdi
+    2943:       e9 68 ef ff ff          jmp    0x18b0
+    2948:       31 ff                   xor    %edi,%edi
+    294a:       48 83 c7 08             add    $0x8,%rdi
+    294e:       e9 5d ef ff ff          jmp    0x18b0
+
+[WSL] objdump \
+    -D \
+    -b binary \
+    -m i386:x86-64 \
+    --adjust-vma=0x28b0 \
+    '/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitDcb.bin'
+
+/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitDcb.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000000028b0 <.data>:
+    28b0:       48 89 fe                mov    %rdi,%rsi
+    28b3:       48 8d 3d fe 7f 01 00    lea    0x17ffe(%rip),%rdi        # 0x1a8b8
+    28ba:       e9 f1 ef ff ff          jmp    0x18b0
+
+[WSL] objdump \
+    -D \
+    -b binary \
+    -m i386:x86-64 \
+    --adjust-vma=0x4910 \
+    '/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitMultiAcbs.bin'
+
+/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitMultiAcbs.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0000000000004910 <.data>:
+    4910:       83 ff 58                cmp    $0x58,%edi
+    4913:       72 10                   jb     0x4925
+    4915:       83 c7 a8                add    $0xffffffa8,%edi
+    4918:       48 8d 04 ff             lea    (%rdi,%rdi,8),%rax
+    491c:       48 8d 3d bd 5a 01 00    lea    0x15abd(%rip),%rdi        # 0x1a3e0
+    4923:       eb 13                   jmp    0x4938
+    4925:       83 ff 20                cmp    $0x20,%edi
+    4928:       72 1e                   jb     0x4948
+    492a:       83 c7 e0                add    $0xffffffe0,%edi
+    492d:       48 8d 04 ff             lea    (%rdi,%rdi,8),%rax
+    4931:       48 8d 3d 28 3b 01 00    lea    0x13b28(%rip),%rdi        # 0x18460
+    4938:       48 c1 e0 04             shl    $0x4,%rax
+    493c:       48 01 c7                add    %rax,%rdi
+    493f:       48 83 c7 08             add    $0x8,%rdi
+    4943:       e9 08 fd ff ff          jmp    0x4650
+    4948:       31 ff                   xor    %edi,%edi
+    494a:       48 83 c7 08             add    $0x8,%rdi
+    494e:       e9 fd fc ff ff          jmp    0x4650
+
+[WSL] objdump \
+    -D \
+    -b binary \
+    -m i386:x86-64 \
+    --adjust-vma=0x4650 \
+    '/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitMultiCommandBuffers.bin'
+
+/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitMultiCommandBuffers.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0000000000004650 <.data>:
+    4650:       55                      push   %rbp
+    4651:       48 89 e5                mov    %rsp,%rbp
+    4654:       41 57                   push   %r15
+    4656:       41 56                   push   %r14
+    4658:       41 55                   push   %r13
+    465a:       41 54                   push   %r12
+    465c:       53                      push   %rbx
+    465d:       48 83 ec 28             sub    $0x28,%rsp
+    4661:       4c 8b 35 80 fa 00 00    mov    0xfa80(%rip),%r14        # 0x140e8
+    4668:       48 8d 5f 38             lea    0x38(%rdi),%rbx
+    466c:       41 89 cc                mov    %ecx,%r12d
+    466f:       49 89 d7                mov    %rdx,%r15
+    4672:       49 89 f5                mov    %rsi,%r13
+    4675:       49 8b 06                mov    (%r14),%rax
+    4678:       48 89 45 d0             mov    %rax,-0x30(%rbp)
+    467c:       48 89 7d c8             mov    %rdi,-0x38(%rbp)
+    4680:       48 89 df                mov    %rbx,%rdi
+    4683:       e8 88 65 00 00          call   0xac10
+    4688:       85 c0                   test   %eax,%eax
+    468a:       0f 88 7e 01 00 00       js     0x480e
+    4690:       b8 00 00 6d 8a          mov    $0x8a6d0000,%eax
+    4695:       0f 85 d9 01 00 00       jne    0x4874
+    469b:       48 8d 0d 66 62 01 00    lea    0x16266(%rip),%rcx        # 0x1a908
+    46a2:       b8 01 00 00 00          mov    $0x1,%eax
+    46a7:       48 89 e7                mov    %rsp,%rdi
+    46aa:       48 81 c7 00 f0 ff ff    add    $0xfffffffffffff000,%rdi
+    46b1:       f0 48 0f c1 81 40 01    lock xadd %rax,0x140(%rcx)
+    46b8:       00 00
+    46ba:       48 8b 4d c8             mov    -0x38(%rbp),%rcx
+    46be:       48 89 41 20             mov    %rax,0x20(%rcx)
+    46c2:       48 ff 41 28             incq   0x28(%rcx)
+    46c6:       c7 41 14 00 00 00 00    movl   $0x0,0x14(%rcx)
+    46cd:       44 89 61 18             mov    %r12d,0x18(%rcx)
+    46d1:       80 61 08 fe             andb   $0xfe,0x8(%rcx)
+    46d5:       48 c7 41 30 00 00 00    movq   $0x0,0x30(%rcx)
+    46dc:       00
+    46dd:       48 89 fc                mov    %rdi,%rsp
+    46e0:       45 85 e4                test   %r12d,%r12d
+    46e3:       0f 84 49 01 00 00       je     0x4832
+    46e9:       48 8d 47 1c             lea    0x1c(%rdi),%rax
+    46ed:       45 31 f6                xor    %r14d,%r14d
+    46f0:       48 89 5d b8             mov    %rbx,-0x48(%rbp)
+    46f4:       48 89 7d c0             mov    %rdi,-0x40(%rbp)
+    46f8:       48 89 45 b0             mov    %rax,-0x50(%rbp)
+    46fc:       0f 1f 40 00             nopl   0x0(%rax)
+    4700:       41 81 fc 80 00 00 00    cmp    $0x80,%r12d
+    4707:       b8 80 00 00 00          mov    $0x80,%eax
+    470c:       ba 00 10 00 00          mov    $0x1000,%edx
+    4711:       44 0f 43 e0             cmovae %eax,%r12d
+    4715:       31 f6                   xor    %esi,%esi
+    4717:       e8 a4 64 00 00          call   0xabc0
+    471c:       48 8b 4d b0             mov    -0x50(%rbp),%rcx
+    4720:       4c 89 e2                mov    %r12,%rdx
+    4723:       4c 89 e0                mov    %r12,%rax
+    4726:       66 2e 0f 1f 84 00 00    cs nopw 0x0(%rax,%rax,1)
+    472d:       00 00 00
+    4730:       44 89 f7                mov    %r14d,%edi
+    4733:       41 ff c6                inc    %r14d
+    4736:       49 8b 74 fd 00          mov    0x0(%r13,%rdi,8),%rsi
+    473b:       48 89 71 f4             mov    %rsi,-0xc(%rcx)
+    473f:       41 8b 34 bf             mov    (%r15,%rdi,4),%esi
+    4743:       89 71 fc                mov    %esi,-0x4(%rcx)
+    4746:       c6 01 00                movb   $0x0,(%rcx)
+    4749:       48 83 c1 20             add    $0x20,%rcx
+    474d:       48 ff c8                dec    %rax
+    4750:       75 de                   jne    0x4730
+    4752:       48 8d 05 af 61 01 00    lea    0x161af(%rip),%rax        # 0x1a908
+    4759:       8b 80 a0 00 00 00       mov    0xa0(%rax),%eax
+    475f:       85 c0                   test   %eax,%eax
+    4761:       74 5d                   je     0x47c0
+    4763:       48 8d 0d 9e 61 01 00    lea    0x1619e(%rip),%rcx        # 0x1a908
+    476a:       31 db                   xor    %ebx,%ebx
+    476c:       4c 8d 71 48             lea    0x48(%rcx),%r14
+    4770:       eb 1c                   jmp    0x478e
+    4772:       66 66 66 66 66 2e 0f    data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+    4779:       1f 84 00 00 00 00 00
+    4780:       48 ff c3                inc    %rbx
+    4783:       89 c1                   mov    %eax,%ecx
+    4785:       49 83 c6 78             add    $0x78,%r14
+    4789:       48 39 cb                cmp    %rcx,%rbx
+    478c:       73 32                   jae    0x47c0
+    478e:       49 8b 0e                mov    (%r14),%rcx
+    4791:       48 85 c9                test   %rcx,%rcx
+    4794:       74 ea                   je     0x4780
+    4796:       48 8b 7d c8             mov    -0x38(%rbp),%rdi
+    479a:       48 8b 75 c0             mov    -0x40(%rbp),%rsi
+    479e:       ff d1                   call   *%rcx
+    47a0:       48 8d 05 61 61 01 00    lea    0x16161(%rip),%rax        # 0x1a908
+    47a7:       4c 89 e2                mov    %r12,%rdx
+    47aa:       8b 80 a0 00 00 00       mov    0xa0(%rax),%eax
+    47b0:       eb ce                   jmp    0x4780
+    47b2:       66 66 66 66 66 2e 0f    data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+    47b9:       1f 84 00 00 00 00 00
+    47c0:       48 8d 0d 41 61 01 00    lea    0x16141(%rip),%rcx        # 0x1a908
+    47c7:       48 8b 5d c8             mov    -0x38(%rbp),%rbx
+    47cb:       48 8b 75 c0             mov    -0x40(%rbp),%rsi
+    47cf:       49 89 d4                mov    %rdx,%r12
+    47d2:       8b 81 a4 00 00 00       mov    0xa4(%rcx),%eax
+    47d8:       48 89 df                mov    %rbx,%rdi
+    47db:       48 6b c0 78             imul   $0x78,%rax,%rax
+    47df:       ff 54 01 58             call   *0x58(%rcx,%rax,1)
+    47e3:       85 c0                   test   %eax,%eax
+    47e5:       75 53                   jne    0x483a
+    47e7:       44 8b 73 14             mov    0x14(%rbx),%r14d
+    47eb:       8b 43 18                mov    0x18(%rbx),%eax
+    47ee:       48 8b 7d c0             mov    -0x40(%rbp),%rdi
+    47f2:       41 83 ee 80             sub    $0xffffff80,%r14d
+    47f6:       44 29 e0                sub    %r12d,%eax
+    47f9:       41 89 c4                mov    %eax,%r12d
+    47fc:       44 89 73 14             mov    %r14d,0x14(%rbx)
+    4800:       89 43 18                mov    %eax,0x18(%rbx)
+    4803:       0f 85 f7 fe ff ff       jne    0x4700
+    4809:       45 31 ff                xor    %r15d,%r15d
+    480c:       eb 2f                   jmp    0x483d
+    480e:       48 8b 0d cb f8 00 00    mov    0xf8cb(%rip),%rcx        # 0x140e0
+    4815:       48 8d 3d 08 ac 00 00    lea    0xac08(%rip),%rdi        # 0xf424
+    481c:       be 34 00 00 00          mov    $0x34,%esi
+    4821:       ba 01 00 00 00          mov    $0x1,%edx
+    4826:       e8 45 63 00 00          call   0xab70
+    482b:       b8 00 00 6d 8a          mov    $0x8a6d0000,%eax
+    4830:       eb 42                   jmp    0x4874
+    4832:       41 bf 00 00 6d 8a       mov    $0x8a6d0000,%r15d
+    4838:       eb 0e                   jmp    0x4848
+    483a:       41 89 c7                mov    %eax,%r15d
+    483d:       4c 8b 35 a4 f8 00 00    mov    0xf8a4(%rip),%r14        # 0x140e8
+    4844:       48 8b 5d b8             mov    -0x48(%rbp),%rbx
+    4848:       48 89 df                mov    %rbx,%rdi
+    484b:       e8 d0 63 00 00          call   0xac20
+    4850:       85 c0                   test   %eax,%eax
+    4852:       79 1d                   jns    0x4871
+    4854:       48 8b 0d 85 f8 00 00    mov    0xf885(%rip),%rcx        # 0x140e0
+    485b:       48 8d 3d 0e b1 00 00    lea    0xb10e(%rip),%rdi        # 0xf970
+    4862:       be 32 00 00 00          mov    $0x32,%esi
+    4867:       ba 01 00 00 00          mov    $0x1,%edx
+    486c:       e8 ff 62 00 00          call   0xab70
+    4871:       44 89 f8                mov    %r15d,%eax
+    4874:       49 8b 0e                mov    (%r14),%rcx
+    4877:       48 3b 4d d0             cmp    -0x30(%rbp),%rcx
+    487b:       75 0f                   jne    0x488c
+    487d:       48 8d 65 d8             lea    -0x28(%rbp),%rsp
+    4881:       5b                      pop    %rbx
+    4882:       41 5c                   pop    %r12
+    4884:       41 5d                   pop    %r13
+    4886:       41 5e                   pop    %r14
+    4888:       41 5f                   pop    %r15
+    488a:       5d                      pop    %rbp
+    488b:       c3                      ret
+    488c:       e8 9f 63 00 00          call   0xac30
+    4891:       0f 0b                   ud2
+
+[WSL] objdump \
+    -D \
+    -b binary \
+    -m i386:x86-64 \
+    --adjust-vma=0x48a0 \
+    '/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitMultiDcbs.bin'
+
+/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitMultiDcbs.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000000048a0 <.data>:
+    48a0:       89 d1                   mov    %edx,%ecx
+    48a2:       48 89 f2                mov    %rsi,%rdx
+    48a5:       48 89 fe                mov    %rdi,%rsi
+    48a8:       48 8d 3d 09 60 01 00    lea    0x16009(%rip),%rdi        # 0x1a8b8
+    48af:       e9 9c fd ff ff          jmp    0x4650
+
+[WSL] objdump \
+    -D \
+    -b binary \
+    -m i386:x86-64 \
+    --adjust-vma=0x2960 \
+    '/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitReprojectionAcb.bin'
+
+/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSubmitReprojectionAcb.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0000000000002960 <.data>:
+    2960:       55                      push   %rbp
+    2961:       48 89 e5                mov    %rsp,%rbp
+    2964:       41 57                   push   %r15
+    2966:       41 56                   push   %r14
+    2968:       41 55                   push   %r13
+    296a:       41 54                   push   %r12
+    296c:       53                      push   %rbx
+    296d:       48 83 ec 38             sub    $0x38,%rsp
+    2971:       4c 8b 35 70 17 01 00    mov    0x11770(%rip),%r14        # 0x140e8
+    2978:       49 89 d7                mov    %rdx,%r15
+    297b:       49 89 f4                mov    %rsi,%r12
+    297e:       49 8b 06                mov    (%r14),%rax
+    2981:       48 89 45 d0             mov    %rax,-0x30(%rbp)
+    2985:       83 ff 58                cmp    $0x58,%edi
+    2988:       72 0c                   jb     0x2996
+    298a:       83 c7 a8                add    $0xffffffa8,%edi
+    298d:       4c 8d 2d 4c 7a 01 00    lea    0x17a4c(%rip),%r13        # 0x1a3e0
+    2994:       eb 0f                   jmp    0x29a5
+    2996:       83 ff 20                cmp    $0x20,%edi
+    2999:       72 17                   jb     0x29b2
+    299b:       83 c7 e0                add    $0xffffffe0,%edi
+    299e:       4c 8d 2d bb 5a 01 00    lea    0x15abb(%rip),%r13        # 0x18460
+    29a5:       48 8d 04 ff             lea    (%rdi,%rdi,8),%rax
+    29a9:       48 c1 e0 04             shl    $0x4,%rax
+    29ad:       49 01 c5                add    %rax,%r13
+    29b0:       eb 03                   jmp    0x29b5
+    29b2:       45 31 ed                xor    %r13d,%r13d
+    29b5:       49 8d 5d 40             lea    0x40(%r13),%rbx
+    29b9:       48 89 df                mov    %rbx,%rdi
+    29bc:       e8 4f 82 00 00          call   0xac10
+    29c1:       85 c0                   test   %eax,%eax
+    29c3:       0f 88 c5 00 00 00       js     0x2a8e
+    29c9:       4c 89 f9                mov    %r15,%rcx
+    29cc:       41 bf 00 00 6d 8a       mov    $0x8a6d0000,%r15d
+    29d2:       48 89 5d a8             mov    %rbx,-0x58(%rbp)
+    29d6:       0f 85 23 01 00 00       jne    0x2aff
+    29dc:       48 c7 45 b0 00 00 00    movq   $0x0,-0x50(%rbp)
+    29e3:       00
+    29e4:       c7 45 b8 00 00 00 00    movl   $0x0,-0x48(%rbp)
+    29eb:       c6 45 bc 00             movb   $0x0,-0x44(%rbp)
+    29ef:       4d 8d 7d 08             lea    0x8(%r13),%r15
+    29f3:       49 8b 04 24             mov    (%r12),%rax
+    29f7:       48 89 45 c0             mov    %rax,-0x40(%rbp)
+    29fb:       41 8b 44 24 08          mov    0x8(%r12),%eax
+    2a00:       89 45 c8                mov    %eax,-0x38(%rbp)
+    2a03:       41 8a 44 24 0c          mov    0xc(%r12),%al
+    2a08:       4c 8d 25 f9 7e 01 00    lea    0x17ef9(%rip),%r12        # 0x1a908
+    2a0f:       88 45 cc                mov    %al,-0x34(%rbp)
+    2a12:       b8 01 00 00 00          mov    $0x1,%eax
+    2a17:       f0 49 0f c1 84 24 40    lock xadd %rax,0x140(%r12)
+    2a1e:       01 00 00
+    2a21:       49 89 45 28             mov    %rax,0x28(%r13)
+    2a25:       49 ff 45 30             incq   0x30(%r13)
+    2a29:       49 c7 45 1c 00 00 00    movq   $0x0,0x1c(%r13)
+    2a30:       00
+    2a31:       41 80 4d 10 01          orb    $0x1,0x10(%r13)
+    2a36:       49 89 4d 38             mov    %rcx,0x38(%r13)
+    2a3a:       41 8b 84 24 a0 00 00    mov    0xa0(%r12),%eax
+    2a41:       00
+    2a42:       85 c0                   test   %eax,%eax
+    2a44:       74 6d                   je     0x2ab3
+    2a46:       4d 8d 6c 24 48          lea    0x48(%r12),%r13
+    2a4b:       4c 8d 75 b0             lea    -0x50(%rbp),%r14
+    2a4f:       31 db                   xor    %ebx,%ebx
+    2a51:       eb 1b                   jmp    0x2a6e
+    2a53:       66 66 66 66 2e 0f 1f    data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+    2a5a:       84 00 00 00 00 00
+    2a60:       48 ff c3                inc    %rbx
+    2a63:       89 c1                   mov    %eax,%ecx
+    2a65:       49 83 c5 78             add    $0x78,%r13
+    2a69:       48 39 cb                cmp    %rcx,%rbx
+    2a6c:       73 45                   jae    0x2ab3
+    2a6e:       49 8b 4d 00             mov    0x0(%r13),%rcx
+    2a72:       48 85 c9                test   %rcx,%rcx
+    2a75:       74 e9                   je     0x2a60
+    2a77:       4c 89 ff                mov    %r15,%rdi
+    2a7a:       4c 89 f6                mov    %r14,%rsi
+    2a7d:       ba 01 00 00 00          mov    $0x1,%edx
+    2a82:       ff d1                   call   *%rcx
+    2a84:       41 8b 84 24 a0 00 00    mov    0xa0(%r12),%eax
+    2a8b:       00
+    2a8c:       eb d2                   jmp    0x2a60
+    2a8e:       48 8b 0d 4b 16 01 00    mov    0x1164b(%rip),%rcx        # 0x140e0
+    2a95:       48 8d 3d 88 c9 00 00    lea    0xc988(%rip),%rdi        # 0xf424
+    2a9c:       be 34 00 00 00          mov    $0x34,%esi
+    2aa1:       ba 01 00 00 00          mov    $0x1,%edx
+    2aa6:       e8 c5 80 00 00          call   0xab70
+    2aab:       41 bf 00 00 6d 8a       mov    $0x8a6d0000,%r15d
+    2ab1:       eb 4c                   jmp    0x2aff
+    2ab3:       41 8b 84 24 a4 00 00    mov    0xa4(%r12),%eax
+    2aba:       00
+    2abb:       48 8d 75 b0             lea    -0x50(%rbp),%rsi
+    2abf:       4c 89 ff                mov    %r15,%rdi
+    2ac2:       48 6b c0 78             imul   $0x78,%rax,%rax
+    2ac6:       41 ff 54 04 50          call   *0x50(%r12,%rax,1)
+    2acb:       48 8b 7d a8             mov    -0x58(%rbp),%rdi
+    2acf:       41 89 c7                mov    %eax,%r15d
+    2ad2:       e8 49 81 00 00          call   0xac20
+    2ad7:       85 c0                   test   %eax,%eax
+    2ad9:       79 1d                   jns    0x2af8
+    2adb:       48 8b 0d fe 15 01 00    mov    0x115fe(%rip),%rcx        # 0x140e0
+    2ae2:       48 8d 3d 87 ce 00 00    lea    0xce87(%rip),%rdi        # 0xf970
+    2ae9:       be 32 00 00 00          mov    $0x32,%esi
+    2aee:       ba 01 00 00 00          mov    $0x1,%edx
+    2af3:       e8 78 80 00 00          call   0xab70
+    2af8:       4c 8b 35 e9 15 01 00    mov    0x115e9(%rip),%r14        # 0x140e8
+    2aff:       49 8b 06                mov    (%r14),%rax
+    2b02:       48 3b 45 d0             cmp    -0x30(%rbp),%rax
+    2b06:       75 12                   jne    0x2b1a
+    2b08:       44 89 f8                mov    %r15d,%eax
+    2b0b:       48 83 c4 38             add    $0x38,%rsp
+    2b0f:       5b                      pop    %rbx
+    2b10:       41 5c                   pop    %r12
+    2b12:       41 5d                   pop    %r13
+    2b14:       41 5e                   pop    %r14
+    2b16:       41 5f                   pop    %r15
+    2b18:       5d                      pop    %rbp
+    2b19:       c3                      ret
+    2b1a:       e8 11 81 00 00          call   0xac30
+    2b1f:       0f 0b                   ud2
+
+[WSL] objdump \
+    -D \
+    -b binary \
+    -m i386:x86-64 \
+    --adjust-vma=0x1c00 \
+    '/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSuspendPointSubmit.bin'
+
+/mnt/d/agc_work/stage49_results/functions/sceAgcDriverSuspendPointSubmit.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0000000000001c00 <.data>:
+    1c00:       55                      push   %rbp
+    1c01:       48 89 e5                mov    %rsp,%rbp
+    1c04:       41 57                   push   %r15
+    1c06:       41 56                   push   %r14
+    1c08:       41 55                   push   %r13
+    1c0a:       41 54                   push   %r12
+    1c0c:       53                      push   %rbx
+    1c0d:       48 83 ec 38             sub    $0x38,%rsp
+    1c11:       48 8b 1d d0 24 01 00    mov    0x124d0(%rip),%rbx        # 0x140e8
+    1c18:       4c 8d 2d e9 8c 01 00    lea    0x18ce9(%rip),%r13        # 0x1a908
+    1c1f:       49 89 f7                mov    %rsi,%r15
+    1c22:       49 89 fc                mov    %rdi,%r12
+    1c25:       41 be 00 00 6d 8a       mov    $0x8a6d0000,%r14d
+    1c2b:       48 8b 03                mov    (%rbx),%rax
+    1c2e:       48 89 45 d0             mov    %rax,-0x30(%rbp)
+    1c32:       41 83 bd 48 01 00 00    cmpl   $0x0,0x148(%r13)
+    1c39:       00
+    1c3a:       0f 84 53 01 00 00       je     0x1d93
+    1c40:       48 8d 3d 59 8c 01 00    lea    0x18c59(%rip),%rdi        # 0x1a8a0
+    1c47:       e8 c4 8f 00 00          call   0xac10
+    1c4c:       85 c0                   test   %eax,%eax
+    1c4e:       0f 88 c3 00 00 00       js     0x1d17
+    1c54:       0f 85 39 01 00 00       jne    0x1d93
+    1c5a:       48 c7 45 b0 00 00 00    movq   $0x0,-0x50(%rbp)
+    1c61:       00
+    1c62:       c7 45 b8 00 00 00 00    movl   $0x0,-0x48(%rbp)
+    1c69:       c6 45 bc 00             movb   $0x0,-0x44(%rbp)
+    1c6d:       4c 89 7d a8             mov    %r15,-0x58(%rbp)
+    1c71:       4c 89 65 a0             mov    %r12,-0x60(%rbp)
+    1c75:       49 8b 04 24             mov    (%r12),%rax
+    1c79:       48 89 45 c0             mov    %rax,-0x40(%rbp)
+    1c7d:       41 8b 44 24 08          mov    0x8(%r12),%eax
+    1c82:       89 45 c8                mov    %eax,-0x38(%rbp)
+    1c85:       41 8a 44 24 0c          mov    0xc(%r12),%al
+    1c8a:       88 45 cc                mov    %al,-0x34(%rbp)
+    1c8d:       b8 01 00 00 00          mov    $0x1,%eax
+    1c92:       f0 49 0f c1 85 40 01    lock xadd %rax,0x140(%r13)
+    1c99:       00 00
+    1c9b:       48 89 05 e6 8b 01 00    mov    %rax,0x18be6(%rip)        # 0x1a888
+    1ca2:       48 ff 05 e7 8b 01 00    incq   0x18be7(%rip)        # 0x1a890
+    1ca9:       48 c7 05 c8 8b 01 00    movq   $0x0,0x18bc8(%rip)        # 0x1a87c
+    1cb0:       00 00 00 00
+    1cb4:       80 25 b5 8b 01 00 fe    andb   $0xfe,0x18bb5(%rip)        # 0x1a870
+    1cbb:       41 8b 85 a0 00 00 00    mov    0xa0(%r13),%eax
+    1cc2:       48 c7 05 cb 8b 01 00    movq   $0x0,0x18bcb(%rip)        # 0x1a898
+    1cc9:       00 00 00 00
+    1ccd:       85 c0                   test   %eax,%eax
+    1ccf:       74 65                   je     0x1d36
+    1cd1:       4d 8d 75 60             lea    0x60(%r13),%r14
+    1cd5:       4c 8d 25 8c 8b 01 00    lea    0x18b8c(%rip),%r12        # 0x1a868
+    1cdc:       48 8d 5d b0             lea    -0x50(%rbp),%rbx
+    1ce0:       45 31 ff                xor    %r15d,%r15d
+    1ce3:       eb 19                   jmp    0x1cfe
+    1ce5:       66 66 2e 0f 1f 84 00    data16 cs nopw 0x0(%rax,%rax,1)
+    1cec:       00 00 00 00
+    1cf0:       49 ff c7                inc    %r15
+    1cf3:       89 c1                   mov    %eax,%ecx
+    1cf5:       49 83 c6 78             add    $0x78,%r14
+    1cf9:       49 39 cf                cmp    %rcx,%r15
+    1cfc:       73 38                   jae    0x1d36
+    1cfe:       49 8b 0e                mov    (%r14),%rcx
+    1d01:       48 85 c9                test   %rcx,%rcx
+    1d04:       74 ea                   je     0x1cf0
+    1d06:       4c 89 e7                mov    %r12,%rdi
+    1d09:       48 89 de                mov    %rbx,%rsi
+    1d0c:       ff d1                   call   *%rcx
+    1d0e:       41 8b 85 a0 00 00 00    mov    0xa0(%r13),%eax
+    1d15:       eb d9                   jmp    0x1cf0
+    1d17:       48 8b 0d c2 23 01 00    mov    0x123c2(%rip),%rcx        # 0x140e0
+    1d1e:       48 8d 3d ff d6 00 00    lea    0xd6ff(%rip),%rdi        # 0xf424
+    1d25:       be 34 00 00 00          mov    $0x34,%esi
+    1d2a:       ba 01 00 00 00          mov    $0x1,%edx
+    1d2f:       e8 3c 8e 00 00          call   0xab70
+    1d34:       eb 5d                   jmp    0x1d93
+    1d36:       41 8b 85 a8 00 00 00    mov    0xa8(%r13),%eax
+    1d3d:       4c 8b 7d a8             mov    -0x58(%rbp),%r15
+    1d41:       48 8d 3d 20 8b 01 00    lea    0x18b20(%rip),%rdi        # 0x1a868
+    1d48:       48 8d 75 b0             lea    -0x50(%rbp),%rsi
+    1d4c:       48 6b c0 78             imul   $0x78,%rax,%rax
+    1d50:       4c 89 fa                mov    %r15,%rdx
+    1d53:       41 ff 54 05 68          call   *0x68(%r13,%rax,1)
+    1d58:       48 8d 3d 41 8b 01 00    lea    0x18b41(%rip),%rdi        # 0x1a8a0
+    1d5f:       41 89 c6                mov    %eax,%r14d
+    1d62:       e8 b9 8e 00 00          call   0xac20
+    1d67:       85 c0                   test   %eax,%eax
+    1d69:       79 1d                   jns    0x1d88
+    1d6b:       48 8b 0d 6e 23 01 00    mov    0x1236e(%rip),%rcx        # 0x140e0
+    1d72:       48 8d 3d f7 db 00 00    lea    0xdbf7(%rip),%rdi        # 0xf970
+    1d79:       be 32 00 00 00          mov    $0x32,%esi
+    1d7e:       ba 01 00 00 00          mov    $0x1,%edx
+    1d83:       e8 e8 8d 00 00          call   0xab70
+    1d88:       48 8b 1d 59 23 01 00    mov    0x12359(%rip),%rbx        # 0x140e8
+    1d8f:       4c 8b 65 a0             mov    -0x60(%rbp),%r12
+    1d93:       48 8d 3d 56 8b 01 00    lea    0x18b56(%rip),%rdi        # 0x1a8f0
+    1d9a:       e8 71 8e 00 00          call   0xac10
+    1d9f:       85 c0                   test   %eax,%eax
+    1da1:       0f 88 c1 00 00 00       js     0x1e68
+    1da7:       0f 85 30 01 00 00       jne    0x1edd
+    1dad:       48 c7 45 b0 00 00 00    movq   $0x0,-0x50(%rbp)
+    1db4:       00
+    1db5:       c7 45 b8 00 00 00 00    movl   $0x0,-0x48(%rbp)
+    1dbc:       c6 45 bc 00             movb   $0x0,-0x44(%rbp)
+    1dc0:       4c 89 7d a8             mov    %r15,-0x58(%rbp)
+    1dc4:       49 8b 04 24             mov    (%r12),%rax
+    1dc8:       48 89 45 c0             mov    %rax,-0x40(%rbp)
+    1dcc:       41 8b 44 24 08          mov    0x8(%r12),%eax
+    1dd1:       89 45 c8                mov    %eax,-0x38(%rbp)
+    1dd4:       41 8a 44 24 0c          mov    0xc(%r12),%al
+    1dd9:       88 45 cc                mov    %al,-0x34(%rbp)
+    1ddc:       b8 01 00 00 00          mov    $0x1,%eax
+    1de1:       f0 49 0f c1 85 40 01    lock xadd %rax,0x140(%r13)
+    1de8:       00 00
+    1dea:       48 89 05 e7 8a 01 00    mov    %rax,0x18ae7(%rip)        # 0x1a8d8
+    1df1:       48 ff 05 e8 8a 01 00    incq   0x18ae8(%rip)        # 0x1a8e0
+    1df8:       48 c7 05 c9 8a 01 00    movq   $0x0,0x18ac9(%rip)        # 0x1a8cc
+    1dff:       00 00 00 00
+    1e03:       80 25 b6 8a 01 00 fe    andb   $0xfe,0x18ab6(%rip)        # 0x1a8c0
+    1e0a:       41 8b 85 a0 00 00 00    mov    0xa0(%r13),%eax
+    1e11:       48 c7 05 cc 8a 01 00    movq   $0x0,0x18acc(%rip)        # 0x1a8e8
+    1e18:       00 00 00 00
+    1e1c:       85 c0                   test   %eax,%eax
+    1e1e:       74 67                   je     0x1e87
+    1e20:       4d 8d 65 60             lea    0x60(%r13),%r12
+    1e24:       4c 8d 3d 8d 8a 01 00    lea    0x18a8d(%rip),%r15        # 0x1a8b8
+    1e2b:       4c 8d 75 b0             lea    -0x50(%rbp),%r14
+    1e2f:       31 db                   xor    %ebx,%ebx
+    1e31:       eb 1b                   jmp    0x1e4e
+    1e33:       66 66 66 66 2e 0f 1f    data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+    1e3a:       84 00 00 00 00 00
+    1e40:       48 ff c3                inc    %rbx
+    1e43:       89 c1                   mov    %eax,%ecx
+    1e45:       49 83 c4 78             add    $0x78,%r12
+    1e49:       48 39 cb                cmp    %rcx,%rbx
+    1e4c:       73 39                   jae    0x1e87
+    1e4e:       49 8b 0c 24             mov    (%r12),%rcx
+    1e52:       48 85 c9                test   %rcx,%rcx
+    1e55:       74 e9                   je     0x1e40
+    1e57:       4c 89 ff                mov    %r15,%rdi
+    1e5a:       4c 89 f6                mov    %r14,%rsi
+    1e5d:       ff d1                   call   *%rcx
+    1e5f:       41 8b 85 a0 00 00 00    mov    0xa0(%r13),%eax
+    1e66:       eb d8                   jmp    0x1e40
+    1e68:       48 8b 0d 71 22 01 00    mov    0x12271(%rip),%rcx        # 0x140e0
+    1e6f:       48 8d 3d ae d5 00 00    lea    0xd5ae(%rip),%rdi        # 0xf424
+    1e76:       be 34 00 00 00          mov    $0x34,%esi
+    1e7b:       ba 01 00 00 00          mov    $0x1,%edx
+    1e80:       e8 eb 8c 00 00          call   0xab70
+    1e85:       eb 56                   jmp    0x1edd
+    1e87:       41 8b 85 a8 00 00 00    mov    0xa8(%r13),%eax
+    1e8e:       48 8b 55 a8             mov    -0x58(%rbp),%rdx
+    1e92:       48 8d 3d 1f 8a 01 00    lea    0x18a1f(%rip),%rdi        # 0x1a8b8
+    1e99:       48 8d 75 b0             lea    -0x50(%rbp),%rsi
+    1e9d:       48 6b c0 78             imul   $0x78,%rax,%rax
+    1ea1:       41 ff 54 05 68          call   *0x68(%r13,%rax,1)
+    1ea6:       48 8d 3d 43 8a 01 00    lea    0x18a43(%rip),%rdi        # 0x1a8f0
+    1ead:       41 89 c6                mov    %eax,%r14d
+    1eb0:       e8 6b 8d 00 00          call   0xac20
+    1eb5:       85 c0                   test   %eax,%eax
+    1eb7:       79 1d                   jns    0x1ed6
+    1eb9:       48 8b 0d 20 22 01 00    mov    0x12220(%rip),%rcx        # 0x140e0
+    1ec0:       48 8d 3d a9 da 00 00    lea    0xdaa9(%rip),%rdi        # 0xf970
+    1ec7:       be 32 00 00 00          mov    $0x32,%esi
+    1ecc:       ba 01 00 00 00          mov    $0x1,%edx
+    1ed1:       e8 9a 8c 00 00          call   0xab70
+    1ed6:       48 8b 1d 0b 22 01 00    mov    0x1220b(%rip),%rbx        # 0x140e8
+    1edd:       48 8b 03                mov    (%rbx),%rax
+    1ee0:       48 3b 45 d0             cmp    -0x30(%rbp),%rax
+    1ee4:       75 12                   jne    0x1ef8
+    1ee6:       44 89 f0                mov    %r14d,%eax
+    1ee9:       48 83 c4 38             add    $0x38,%rsp
+    1eed:       5b                      pop    %rbx
+    1eee:       41 5c                   pop    %r12
+    1ef0:       41 5d                   pop    %r13
+    1ef2:       41 5e                   pop    %r14
+    1ef4:       41 5f                   pop    %r15
+    1ef6:       5d                      pop    %rbp
+    1ef7:       c3                      ret
+    1ef8:       e8 33 8d 00 00          call   0xac30
+    1efd:       0f 0b                   ud2
+
+==> Hash artefacts
+[INFO] stage49_static.json SHA256=8935e318f9e220ca5b7a32ae4fa030f69df312d1a3d435f0588f11aca70b4b5d
+[INFO] context_write_summary.txt SHA256=4741e83fe2db3f4d12bdfc92990386c5478190999d78e947cbd2978ac8c196bf
+[INFO] submit_family_disassembly.txt SHA256=999d1472ff2edc4e357d68201faf53f5b90ab4d1fbc06d9b7f31eb70048f2ab3
+
+============================================
+Stage 49 completed
+============================================
+
+CONTEXT_REFERENCE_SCAN = PASS
+SUBMIT_FAMILY_ANALYSIS = PASS
+CANDIDATE_STORE_SITES = FOUND
+WRITE_SITES_PROVEN = NO
+EXECUTED_AGC = NO
+ABI_PROTOTYPE_INFERRED = NO
+
+Results:
+  D:\agc_work\stage49_results
+
+Report:
+  D:\agc_work\stage49_results\STAGE49_REPORT.json
+PS D:\agc_ps5_stage49>
