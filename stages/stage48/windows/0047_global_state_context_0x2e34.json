@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 11828,
+  "owner": {
+    "raw_name": "NRO47jBXLiI#F#A",
+    "value": 11824,
+    "size": 113,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "NRO47jBXLiI",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverReleaseHDRScopesACQ"
+  },
+  "raw": {
+    "va": 11780,
+    "file_offset": 28164,
+    "size": 151,
+    "bytes_hex": "6d 8a 49 8b 07 48 3b 45 e0 75 10 89 d8 48 81 c4 e8 00 00 00 5b 41 5e 41 5f 5d c3 e8 0c 7e 00 00 0f 0b cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 cd 7a 01 00 83 78 08 00 74 23 48 8b 3d 98 12 01 00 48 8d 35 8f cd 00 00 48 8d 15 58 d0 00 00 31 c0 e8 23 7d 00 00 b8 05 00 6d 8a 5d c3 8b 78 04 be b7 80 1e af ba 90 dd 4c 8b b9 6c 8d f6 99 e8 45 61 00 00 89 c1 b8 00 00 6d 8a 83 f9 01 75 18 48 8d 3d 62 78 01 00 e8 cd 7d 00 00 31 c0 c7 05 89 78 01 00"
+  }
+}

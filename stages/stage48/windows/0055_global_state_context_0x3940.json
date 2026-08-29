@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 14656,
+  "owner": {
+    "raw_name": "nR6xhiFsOoc#F#A",
+    "value": 13872,
+    "size": 1159,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "nR6xhiFsOoc",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverNotifyDefaultStates"
+  },
+  "raw": {
+    "va": 14608,
+    "file_offset": 30992,
+    "size": 151,
+    "bytes_hex": "00 31 ff 48 89 c3 44 89 0c c8 89 54 c8 04 48 8d 55 b4 e8 19 ca ff ff 48 8d 75 b8 48 8d 55 b0 bf 01 00 00 00 e8 07 ca ff ff 8b 45 b4 48 8b 7d c0 4c 8d 3d c1 6f 01 00 4c 8b 45 a0 45 89 f1 83 e0 fc c7 44 38 e0 00 00 00 00 48 8d 4c 38 e0 8b 55 b0 48 8b 45 b8 49 89 8f d8 00 00 00 83 e2 fc 48 8d 74 02 e0 c7 44 02 e0 00 00 00 00 48 b8 e0 ff ff ff 03 00 00 00 49 89 b7 e0 00 00 00 48 89 75 90 8b 75 b4 49 8b 97 f0 00 00 00 48 01 c6 48 c1 ee 02 41 55 48 89 5d"
+  }
+}

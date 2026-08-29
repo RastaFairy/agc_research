@@ -1,0 +1,12 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 1395,
+  "owner": null,
+  "raw": {
+    "va": 1347,
+    "file_offset": 17731,
+    "size": 151,
+    "bytes_hex": "d9 7a 01 00 b8 ff ff ff ff 48 85 c9 74 0b 83 ff 07 77 06 89 f8 8b 44 c1 04 c3 cc cc cc 48 8b 0d c9 7a 01 00 31 c0 48 85 c9 74 15 83 ff 01 77 10 48 8d 15 8e a3 01 00 89 f8 8b 04 c1 48 03 42 10 c3 cc cc cc cc cc cc cc cc cc cc cc cc 48 8b 0d 99 7a 01 00 b8 ff ff ff ff 48 85 c9 74 0b 83 ff 01 77 06 89 f8 8b 44 c1 04 c3 cc cc cc 55 41 57 41 56 53 48 8b 0d 63 7a 01 00 48 85 c9 0f 84 60 01 00 00 8b 15 5c 7a 01 00 8b 71 04 8b 29 01 f5 89 d3 29 eb 0f 88 59"
+  }
+}

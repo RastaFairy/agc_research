@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 18368,
+  "owner": {
+    "raw_name": "Fj7r9EHzF38#F#A",
+    "value": 18000,
+    "size": 579,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "Fj7r9EHzF38",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverSubmitMultiCommandBuffers"
+  },
+  "raw": {
+    "va": 18320,
+    "file_offset": 34704,
+    "size": 151,
+    "bytes_hex": "0e 48 85 c9 74 ea 48 8b 7d c8 48 8b 75 c0 ff d1 48 8d 05 61 61 01 00 4c 89 e2 8b 80 a0 00 00 00 eb ce 66 66 66 66 66 2e 0f 1f 84 00 00 00 00 00 48 8d 0d 41 61 01 00 48 8b 5d c8 48 8b 75 c0 49 89 d4 8b 81 a4 00 00 00 48 89 df 48 6b c0 78 ff 54 01 58 85 c0 75 53 44 8b 73 14 8b 43 18 48 8b 7d c0 41 83 ee 80 44 29 e0 41 89 c4 44 89 73 14 89 43 18 0f 85 f7 fe ff ff 45 31 ff eb 2f 48 8b 0d cb f8 00 00 48 8d 3d 08 ac 00 00 be 34 00 00 00 ba 01 00 00 00 e8"
+  }
+}

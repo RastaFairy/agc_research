@@ -1,0 +1,12 @@
+{
+  "target_name": "acb_table",
+  "target_va": 99424,
+  "instruction_va": 8209,
+  "owner": null,
+  "raw": {
+    "va": 8161,
+    "file_offset": 24545,
+    "size": 151,
+    "bytes_hex": "00 00 00 41 c7 47 10 00 00 00 00 41 83 fd 58 0f 82 9b 00 00 00 41 8d 45 a8 48 8d 0c c0 48 8d 05 db 83 01 00 e9 a0 00 00 00 48 8b 1d 4f 88 01 00 48 8d 05 48 64 01 00 4c 89 a5 b8 fe ff ff 41 8d 55 a8 45 8d 65 e0 bf 08 00 00 00 48 39 c3 b8 38 00 00 00 44 0f 45 e2 0f 44 f8 41 39 fc 73 2d 44 89 e0 4c 8d 3c c0 49 c1 e7 04 84 c9 75 67 42 83 7c 3b 78 00 74 5f 48 8b 3d 82 20 01 00 48 8d 35 5b d8 00 00 45 31 ff 44 89 ea eb 11 48 8b 3d 6c 20 01 00 48 8d 35 a0"
+  }
+}

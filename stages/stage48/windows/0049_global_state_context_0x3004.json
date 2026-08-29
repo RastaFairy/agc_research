@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 12292,
+  "owner": {
+    "raw_name": "SOAMmdlyaIc#F#A",
+    "value": 12288,
+    "size": 37,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "SOAMmdlyaIc",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverCwsrSuspendAcq"
+  },
+  "raw": {
+    "va": 12244,
+    "file_offset": 28628,
+    "size": 151,
+    "bytes_hex": "8a 0f 44 c1 49 8b 0e 48 3b 4d d0 75 0f 48 83 c4 18 5b 41 5c 41 5d 41 5e 41 5f 5d c3 e8 3b 7c 00 00 0f 0b cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 fd 78 01 00 48 89 fe 8b 78 04 e8 aa 71 00 00 31 c9 83 f8 01 b8 00 00 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 cd 78 01 00 8b 78 04 e8 ed 71 00 00 31 c9 83 f8 01 b8 00 00 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41"
+  }
+}

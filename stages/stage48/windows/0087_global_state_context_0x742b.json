@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 29739,
+  "owner": {
+    "raw_name": "kuE1uTiWfuk#F#A",
+    "value": 29712,
+    "size": 103,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "kuE1uTiWfuk",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverSysGetClientNumber"
+  },
+  "raw": {
+    "va": 29691,
+    "file_offset": 46075,
+    "size": 151,
+    "bytes_hex": "41 5c 41 5d 41 5e 41 5f 5d c3 e8 26 38 00 00 0f 0b cc cc cc cc 55 48 89 e5 53 48 83 ec 18 48 8b 1d c8 cc 00 00 48 8d 75 ec 48 8b 03 48 89 45 f0 48 8d 05 d6 34 01 00 8b 78 04 e8 56 1f 00 00 83 f8 01 75 05 8b 45 ec eb 1c 48 8b 3d 95 cc 00 00 89 c2 48 8d 35 4f 85 00 00 31 c0 e8 25 37 00 00 b8 ff ff 6d 8a 48 8b 0b 48 3b 4d f0 75 07 48 83 c4 18 5b 5d c3 e8 bb 37 00 00 0f 0b cc cc cc cc cc cc cc cc cc 55 48 89 e5 53 48 83 ec 18 48 8b 1d 58 cc 00 00 48 8d"
+  }
+}

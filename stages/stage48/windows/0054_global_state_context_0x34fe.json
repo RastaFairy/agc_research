@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 13566,
+  "owner": {
+    "raw_name": "lYz7vbL4W4A#F#A",
+    "value": 12816,
+    "size": 958,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "lYz7vbL4W4A",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverPatchClearState"
+  },
+  "raw": {
+    "va": 13518,
+    "file_offset": 29902,
+    "size": 151,
+    "bytes_hex": "45 90 c5 f8 11 44 24 18 48 8b 45 c0 48 89 44 24 10 c5 f8 10 45 b0 c5 f8 11 04 24 e8 02 15 00 00 48 83 c4 30 48 8b bd 58 ff ff ff e8 92 77 00 00 4c 8d 3d 03 74 01 00 48 8b b5 40 ff ff ff 44 89 e2 41 8b 7f 04 e8 a8 64 00 00 41 83 7f 08 00 41 89 c6 75 78 49 8b bf f0 00 00 00 41 8b 97 f8 00 00 00 31 f6 e8 89 76 00 00 48 8d 75 90 48 8d 95 70 ff ff ff bf 02 00 00 00 e8 f4 cd ff ff 41 8b 7f 04 48 8b 5d 90 31 f6 e8 35 69 00 00 b8 20 10 00 00 41 8b 7f 04 b9"
+  }
+}

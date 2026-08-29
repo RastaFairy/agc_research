@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 29908,
+  "owner": {
+    "raw_name": "x3K61sY5m8Q#F#A",
+    "value": 29904,
+    "size": 64,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "x3K61sY5m8Q",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverSysEnableSubmitDone45Exception"
+  },
+  "raw": {
+    "va": 29860,
+    "file_offset": 46244,
+    "size": 151,
+    "bytes_hex": "04 e8 a6 1f 00 00 8b 45 ec 48 8b 0b 48 3b 4d f0 75 07 48 83 c4 18 5b 5d c3 e8 6e 37 00 00 0f 0b cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 2d 34 01 00 8b 78 04 e8 2d 23 00 00 89 c1 31 c0 83 f9 01 74 22 48 8b 0d ed cb 00 00 48 8d 3d 90 83 00 00 be 25 00 00 00 ba 01 00 00 00 e8 67 36 00 00 b8 ff ff 6d 8a 5d c3 31 c0 c3 cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8d 05 dd 33 01 00 8b 78 04 e8 5d 31 00 00 31 c9 83 f8 01 b8 ff ff"
+  }
+}

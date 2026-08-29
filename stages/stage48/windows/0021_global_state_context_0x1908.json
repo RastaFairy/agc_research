@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 6408,
+  "owner": {
+    "raw_name": "b4fpgH5ZXxQ#F#A",
+    "value": 6320,
+    "size": 380,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "b4fpgH5ZXxQ",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverSubmitCommandBuffer"
+  },
+  "raw": {
+    "va": 6360,
+    "file_offset": 22744,
+    "size": 151,
+    "bytes_hex": "48 89 45 d0 e8 2f 93 00 00 85 c0 0f 88 b3 00 00 00 41 bf 00 00 6d 8a 0f 85 15 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 48 8d 1d f9 8f 01 00 4c 89 6d a8 49 8b 06 48 89 45 c0 41 8b 46 08 89 45 c8 41 8a 46 0c 88 45 cc b8 01 00 00 00 f0 48 0f c1 83 40 01 00 00 49 89 44 24 20 49 ff 44 24 28 49 c7 44 24 14 00 00 00 00 41 80 64 24 08 fe 49 c7 44 24 30 00 00 00 00 8b 83 a0 00 00 00 85 c0 74 5f 4c 8d 6b 48 4c 8d 7d b0 45 31 f6 eb 0f"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 12411,
+  "owner": {
+    "raw_name": "Hj4eWnDektQ#F#A",
+    "value": 12384,
+    "size": 301,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "Hj4eWnDektQ",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverSetupRegisterShadow"
+  },
+  "raw": {
+    "va": 12363,
+    "file_offset": 28747,
+    "size": 151,
+    "bytes_hex": "6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 28 41 89 d7 48 8b 15 6d 10 01 00 4c 8d 2d 86 78 01 00 48 8b 02 48 89 45 d0 b8 01 00 6d 8a 41 83 7d 08 00 0f 85 d5 00 00 00 44 89 c3 41 89 f4 41 89 fe 84 c9 74 33 49 8d 85 18 01 00 00 49 8d 8d f0 00 00 00 45 84 e4 49 8d 95 20 01 00 00 49 8d b5 f8 00 00 00 48 0f 45 f2 48 0f 45 c8 8b 16 48 8b 39 31 f6 e8 e7 7a 00 00 80 f3 01 31 c9 45 84 e4 48"
+  }
+}

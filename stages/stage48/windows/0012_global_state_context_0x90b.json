@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 2315,
+  "owner": {
+    "raw_name": "Um-jkyDy9rI#F#A",
+    "value": 2288,
+    "size": 73,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "Um-jkyDy9rI",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverGetReservedDmemForAgc"
+  },
+  "raw": {
+    "va": 2267,
+    "file_offset": 18651,
+    "size": 151,
+    "bytes_hex": "c0 fc 39 f2 75 ef 31 c0 c3 cc cc cc cc cc cc cc cc cc cc cc cc b8 03 00 6d 8a 48 85 ff 74 3e 48 85 f6 74 39 48 8b 05 1a 77 01 00 48 85 c0 74 20 48 8d 0d f6 9f 01 00 8b 50 30 48 03 51 10 48 89 17 8b 40 34 89 c1 c1 f9 1f c4 e2 70 f2 c0 eb 09 48 c7 07 00 00 00 00 31 c0 89 06 31 c0 c3 cc cc cc cc cc cc cc b8 03 00 6d 8a 83 ff 01 75 1d 55 48 89 e5 bf 0a 03 02 a0 e8 88 a2 00 00 31 c9 85 c0 0f 95 c1 8d 84 09 03 00 6d 8a 5d c3 cc cc cc cc cc cc cc cc 55 48"
+  }
+}

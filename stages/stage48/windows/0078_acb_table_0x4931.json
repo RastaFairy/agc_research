@@ -1,0 +1,22 @@
+{
+  "target_name": "acb_table",
+  "target_va": 99424,
+  "instruction_va": 18737,
+  "owner": {
+    "raw_name": "HF3YllT3mXU#F#A",
+    "value": 18704,
+    "size": 67,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "HF3YllT3mXU",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverSubmitMultiAcbs"
+  },
+  "raw": {
+    "va": 18689,
+    "file_offset": 35073,
+    "size": 151,
+    "bytes_hex": "e8 6a 62 00 00 b8 03 00 6d 8a 5d c3 cc cc cc 83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 5a 01 00 eb 13 83 ff 20 72 1e 83 c7 e0 48 8d 04 ff 48 8d 3d 28 3b 01 00 48 c1 e0 04 48 01 c7 48 83 c7 08 e9 08 fd ff ff 31 ff 48 83 c7 08 e9 fd fc ff ff cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 48 8b 3d 75 f7 00 00 48 8d 35 3b a9 00 00 48 8d 15 6e a8 00 00 31 c0 e8 00 62 00 00 b8 01 00 6d 8a 5d c3 cc cc cc cc cc cc cc cc cc b8 01 00 6d 8a c3 cc cc"
+  }
+}

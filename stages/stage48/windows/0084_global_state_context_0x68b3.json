@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 26803,
+  "owner": {
+    "raw_name": "e-YMQ+2tj9M#F#A",
+    "value": 26768,
+    "size": 104,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "e-YMQ+2tj9M",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverGetTFRing"
+  },
+  "raw": {
+    "va": 26755,
+    "file_offset": 43139,
+    "size": 151,
+    "bytes_hex": "00 00 5b 41 5e 5d ff e0 cc cc cc cc cc 55 48 89 e5 41 56 53 48 83 ec 10 4c 8b 35 46 d8 00 00 48 89 fb 48 89 f2 48 8d 75 e0 49 8b 06 48 89 45 e8 48 8d 05 4e 40 01 00 48 c7 45 e0 00 00 00 00 8b 78 04 e8 16 29 00 00 89 c1 b8 ff ff 6d 8a 83 f9 01 75 09 48 8b 45 e0 48 89 03 31 c0 49 8b 0e 48 3b 4d e8 75 09 48 83 c4 10 5b 41 5e 5d c3 e8 3a 43 00 00 0f 0b cc cc cc cc cc cc cc cc 48 8d 05 01 40 01 00 8b 88 b0 00 00 00 48 6b c9 78 48 8b 84 08 88 00 00 00 ff"
+  }
+}

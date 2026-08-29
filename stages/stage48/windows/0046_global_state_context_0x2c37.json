@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 11319,
+  "owner": {
+    "raw_name": "dwoD-LJDQy8#F#A",
+    "value": 11296,
+    "size": 518,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "dwoD-LJDQy8",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverAcquireHDRScopesACQ"
+  },
+  "raw": {
+    "va": 11271,
+    "file_offset": 27655,
+    "size": 151,
+    "bytes_hex": "00 00 31 c0 e8 70 7f 00 00 b8 01 00 6d 8a 5d c3 cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 53 48 81 ec e8 00 00 00 4c 8b 3d b1 14 01 00 48 8d 1d ca 7c 01 00 49 8b 07 48 89 45 e0 83 7b 08 00 74 26 48 8b 3d 8e 14 01 00 48 8d 35 85 cf 00 00 48 8d 15 78 d3 00 00 31 c0 e8 19 7f 00 00 bb 05 00 6d 8a e9 95 01 00 00 83 3d b0 7a 01 00 00 74 21 48 8b 3d 6f 14 01 00 48 8d 35 0f d1 00 00 ba 5d 00 00 00 31 c0 31 db e8 ea 7e 00 00 e9 6b 01 00 00 8b 7b 04"
+  }
+}

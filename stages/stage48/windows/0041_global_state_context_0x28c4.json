@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 10436,
+  "owner": {
+    "raw_name": "AhGvpITrf4M#F#A",
+    "value": 10432,
+    "size": 72,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "AhGvpITrf4M",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverAgrSubmitDcb"
+  },
+  "raw": {
+    "va": 10388,
+    "file_offset": 26772,
+    "size": 151,
+    "bytes_hex": "4d f0 75 07 48 83 c4 18 5b 5d c3 e8 8c 83 00 00 0f 0b cc cc cc cc cc cc cc cc cc cc 48 89 fe 48 8d 3d fe 7f 01 00 e9 f1 ef ff ff cc 55 48 89 e5 48 8d 05 3d 80 01 00 83 b8 48 01 00 00 00 74 10 48 89 fe 48 8d 3d 8a 7f 01 00 5d e9 cc ef ff ff 48 8b 0d f5 17 01 00 48 8d 3d 6c d4 00 00 be 38 00 00 00 ba 01 00 00 00 e8 6f 82 00 00 b8 03 00 6d 8a 5d c3 cc cc cc cc cc cc cc cc 83 ff 58 72 10 83 c7 a8 48 8d 04 ff 48 8d 3d bd 7a 01 00 eb 13 83 ff 20 72 1e 83"
+  }
+}

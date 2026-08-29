@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 26880,
+  "owner": {
+    "raw_name": "MM4IZSEYytQ#F#A",
+    "value": 26880,
+    "size": 27,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "MM4IZSEYytQ",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverSetHsOffchipParam"
+  },
+  "raw": {
+    "va": 26832,
+    "file_offset": 43216,
+    "size": 151,
+    "bytes_hex": "8a 83 f9 01 75 09 48 8b 45 e0 48 89 03 31 c0 49 8b 0e 48 3b 4d e8 75 09 48 83 c4 10 5b 41 5e 5d c3 e8 3a 43 00 00 0f 0b cc cc cc cc cc cc cc cc 48 8d 05 01 40 01 00 8b 88 b0 00 00 00 48 6b c9 78 48 8b 84 08 88 00 00 00 ff e0 cc cc cc cc cc 55 48 89 e5 48 8d 05 dd 3f 01 00 48 89 f2 48 89 fe 8b 78 04 e8 87 29 00 00 31 c9 83 f8 01 b8 ff ff 6d 8a 0f 44 c1 5d c3 cc cc cc cc cc cc cc cc 55 48 89 e5 48 8b 3d 85 d7 00 00 48 8d 35 4b 89 00 00 48 8d 15 22 8a"
+  }
+}

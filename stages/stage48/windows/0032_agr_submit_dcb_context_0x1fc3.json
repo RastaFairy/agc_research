@@ -1,0 +1,12 @@
+{
+  "target_name": "agr_submit_dcb_context",
+  "target_va": 108648,
+  "instruction_va": 8131,
+  "owner": null,
+  "raw": {
+    "va": 8083,
+    "file_offset": 24467,
+    "size": 151,
+    "bytes_hex": "86 e8 00 00 00 00 00 00 00 48 8b 3d 4d 21 01 00 48 8d 35 fd d3 00 00 31 c0 41 8b 56 04 e8 cb 8b 00 00 4c 89 fe 4c 8d 35 f9 88 01 00 41 83 fd 04 48 8d 15 9e 88 01 00 4d 89 f7 4c 0f 44 fa 49 c7 47 08 00 00 00 00 45 89 6f 04 41 c7 07 38 00 00 00 41 c7 47 10 00 00 00 00 41 83 fd 58 0f 82 9b 00 00 00 41 8d 45 a8 48 8d 0c c0 48 8d 05 db 83 01 00 e9 a0 00 00 00 48 8b 1d 4f 88 01 00 48 8d 05 48 64 01 00 4c 89 a5 b8 fe ff ff 41 8d 55 a8 45 8d 65 e0 bf 08 00"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "target_name": "global_state_context",
+  "target_va": 108808,
+  "instruction_va": 7192,
+  "owner": {
+    "raw_name": "QcmHLO2n7mk#F#A",
+    "value": 7168,
+    "size": 767,
+    "type": "STT_FUNC",
+    "bind": "STB_GLOBAL",
+    "nid": "QcmHLO2n7mk",
+    "lid": "F",
+    "mid": "A",
+    "mapped_name": "sceAgcDriverSuspendPointSubmit"
+  },
+  "raw": {
+    "va": 7144,
+    "file_offset": 23528,
+    "size": 151,
+    "bytes_hex": "41 5c 41 5d 41 5e 41 5f 5d ff e0 cc cc cc cc cc cc cc cc cc cc cc cc cc 55 48 89 e5 41 57 41 56 41 55 41 54 53 48 83 ec 38 48 8b 1d d0 24 01 00 4c 8d 2d e9 8c 01 00 49 89 f7 49 89 fc 41 be 00 00 6d 8a 48 8b 03 48 89 45 d0 41 83 bd 48 01 00 00 00 0f 84 53 01 00 00 48 8d 3d 59 8c 01 00 e8 c4 8f 00 00 85 c0 0f 88 c3 00 00 00 0f 85 39 01 00 00 48 c7 45 b0 00 00 00 00 c7 45 b8 00 00 00 00 c6 45 bc 00 4c 89 7d a8 4c 89 65 a0 49 8b 04 24 48 89 45 c0 41 8b"
+  }
+}
